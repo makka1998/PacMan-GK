@@ -1,7 +1,0 @@
-﻿  Eksamen C++ Pacman.cpp
-  GameManager.cpp
-  renderManager.cpp
-  textureManager.cpp
-  windowLoader.cpp
-  Generating Code...
-LINK : fatal error LNK1104: cannot open file 'C:\Users\Martin\Skole\PacMan-GK-master\EksamenC++Pacman\packages\sdl2_image.nuget.2.0.5\build\native\..\..\\build\native\lib\x64\dynamic\SDL2_image.lib'
