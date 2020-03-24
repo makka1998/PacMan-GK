@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "M:\CLion 2019.3.2\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.2.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "M:\CLion 2019.3.2\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2019.2.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Martin\PacMan-GK
+CMAKE_SOURCE_DIR = C:\Users\jonas\CLionProjects\PacMan-GK
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Martin\PacMan-GK\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/PacMan-GK-master.dir/depend.make
@@ -59,72 +59,72 @@ include CMakeFiles/PacMan-GK-master.dir/flags.make
 CMakeFiles/PacMan-GK-master.dir/main.cpp.obj: CMakeFiles/PacMan-GK-master.dir/flags.make
 CMakeFiles/PacMan-GK-master.dir/main.cpp.obj: CMakeFiles/PacMan-GK-master.dir/includes_CXX.rsp
 CMakeFiles/PacMan-GK-master.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Martin\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PacMan-GK-master.dir/main.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\main.cpp.obj -c C:\Users\Martin\PacMan-GK\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PacMan-GK-master.dir/main.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\main.cpp.obj -c C:\Users\jonas\CLionProjects\PacMan-GK\main.cpp
 
 CMakeFiles/PacMan-GK-master.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacMan-GK-master.dir/main.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Martin\PacMan-GK\main.cpp > CMakeFiles\PacMan-GK-master.dir\main.cpp.i
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jonas\CLionProjects\PacMan-GK\main.cpp > CMakeFiles\PacMan-GK-master.dir\main.cpp.i
 
 CMakeFiles/PacMan-GK-master.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacMan-GK-master.dir/main.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Martin\PacMan-GK\main.cpp -o CMakeFiles\PacMan-GK-master.dir\main.cpp.s
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jonas\CLionProjects\PacMan-GK\main.cpp -o CMakeFiles\PacMan-GK-master.dir\main.cpp.s
 
 CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.obj: CMakeFiles/PacMan-GK-master.dir/flags.make
 CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.obj: CMakeFiles/PacMan-GK-master.dir/includes_CXX.rsp
 CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.obj: ../GameManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Martin\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\GameManager.cpp.obj -c C:\Users\Martin\PacMan-GK\GameManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\GameManager.cpp.obj -c C:\Users\jonas\CLionProjects\PacMan-GK\GameManager.cpp
 
 CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Martin\PacMan-GK\GameManager.cpp > CMakeFiles\PacMan-GK-master.dir\GameManager.cpp.i
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jonas\CLionProjects\PacMan-GK\GameManager.cpp > CMakeFiles\PacMan-GK-master.dir\GameManager.cpp.i
 
 CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Martin\PacMan-GK\GameManager.cpp -o CMakeFiles\PacMan-GK-master.dir\GameManager.cpp.s
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jonas\CLionProjects\PacMan-GK\GameManager.cpp -o CMakeFiles\PacMan-GK-master.dir\GameManager.cpp.s
 
 CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.obj: CMakeFiles/PacMan-GK-master.dir/flags.make
 CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.obj: CMakeFiles/PacMan-GK-master.dir/includes_CXX.rsp
 CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.obj: ../renderManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Martin\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\renderManager.cpp.obj -c C:\Users\Martin\PacMan-GK\renderManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\renderManager.cpp.obj -c C:\Users\jonas\CLionProjects\PacMan-GK\renderManager.cpp
 
 CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Martin\PacMan-GK\renderManager.cpp > CMakeFiles\PacMan-GK-master.dir\renderManager.cpp.i
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jonas\CLionProjects\PacMan-GK\renderManager.cpp > CMakeFiles\PacMan-GK-master.dir\renderManager.cpp.i
 
 CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Martin\PacMan-GK\renderManager.cpp -o CMakeFiles\PacMan-GK-master.dir\renderManager.cpp.s
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jonas\CLionProjects\PacMan-GK\renderManager.cpp -o CMakeFiles\PacMan-GK-master.dir\renderManager.cpp.s
 
 CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.obj: CMakeFiles/PacMan-GK-master.dir/flags.make
 CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.obj: CMakeFiles/PacMan-GK-master.dir/includes_CXX.rsp
 CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.obj: ../TextureManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Martin\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\TextureManager.cpp.obj -c C:\Users\Martin\PacMan-GK\TextureManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\TextureManager.cpp.obj -c C:\Users\jonas\CLionProjects\PacMan-GK\TextureManager.cpp
 
 CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Martin\PacMan-GK\TextureManager.cpp > CMakeFiles\PacMan-GK-master.dir\TextureManager.cpp.i
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jonas\CLionProjects\PacMan-GK\TextureManager.cpp > CMakeFiles\PacMan-GK-master.dir\TextureManager.cpp.i
 
 CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Martin\PacMan-GK\TextureManager.cpp -o CMakeFiles\PacMan-GK-master.dir\TextureManager.cpp.s
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jonas\CLionProjects\PacMan-GK\TextureManager.cpp -o CMakeFiles\PacMan-GK-master.dir\TextureManager.cpp.s
 
 CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.obj: CMakeFiles/PacMan-GK-master.dir/flags.make
 CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.obj: CMakeFiles/PacMan-GK-master.dir/includes_CXX.rsp
 CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.obj: ../windowLoader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Martin\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\windowLoader.cpp.obj -c C:\Users\Martin\PacMan-GK\windowLoader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PacMan-GK-master.dir\windowLoader.cpp.obj -c C:\Users\jonas\CLionProjects\PacMan-GK\windowLoader.cpp
 
 CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Martin\PacMan-GK\windowLoader.cpp > CMakeFiles\PacMan-GK-master.dir\windowLoader.cpp.i
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jonas\CLionProjects\PacMan-GK\windowLoader.cpp > CMakeFiles\PacMan-GK-master.dir\windowLoader.cpp.i
 
 CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Martin\PacMan-GK\windowLoader.cpp -o CMakeFiles\PacMan-GK-master.dir\windowLoader.cpp.s
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jonas\CLionProjects\PacMan-GK\windowLoader.cpp -o CMakeFiles\PacMan-GK-master.dir\windowLoader.cpp.s
 
 # Object files for target PacMan-GK-master
 PacMan__GK__master_OBJECTS = \
@@ -146,7 +146,7 @@ PacMan-GK-master.exe: CMakeFiles/PacMan-GK-master.dir/build.make
 PacMan-GK-master.exe: CMakeFiles/PacMan-GK-master.dir/linklibs.rsp
 PacMan-GK-master.exe: CMakeFiles/PacMan-GK-master.dir/objects1.rsp
 PacMan-GK-master.exe: CMakeFiles/PacMan-GK-master.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Martin\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable PacMan-GK-master.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable PacMan-GK-master.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\PacMan-GK-master.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -159,6 +159,6 @@ CMakeFiles/PacMan-GK-master.dir/clean:
 .PHONY : CMakeFiles/PacMan-GK-master.dir/clean
 
 CMakeFiles/PacMan-GK-master.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Martin\PacMan-GK C:\Users\Martin\PacMan-GK C:\Users\Martin\PacMan-GK\cmake-build-debug C:\Users\Martin\PacMan-GK\cmake-build-debug C:\Users\Martin\PacMan-GK\cmake-build-debug\CMakeFiles\PacMan-GK-master.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\jonas\CLionProjects\PacMan-GK C:\Users\jonas\CLionProjects\PacMan-GK C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug C:\Users\jonas\CLionProjects\PacMan-GK\cmake-build-debug\CMakeFiles\PacMan-GK-master.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/PacMan-GK-master.dir/depend
 

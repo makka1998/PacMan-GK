@@ -1,4 +1,23 @@
-"M:\CLion 2019.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Martin\PacMan-GK
+"C:\Program Files\JetBrains\CLion 2019.2.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\jonas\CLionProjects\PacMan-GK
+-- The C compiler identification is GNU 8.3.0
+-- The CXX compiler identification is GNU 8.3.0
+-- Check for working C compiler: C:/msys64/mingw64/bin/gcc.exe
+-- Check for working C compiler: C:/msys64/mingw64/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/msys64/mingw64/bin/g++.exe
+-- Check for working CXX compiler: C:/msys64/mingw64/bin/g++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PkgConfig: C:/msys64/mingw64/bin/pkg-config.exe (found version "0.29.2") 
+-- Checking for module 'sdl2'
+--   Found sdl2, version 2.0.9
+-- Checking for module 'SDL2_image'
+--   Found SDL2_image, version 2.0.4
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Martin/PacMan-GK/cmake-build-debug
+-- Build files have been written to: C:/Users/jonas/CLionProjects/PacMan-GK/cmake-build-debug
