@@ -1,0 +1,16 @@
+"M:\CLion 2019.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Martin\Skole\PacMan-GK-master
+-- Configuring done
+CMake Error at CMakeLists.txt:10 (add_executable):
+  Cannot find source file:
+
+    EksamenC++Pacman.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:10 (add_executable):
+  No SOURCES given to target: PacMan-GK-master
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
