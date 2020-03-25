@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/jonas/CLionProjects/PacMan-GK/GameManager.cpp" "C:/Users/jonas/CLionProjects/PacMan-GK/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.obj"
-  "C:/Users/jonas/CLionProjects/PacMan-GK/TextureManager.cpp" "C:/Users/jonas/CLionProjects/PacMan-GK/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.obj"
-  "C:/Users/jonas/CLionProjects/PacMan-GK/main.cpp" "C:/Users/jonas/CLionProjects/PacMan-GK/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/main.cpp.obj"
-  "C:/Users/jonas/CLionProjects/PacMan-GK/renderManager.cpp" "C:/Users/jonas/CLionProjects/PacMan-GK/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.obj"
-  "C:/Users/jonas/CLionProjects/PacMan-GK/windowLoader.cpp" "C:/Users/jonas/CLionProjects/PacMan-GK/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.obj"
+  "C:/Users/Martin/CLionProjects/C++_Eksamen/GameManager.cpp" "C:/Users/Martin/CLionProjects/C++_Eksamen/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/GameManager.cpp.obj"
+  "C:/Users/Martin/CLionProjects/C++_Eksamen/TextureManager.cpp" "C:/Users/Martin/CLionProjects/C++_Eksamen/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/TextureManager.cpp.obj"
+  "C:/Users/Martin/CLionProjects/C++_Eksamen/main.cpp" "C:/Users/Martin/CLionProjects/C++_Eksamen/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/main.cpp.obj"
+  "C:/Users/Martin/CLionProjects/C++_Eksamen/renderManager.cpp" "C:/Users/Martin/CLionProjects/C++_Eksamen/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/renderManager.cpp.obj"
+  "C:/Users/Martin/CLionProjects/C++_Eksamen/windowLoader.cpp" "C:/Users/Martin/CLionProjects/C++_Eksamen/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/windowLoader.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

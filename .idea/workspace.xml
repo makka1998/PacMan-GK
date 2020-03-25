@@ -12,186 +12,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/PacMan-GK-master/v16/.suo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/PacMan-GK-master/v16/Browse.VC.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/.suo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/Browse.VC.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/ipch/AutoPCH/14d557da39602c90/EKSAMEN C++ PACMAN.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/ipch/AutoPCH/25b3a166ce6fe7a4/WINDOWLOADER.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/ipch/AutoPCH/6904999137383577/WINDOWLOADER.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/ipch/AutoPCH/787a7121457738f7/GAMEMANAGER.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/ipch/AutoPCH/824ce4757a2b3715/TEXTUREMANAGER.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/ipch/AutoPCH/a1a32e7de965a658/RENDERMANAGER.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/ipch/AutoPCH/b0f4850124907dbb/RENDERMANAGER.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/ipch/AutoPCH/b2bef05df269ddb6/TEXTUREMANAGER.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/Eksamen C++ Pacman/v16/ipch/AutoPCH/fff753dfbcbb2a1b/EKSAMEN C++ PACMAN.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/ProjectSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/.vs/slnx.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen .FCFE48EB.tlog/CL.command.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen .FCFE48EB.tlog/CL.read.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen .FCFE48EB.tlog/CL.write.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen .FCFE48EB.tlog/Eksamen C++ Pacman.lastbuildstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen .FCFE48EB.tlog/link.command.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen .FCFE48EB.tlog/link.read.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen .FCFE48EB.tlog/link.write.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen C++ Pacman.ilk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen C++ Pacman.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/Eksamen C++ Pacman.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/vc142.idb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Debug/vc142.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Eksamen C++ Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Eksamen C++ Pacman.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Eksamen C++ Pacman.vcxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Eksamen C++ Pacman.vcxproj.filters" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Eksamen C++ Pacman.vcxproj.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Resources_/birdy.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Resources_/corndog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Resources_/doggie.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Resources_/pacman.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/pacman.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/Source.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/TextureManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TextureManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/TextureManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/TextureManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/.signature.p7s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/configurations.autopkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/default-propertiesui.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_assert.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_atomic.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_audio.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_bits.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_blendmode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_clipboard.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config_android.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config_iphoneos.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config_macosx.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config_minimal.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config_pandora.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config_psp.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config_windows.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config_winrt.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_config_wiz.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_copying.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_cpuinfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_egl.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_endian.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_error.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_events.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_filesystem.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_gamecontroller.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_gesture.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_haptic.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_hints.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_joystick.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_keyboard.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_keycode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_loadso.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_log.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_main.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_messagebox.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_mouse.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_mutex.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_name.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_opengl.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_opengl_glext.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_opengles.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_opengles2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_opengles2_gl2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_opengles2_gl2ext.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_opengles2_gl2platform.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_opengles2_khrplatform.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_pixels.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_platform.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_power.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_quit.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_rect.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_render.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_revision.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_rwops.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_scancode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_sensor.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_shape.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_stdinc.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_surface.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_system.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_syswm.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_assert.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_common.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_compare.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_crc32.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_font.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_fuzzer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_harness.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_images.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_log.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_md5.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_memory.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_test_random.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_thread.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_timer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_touch.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_types.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_version.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_video.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/SDL_vulkan.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/begin_code.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/include/close_code.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/sdl2.nuget-propertiesui-cce6ae6a-2e5b-44ca-b0f3-6a314e808a6b.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/native/sdl2.nuget.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/build/publisher-info.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.2.0.10/sdl2.nuget.2.0.10.nupkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.redist.2.0.10/.signature.p7s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.redist.2.0.10/build/configurations.autopkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.redist.2.0.10/build/native/default-propertiesui.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.redist.2.0.10/build/native/sdl2.nuget.redist.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.redist.2.0.10/build/publisher-info.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2.nuget.redist.2.0.10/sdl2.nuget.redist.2.0.10.nupkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.2.0.5/.signature.p7s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.2.0.5/build/configurations.autopkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.2.0.5/build/native/default-propertiesui.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.2.0.5/build/native/include/SDL_image.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.2.0.5/build/native/sdl2_image.nuget-propertiesui-8a8929c0-e0e5-46e4-be1a-9d0f137e0b34.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.2.0.5/build/native/sdl2_image.nuget.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.2.0.5/build/publisher-info.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.2.0.5/sdl2_image.nuget.2.0.5.nupkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.redist.2.0.5/.signature.p7s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.redist.2.0.5/build/configurations.autopkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.redist.2.0.5/build/native/default-propertiesui.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.redist.2.0.5/build/native/sdl2_image.nuget.redist.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.redist.2.0.5/build/publisher-info.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/packages/sdl2_image.nuget.redist.2.0.5/sdl2_image.nuget.redist.2.0.5.nupkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/renderManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/renderManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/renderManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/renderManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/windowLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/windowLoader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/windowLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/windowLoader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen .FCFE48EB.tlog/CL.command.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen .FCFE48EB.tlog/CL.read.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen .FCFE48EB.tlog/CL.write.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen .FCFE48EB.tlog/Eksamen C++ Pacman.lastbuildstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen .FCFE48EB.tlog/link.command.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen .FCFE48EB.tlog/link.read.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen .FCFE48EB.tlog/link.write.1.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen .FCFE48EB.tlog/unsuccessfulbuild" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen C++ Pacman.Build.CppClean.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen C++ Pacman.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/Eksamen C++ Pacman.vcxproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/vc142.idb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EksamenC++Pacman/x64/Debug/vc142.pdb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PacMan-GK-master.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/PacMan-GK-master.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/PacMan-GK-master.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,13 +100,49 @@
       <updated>1585058214565</updated>
       <workItem from="1585058234267" duration="620000" />
       <workItem from="1585060093381" duration="370000" />
+      <workItem from="1585147136614" duration="251000" />
     </task>
+    <task id="LOCAL−00001" summary="Changed Title of window">
+      <created>1585147348463</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1585147348463</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changed Title of window" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Title of window" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1585147347443">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147347443" />
+    <state width="938" height="282" key="GridCell.Tab.0.bottom" timestamp="1585147388798">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147388798" />
+    <state width="938" height="282" key="GridCell.Tab.0.center" timestamp="1585147388798">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147388798" />
+    <state width="938" height="282" key="GridCell.Tab.0.left" timestamp="1585147388798">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147388798" />
+    <state width="938" height="282" key="GridCell.Tab.0.right" timestamp="1585147388798">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147388798" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1585147354927">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147354926" />
     <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1585058236251">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
