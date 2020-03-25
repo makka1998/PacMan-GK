@@ -20,7 +20,7 @@ int GameManager::startGame()
     int frameTime;
 	
     // Lag et vindu med gitte settings
-    SDL_Window* window = windowLoader.createWindow("Hei hei idiot", 542, 571);
+    SDL_Window* window = windowLoader.createWindow("Game Window", 800, 640);
    
 
     // Lag en renderer til det spesifikke vinduet. Setter Hardware accelerated flag.
