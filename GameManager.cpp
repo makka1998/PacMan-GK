@@ -30,8 +30,8 @@ int GameManager::startGame() {
     level = new Map("../Resources/mainLevel.txt");
 
     // Sett opp et "koordinatsystem" for bildet
-    coords.h = 14;
-    coords.w = 14;
+    coords.h = 12;
+    coords.w = 12;
     coords.x = 6*32; // Endre disse for å "flytte" bildet i vinduet/renderer
     coords.y = 9*32;
 
