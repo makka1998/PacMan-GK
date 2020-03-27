@@ -19,7 +19,7 @@ private:
     SDL_Rect coords;
     eventHandler chiefInspector;
 
-    bool isColliding_alt(SDL_Rect player, SDL_Rect tile);
+    bool isColliding(SDL_Rect player, SDL_Rect tile);
     int poeng;
     void collison();
 };

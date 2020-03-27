@@ -10,7 +10,7 @@ SDL_Window* windowLoader::createWindow(const char* title)
 		SDL_WINDOWPOS_UNDEFINED,
 		WIDTH,
 		HEIGHT,
-		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL
+		0
 	);
 
 	if (window == nullptr)

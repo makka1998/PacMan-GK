@@ -4,7 +4,7 @@
 
 #ifndef PACMAN_GK_MASTER_MAP_H
 #define PACMAN_GK_MASTER_MAP_H
-#define TILE_SIZE 32
+#define TILE_SIZE 16
 
 #include <string>
 #include <vector>

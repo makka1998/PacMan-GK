@@ -30,8 +30,8 @@ int GameManager::startGame() {
     level = new Map("../Resources/mainLevel.txt");
 
     // Sett opp et "koordinatsystem" for bildet
-    coords.h = 26;
-    coords.w = 26;
+    coords.h = 14;
+    coords.w = 14;
     coords.x = 6*32; // Endre disse for å "flytte" bildet i vinduet/renderer
     coords.y = 9*32;
 
@@ -69,7 +69,7 @@ void GameManager::render()
     SDL_RenderPresent(renderer);
 }
 
-bool GameManager::isColliding_alt(SDL_Rect player, SDL_Rect tile){
+bool GameManager::isColliding(SDL_Rect player, SDL_Rect tile){
 
     //Calculate the sides of rect A
     int Player_Left = player.x;
@@ -95,7 +95,7 @@ bool GameManager::isColliding_alt(SDL_Rect player, SDL_Rect tile){
 void GameManager::collison(){
     int pushBackDistance = 2;
     for(auto tmpMap : level->map){
-        if(isColliding_alt(coords,tmpMap.coordinates)){
+        if(isColliding(coords,tmpMap.coordinates)){
             if(tmpMap.getTileValue() == 9){ //Vanrette
                 if(chiefInspector.getDirection()==direction::DOWN){
                     chiefInspector.setDirectionNone();
