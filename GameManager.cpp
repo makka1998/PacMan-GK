@@ -1,4 +1,7 @@
 #include "GameManager.h"
+
+SDL_Renderer * GameManager::renderer = nullptr;
+
 int GameManager::startGame()
 { // NB: Denne koden tar seg IKKE av feilhåndtering ved init.
     const Uint8* keystate = SDL_GetKeyboardState(NULL);
@@ -14,11 +17,11 @@ int GameManager::startGame()
     int frameTime;
 	
     // Lag et vindu med gitte settings
-    SDL_Window* window = windowLoader.createWindow("Game Window", 800, 640);
+    SDL_Window* window = windowLoader.createWindow("Game Window");
    
 
     // Lag en renderer til det spesifikke vinduet. Setter Hardware accelerated flag.
-    SDL_Renderer* renderer = renderManager.createRenderer(window);
+    renderer = renderManager.createRenderer(window);
 
     // Set renderens bakgrunnsfarge til svart
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
@@ -27,7 +30,10 @@ int GameManager::startGame()
 
     // Konverter surface om til et HW Accelerated Texture, laster objektet opp på skjermkortet
     SDL_Texture* drawable = textureManager.createTexture("../Resources/Real_pacman_RIGHT.png", renderer);
-  
+
+    const char * levelFilePath = "../Resources/mainLevel.txt";
+    Map level(levelFilePath);
+
     // Sett opp et "koordinatsystem" for bildet
     SDL_Rect coords;
     coords.h = 32; // Samme bredde og høyde som surface
@@ -45,6 +51,8 @@ int GameManager::startGame()
 
         // Legg til objektet i vinduets renderer
         SDL_RenderCopy(renderer, drawable, nullptr, &coords);
+
+        level.drawMap();
 
         // BLIT/rendre bildet
         SDL_RenderPresent(renderer);

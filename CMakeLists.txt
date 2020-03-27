@@ -7,5 +7,5 @@ pkg_check_modules(SDL2_IMAGE REQUIRED SDL2_image)
 
 include_directories(${SDL2_INCLUDE_DIRS}  ${SDL2_IMAGE_INCLUDE_DIRS} )
 
-add_executable(PacMan-GK-master main.cpp GameManager.h GameManager.cpp renderManager.cpp renderManager.h windowLoader.cpp windowLoader.h eventHandler.cpp eventHandler.h TextureManager.cpp TextureManager.h)
+add_executable(PacMan-GK-master main.cpp GameManager.h GameManager.cpp renderManager.cpp renderManager.h windowLoader.cpp windowLoader.h eventHandler.cpp eventHandler.h TextureManager.cpp TextureManager.h Map.cpp Map.h Obstacle.cpp Obstacle.h)
 target_link_libraries(PacMan-GK-master ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

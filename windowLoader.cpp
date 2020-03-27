@@ -1,16 +1,16 @@
 #include "windowLoader.h"
 #include <iostream>
 
-SDL_Window* windowLoader::createWindow(const char* title, int width, int height)
+SDL_Window* windowLoader::createWindow(const char* title)
 {
 	SDL_Window* window = nullptr; 
 	window = SDL_CreateWindow(
 		title,
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		width,
-		height,
-		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE
+		WIDTH,
+		HEIGHT,
+		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL
 	);
 
 	if (window == nullptr)

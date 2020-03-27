@@ -4,7 +4,7 @@
 
 #include "TextureManager.h"
 
-SDL_Texture* TextureManager::createTexture(const char* imagePath, SDL_Renderer* renderer)
+SDL_Texture* TextureManager::createTexture(const char * imagePath, SDL_Renderer* renderer)
 {
     SDL_Surface* surface = IMG_Load(imagePath);
     if (surface == nullptr)

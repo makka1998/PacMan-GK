@@ -7,10 +7,11 @@
 #include <SDL.h>
 #include <iostream>
 #include <SDL_image.h>
+#include <string>
 
 class TextureManager {
 public:
-    SDL_Texture* createTexture(const char* imagePath, SDL_Renderer* renderer);
+    SDL_Texture* createTexture(const char * imagePath, SDL_Renderer* renderer);
 };
 
 #endif //PACMAN_GK_MASTER_TEXTUREMANAGER_H

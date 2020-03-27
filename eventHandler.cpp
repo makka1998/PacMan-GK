@@ -14,7 +14,7 @@ void eventHandler::checkMovementInput() {
     } else if(keyStates[SDL_SCANCODE_A] || keyStates[SDL_SCANCODE_LEFT]){
         _direction = direction::LEFT;
     }
-    getDirection();
+    //getDirection();
 }
 
 void eventHandler::moveCharacter(SDL_Rect& coordinates, SDL_Texture*& texture, SDL_Renderer* tegnemann) {
@@ -48,13 +48,13 @@ void eventHandler::moveCharacter(SDL_Rect& coordinates, SDL_Texture*& texture, S
         _direction = direction::NONE;
         coordinates.y = 1;
     }
-    if(coordinates.x > 768) {
+    if(coordinates.x > 868) {
         _direction = direction::NONE;
-        coordinates.x = 767;
+        coordinates.x = 867;
     }
-    if (coordinates.y > 608){
+    if (coordinates.y > 968){
         _direction = direction::NONE;
-        coordinates.y = 607;
+        coordinates.y = 967;
     }
 
 
