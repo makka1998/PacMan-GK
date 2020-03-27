@@ -25,8 +25,9 @@ public:
     void checkMovementInput();
     void moveCharacter(SDL_Rect& coordinates, SDL_Texture*& texture, SDL_Renderer* tegemann);
     direction getDirection();
+    direction last_direction;
 
-    void setDirectionNone();
+    void setDirection(direction dir);
 };
 
 

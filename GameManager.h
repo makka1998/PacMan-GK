@@ -20,7 +20,7 @@ private:
     eventHandler chiefInspector;
 
     bool isColliding(SDL_Rect player, SDL_Rect tile);
-    int poeng;
+    int poeng=0;
     void collison();
 };
 

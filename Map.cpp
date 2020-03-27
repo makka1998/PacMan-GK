@@ -9,7 +9,7 @@ Map::Map(const char * filePath) {
 }
 
 void Map::loadMap(const char * filePath) {
-    Obstacle tmp("../Resources/Pacman_fancy_tileset_16x16.png", GameManager::renderer);
+    Obstacle tmp("../Resources/Pacman_16x16_Tileset_Blue.png", GameManager::renderer);
     int currentTileValue, xAxisOfTileset, yAxisOfTileset, startPoint_x, startPoint_y;
     std::ifstream input(filePath); //Our mainLevel.txt file
     if(!input.is_open()){
@@ -18,19 +18,20 @@ void Map::loadMap(const char * filePath) {
     }
     input >> xAxisOfTileset;
     input >> yAxisOfTileset;
-    input >> startPoint_x;
-    input >> startPoint_y;
-    for(int i = 0; i < yAxisOfTileset; i++){
+    startPoint_x = startPoint_y = 0;
+    for(int i = 1; i < yAxisOfTileset; i++){
         for(int j = 0; j < xAxisOfTileset; j++){
             input >> currentTileValue;
 
-            // As long as the tileIndex is not 0, it means we need to load a tile from our tileset.
-            if(currentTileValue != 0){
-                tmp.setSource((currentTileValue-1)*TILE_SIZE, 0, TILE_SIZE, TILE_SIZE);
-                tmp.setCoordinates((j*TILE_SIZE) + startPoint_x, (i * TILE_SIZE) + startPoint_y, TILE_SIZE, TILE_SIZE);
+                // As long as the tileIndex is not 0, it means we need to load a tile from our tileset.
+                tmp.setSource((currentTileValue-1)*TILE_SIZE, 0, 16, 16); //wich picture we are getting from tileset.
+                if(j == 0 && i == 1){
+                    tmp.setCoordinates(0, 0, TILE_SIZE, TILE_SIZE); //Hvor i griden
+                }
+                tmp.setCoordinates((j*TILE_SIZE) + startPoint_x, (i * TILE_SIZE) + startPoint_y, TILE_SIZE, TILE_SIZE); //Hvor i griden
                 tmp.setTileValue(currentTileValue);
                 map.push_back(tmp);
-            }
+
         }
     }
 }

@@ -66,15 +66,19 @@ void eventHandler::moveCharacter(SDL_Rect& coordinates,SDL_Texture*& texture, SD
 
 direction eventHandler::getDirection() {
     if(_direction == direction::UP){
+        last_direction = direction::UP;
         return _direction;
         std::cout << "UP" << std::endl;
     } else if (_direction == direction::LEFT){
+        last_direction = direction::LEFT;
         return _direction;
         std::cout << "LEFT" << std::endl;
     } else if (_direction == direction::RIGHT) {
+        last_direction = direction::RIGHT;
         return _direction;
         std::cout << "RIGHT" << std::endl;
     } else if (_direction == direction::DOWN){
+        last_direction = direction::DOWN;
         return _direction;
         std::cout << "DOWN" << std::endl;
     } else if (_direction == direction::NONE) {
@@ -83,6 +87,6 @@ direction eventHandler::getDirection() {
     }
 }
 
-void eventHandler::setDirectionNone(){
-    _direction = direction::NONE;
+void eventHandler::setDirection(direction dir){
+    _direction = dir;
 }

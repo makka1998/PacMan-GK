@@ -2,7 +2,7 @@
 #define PAC_MAN_GK_WINDOWLOADER_H
 
 #include <SDL.h>
-#define WIDTH 464
+#define WIDTH 465
 #define HEIGHT 592
 
 class windowLoader {
