@@ -11,17 +11,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="Changed the tile size from 32x32 px to 16x16 px and pacman is now 14x14 px">
-      <change afterPath="$PROJECT_DIR$/Resources/Pacman_16x16_Tileset_Blue.png" afterDir="false" />
+    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Pacman_fancy_tileset_16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Pacman_fancy_tileset_16x16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/mainLevel.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/mainLevel.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/eventHandler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/eventHandler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windowLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/windowLoader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_DOWN.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_DOWN.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_LEFT.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_LEFT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_RIGHT.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_RIGHT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_UP.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_UP.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +92,7 @@
       <workItem from="1585147136614" duration="1705000" />
       <workItem from="1585231544896" duration="29253000" />
       <workItem from="1585278950933" duration="10127000" />
-      <workItem from="1585315765399" duration="24127000" />
+      <workItem from="1585315765399" duration="25326000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -145,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585321729096</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- small texture changes with new corners that isnt that buggy&#10;- added more states on collision-checking (the new corners).">
+      <created>1585347796193</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1585347796193</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +175,8 @@
     <MESSAGE value="Added better movement handling and some collision detection so pacman couldnt move out of the window. The eventHandler is still not built perfectly. Considering we still dont have an actual player class." />
     <MESSAGE value="Cleaned up GameManager a little, added first version for collision (some bugs needs to be fixed). Started on the logic for picking up the &quot;pills&quot; &#10;NB! Need to be worked on:&#10;- fix the resolution and tiles in generel (cannot be a grid with 25+ both way) needs to be an odd number &lt;= 29&#10;- still some corner bugs&#10;- figure out how to change tile_value from 30 to 0 when passing over an pill as pacman." />
     <MESSAGE value="Changed the tile size from 32x32 px to 16x16 px and pacman is now 14x14 px" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the tile size from 32x32 px to 16x16 px and pacman is now 14x14 px" />
+    <MESSAGE value="- small texture changes with new corners that isnt that buggy&#10;- added more states on collision-checking (the new corners)." />
+    <option name="LAST_COMMIT_MESSAGE" value="- small texture changes with new corners that isnt that buggy&#10;- added more states on collision-checking (the new corners)." />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">
