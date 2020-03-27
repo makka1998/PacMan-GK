@@ -16,7 +16,7 @@ int GameManager::startGame() {
     int frameTime;
 	
     // Lag et vindu med gitte settings
-    window = windowLoader.createWindow("Game Window");
+    window = windowLoader.createWindow("Pacman");
 
     // Lag en renderer til det spesifikke vinduet. Setter Hardware accelerated flag.
     renderer = renderManager.createRenderer(window);
