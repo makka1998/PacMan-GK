@@ -4,7 +4,7 @@
 SDL_Renderer* renderManager::createRenderer(SDL_Window* window)
 {
 
-    GameManager::renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    GameManager::renderer = SDL_CreateRenderer(window, -1, 0);
 
     // Sjekke om noe gikk galt
     if (GameManager::renderer == nullptr)

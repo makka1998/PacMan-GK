@@ -1,15 +1,14 @@
 #include "GameManager.h"
 
+SDL_Window* window;
 SDL_Renderer * GameManager::renderer = nullptr;
+Map* level;
 
-int GameManager::startGame()
-{ // NB: Denne koden tar seg IKKE av feilhåndtering ved init.
-    const Uint8* keystate = SDL_GetKeyboardState(NULL);
-	bool running = true;
+int GameManager::startGame() {
+
     SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
     windowLoader windowLoader;
     renderManager renderManager;
-    TextureManager textureManager;
 
     const int FPS = 144;
     const int frameDelay = 1000 / FPS;
@@ -17,65 +16,151 @@ int GameManager::startGame()
     int frameTime;
 	
     // Lag et vindu med gitte settings
-    SDL_Window* window = windowLoader.createWindow("Game Window");
-   
+    window = windowLoader.createWindow("Game Window");
 
     // Lag en renderer til det spesifikke vinduet. Setter Hardware accelerated flag.
     renderer = renderManager.createRenderer(window);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
-    // Set renderens bakgrunnsfarge til svart
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-    SDL_RenderClear(renderer); // Nullstiller renderen (til svart)
+    drawable = IMG_LoadTexture(renderer, "../Resources/Real_pacman_RIGHT.png");
+
+    running = true;
 
 
-    // Konverter surface om til et HW Accelerated Texture, laster objektet opp på skjermkortet
-    SDL_Texture* drawable = textureManager.createTexture("../Resources/Real_pacman_RIGHT.png", renderer);
-
-    const char * levelFilePath = "../Resources/mainLevel.txt";
-    Map level(levelFilePath);
+    level = new Map("../Resources/mainLevel.txt");
 
     // Sett opp et "koordinatsystem" for bildet
-    SDL_Rect coords;
-    coords.h = 32; // Samme bredde og høyde som surface
-    coords.w = 32;
-    coords.x = 384; // Endre disse for å "flytte" bildet i vinduet/renderer
-    coords.y = 304;
+    coords.h = 26;
+    coords.w = 26;
+    coords.x = 6*32; // Endre disse for å "flytte" bildet i vinduet/renderer
+    coords.y = 9*32;
+
 /* GAME LOOP START */
-    eventHandler chiefInspector;
-
     while (running) {
-
         frameStart = SDL_GetTicks();
-        SDL_Event event;
-        SDL_PollEvent(&event);
-
-        // Legg til objektet i vinduets renderer
-        SDL_RenderCopy(renderer, drawable, nullptr, &coords);
-
-        level.drawMap();
-
-        // BLIT/rendre bildet
-        SDL_RenderPresent(renderer);
-        SDL_RenderClear(renderer);
-
-        if(keystate[SDL_SCANCODE_ESCAPE] || event.type == SDL_QUIT){
-            running = false;
-        }
 
         chiefInspector.checkMovementInput();
-        chiefInspector.moveCharacter(coords, drawable, renderer);
+        if(chiefInspector.closeGame){
+            running=false;
+        }
+
+        collison();
+        render();
 
         frameTime = SDL_GetTicks() - frameStart;
         if (frameDelay > frameTime) {
             SDL_Delay(frameDelay - frameTime);
         }
-    	
     }
-
     /* GAME LOOP SLUTT */
 	
     SDL_DestroyWindow(window);
     SDL_Quit(); // Be SDL om å rydde opp
 	
     return EXIT_SUCCESS;
+}
+
+void GameManager::render()
+{
+    SDL_RenderClear(renderer);
+    level->drawMap();
+    chiefInspector.moveCharacter(coords,drawable, renderer);
+    SDL_RenderCopy(renderer, drawable, nullptr, &coords);
+    SDL_RenderPresent(renderer);
+}
+
+bool GameManager::isColliding_alt(SDL_Rect player, SDL_Rect tile){
+
+    //Calculate the sides of rect A
+    int Player_Left = player.x;
+    int Player_Right = player.x + player.w;
+    int Player_Top =player.y;
+    int Player_Bot = player.y + player.h;
+
+    //Calculate the sides of rect B
+    int Tile_Left = tile.x;
+    int Tile_Right = tile.x + tile.w;
+    int Tile_Top =tile.y;
+    int Tile_Bot = tile.y + tile.h;
+
+    //If any of the sides from Player are outside of Tile
+    if( Player_Bot <= Tile_Top ){return false;}
+    if( Player_Top >= Tile_Bot ){return false;}
+    if( Player_Right <= Tile_Left ){return false;}
+    if( Player_Left >= Tile_Right ){return false;}
+
+    return true;
+};
+
+void GameManager::collison(){
+    int pushBackDistance = 2;
+    for(auto tmpMap : level->map){
+        if(isColliding_alt(coords,tmpMap.coordinates)){
+            if(tmpMap.getTileValue() == 9){ //Vanrette
+                if(chiefInspector.getDirection()==direction::DOWN){
+                    chiefInspector.setDirectionNone();
+                    coords.y -=pushBackDistance;
+                }else if(chiefInspector.getDirection()==direction::UP){
+                    chiefInspector.setDirectionNone();
+                    coords.y +=pushBackDistance;
+                }
+            }
+
+            if(tmpMap.getTileValue() == 17){//Lodrette
+                if(chiefInspector.getDirection()==direction::LEFT){
+                    chiefInspector.setDirectionNone();
+                    coords.x +=pushBackDistance;
+                }else if(chiefInspector.getDirection()==direction::RIGHT){
+                    chiefInspector.setDirectionNone();
+                    coords.x -=pushBackDistance;
+                }
+            }
+
+            if(tmpMap.getTileValue() == 4){//Top-Venstre hjørne
+                if(chiefInspector.getDirection()==direction::DOWN){
+                    chiefInspector.setDirectionNone();
+                    coords.y -=pushBackDistance;
+                }else if(chiefInspector.getDirection()==direction::RIGHT){
+                    chiefInspector.setDirectionNone();
+                    coords.x -=pushBackDistance;
+                }
+            }
+
+            if(tmpMap.getTileValue() == 6){//Top-Høyre hjørne
+                if(chiefInspector.getDirection()==direction::DOWN){
+                    chiefInspector.setDirectionNone();
+                    coords.y -=pushBackDistance;
+                }else if(chiefInspector.getDirection()==direction::LEFT){
+                    chiefInspector.setDirectionNone();
+                    coords.x +=pushBackDistance;
+                }
+            }
+
+            if(tmpMap.getTileValue() == 24){//Nedre-Venstre hjørne
+                if(chiefInspector.getDirection()==direction::RIGHT){
+                    chiefInspector.setDirectionNone();
+                    coords.x -=pushBackDistance;
+                }else if(chiefInspector.getDirection()==direction::UP){
+                    chiefInspector.setDirectionNone();
+                    coords.y +=pushBackDistance;
+                }
+            }
+
+            if(tmpMap.getTileValue() == 26){//Nedre-Høyre hjørne
+                if(chiefInspector.getDirection()==direction::LEFT){
+                    chiefInspector.setDirectionNone();
+                    coords.x +=pushBackDistance;
+                }else if(chiefInspector.getDirection()==direction::UP){
+                    chiefInspector.setDirectionNone();
+                    coords.y +=pushBackDistance;
+                }
+            }
+            if(tmpMap.getTileValue() == 30){//små-piller
+               tmpMap.setTileValue(00);
+               std::cout << poeng << std::endl;
+               poeng ++;
+            }
+
+        }
+    }
 }

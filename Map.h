@@ -13,14 +13,13 @@
 
 class Map {
 private:
-    std::vector<Obstacle> map;
-    int mapX, mapY;
-
 public:
+
     Map(const char* filePath);
     void loadMap(const char* filePath);
     void drawMap();
     void renderMap(Obstacle tile);
+    std::vector<Obstacle> map;
 };
 
 

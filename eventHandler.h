@@ -7,6 +7,7 @@
 #include <iostream>
 #include "TextureManager.h"
 
+
 enum class direction{
     NONE,
     UP,
@@ -17,13 +18,15 @@ enum class direction{
 
 class eventHandler {
 private:
-    TextureManager textureManager;
     Uint8 const* keyStates = SDL_GetKeyboardState(nullptr);
     direction _direction = direction::NONE;
 public:
+    bool closeGame=false;
     void checkMovementInput();
     void moveCharacter(SDL_Rect& coordinates, SDL_Texture*& texture, SDL_Renderer* tegemann);
-    void getDirection();
+    direction getDirection();
+
+    void setDirectionNone();
 };
 
 

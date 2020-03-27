@@ -16,12 +16,14 @@ private:
     SDL_Texture* texture;
     int tileValue;
 public:
-    SDL_Rect coordinates;
+    SDL_Rect coordinates, src;
     Obstacle(const char * fileName, SDL_Renderer* renderer);
     int getTileValue() const;
     SDL_Rect getCoordinates() const;
+    SDL_Rect getSrc() const;
     SDL_Texture* getTexture() const;
     void setCoordinates(int x, int y, int height, int width);
+    void setSource(int x, int y, int height, int width);
     void setTileValue(int value);
 };
 

@@ -11,21 +11,20 @@ Map::Map(const char * filePath) {
 void Map::loadMap(const char * filePath) {
     Obstacle tmp("../Resources/Pacman_fancy_tileset.png", GameManager::renderer);
     int currentTileValue, xAxisOfTileset, yAxisOfTileset;
-    std::ifstream input(filePath);
+    std::ifstream input(filePath); //Our mainLevel.txt file
     if(!input.is_open()){
         std::cerr << "Failed to open file: " << filePath << std::endl;
-        SDL_Quit();
+        return;
     }
-
     input >> xAxisOfTileset;
     input >> yAxisOfTileset;
-
     for(int i = 0; i < yAxisOfTileset; i++){
         for(int j = 0; j < xAxisOfTileset; j++){
             input >> currentTileValue;
 
             // As long as the tileIndex is not 0, it means we need to load a tile from out tileset.
             if(currentTileValue != 0){
+                tmp.setSource((currentTileValue-1)*32, 0, 30, 30);
                 tmp.setCoordinates((j*TILE_SIZE), (i * TILE_SIZE), TILE_SIZE, TILE_SIZE);
                 tmp.setTileValue(currentTileValue);
                 map.push_back(tmp);
@@ -35,16 +34,18 @@ void Map::loadMap(const char * filePath) {
 }
 
 void Map::drawMap() {
-    for(Obstacle o : map){
-        if(o.coordinates.x >= TILE_SIZE && o.coordinates.y >= TILE_SIZE && o.coordinates.x <= WIDTH + TILE_SIZE && o.coordinates.y <= HEIGHT + TILE_SIZE){
+    for(auto o : map){
+        if(o.getCoordinates().x >= TILE_SIZE && o.getCoordinates().y >= TILE_SIZE && o.getCoordinates().x <= WIDTH + TILE_SIZE && o.getCoordinates().y <= HEIGHT + TILE_SIZE){
             renderMap(o);
         }
     }
 }
 
 void Map::renderMap(Obstacle tile) {
-    SDL_Rect tileCoords = tile.getCoordinates();
-    SDL_RenderCopy(GameManager::renderer, tile.getTexture(), nullptr, &tileCoords);
+    //SDL_Rect tileCoords = tile.getCoordinates();
+    //SDL_Rect tileSrc = tile.getSrc();
+    //Begge "SDL_Rects" står som public i Map.H filen, husk å fiks dette slik at vi kan bruke getters i SDL_Rendercopy!
+    SDL_RenderCopy(GameManager::renderer, tile.getTexture(), &tile.src, &tile.coordinates);
 }
 
 

@@ -11,25 +11,21 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="Added better movement handling and some collision detection so pacman couldnt move out of the window. The eventHandler is still not built perfectly. Considering we still dont have an actual player class.">
-      <change afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Map.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Obstacle.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Obstacle.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Pacman_fancy_tileset.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/mainLevel.txt" afterDir="false" />
+    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="Cleaned up GameManager a little, added first version for collision (some bugs needs to be fixed). Started on the logic for picking up the &quot;pills&quot; &#10;NB! Need to be worked on:&#10;- fix the resolution and tiles in generel (cannot be a grid with 25+ both way) needs to be an odd number &lt;= 29&#10;- still some corner bugs&#10;- figure out how to change tile_value from 30 to 0 when passing over an pill as pacman.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TextureManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TextureManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TextureManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/TextureManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.h" beforeDir="false" afterPath="$PROJECT_DIR$/Map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obstacle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Obstacle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obstacle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Obstacle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_DOWN.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_DOWN.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_LEFT.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_LEFT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_RIGHT.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_RIGHT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_UP.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_UP.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/eventHandler.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/eventHandler.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/renderManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/renderManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renderManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/renderManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windowLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/windowLoader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windowLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/windowLoader.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Pacman_MinEgenVersion" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -104,6 +100,7 @@
       <workItem from="1585060093381" duration="370000" />
       <workItem from="1585147136614" duration="1705000" />
       <workItem from="1585231544896" duration="29253000" />
+      <workItem from="1585278950933" duration="10092000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -137,7 +134,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -147,7 +146,8 @@
     <MESSAGE value="Changed Title of window" />
     <MESSAGE value="added cmake-build-debug folder to gitignore" />
     <MESSAGE value="Added better movement handling and some collision detection so pacman couldnt move out of the window. The eventHandler is still not built perfectly. Considering we still dont have an actual player class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added better movement handling and some collision detection so pacman couldnt move out of the window. The eventHandler is still not built perfectly. Considering we still dont have an actual player class." />
+    <MESSAGE value="Cleaned up GameManager a little, added first version for collision (some bugs needs to be fixed). Started on the logic for picking up the &quot;pills&quot; &#10;NB! Need to be worked on:&#10;- fix the resolution and tiles in generel (cannot be a grid with 25+ both way) needs to be an odd number &lt;= 29&#10;- still some corner bugs&#10;- figure out how to change tile_value from 30 to 0 when passing over an pill as pacman." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up GameManager a little, added first version for collision (some bugs needs to be fixed). Started on the logic for picking up the &quot;pills&quot; &#10;NB! Need to be worked on:&#10;- fix the resolution and tiles in generel (cannot be a grid with 25+ both way) needs to be an odd number &lt;= 29&#10;- still some corner bugs&#10;- figure out how to change tile_value from 30 to 0 when passing over an pill as pacman." />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">
