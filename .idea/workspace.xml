@@ -14,9 +14,7 @@
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +151,13 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1585370341364</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="Added a &quot;pathAvailable&quot; function to check if there if a path available infront behind left or right of you">
+      <created>1585401801487</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1585401801487</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +187,8 @@
     <MESSAGE value="Changed the tile size from 32x32 px to 16x16 px and pacman is now 14x14 px" />
     <MESSAGE value="- small texture changes with new corners that isnt that buggy&#10;- added more states on collision-checking (the new corners)." />
     <MESSAGE value="Added a gameCharacter class and respective ghost and pacman classes. Moved around some functions to their correct places aswell" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a gameCharacter class and respective ghost and pacman classes. Moved around some functions to their correct places aswell" />
+    <MESSAGE value="Added a &quot;pathAvailable&quot; function to check if there if a path available infront behind left or right of you" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a &quot;pathAvailable&quot; function to check if there if a path available infront behind left or right of you" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">

@@ -13,29 +13,29 @@ GameCharacter::GameCharacter() {
 
 void GameCharacter::checkMovementInput() {
     SDL_PumpEvents();
-//    if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
-//        m_direction = direction::UP;
-//    } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
-//        m_direction = direction::DOWN;
-//    } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
-//        m_direction = direction::RIGHT;
-//    } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
-//        m_direction = direction::LEFT;
-//    }
-
-    if (m_keyStates[SDL_SCANCODE_W] && !(m_last_keyStates[SDL_SCANCODE_W])) {
+    if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
         m_direction = direction::UP;
-    } else if (m_keyStates[SDL_SCANCODE_S] && !(m_last_keyStates[SDL_SCANCODE_S])) {
+    } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
         m_direction = direction::DOWN;
-    } else if (m_keyStates[SDL_SCANCODE_D] && !(m_last_keyStates[SDL_SCANCODE_D])) {
+    } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
         m_direction = direction::RIGHT;
-    } else if (m_keyStates[SDL_SCANCODE_A] && !(m_last_keyStates[SDL_SCANCODE_A])) {
+    } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
         m_direction = direction::LEFT;
     }
 
-    std::cout << "Current: " << (int)m_keyStates[SDL_SCANCODE_W] << (int)m_keyStates[SDL_SCANCODE_A] << (int)m_keyStates[SDL_SCANCODE_S] << (int)m_keyStates[SDL_SCANCODE_D] << std::endl;
-    //std::cout << " Last: "<< (int)m_last_keyStates[SDL_SCANCODE_W] << (int)m_last_keyStates[SDL_SCANCODE_A] << (int)m_last_keyStates[SDL_SCANCODE_S] << (int)m_last_keyStates[SDL_SCANCODE_D] << std::endl;
-    m_last_keyStates = m_keyStates;
+//    if (m_keyStates[SDL_SCANCODE_W] && !(m_last_keyStates[SDL_SCANCODE_W])) {
+//        m_direction = direction::UP;
+//    } else if (m_keyStates[SDL_SCANCODE_S] && !(m_last_keyStates[SDL_SCANCODE_S])) {
+//        m_direction = direction::DOWN;
+//    } else if (m_keyStates[SDL_SCANCODE_D] && !(m_last_keyStates[SDL_SCANCODE_D])) {
+//        m_direction = direction::RIGHT;
+//    } else if (m_keyStates[SDL_SCANCODE_A] && !(m_last_keyStates[SDL_SCANCODE_A])) {
+//        m_direction = direction::LEFT;
+//    }
+//
+//    std::cout << "Current: " << (int)m_keyStates[SDL_SCANCODE_W] << (int)m_keyStates[SDL_SCANCODE_A] << (int)m_keyStates[SDL_SCANCODE_S] << (int)m_keyStates[SDL_SCANCODE_D] << std::endl;
+//    //std::cout << " Last: "<< (int)m_last_keyStates[SDL_SCANCODE_W] << (int)m_last_keyStates[SDL_SCANCODE_A] << (int)m_last_keyStates[SDL_SCANCODE_S] << (int)m_last_keyStates[SDL_SCANCODE_D] << std::endl;
+//    m_last_keyStates = m_keyStates;
 }
 
 void GameCharacter::moveCharacter(Map *map) {
@@ -277,35 +277,36 @@ bool GameCharacter::isColliding(SDL_Rect player, SDL_Rect tile) {
 bool GameCharacter::pathAvailable(Map * map){
     int xCoord16th = m_coordinates.x / 16;
     int yCoord16th = m_coordinates.y / 16;
-
+    bool pathAvailable = false;
     int xCoord = m_coordinates.x;
     int yCoord = m_coordinates.y;
     for (Obstacle o : map->map) {
-        if (xCoord + 16 == o.getCoordinates().x && yCoord == o.getCoordinates().y ) {
+        if (xCoord16th + 1 == o.getCoordinates().x / 16 && yCoord16th == o.getCoordinates().y / 16) {
             if(o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10){
                 std::cout << "HØYRE" << std::endl;
-                return true;
+                pathAvailable = true;
             }
         }
-        if (xCoord - 16 == o.getCoordinates().x && yCoord == o.getCoordinates().y) {
+        if (xCoord16th - 1 == o.getCoordinates().x / 16 && yCoord16th == o.getCoordinates().y / 16) {
             if(o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10){
                 std::cout << "VENSTRE" << std::endl;
-                return true;
+                pathAvailable = true;
             }
         }
-        if (xCoord == o.getCoordinates().x && yCoord + 16 == o.getCoordinates().y) {
+        if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th + 1 == o.getCoordinates().y / 16) {
             if(o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10){
                 std::cout << "NED" << std::endl;
-                return true;
+                pathAvailable = true;
             }
         }
-        if (xCoord == o.getCoordinates().x && yCoord - 16 == o.getCoordinates().y) {
+        if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th - 1 == o.getCoordinates().y / 16) {
             if(o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10){
                 std::cout << "OPP" << std::endl;
-                return true;
+                pathAvailable = true;
             }
         }
     }
+    return pathAvailable;
 }
 
 void GameCharacter::renderCharacter() {
