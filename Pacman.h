@@ -9,7 +9,7 @@
 
 class Pacman : public GameCharacter {
 private:
-    SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/foo.png");
+    SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/PacManSpriteSheet.png");
 public:
     Pacman();
 };

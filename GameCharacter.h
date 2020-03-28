@@ -21,18 +21,21 @@ class GameCharacter {
 protected:
     Uint8 const* m_keyStates = SDL_GetKeyboardState(nullptr);
     Uint8 const* m_last_keyStates;
-    direction m_direction = direction::UP;
+    direction m_direction = direction::NONE;
     direction m_last_direction = direction::UP;
     SDL_Rect m_coordinates;
     SDL_Texture * m_texture;
+    int testTall;
 public:
     GameCharacter();
     virtual void checkMovementInput();
     virtual void moveCharacter(Map * map);
     bool isColliding(SDL_Rect character, SDL_Rect tile);
     void collisionHandling(Map * map);
-    void renderCharacter(SDL_Rect srect [], int testTall);
+    void renderCharacter(SDL_Rect srect []);
     bool pathAvailable(Map *map);
+    double angle = 0;
+    SDL_Point center = {10,10};
 };
 
 

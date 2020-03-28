@@ -12,7 +12,7 @@ int GameManager::startGame() {
     windowLoader windowLoader;
     renderManager renderManager;
 
-    const int FPS = 24;
+    const int FPS = 30;
     const int frameDelay = 1000 / FPS;
     Uint32 frameStart;
     int frameTime;
@@ -41,14 +41,11 @@ int GameManager::startGame() {
 
 
         render();
-        testTall++;
+
         if(quitter[SDL_SCANCODE_ESCAPE]){
             break;
         }
 
-        if(testTall >=5) {
-            testTall = 1;
-        }
 
         frameTime = SDL_GetTicks() - frameStart;
         if (frameDelay > frameTime) {
@@ -63,6 +60,6 @@ int GameManager::startGame() {
 void GameManager::render() {
     SDL_RenderClear(renderer);
     level->drawMap();
-    pacman.renderCharacter(srect, testTall);
+    pacman.renderCharacter(srect);
     SDL_RenderPresent(renderer);
 }
