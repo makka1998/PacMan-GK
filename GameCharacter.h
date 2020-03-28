@@ -20,8 +20,9 @@ enum class direction{
 class GameCharacter {
 protected:
     Uint8 const* m_keyStates = SDL_GetKeyboardState(nullptr);
-    direction m_direction = direction::NONE;
-    direction m_last_direction = direction::NONE;
+    Uint8 const* m_last_keyStates;
+    direction m_direction = direction::UP;
+    direction m_last_direction = direction::UP;
     SDL_Rect m_coordinates;
     SDL_Texture * m_texture;
 public:
@@ -31,6 +32,7 @@ public:
     bool isColliding(SDL_Rect character, SDL_Rect tile);
     void collisionHandling(Map * map);
     void renderCharacter();
+    bool pathAvailable(Map *map);
 };
 
 

@@ -30,8 +30,9 @@ int GameManager::startGame() {
     while (running) {
         frameStart = SDL_GetTicks();
 
-
-        pacman.checkMovementInput();
+        if(pacman.pathAvailable(level)) {
+            pacman.checkMovementInput();
+        }
         pacman.moveCharacter(level);
         pacman.collisionHandling(level);
         render();
