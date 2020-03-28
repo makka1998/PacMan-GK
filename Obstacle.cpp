@@ -3,8 +3,10 @@
 //
 
 #include "Obstacle.h"
-Obstacle::Obstacle(const char * fileName, SDL_Renderer* renderer) {
-    texture = IMG_LoadTexture(renderer, fileName);
+#include "GameManager.h"
+
+Obstacle::Obstacle(const char * fileName) {
+    texture = IMG_LoadTexture(GameManager::renderer, fileName);
     if(texture == nullptr){
         std::cout <<"load texture failure" << std::endl;
     }
@@ -23,7 +25,7 @@ SDL_Rect Obstacle::getCoordinates() const {
 }
 
 SDL_Rect Obstacle::getSrc() const {
-    return coordinates;
+    return src;
 }
 
 void Obstacle::setCoordinates(int x, int y, int height, int width) {

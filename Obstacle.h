@@ -10,14 +10,15 @@
 #include <SDL_image.h>
 #include "TextureManager.h"
 
+
 class Obstacle {
 private:
     TextureManager textureManager;
     SDL_Texture* texture;
     int tileValue;
-public:
     SDL_Rect coordinates, src;
-    Obstacle(const char * fileName, SDL_Renderer* renderer);
+public:
+    Obstacle(const char * fileName);
     int getTileValue() const;
     SDL_Rect getCoordinates() const;
     SDL_Rect getSrc() const;

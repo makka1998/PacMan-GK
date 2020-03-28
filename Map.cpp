@@ -9,7 +9,7 @@ Map::Map(const char * filePath) {
 }
 
 void Map::loadMap(const char * filePath) {
-    Obstacle tmp("../Resources/Pacman_16x16_Tileset_Blue.png", GameManager::renderer);
+    Obstacle tmp("../Resources/Pacman_16x16_Tileset_Blue.png");
     int currentTileValue, xAxisOfTileset, yAxisOfTileset, startPoint_x, startPoint_y;
     std::ifstream input(filePath); //Our mainLevel.txt file
     if(!input.is_open()){
@@ -39,16 +39,9 @@ void Map::loadMap(const char * filePath) {
 void Map::drawMap() {
     for(auto o : map){
         if(o.getCoordinates().x >= TILE_SIZE && o.getCoordinates().y >= TILE_SIZE && o.getCoordinates().x <= WIDTH + TILE_SIZE && o.getCoordinates().y <= HEIGHT + TILE_SIZE){
-            renderMap(o);
+            SDL_Rect src = o.getSrc();
+            SDL_Rect coordinates = o.getCoordinates();
+            SDL_RenderCopy(GameManager::renderer, o.getTexture(), &src, &coordinates);
         }
     }
 }
-
-void Map::renderMap(Obstacle tile) {
-    //SDL_Rect tileCoords = tile.getCoordinates();
-    //SDL_Rect tileSrc = tile.getSrc();
-    //Begge "SDL_Rects" står som public i Map.H filen, husk å fiks dette slik at vi kan bruke getters i SDL_Rendercopy!
-    SDL_RenderCopy(GameManager::renderer, tile.getTexture(), &tile.src, &tile.coordinates);
-}
-
-

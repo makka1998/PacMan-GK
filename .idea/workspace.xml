@@ -12,11 +12,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameCharacter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pacman.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_DOWN.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_DOWN.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_LEFT.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_LEFT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_RIGHT.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_RIGHT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_UP.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_UP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.h" beforeDir="false" afterPath="$PROJECT_DIR$/Map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obstacle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Obstacle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obstacle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Obstacle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventHandler.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventHandler.h" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
