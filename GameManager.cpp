@@ -5,13 +5,14 @@ SDL_Window *window;
 SDL_Renderer *GameManager::renderer = nullptr;
 Map * level;
 Pacman pacman;
-int GameManager::startGame() {
+SDL_Rect srect [4];
 
+int GameManager::startGame() {
     SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
     windowLoader windowLoader;
     renderManager renderManager;
 
-    const int FPS = 60;
+    const int FPS = 24;
     const int frameDelay = 1000 / FPS;
     Uint32 frameStart;
     int frameTime;
@@ -30,14 +31,23 @@ int GameManager::startGame() {
     while (running) {
         frameStart = SDL_GetTicks();
 
-        pacman.checkMovementInput();
+
         if(pacman.pathAvailable(level)) {
-            pacman.moveCharacter(level);
+            pacman.checkMovementInput();
         }
+        pacman.moveCharacter(level);
         pacman.collisionHandling(level);
+
+
+
         render();
+        testTall++;
         if(quitter[SDL_SCANCODE_ESCAPE]){
             break;
+        }
+
+        if(testTall >=5) {
+            testTall = 1;
         }
 
         frameTime = SDL_GetTicks() - frameStart;
@@ -45,7 +55,6 @@ int GameManager::startGame() {
             SDL_Delay(frameDelay - frameTime);
         }
     }
-
     SDL_DestroyWindow(window);
     SDL_Quit(); // Be SDL om å rydde opp
     return EXIT_SUCCESS;
@@ -54,6 +63,6 @@ int GameManager::startGame() {
 void GameManager::render() {
     SDL_RenderClear(renderer);
     level->drawMap();
-    pacman.renderCharacter();
+    pacman.renderCharacter(srect, testTall);
     SDL_RenderPresent(renderer);
 }

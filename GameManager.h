@@ -17,6 +17,7 @@ public:
 	bool running;
     void render();
 private:
+    int testTall;
     SDL_Texture* drawable;
     SDL_Rect coords;
 };

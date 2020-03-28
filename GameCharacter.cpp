@@ -46,18 +46,18 @@ void GameCharacter::moveCharacter(Map *map) {
 
     if (m_direction == direction::RIGHT) {
         m_coordinates.x += speed;
-        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_RIGHT.png");
+        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/foo.png");
     } else if (m_direction == direction::LEFT) {
         m_coordinates.x += -speed;
-        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_LEFT.png");
+        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/foo.png");
     } else if (m_direction == direction::UP) {
         m_coordinates.y += -speed;
-        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_UP.png");
+        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/foo.png");
     } else if (m_direction == direction::DOWN) {
         m_coordinates.y += speed;
-        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_DOWN.png");
+        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/foo.png");
     } else if (m_direction == direction::NONE) {
-        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_UP.png");
+        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/foo.png");
     }
 
     int tileInfrontValue;
@@ -309,7 +309,65 @@ bool GameCharacter::pathAvailable(Map * map){
     return pathAvailable;
 }
 
-void GameCharacter::renderCharacter() {
+void GameCharacter::renderCharacter(SDL_Rect srect [], int testTall) {
 
-    SDL_RenderCopy(GameManager::renderer, m_texture, nullptr, &m_coordinates);
+    if(testTall == 1){
+        srect[0].x = -3;
+        srect[0].y = 0;
+        srect[0].h = 205;
+        srect[0].w = 64;
+        SDL_RenderCopy(GameManager::renderer, m_texture, &srect[0], &m_coordinates);
+        std::cout << "1: " << std::endl;
+    } else if (testTall == 2){
+        srect[1].x = 58;
+        srect[1].y = 0;
+        srect[1].h = 205;
+        srect[1].w = 64;
+        SDL_RenderCopy(GameManager::renderer, m_texture, &srect[1], &m_coordinates);
+        std::cout << "2: " << std::endl;
+    } else if (testTall == 3){
+        srect[2].x = 117;
+        srect[2].y = 0;
+        srect[2].h = 205;
+        srect[2].w = 64;
+        SDL_RenderCopy(GameManager::renderer, m_texture, &srect[2], &m_coordinates);
+        std::cout << "3: " << std::endl;
+    } else if (testTall == 4){
+        srect[3].x = 175;
+        srect[3].y = 0;
+        srect[3].h = 205;
+        srect[3].w = 64;
+        SDL_RenderCopy(GameManager::renderer, m_texture, &srect[3], &m_coordinates);
+        std::cout << "4: " << std::endl;
+    }
 }
+
+//    for(int i = 0; i < 4; i++){
+//        if(i == 0){
+//            srect[0].x = 0;
+//            srect[0].y = 0;
+//            srect[0].h = 205;
+//            srect[0].w = 64;
+//            std::cout << "1: " << std::endl;
+//        } else if(i == 1){
+//            srect[1].x = 64;
+//            srect[1].y = 0;
+//            srect[1].h = 205;
+//            srect[1].w = 64;
+//            std::cout << "2: " << std::endl;
+//        } else if(i == 2){
+//            srect[2].x = 128;
+//            srect[2].y = 0;
+//            srect[2].h = 205;
+//            srect[2].w = 64;
+//            std::cout << "3: " << std::endl;
+//        } else if(i == 3){
+//            srect[3].x = 180;
+//            srect[3].y = 0;
+//            srect[3].h = 205;
+//            srect[3].w = 64;
+//            std::cout << "4: " << std::endl;
+//        }
+//        SDL_RenderCopy(GameManager::renderer, m_texture, &srect[i], &m_coordinates);
+//    }
+//}

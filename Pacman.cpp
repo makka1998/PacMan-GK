@@ -7,6 +7,6 @@
 Pacman::Pacman() {
     m_coordinates.x = 7.25 * 32;
     m_coordinates.y = 9 * 32;
-    m_coordinates.h = 16;
-    m_coordinates.w = 16;
+    m_coordinates.h = 14;
+    m_coordinates.w = 14;
 }

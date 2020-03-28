@@ -31,7 +31,7 @@ public:
     virtual void moveCharacter(Map * map);
     bool isColliding(SDL_Rect character, SDL_Rect tile);
     void collisionHandling(Map * map);
-    void renderCharacter();
+    void renderCharacter(SDL_Rect srect [], int testTall);
     bool pathAvailable(Map *map);
 };
 
