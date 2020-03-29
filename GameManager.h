@@ -2,7 +2,6 @@
 #define PAC_MAN_GK_GAMEMANAGER_H
 #include "windowLoader.h"
 #include "renderManager.h"
-#include "TextureManager.h"
 #include "Map.h"
 #include <iostream>
 #include <SDL.h>
@@ -17,9 +16,11 @@ public:
 	bool running;
     void render();
 private:
-    int testTall;
-    SDL_Texture* drawable;
-    SDL_Rect coords;
+    SDL_Rect srect [12];
+
+    void PointsToTextureHandler(int points);
+
+    void showGrid();
 };
 
 #endif //PACMAN_GK_MASTER_GAMEMANAGER_H

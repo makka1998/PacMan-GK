@@ -12,11 +12,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/PacmanTileset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/Pacman_Tileset_20x20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/Pacman_Tileset_32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/Pacman_fancy_tileset_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/PacManSpriteSheet_16x16.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.h" beforeDir="false" afterPath="$PROJECT_DIR$/Map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obstacle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Obstacle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obstacle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Obstacle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/PacManSpriteSheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/PacmanTileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Pacman_16x16_Tileset_Blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Pacman_16x16_Tileset_Blue.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Pacman_fancy_tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Pacman_fancy_tileset_16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_DOWN.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_DOWN.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_LEFT.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_LEFT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_RIGHT.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_RIGHT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Real_Pacman_UP.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Real_Pacman_UP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/mainLevel.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/mainLevel.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/pacman.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextureManager.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextureManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/windowLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/windowLoader.h" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +64,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectId" id="1ZZsz3TDciCcXMq9Niiqd0WWUUO" />
@@ -47,17 +77,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Martin\CLionProjects\Ayyo\PacMan-GK\Resources" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tobias\CLionProjects\PacMan-GK\Resources" />
       <recent name="C:\Users\Martin\PacMan-GK\Resources" />
       <recent name="C:\Users\Martin\PacMan-GK" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="PacMan-GK-master" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PacMan-GK-master" TARGET_NAME="PacMan-GK-master" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PacMan-GK-master" RUN_TARGET_NAME="PacMan-GK-master">
@@ -65,18 +104,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -94,7 +121,6 @@
       <workItem from="1585231544896" duration="29253000" />
       <workItem from="1585278950933" duration="10127000" />
       <workItem from="1585315765399" duration="25326000" />
-      <workItem from="1585482456255" duration="1740000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -149,31 +175,7 @@
       <option name="project" value="LOCAL" />
       <updated>1585347796193</updated>
     </task>
-    <task id="LOCAL−00009" summary="Added a gameCharacter class and respective ghost and pacman classes. Moved around some functions to their correct places aswell">
-      <created>1585370341364</created>
-      <option name="number" value="LOCAL−00009" />
-      <option name="presentableId" value="LOCAL−00009" />
-      <updated>1585370341364</updated>
-    </task>
-    <task id="LOCAL−00010" summary="Added a &quot;pathAvailable&quot; function to check if there if a path available infront behind left or right of you">
-      <created>1585401801487</created>
-      <option name="number" value="LOCAL−00010" />
-      <option name="presentableId" value="LOCAL−00010" />
-      <updated>1585401801487</updated>
-    </task>
-    <task id="LOCAL−00011" summary="Added a &quot;pathAvailable&quot; function to check if there if a path available infront behind left or right of you">
-      <created>1585402718854</created>
-      <option name="number" value="LOCAL−00011" />
-      <option name="presentableId" value="LOCAL−00011" />
-      <updated>1585402718854</updated>
-    </task>
-    <task id="LOCAL−00012" summary="Made pacman instead of example image in animation, and added turning with RenderCopyEX in GameCharacter">
-      <created>1585419290802</created>
-      <option name="number" value="LOCAL−00012" />
-      <option name="presentableId" value="LOCAL−00012" />
-      <updated>1585419290802</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,44 +204,42 @@
     <MESSAGE value="Cleaned up GameManager a little, added first version for collision (some bugs needs to be fixed). Started on the logic for picking up the &quot;pills&quot; &#10;NB! Need to be worked on:&#10;- fix the resolution and tiles in generel (cannot be a grid with 25+ both way) needs to be an odd number &lt;= 29&#10;- still some corner bugs&#10;- figure out how to change tile_value from 30 to 0 when passing over an pill as pacman." />
     <MESSAGE value="Changed the tile size from 32x32 px to 16x16 px and pacman is now 14x14 px" />
     <MESSAGE value="- small texture changes with new corners that isnt that buggy&#10;- added more states on collision-checking (the new corners)." />
-    <MESSAGE value="Added a gameCharacter class and respective ghost and pacman classes. Moved around some functions to their correct places aswell" />
-    <MESSAGE value="Added a &quot;pathAvailable&quot; function to check if there if a path available infront behind left or right of you" />
-    <MESSAGE value="Made pacman instead of example image in animation, and added turning with RenderCopyEX in GameCharacter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made pacman instead of example image in animation, and added turning with RenderCopyEX in GameCharacter" />
+    <MESSAGE value="- Set up so you can change tile_size&#10;- Added a grid&#10;- you can now eat pills&#10;- cleaned up pacmans position in the grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Set up so you can change tile_size&#10;- Added a grid&#10;- you can now eat pills&#10;- cleaned up pacmans position in the grid" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147685470" />
-    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1585419289762">
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1585147648099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585419289762" />
+    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147648099" />
     <state x="184" y="92" key="DiffContextDialog" timestamp="1585147629164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147629164" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585483851263">
+    <state width="938" height="282" key="GridCell.Tab.0.bottom" timestamp="1585147699623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585483851263" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585483851263">
+    <state width="938" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147699623" />
+    <state width="938" height="282" key="GridCell.Tab.0.center" timestamp="1585147699623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585483851263" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585483851263">
+    <state width="938" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147699623" />
+    <state width="938" height="282" key="GridCell.Tab.0.left" timestamp="1585147699623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585483851263" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585483851263">
+    <state width="938" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147699623" />
+    <state width="938" height="282" key="GridCell.Tab.0.right" timestamp="1585147699623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585483851263" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1585419301363">
+    <state width="938" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147699623" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1585147653601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585419301363" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147653601" />
     <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1585058236251">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

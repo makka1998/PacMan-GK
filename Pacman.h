@@ -9,9 +9,14 @@
 
 class Pacman : public GameCharacter {
 private:
-    SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/PacManSpriteSheet.png");
+    SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_UP.png");
+    int point=0;
 public:
     Pacman();
+    int getPointsPickedUp(){ return point;}
+    void PickingUpPillHandler(Map &map);
+
+    void renderCharacter(SDL_Rect *srect) override;
 };
 
 

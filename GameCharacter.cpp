@@ -7,21 +7,33 @@
 GameCharacter::GameCharacter() {
     m_coordinates.x = 6 * 32;
     m_coordinates.y = 9 * 32;
-    m_coordinates.h = 13;
-    m_coordinates.w = 13;
+    m_coordinates.h = 20;
+    m_coordinates.w = 20;
 
 }
 
 void GameCharacter::checkMovementInput() {
     SDL_PumpEvents();
     if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
-        m_direction = direction::UP;
+        if (m_direction != direction::UP) {
+            m_last_direction = m_direction;
+            m_direction = direction::UP;
+        }
     } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
-        m_direction = direction::DOWN;
+        if (m_direction != direction::DOWN) {
+            m_last_direction = m_direction;
+            m_direction = direction::DOWN;
+        }
     } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
-        m_direction = direction::RIGHT;
+        if (m_direction != direction::RIGHT) {
+            m_last_direction = m_direction;
+            m_direction = direction::RIGHT;
+        }
     } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
-        m_direction = direction::LEFT;
+        if (m_direction != direction::LEFT) {
+            m_last_direction = m_direction;
+            m_direction = direction::LEFT;
+        }
     }
 
 //    if (m_keyStates[SDL_SCANCODE_W] && !(m_last_keyStates[SDL_SCANCODE_W])) {
@@ -43,7 +55,7 @@ void GameCharacter::moveCharacter(Map *map) {
     int speed = 2;
 
     animationNumber++;
-    if(animationNumber >= 13) {
+    if (animationNumber >= 13) {
         animationNumber = 1;
     }
     if (m_keyStates[SDL_SCANCODE_TAB]) {
@@ -67,13 +79,43 @@ void GameCharacter::moveCharacter(Map *map) {
         angle = 90;
     }
 
+    /*  Sjekker om tiles rundt pacman er hindring.
+    int playerGridCord_X = round((m_coordinates.x + (m_coordinates.w) / 2) / TILE_SIZE);
+    int playerGridCord_Y = round((m_coordinates.y + (m_coordinates.h) / 2) / TILE_SIZE);
+
+    int Players_LeftTile = playerGridCord_X - 1;
+    int Players_RightTile = playerGridCord_X + 1;
+    int Players_UpTile = playerGridCord_Y - 1;
+    int Players_DownTile = playerGridCord_Y + 1;
+
+    for (Obstacle tile : map->map) {
+        int tileGridCord_X = tile.getCoordinates().x / TILE_SIZE;
+        int tileGridCord_Y = tile.getCoordinates().y / TILE_SIZE;
+        if (tile.getTileValue() != 10 && tile.getTileValue() != 9 && tile.getTileValue() != 6 && tile.getTileValue() != 0){
+            if (tileGridCord_X == Players_LeftTile && tileGridCord_Y == playerGridCord_Y) {     //LEFT
+                //Direction LEFT not allowed
+            } else if (tileGridCord_X == Players_RightTile && tileGridCord_Y == playerGridCord_Y) {  //RIGHT
+                //Direction RIGHT not allowed
+
+            } else if (tileGridCord_X == playerGridCord_X && tileGridCord_Y == Players_UpTile) {    //UP
+                //Direction UP not allowed
+
+            } else if (tileGridCord_X == playerGridCord_X && tileGridCord_Y == Players_DownTile) {  //DOWN
+                //Direction DOWN not allowed
+
+            }
+        }
+    }
+     */
+
+/*
 
     int tileInfrontValue;
     int tileBehindValue;
     int tileLeftValue;
     int tileRightValue;
 
-/*
+
     if(m_direction == direction::LEFT){
         std::cout << "DIR= LEFT" << std::endl;
     }else if(m_direction == direction::RIGHT){
@@ -209,6 +251,7 @@ void GameCharacter::moveCharacter(Map *map) {
     */
 }
 
+//Check out if direction::NONE is making it not work. -Jonas
 void GameCharacter::collisionHandling(Map *map) {
     int pushBackDistance = 2;
     for (Obstacle o : map->map) {
@@ -278,11 +321,10 @@ void GameCharacter::collisionHandling(Map *map) {
 
 bool GameCharacter::isColliding(SDL_Rect player, SDL_Rect tile) {
     //Checking if any point of player overlaps with any point of the tile.
-    return player.x < tile.x + tile.w && player.x + player.w > tile.x && player.y < tile.y + tile.h &&
-           player.y + player.h > tile.y;
+    return SDL_HasIntersection(&player, &tile);
 };
 
-bool GameCharacter::pathAvailable(Map * map){
+bool GameCharacter::pathAvailable(Map *map) {
     int xCoord16th = m_coordinates.x / 16;
     int yCoord16th = m_coordinates.y / 16;
     bool pathAvailable = false;
@@ -290,26 +332,26 @@ bool GameCharacter::pathAvailable(Map * map){
     int yCoord = m_coordinates.y;
     for (Obstacle o : map->map) {
         if (xCoord16th + 1 == o.getCoordinates().x / 16 && yCoord16th == o.getCoordinates().y / 16) {
-            if(o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10){
-                std::cout << "HØYRE" << std::endl;
+            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+                //std::cout << "HØYRE" << std::endl;
                 pathAvailable = true;
             }
         }
         if (xCoord16th - 1 == o.getCoordinates().x / 16 && yCoord16th == o.getCoordinates().y / 16) {
-            if(o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10){
-                std::cout << "VENSTRE" << std::endl;
+            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+                //std::cout << "VENSTRE" << std::endl;
                 pathAvailable = true;
             }
         }
         if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th + 1 == o.getCoordinates().y / 16) {
-            if(o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10){
-                std::cout << "NED" << std::endl;
+            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+                //std::cout << "NED" << std::endl;
                 pathAvailable = true;
             }
         }
         if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th - 1 == o.getCoordinates().y / 16) {
-            if(o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10){
-                std::cout << "OPP" << std::endl;
+            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+                //std::cout << "OPP" << std::endl;
                 pathAvailable = true;
             }
         }
@@ -317,109 +359,7 @@ bool GameCharacter::pathAvailable(Map * map){
     return pathAvailable;
 }
 
-void GameCharacter::renderCharacter(SDL_Rect srect []) {
-    m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/PacManSpriteSheet.png");
-    if (animationNumber == 1) {
-        srect[0].x = 20;
-        srect[0].y = 20;
-        srect[0].h = 20;
-        srect[0].w = 20;
-        std::cout << "1: " << std::endl;
-    } else if (animationNumber == 2) {
-        srect[1].x = 20;
-        srect[1].y = 20;
-        srect[1].h = 20;
-        srect[1].w = 20;
-        std::cout << "2: " << std::endl;
-    } else if (animationNumber == 3) {
-        srect[2].x = 20;
-        srect[2].y = 20;
-        srect[2].h = 20;
-        srect[2].w = 20;
-        std::cout << "3: " << std::endl;
-    } else if (animationNumber == 4) {
-        srect[3].x =  0;
-        srect[3].y = 20;
-        srect[3].h = 20;
-        srect[3].w = 20;
-        std::cout << "4: " << std::endl;
-    } else if (animationNumber == 5) {
-        srect[4].x =  0;
-        srect[4].y = 20;
-        srect[4].h = 20;
-        srect[4].w = 20;
-        std::cout << "1: " << std::endl;
-    } else if (animationNumber == 6) {
-        srect[5].x =  0;
-        srect[5].y = 20;
-        srect[5].h = 20;
-        srect[5].w = 20;
-        std::cout << "2: " << std::endl;
-    } else if (animationNumber == 7) {
-        srect[6].x = 40;
-        srect[6].y =  0;
-        srect[6].h = 20;
-        srect[6].w = 20;
-        std::cout << "3: " << std::endl;
-    } else if (animationNumber == 8) {
-        srect[7].x = 40;
-        srect[7].y =  0;
-        srect[7].h = 20;
-        srect[7].w = 20;
-        std::cout << "4: " << std::endl;
-    } else if (animationNumber == 9) {
-        srect[8].x = 40;
-        srect[8].y =  0;
-        srect[8].h = 20;
-        srect[8].w = 20;
-        std::cout << "1: " << std::endl;
-    } else if (animationNumber == 10) {
-        srect[9].x =  0;
-        srect[9].y = 20;
-        srect[9].h = 20;
-        srect[9].w = 20;
-        std::cout << "2: " << std::endl;
-    } else if (animationNumber == 11) {
-        srect[10].x =  0;
-        srect[10].y = 20;
-        srect[10].h = 20;
-        srect[10].w = 20;
-        std::cout << "3: " << std::endl;
-    } else if (animationNumber == 12) {
-        srect[11].x =  0;
-        srect[11].y = 20;
-        srect[11].h = 20;
-        srect[11].w = 20;
-        std::cout << "4: " << std::endl;
-    }
-    SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[animationNumber - 1], &m_coordinates, angle, &center, SDL_FLIP_NONE);
+void GameCharacter::renderCharacter(SDL_Rect srect[]) {
+    SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[animationNumber - 1], &m_coordinates, angle, &center,
+                     SDL_FLIP_NONE);
 }
-//    for(int i = 0; i < 4; i++){
-//        if(i == 0){
-//            srect[0].x = 0;
-//            srect[0].y = 0;
-//            srect[0].h = 205;
-//            srect[0].w = 64;
-//            std::cout << "1: " << std::endl;
-//        } else if(i == 1){
-//            srect[1].x = 64;
-//            srect[1].y = 0;
-//            srect[1].h = 205;
-//            srect[1].w = 64;
-//            std::cout << "2: " << std::endl;
-//        } else if(i == 2){
-//            srect[2].x = 128;
-//            srect[2].y = 0;
-//            srect[2].h = 205;
-//            srect[2].w = 64;
-//            std::cout << "3: " << std::endl;
-//        } else if(i == 3){
-//            srect[3].x = 180;
-//            srect[3].y = 0;
-//            srect[3].h = 205;
-//            srect[3].w = 64;
-//            std::cout << "4: " << std::endl;
-//        }
-//        SDL_RenderCopy(GameManager::renderer, m_texture, &srect[i], &m_coordinates);
-//    }
-//}

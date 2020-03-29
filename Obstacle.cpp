@@ -20,11 +20,11 @@ SDL_Texture* Obstacle::getTexture() const {
     return texture;
 }
 
-SDL_Rect Obstacle::getCoordinates() const {
+SDL_Rect Obstacle::getCoordinates() {
     return coordinates;
 }
 
-SDL_Rect Obstacle::getSrc() const {
+SDL_Rect Obstacle::getSrc(){
     return src;
 }
 

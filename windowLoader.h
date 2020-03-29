@@ -2,12 +2,12 @@
 #define PAC_MAN_GK_WINDOWLOADER_H
 
 #include <SDL.h>
-#define WIDTH 465
-#define HEIGHT 592
+#define WIDTH 582           //Change to 465 for 16x16 px
+#define HEIGHT 740         //Change to 592 for 16x16 px
 
 class windowLoader {
 public:
-	SDL_Window* createWindow(const char* title);
+    SDL_Window* createWindow(const char* title);
 };
 
 #endif //PACMAN_GK_MASTER_WINDOWLOADER_H

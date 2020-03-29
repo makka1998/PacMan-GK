@@ -32,7 +32,8 @@ public:
     virtual void moveCharacter(Map * map);
     bool isColliding(SDL_Rect character, SDL_Rect tile);
     void collisionHandling(Map * map);
-    void renderCharacter(SDL_Rect srect []);
+
+    virtual void renderCharacter(SDL_Rect srect []);
     bool pathAvailable(Map *map);
     double angle = 0;
     SDL_Point center = {10,10};

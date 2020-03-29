@@ -8,24 +8,24 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_image.h>
-#include "TextureManager.h"
 
 
 class Obstacle {
 private:
-    TextureManager textureManager;
     SDL_Texture* texture;
     int tileValue;
     SDL_Rect coordinates, src;
 public:
     Obstacle(const char * fileName);
     int getTileValue() const;
-    SDL_Rect getCoordinates() const;
-    SDL_Rect getSrc() const;
+    SDL_Rect getCoordinates();
+    SDL_Rect getSrc();
     SDL_Texture* getTexture() const;
     void setCoordinates(int x, int y, int height, int width);
     void setSource(int x, int y, int height, int width);
     void setTileValue(int value);
+    bool WalkedOver;
+    bool changedNumber;
 };
 
 
