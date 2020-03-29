@@ -41,9 +41,10 @@ void GameCharacter::checkMovementInput() {
 
 void GameCharacter::moveCharacter(Map *map) {
     int speed = 2;
-    testTall++;
-    if(testTall >=5) {
-        testTall = 1;
+
+    animationNumber++;
+    if(animationNumber >= 13) {
+        animationNumber = 1;
     }
     if (m_keyStates[SDL_SCANCODE_TAB]) {
         speed = 4;
@@ -318,33 +319,80 @@ bool GameCharacter::pathAvailable(Map * map){
 
 void GameCharacter::renderCharacter(SDL_Rect srect []) {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/PacManSpriteSheet.png");
-
-    if (testTall == 1) {
+    if (animationNumber == 1) {
         srect[0].x = 20;
         srect[0].y = 20;
         srect[0].h = 20;
         srect[0].w = 20;
         std::cout << "1: " << std::endl;
-    } else if (testTall == 2) {
-        srect[1].x =  0;
+    } else if (animationNumber == 2) {
+        srect[1].x = 20;
         srect[1].y = 20;
         srect[1].h = 20;
         srect[1].w = 20;
         std::cout << "2: " << std::endl;
-    } else if (testTall == 3) {
-        srect[2].x = 40;
-        srect[2].y =  0;
+    } else if (animationNumber == 3) {
+        srect[2].x = 20;
+        srect[2].y = 20;
         srect[2].h = 20;
         srect[2].w = 20;
         std::cout << "3: " << std::endl;
-    } else if (testTall == 4) {
+    } else if (animationNumber == 4) {
         srect[3].x =  0;
         srect[3].y = 20;
         srect[3].h = 20;
         srect[3].w = 20;
         std::cout << "4: " << std::endl;
+    } else if (animationNumber == 5) {
+        srect[4].x =  0;
+        srect[4].y = 20;
+        srect[4].h = 20;
+        srect[4].w = 20;
+        std::cout << "1: " << std::endl;
+    } else if (animationNumber == 6) {
+        srect[5].x =  0;
+        srect[5].y = 20;
+        srect[5].h = 20;
+        srect[5].w = 20;
+        std::cout << "2: " << std::endl;
+    } else if (animationNumber == 7) {
+        srect[6].x = 40;
+        srect[6].y =  0;
+        srect[6].h = 20;
+        srect[6].w = 20;
+        std::cout << "3: " << std::endl;
+    } else if (animationNumber == 8) {
+        srect[7].x = 40;
+        srect[7].y =  0;
+        srect[7].h = 20;
+        srect[7].w = 20;
+        std::cout << "4: " << std::endl;
+    } else if (animationNumber == 9) {
+        srect[8].x = 40;
+        srect[8].y =  0;
+        srect[8].h = 20;
+        srect[8].w = 20;
+        std::cout << "1: " << std::endl;
+    } else if (animationNumber == 10) {
+        srect[9].x =  0;
+        srect[9].y = 20;
+        srect[9].h = 20;
+        srect[9].w = 20;
+        std::cout << "2: " << std::endl;
+    } else if (animationNumber == 11) {
+        srect[10].x =  0;
+        srect[10].y = 20;
+        srect[10].h = 20;
+        srect[10].w = 20;
+        std::cout << "3: " << std::endl;
+    } else if (animationNumber == 12) {
+        srect[11].x =  0;
+        srect[11].y = 20;
+        srect[11].h = 20;
+        srect[11].w = 20;
+        std::cout << "4: " << std::endl;
     }
-    SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[testTall-1], &m_coordinates, angle, &center, SDL_FLIP_NONE);
+    SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[animationNumber - 1], &m_coordinates, angle, &center, SDL_FLIP_NONE);
 }
 //    for(int i = 0; i < 4; i++){
 //        if(i == 0){

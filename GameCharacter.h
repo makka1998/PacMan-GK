@@ -25,7 +25,7 @@ protected:
     direction m_last_direction = direction::UP;
     SDL_Rect m_coordinates;
     SDL_Texture * m_texture;
-    int testTall;
+    int animationNumber;
 public:
     GameCharacter();
     virtual void checkMovementInput();

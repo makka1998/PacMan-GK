@@ -5,14 +5,14 @@ SDL_Window *window;
 SDL_Renderer *GameManager::renderer = nullptr;
 Map * level;
 Pacman pacman;
-SDL_Rect srect [4];
+SDL_Rect srect [12];
 
 int GameManager::startGame() {
     SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
     windowLoader windowLoader;
     renderManager renderManager;
 
-    const int FPS = 30;
+    const int FPS = 60;
     const int frameDelay = 1000 / FPS;
     Uint32 frameStart;
     int frameTime;
@@ -37,8 +37,6 @@ int GameManager::startGame() {
         }
         pacman.moveCharacter(level);
         pacman.collisionHandling(level);
-
-
 
         render();
 

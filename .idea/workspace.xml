@@ -12,13 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Resources/PacManSpriteSheet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +94,7 @@
       <workItem from="1585231544896" duration="29253000" />
       <workItem from="1585278950933" duration="10127000" />
       <workItem from="1585315765399" duration="25326000" />
+      <workItem from="1585482456255" duration="1740000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -169,7 +167,13 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1585402718854</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="Made pacman instead of example image in animation, and added turning with RenderCopyEX in GameCharacter">
+      <created>1585419290802</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1585419290802</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,41 +204,42 @@
     <MESSAGE value="- small texture changes with new corners that isnt that buggy&#10;- added more states on collision-checking (the new corners)." />
     <MESSAGE value="Added a gameCharacter class and respective ghost and pacman classes. Moved around some functions to their correct places aswell" />
     <MESSAGE value="Added a &quot;pathAvailable&quot; function to check if there if a path available infront behind left or right of you" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a &quot;pathAvailable&quot; function to check if there if a path available infront behind left or right of you" />
+    <MESSAGE value="Made pacman instead of example image in animation, and added turning with RenderCopyEX in GameCharacter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made pacman instead of example image in animation, and added turning with RenderCopyEX in GameCharacter" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147685470" />
-    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1585419232776">
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1585419289762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585419232776" />
+    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585419289762" />
     <state x="184" y="92" key="DiffContextDialog" timestamp="1585147629164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147629164" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585419232892">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585483851263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585419232892" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585419232892">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585483851263" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585483851263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585419232892" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585419232892">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585483851263" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585483851263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585419232892" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585419232892">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585483851263" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585483851263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585419232892" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1585147653601">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585483851263" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1585419301363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147653601" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585419301363" />
     <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1585058236251">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
