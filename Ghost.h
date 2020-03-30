@@ -11,7 +11,6 @@ class Ghost : public GameCharacter {
 protected:
     SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_UP.png");
     int distanceToTarget [2];
-    double speed;
 public:
     Ghost();
     void setDistanceToTarget(SDL_Rect pacmanPos);

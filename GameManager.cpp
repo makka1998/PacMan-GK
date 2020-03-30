@@ -38,8 +38,8 @@ int GameManager::startGame() {
         pacman.moveCharacter(level);
         pacman.collisionHandling(level);
         pacman.PickingUpPillHandler(*level);
-       // ghost.setDistanceToTarget(pacman.getCoords());
-       // ghost.moveCharacter(level);
+        ghost.setDistanceToTarget(pacman.getCoords());
+        ghost.moveCharacter(level);
         PointsToTextureHandler(pacman.getPointsPickedUp());
 
         render();

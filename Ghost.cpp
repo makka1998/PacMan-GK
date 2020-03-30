@@ -5,10 +5,10 @@
 #include "Ghost.h"
 Ghost::Ghost() {
     m_coordinates.x = 26 * TILE_SIZE;
-    m_coordinates.y = 18 * TILE_SIZE;
+    m_coordinates.y = 19 * TILE_SIZE;
 
-    m_coordinates.h = TILE_SIZE - 0;
-    m_coordinates.w = TILE_SIZE - 0;
+    m_coordinates.h = TILE_SIZE;
+    m_coordinates.w = TILE_SIZE;
 }
 
 /*
@@ -46,6 +46,7 @@ void Ghost::checkMovementInput(Map *map) {
 }
 */
 void Ghost::moveCharacter(Map *map) {
+    int speed = 1;
     //Hmm hvis minus på en av aksene så betyr det under eller til høyre, har ikke brain capacity til å regne/tenke det ut
     if(distanceToTarget[0] != 0){
         if(distanceToTarget[0] < 0){
@@ -64,7 +65,6 @@ void Ghost::moveCharacter(Map *map) {
           //  distanceToTarget[1] = distanceToTarget[1] - 2 * TILE_SIZE;
         }
     }
-    speed += 0.5;
 }
 
 void Ghost::setDistanceToTarget(SDL_Rect pacmanPos) {
