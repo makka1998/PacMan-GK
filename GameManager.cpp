@@ -12,7 +12,7 @@ int GameManager::startGame() {
     windowLoader windowLoader;
     renderManager renderManager;
 
-    const int FPS = 60;
+    const int FPS = 30;
     const int frameDelay = 1000 / FPS;
     Uint32 frameStart;
     int frameTime;
@@ -32,10 +32,8 @@ int GameManager::startGame() {
         frameStart = SDL_GetTicks();
 
 
-        if(pacman.pathAvailable(level)) {
-
-        }
-        pacman.checkMovementInput();
+        pacman.calculateDeltaTime();
+        pacman.checkMovementInput(level);
         pacman.moveCharacter(level);
         pacman.collisionHandling(level);
         pacman.PickingUpPillHandler(*level);
