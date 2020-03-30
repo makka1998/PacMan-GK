@@ -19,7 +19,7 @@ int GameManager::startGame() {
     SDL_Event event;
     SDL_PollEvent(&event);
     // Lag et vindu med gitte settings
-    window = windowLoader.createWindow("Pacman");
+    window = windowLoader.createWindow("OrangeGhost");
 
     // Lag en renderer til det spesifikke vinduet. Setter Hardware accelerated flag.
     renderer = renderManager.createRenderer(window);
