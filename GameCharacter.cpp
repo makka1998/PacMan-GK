@@ -103,7 +103,7 @@ void GameCharacter::checkMovementInput(Map * map) {
 }
 
 void GameCharacter::moveCharacter(Map *map) {
-    double speed = 1;
+    double speed = 3;
 
     animationNumber++;
     if (animationNumber >= 13) {
