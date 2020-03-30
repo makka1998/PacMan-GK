@@ -99,3 +99,7 @@ void Pacman::renderCharacter(SDL_Rect srect []) {
     }
     SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[animationNumber - 1], &m_coordinates, angle, &center, SDL_FLIP_NONE);
 }
+
+SDL_Rect Pacman::getCoords(){
+    return m_coordinates;
+}

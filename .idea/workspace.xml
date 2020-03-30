@@ -12,11 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Ghost.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Ghost.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +97,9 @@
       <workItem from="1585231544896" duration="29253000" />
       <workItem from="1585278950933" duration="10127000" />
       <workItem from="1585315765399" duration="25326000" />
-      <workItem from="1585514019104" duration="9335000" />
+      <workItem from="1585514019104" duration="9553000" />
+      <workItem from="1585579444397" duration="1381000" />
+      <workItem from="1585581112741" duration="6362000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -149,7 +154,13 @@
       <option name="project" value="LOCAL" />
       <updated>1585347796193</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="- Added portal feature, so that when u go out of the map on either the left or right side you get ported to the other respective side.&#10;- Fixed the collision system so you cannot collide with a corner now. A bonus of fixing this is making the speed of the game being able to be scaled without goofing the collision.">
+      <created>1585531281330</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1585531281330</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +190,8 @@
     <MESSAGE value="Changed the tile size from 32x32 px to 16x16 px and pacman is now 14x14 px" />
     <MESSAGE value="- small texture changes with new corners that isnt that buggy&#10;- added more states on collision-checking (the new corners)." />
     <MESSAGE value="- Set up so you can change tile_size&#10;- Added a grid&#10;- you can now eat pills&#10;- cleaned up pacmans position in the grid" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Set up so you can change tile_size&#10;- Added a grid&#10;- you can now eat pills&#10;- cleaned up pacmans position in the grid" />
+    <MESSAGE value="- Added portal feature, so that when u go out of the map on either the left or right side you get ported to the other respective side.&#10;- Fixed the collision system so you cannot collide with a corner now. A bonus of fixing this is making the speed of the game being able to be scaled without goofing the collision." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added portal feature, so that when u go out of the map on either the left or right side you get ported to the other respective side.&#10;- Fixed the collision system so you cannot collide with a corner now. A bonus of fixing this is making the speed of the game being able to be scaled without goofing the collision." />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">

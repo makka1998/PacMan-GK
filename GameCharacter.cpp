@@ -103,7 +103,8 @@ void GameCharacter::checkMovementInput(Map * map) {
 }
 
 void GameCharacter::moveCharacter(Map *map) {
-    double speed = 5;
+    calculateDeltaTime();
+    int speed = 250 * deltaTime;
 
     animationNumber++;
     if (animationNumber >= 13) {
@@ -130,9 +131,9 @@ void GameCharacter::moveCharacter(Map *map) {
         angle = 90;
     }
 
-    if(m_coordinates.x == 0 && m_coordinates.y == 17 * TILE_SIZE){
+    if(m_coordinates.x < 2 && m_coordinates.y == 17 * TILE_SIZE){
         m_coordinates.x = 29 * TILE_SIZE;
-    } else if(m_coordinates.x == 30 * TILE_SIZE && m_coordinates.y == 17 * TILE_SIZE){
+    } else if((m_coordinates.x < 30.5 * TILE_SIZE && m_coordinates.x > 29.5 * TILE_SIZE) && m_coordinates.y == 17 * TILE_SIZE){
         m_coordinates.x = 1 * TILE_SIZE;
     }
 
@@ -341,7 +342,6 @@ void GameCharacter::calculateDeltaTime() {
     std::chrono::high_resolution_clock::time_point currentFrame = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> deltaTimeChrono = std::chrono::duration_cast<std::chrono::duration<double>>(currentFrame - lastFrame);
     deltaTime = deltaTimeChrono.count();
-    std::cout << deltaTime << std::endl;
     lastFrame = currentFrame;
 }
 
