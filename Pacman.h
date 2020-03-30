@@ -15,7 +15,7 @@ public:
     Pacman();
     int getPointsPickedUp(){ return point;}
     void PickingUpPillHandler(Map &map);
-
+    SDL_Rect getCoords();
     void renderCharacter(SDL_Rect *srect) override;
 };
 

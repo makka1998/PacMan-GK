@@ -1,11 +1,11 @@
 #include "GameManager.h"
 #include "Pacman.h"
-
+#include "Ghost.h"
 SDL_Window *window;
 SDL_Renderer *GameManager::renderer = nullptr;
 Map * level;
 Pacman pacman;
-
+Ghost ghost;
 
 
 
@@ -22,10 +22,10 @@ int GameManager::startGame() {
     renderManager renderManager;
     playSound();
 
-    const int FPS = 30;
-    const int frameDelay = 1000 / FPS;
-    Uint32 frameStart;
-    int frameTime;
+//    const int FPS = 45;
+//    const int frameDelay = 1000 / FPS;
+//    Uint32 frameStart;
+//    int frameTime;
     SDL_Event event;
     SDL_PollEvent(&event);
     // Lag et vindu med gitte settings
@@ -47,14 +47,16 @@ int GameManager::startGame() {
     const Uint8* quitter = SDL_GetKeyboardState(NULL);
     //----------------------------------------------------------------
     while (running) {
-        frameStart = SDL_GetTicks();
+        //frameStart = SDL_GetTicks();
 
 
-        pacman.calculateDeltaTime();
+        //pacman.calculateDeltaTime();
         pacman.checkMovementInput(level);
         pacman.moveCharacter(level);
         pacman.collisionHandling(level);
         pacman.PickingUpPillHandler(*level);
+        ghost.setDistanceToTarget(pacman.getCoords());
+        ghost.moveCharacter(level);
         PointsToTextureHandler(pacman.getPointsPickedUp());
 
         render();
@@ -62,10 +64,10 @@ int GameManager::startGame() {
             break;
         }
 
-        frameTime = SDL_GetTicks() - frameStart;
-        if (frameDelay > frameTime) {
-            SDL_Delay(frameDelay - frameTime);
-        }
+//        frameTime = SDL_GetTicks() - frameStart;
+//        if (frameDelay > frameTime) {
+//            SDL_Delay(frameDelay - frameTime);
+//        }
     }
 
     //----------------------------------------------------------------
@@ -83,6 +85,7 @@ void GameManager::render() {
     level->drawMap();
     showGrid();
     pacman.renderCharacter(srect);
+    ghost.renderCharacter();
     SDL_RenderPresent(renderer);
 }
 
