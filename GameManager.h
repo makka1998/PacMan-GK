@@ -6,8 +6,8 @@
 #include <iostream>
 #include <SDL.h>
 
-class Pacman;
-class Ghost;
+class OrangeGhost;
+class OrangeGhost;
 
 class GameManager {
 public:

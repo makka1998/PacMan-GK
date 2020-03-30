@@ -19,7 +19,7 @@ int GameManager::startGame() {
     SDL_Event event;
     SDL_PollEvent(&event);
     // Lag et vindu med gitte settings
-    window = windowLoader.createWindow("Pacman");
+    window = windowLoader.createWindow("OrangeGhost");
 
     // Lag en renderer til det spesifikke vinduet. Setter Hardware accelerated flag.
     renderer = renderManager.createRenderer(window);
@@ -28,6 +28,7 @@ int GameManager::startGame() {
     running = true;
     level = new Map("../Resources/mainLevel.txt");
     const Uint8* quitter = SDL_GetKeyboardState(NULL);
+    //----------------------------------------------------------------
     while (running) {
         //frameStart = SDL_GetTicks();
 
@@ -40,10 +41,8 @@ int GameManager::startGame() {
        // ghost.setDistanceToTarget(pacman.getCoords());
        // ghost.moveCharacter(level);
         PointsToTextureHandler(pacman.getPointsPickedUp());
-        render();
 
         render();
-
         if(quitter[SDL_SCANCODE_ESCAPE]){
             break;
         }
@@ -53,6 +52,9 @@ int GameManager::startGame() {
 //            SDL_Delay(frameDelay - frameTime);
 //        }
     }
+
+    //----------------------------------------------------------------
+
     SDL_DestroyWindow(window);
     SDL_Quit(); // Be SDL om å rydde opp
     return EXIT_SUCCESS;
