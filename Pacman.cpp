@@ -13,14 +13,18 @@ Pacman::Pacman() {
 }
 int counter = 0;
 void Pacman::PickingUpPillHandler(Map &map) {
-    auto openingSound = Mix_LoadWAV("../Resources/EatPillSound3.wav");
-    if( openingSound == nullptr )
+    auto eatPillSound = Mix_LoadWAV("../Resources/EatPillSound3.wav");
+    if(eatPillSound == nullptr )
     {
         printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
     }
     //OrangeGhost's position in ratio of the grid/tiles.
     int player_X = round((m_coordinates.x + (m_coordinates.w) / 2) / TILE_SIZE);
     int player_Y = round((m_coordinates.y + (m_coordinates.h) / 2) / TILE_SIZE);
+    if(point == 0){
+        m_coordinates.x = 14 * TILE_SIZE;
+        m_coordinates.y = 26 * TILE_SIZE;
+    }
     for (auto& tile : map.map) {
         int tile_X = tile.getCoordinates().x/TILE_SIZE;
         int tile_Y = tile.getCoordinates().y/TILE_SIZE;
@@ -35,10 +39,9 @@ void Pacman::PickingUpPillHandler(Map &map) {
                 if(Mix_Playing(-1) == 0)
                 {
                     //Play the music
-                    Mix_PlayChannel(-1, openingSound, 0 );
-                } else {
-                    std::cout << "lol" << std::endl;
+                    Mix_PlayChannel(-1, eatPillSound, 0 );
                 }
+
             }
 
         }

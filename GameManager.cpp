@@ -9,11 +9,11 @@ Pacman pacman;
 Ghost ghost;
 
 
-
-int GameManager::playSound(){
+void GameManager::playSound(){
     if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
     {
         printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+        return;
     }
 }
 
@@ -23,10 +23,6 @@ int GameManager::startGame() {
     renderManager renderManager;
     playSound();
 
-//    const int FPS = 45;
-//    const int frameDelay = 1000 / FPS;
-//    Uint32 frameStart;
-//    int frameTime;
     SDL_Event event;
     SDL_PollEvent(&event);
     // Lag et vindu med gitte settings
@@ -35,47 +31,52 @@ int GameManager::startGame() {
     // Lag en renderer til det spesifikke vinduet. Setter Hardware accelerated flag.
     renderer = renderManager.createRenderer(window);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-
+    int counter = 0;
     running = true;
-    level = new Map("../Resources/mainLevel.txt");
     calculateDeltaTime();
-    auto openingSound = Mix_LoadWAV("../Resources/pacman_beginning.wav");
-    if( openingSound == nullptr )
-    {
-        printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
-    }
-    Mix_Volume(-1, 5);
-    Mix_PlayChannel( -1, openingSound, 0 );
-    const Uint8* quitter = SDL_GetKeyboardState(NULL);
+    const Uint8 *quitter = SDL_GetKeyboardState(NULL);
     //----------------------------------------------------------------
-    while (running) {
-        //frameStart = SDL_GetTicks();
+    while(running){
 
-
-        calculateDeltaTime();
-        pacman.checkMovementInput(level);
-        pacman.moveCharacter(level);
-        pacman.collisionHandling(level);
-        pacman.PickingUpPillHandler(*level);
-
-        ghost.setDistanceToTarget(pacman.getCoords());
-        ghost.getMovementDirection(level);
-        ghost.moveCharacter(level);
-        ghost.collisionHandling(level);
-
-        PointsToTextureHandler(pacman.getPointsPickedUp());
-
-        render();
         if(quitter[SDL_SCANCODE_ESCAPE]){
             break;
         }
+            if(game_state == 1)
+            {
 
-//        frameTime = SDL_GetTicks() - frameStart;
-//        if (frameDelay > frameTime) {
-//            SDL_Delay(frameDelay - frameTime);
-//        }
+                level = new Map("../Resources/mainLevel.txt");
+                auto openingSound = Mix_LoadWAV("../Resources/pacman_beginning.wav");
+                if (openingSound == nullptr) {
+                    printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+                }
+                Mix_Volume(-1, 5);
+                Mix_PlayChannel(-1, openingSound, 0);
+                render();
+                game_state = 2;
+            }
+            if(game_state == 2)
+            {
+                pacman.checkMovementInput(level);
+                pacman.moveCharacter(level);
+                pacman.collisionHandling(level);
+                pacman.PickingUpPillHandler(*level);
+                ghost.setDistanceToTarget(pacman.getCoords());
+                ghost.moveCharacter(level);
+                render();
+
+                if (pacman.getPoints() == 80) {
+                    game_state = 1;
+                    pacman.setPoints(0);
+                    counter++;
+                }
+                if (counter == 2){
+                    break;
+            }
+        }
     }
-
+       /* if(pacman.getPoints() == 240){
+            running = false;
+        }*/ // If statement for å vinne spillet istedenfor resetting.
     //----------------------------------------------------------------
 
     SDL_DestroyWindow(window);
@@ -109,12 +110,6 @@ void GameManager::showGrid(){
          y += grid_cell_size) {
         SDL_RenderDrawLine(renderer, 0, y, WIDTH, y);
     }
-}
-
-void GameManager::PointsToTextureHandler(int points){
-    SDL_Rect source = { 15, 0,TILE_SIZE,TILE_SIZE};
-    SDL_Rect destination = { 10, 10, 32, 64 };
-
 }
 
 void GameManager::calculateDeltaTime() {

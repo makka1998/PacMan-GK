@@ -10,10 +10,12 @@
 class Pacman : public GameCharacter {
 private:
     SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_UP.png");
-    int point=0;
+    int point = 1;
+
 public:
     Pacman();
-    int getPointsPickedUp(){ return point;}
+    int getPoints() const { return point;}
+    void setPoints(int resetPoints){ point = resetPoints; }
     void PickingUpPillHandler(Map &map);
     SDL_Rect getCoords();
     void renderCharacter(SDL_Rect *srect) override;
