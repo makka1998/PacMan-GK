@@ -16,9 +16,7 @@ class Pacman;
 class GameManager {
 private:
     SDL_Rect srect [12];
-    void PointsToTextureHandler(int points);
     void showGrid();
-    int playSound();
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
     static void playSound();
     int game_state = 1;

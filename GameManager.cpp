@@ -56,12 +56,15 @@ int GameManager::startGame() {
             }
             if(game_state == 2)
             {
+                calculateDeltaTime();
                 pacman.checkMovementInput(level);
                 pacman.moveCharacter(level);
                 pacman.collisionHandling(level);
                 pacman.PickingUpPillHandler(*level);
                 ghost.setDistanceToTarget(pacman.getCoords());
+                ghost.getMovementDirection(level);
                 ghost.moveCharacter(level);
+                ghost.collisionHandling(level);
                 render();
 
                 if (pacman.getPoints() == 80) {
@@ -117,4 +120,5 @@ void GameManager::calculateDeltaTime() {
     auto deltaTimeChrono = std::chrono::duration_cast<std::chrono::duration<double>>(currentFrame - m_lastFrame);
     deltaTime = deltaTimeChrono.count();
     m_lastFrame = currentFrame;
+    std::cout << deltaTime << std::endl;
 }
