@@ -105,7 +105,7 @@ void GameCharacter::checkMovementInput(Map * map) {
 void GameCharacter::moveCharacter(Map *map) {
     calculateDeltaTime();
     int speed = 250 * deltaTime;
-
+    std::cout << speed << std::endl;
     animationNumber++;
     if (animationNumber >= 13) {
         animationNumber = 1;
