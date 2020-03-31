@@ -4,6 +4,7 @@
 #include "renderManager.h"
 #include "Map.h"
 #include <iostream>
+#include <chrono>
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include <SDL2/SDL_mixer.h>
@@ -13,21 +14,20 @@ class OrangeGhost;
 class Pacman;
 
 class GameManager {
-public:
-	int startGame();
-	static SDL_Renderer * renderer;
-	bool running;
-    void render();
-
 private:
-
     SDL_Rect srect [12];
-
     void PointsToTextureHandler(int points);
-
     void showGrid();
-
     int playSound();
+    std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
+public:
+    int startGame();
+    static SDL_Renderer * renderer;
+    static double deltaTime;
+    void calculateDeltaTime();
+    bool running;
+
+    void render();
 };
 
 #endif //PACMAN_GK_MASTER_GAMEMANAGER_H

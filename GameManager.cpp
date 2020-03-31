@@ -3,6 +3,7 @@
 #include "Ghost.h"
 SDL_Window *window;
 SDL_Renderer *GameManager::renderer = nullptr;
+double GameManager::deltaTime;
 Map * level;
 Pacman pacman;
 Ghost ghost;
@@ -37,6 +38,7 @@ int GameManager::startGame() {
 
     running = true;
     level = new Map("../Resources/mainLevel.txt");
+    calculateDeltaTime();
     auto openingSound = Mix_LoadWAV("../Resources/pacman_beginning.wav");
     if( openingSound == nullptr )
     {
@@ -50,13 +52,17 @@ int GameManager::startGame() {
         //frameStart = SDL_GetTicks();
 
 
-        //pacman.calculateDeltaTime();
+        calculateDeltaTime();
         pacman.checkMovementInput(level);
         pacman.moveCharacter(level);
         pacman.collisionHandling(level);
         pacman.PickingUpPillHandler(*level);
+
         ghost.setDistanceToTarget(pacman.getCoords());
+        ghost.getMovementDirection(level);
         ghost.moveCharacter(level);
+        ghost.collisionHandling(level);
+
         PointsToTextureHandler(pacman.getPointsPickedUp());
 
         render();
@@ -111,3 +117,9 @@ void GameManager::PointsToTextureHandler(int points){
 
 }
 
+void GameManager::calculateDeltaTime() {
+    auto currentFrame = std::chrono::high_resolution_clock::now();
+    auto deltaTimeChrono = std::chrono::duration_cast<std::chrono::duration<double>>(currentFrame - m_lastFrame);
+    deltaTime = deltaTimeChrono.count();
+    m_lastFrame = currentFrame;
+}

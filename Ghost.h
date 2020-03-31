@@ -10,11 +10,12 @@
 class Ghost : public GameCharacter {
 protected:
     SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_UP.png");
-    int distanceToTarget [2];
+    SDL_Rect m_pacmanPos;
+    int m_distanceToTarget [2];
 public:
     Ghost();
     void setDistanceToTarget(SDL_Rect pacmanPos);
-    //virtual void checkMovementInput(Map * map) override;
+    void getMovementDirection(Map * map);
     virtual void moveCharacter(Map * map) ;
     virtual void renderCharacter()  ;
 };

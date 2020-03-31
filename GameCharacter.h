@@ -8,7 +8,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "GameManager.h"
-#include <chrono>
 
 enum class direction{
     NONE,
@@ -26,16 +25,14 @@ protected:
     direction m_last_direction = direction::NONE;
     SDL_Rect m_coordinates;
     SDL_Texture * m_texture;
-    std::chrono::high_resolution_clock::time_point lastFrame;
-    double deltaTime;
-    int animationNumber;
+    int m_animationNumber;
+    int m_speed;
 public:
     GameCharacter();
     virtual void checkMovementInput(Map * map);
     virtual void moveCharacter(Map * map);
     bool isColliding(SDL_Rect character, SDL_Rect tile);
     void collisionHandling(Map * map);
-    void calculateDeltaTime();
     virtual void renderCharacter(SDL_Rect srect []);
     std::vector<bool> pathAvailable(Map *map);
     double angle = 0;

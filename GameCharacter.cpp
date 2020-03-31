@@ -73,13 +73,13 @@ void GameCharacter::checkMovementInput(Map * map) {
 //        if (m_direction == direction::UP) {
 //            for (Obstacle o : map->map) {
 //                if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th - 1 == o.getCoordinates().y / 16) {
-//                    m_coordinates.y += -speed;
+//                    m_coordinates.y += -m_speed;
 //                }
 //            }
 //        } else if (m_direction == direction::DOWN) {
 //            for (Obstacle o : map->map) {
 //                if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th + 1 == o.getCoordinates().y / 16) {
-//                    m_coordinates.y += speed;
+//                    m_coordinates.y += m_speed;
 //                }
 //            }
 //        }
@@ -103,31 +103,29 @@ void GameCharacter::checkMovementInput(Map * map) {
 }
 
 void GameCharacter::moveCharacter(Map *map) {
-    calculateDeltaTime();
-    int speed = 250 * deltaTime;
-
-    animationNumber++;
-    if (animationNumber >= 13) {
-        animationNumber = 1;
+    m_speed = 200 * GameManager::deltaTime;
+    m_animationNumber++;
+    if (m_animationNumber >= 13) {
+        m_animationNumber = 1;
     }
     if (m_keyStates[SDL_SCANCODE_TAB]) {
-        speed = 4;
+        m_speed = 4;
     }
 
     if (m_direction == direction::RIGHT) {
-        m_coordinates.x += speed;
+        m_coordinates.x += m_speed;
         angle = 0;
 
     } else if (m_direction == direction::LEFT) {
-        m_coordinates.x += -speed;
+        m_coordinates.x += -m_speed;
         angle = 180;
 
     } else if (m_direction == direction::UP) {
-        m_coordinates.y += -speed;
+        m_coordinates.y += -m_speed;
         angle = -90;
 
     } else if (m_direction == direction::DOWN) {
-        m_coordinates.y += speed;
+        m_coordinates.y += m_speed;
         angle = 90;
     }
 
@@ -338,14 +336,7 @@ std::vector<bool> GameCharacter::pathAvailable(Map *map) {
     return pathAvailable;
 }
 
-void GameCharacter::calculateDeltaTime() {
-    std::chrono::high_resolution_clock::time_point currentFrame = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> deltaTimeChrono = std::chrono::duration_cast<std::chrono::duration<double>>(currentFrame - lastFrame);
-    deltaTime = deltaTimeChrono.count();
-    lastFrame = currentFrame;
-}
-
 void GameCharacter::renderCharacter(SDL_Rect srect[]) {
-    SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[animationNumber - 1], &m_coordinates, angle, &center,
+    SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[m_animationNumber - 1], &m_coordinates, angle, &center,
                      SDL_FLIP_NONE);
 }
