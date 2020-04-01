@@ -38,8 +38,11 @@ int GameManager::startGame() {
     //----------------------------------------------------------------
     while(running){
 
+        if(quitter[SDL_SCANCODE_U]){
+            pacman.setHealth();
+        }
         if(quitter[SDL_SCANCODE_ESCAPE]){
-            break;
+            pacman.setHealth();
         }
             if(game_state == 1)
             {
@@ -91,10 +94,13 @@ void GameManager::render() {
     SDL_SetRenderDrawColor(renderer,0,0,0,0);
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer,128,128,128,128);
-
     level->drawMap();
     showGrid();
-    pacman.renderCharacter(srect);
+    if(pacman.getHealth() > 0){
+        pacman.renderCharacter(srect);
+    } else {
+        pacman.ripPacman(deathRect);
+    }
     ghost.renderCharacter();
     SDL_RenderPresent(renderer);
 }
