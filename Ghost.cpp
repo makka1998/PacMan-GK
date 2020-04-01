@@ -62,7 +62,9 @@ void Ghost::moveCharacter(Map *map) {
 }
 
 void Ghost::getMovementDirection(Map * map) {
-    if((m_distanceToTarget[0] * m_distanceToTarget[0]) >= (m_distanceToTarget[1] * m_distanceToTarget[1])){
+    int directionDecider;
+    //Checking which axis has the most amount of movement, making sure we dont have negative values by multiplying it with itself.
+    if((m_distanceToTarget[0] * m_distanceToTarget[0]) > (m_distanceToTarget[1] * m_distanceToTarget[1])){
         if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){
             m_direction = direction::LEFT;
         } else if (pathAvailable(map).at(3) && m_distanceToTarget[0] > 0){
@@ -70,13 +72,15 @@ void Ghost::getMovementDirection(Map * map) {
         } else {
             if(pathAvailable(map).at(0)){
                 m_direction = direction::UP;
-            }
-            if(pathAvailable(map).at(1)){
+                directionDecider = 1;
+            }else if(pathAvailable(map).at(1)){
                 m_direction = direction::DOWN;
+                directionDecider = 2;
             }
+            std::cout << "stuck x akse" << std::endl;
         }
        // std::cout << "X:" << m_distanceToTarget[0] << std::endl;
-    } else {
+    } else if ((m_distanceToTarget[0] * m_distanceToTarget[0]) < (m_distanceToTarget[1] * m_distanceToTarget[1])) {
         if (pathAvailable(map).at(0) && m_distanceToTarget[1] < 0){
             m_direction = direction::UP;
         } else if (pathAvailable(map).at(1) && m_distanceToTarget[1] > 0) {
@@ -84,12 +88,18 @@ void Ghost::getMovementDirection(Map * map) {
         } else {
             if(pathAvailable(map).at(3)){
                 m_direction = direction::RIGHT;
-            }
-            if(pathAvailable(map).at(2)){
+            } else if(pathAvailable(map).at(2)){
                 m_direction = direction::LEFT;
             }
+            std::cout << "stuck y akse" << std::endl;
         }
        // std::cout << "Y: " << m_distanceToTarget[1] << std::endl;
+    } else {
+        if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){
+            m_direction = direction::LEFT;
+        } else if (pathAvailable(map).at(3) && m_distanceToTarget[0] > 0) {
+            m_direction = direction::RIGHT;
+        }
     }
 
 

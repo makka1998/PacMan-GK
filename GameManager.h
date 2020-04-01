@@ -19,7 +19,7 @@ private:
     void PointsToTextureHandler(int points);
     void showGrid();
     int playSound();
-    std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
+    std::chrono::high_resolution_clock::time_point m_lastFrame;
 public:
     int startGame();
     static SDL_Renderer * renderer;
