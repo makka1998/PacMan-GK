@@ -50,6 +50,13 @@ int GameManager::startGame() {
         if(quitter[SDL_SCANCODE_ESCAPE]){
             break;
         }
+//        if(quitter[SDL_SCANCODE_P]){
+//            if(game_state == 2){
+//                game_state = 3;
+//            } else if(game_state == 3) { Potentiell løsning for å pause programmet, problemet er at når man trykker på P så går den insta inn i gamestate 1 igjen :o - Martin
+//                game_state = 1;
+//        }
+//        }
             if(game_state == 1)
             {
 
@@ -58,13 +65,18 @@ int GameManager::startGame() {
                 if (openingSound == nullptr) {
                     printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
                 }
+
                 Mix_Volume(-1, 5);
-                Mix_PlayChannel(-1, openingSound, 0);
-                render();
+                Mix_PlayChannel(1, openingSound, 0);
+
+               // while(!(Mix_Playing(1) == 0)){
+                    //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
+               //}
                 game_state = 2;
             }
             if(game_state == 2)
             {
+
                 calculateDeltaTime();
                 pacman.checkMovementInput(level);
                 pacman.moveCharacter(level);
@@ -96,6 +108,9 @@ int GameManager::startGame() {
 //                }
                 if (counter == 2){
                     break;
+            }
+            if(game_state == 3){
+                // Do fuck all
             }
         }
     }

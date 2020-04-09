@@ -11,7 +11,6 @@ Pacman::Pacman() {
     m_coordinates.h = TILE_SIZE;
     m_coordinates.w = TILE_SIZE;
 }
-int counter = 0;
 void Pacman::PickingUpPillHandler(Map &map) {
     auto eatPillSound = Mix_LoadWAV("../Resources/EatPillSound3.wav");
     if(eatPillSound == nullptr )
@@ -113,6 +112,7 @@ void Pacman::renderCharacter(SDL_Rect srect []) {
         srect[11].w = TILE_SIZE;
     }
     SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[m_animationNumber - 1], &m_coordinates, angle, &center, SDL_FLIP_NONE);
+    SDL_DestroyTexture(m_texture);
 }
 
 void Pacman::ripPacman(SDL_Rect srect []){
@@ -178,6 +178,7 @@ void Pacman::ripPacman(SDL_Rect srect []){
             srect[10].w = TILE_SIZE;
         }
         SDL_RenderCopy(GameManager::renderer, m_texture, &srect[m_animationNumber - 1], &m_coordinates);
+        SDL_DestroyTexture(m_texture);
 }
 
 SDL_Rect Pacman::getCoords(){
