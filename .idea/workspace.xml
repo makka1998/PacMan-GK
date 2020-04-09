@@ -12,22 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BlueGhost.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlueGhost.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PinkGhost.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PinkGhost.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RedGhost.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RedGhost.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrangeGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/OrangeGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrangeGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/OrangeGhost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/mainLevel.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/mainLevel.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -116,7 +104,8 @@
       <workItem from="1586177899509" duration="9719000" />
       <workItem from="1586274520341" duration="10253000" />
       <workItem from="1586355840541" duration="6889000" />
-      <workItem from="1586379775248" duration="11660000" />
+      <workItem from="1586379775248" duration="11858000" />
+      <workItem from="1586438626376" duration="4157000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -183,7 +172,19 @@
       <option name="presentableId" value="LOCAL−00010" />
       <updated>1585682722426</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL−00011" summary="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something.">
+      <created>1586398600192</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1586398600192</updated>
+    </task>
+    <task id="LOCAL−00012" summary="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something.">
+      <created>1586398685814</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1586398685814</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +216,8 @@
     <MESSAGE value="- Set up so you can change tile_size&#10;- Added a grid&#10;- you can now eat pills&#10;- cleaned up pacmans position in the grid" />
     <MESSAGE value="- Made deltaTime a static variable so everyone can access it. &#10;- Made slight improvements to the ai of the ghost." />
     <MESSAGE value="- Merged ghosts update and resetting of game update" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Merged ghosts update and resetting of game update" />
+    <MESSAGE value="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something." />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">

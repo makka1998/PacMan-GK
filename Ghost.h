@@ -23,7 +23,7 @@ public:
     virtual void getMovementDirection(Map * map);
     virtual void moveCharacter(Map * map);
     virtual void renderCharacter();
-    std::vector<bool> pathAvailable(Map * map) override;
+    void isCollidingWithPacman(SDL_Rect pacman);
 };
 
 

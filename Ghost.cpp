@@ -55,7 +55,7 @@ void Ghost::checkMovementInput(Map *map) {
 }
 */
 void Ghost::moveCharacter(Map *map) {
-    m_speed = 250 * GameManager::deltaTime;
+    m_speed = 100 * GameManager::deltaTime;
     //m_speed = 3;
     if (m_direction == direction::RIGHT) {
         m_coordinates.x += m_speed;
@@ -360,64 +360,13 @@ void Ghost::setDistanceToTarget(int startingDest []) {
 }
 
 
-std::vector<bool> Ghost::pathAvailable(Map *map) {
-    std::vector<bool> pathAvailable = {false, false, false, false};
-    // By adding width and height to characters x and y coordinates, we get coordiantes for their center.
-    int xCoord = round((m_coordinates.x + (m_coordinates.w / 2)) / TILE_SIZE);
-    int yCoord = round((m_coordinates.y + (m_coordinates.h / 2)) / TILE_SIZE);
-    //int xCoord = m_coordinates.x;
-    //int yCoord = m_coordinates.y;
-
-//    for (Obstacle o : map->map) {
-//        if (xCoord + TILE_SIZE == o.getCoordinates().x && yCoord == o.getCoordinates().y) {
-//            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
-//                pathAvailable.at(3) = true;
-//            }
-//        }
-//        if (xCoord - TILE_SIZE == o.getCoordinates().x && yCoord == o.getCoordinates().y) {
-//            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
-//                pathAvailable.at(2) = true;
-//                std::cout << "fy faen jeg holder på å bli gal, vil gråte!" << std::endl;
-//            }
-//        }
-//        if (xCoord == o.getCoordinates().x && yCoord + TILE_SIZE == o.getCoordinates().y) {
-//            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
-//                pathAvailable.at(1) = true;
-//            }
-//        }
-//        if (xCoord == o.getCoordinates().x && yCoord - TILE_SIZE == o.getCoordinates().y) {
-//            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
-//                pathAvailable.at(0) = true;
-//            }
-//        }
-//    }
-
-
-    for (Obstacle o : map->map) {
-        if (xCoord + 1 == o.getCoordinates().x / TILE_SIZE && yCoord == o.getCoordinates().y / TILE_SIZE) {
-            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
-                pathAvailable.at(3) = true;
-            }
-        }
-        if (xCoord - 1 == o.getCoordinates().x / TILE_SIZE && yCoord == o.getCoordinates().y / TILE_SIZE) {
-            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
-                pathAvailable.at(2) = true;
-            }
-        }
-        if (xCoord == o.getCoordinates().x / TILE_SIZE && yCoord + 1 == o.getCoordinates().y / TILE_SIZE) {
-            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
-                pathAvailable.at(1) = true;
-            }
-        }
-        if (xCoord == o.getCoordinates().x / TILE_SIZE && yCoord - 1 == o.getCoordinates().y / TILE_SIZE) {
-            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
-                pathAvailable.at(0) = true;
-            }
-        }
-    }
-    return pathAvailable;
-}
-
 void Ghost::renderCharacter() {
 
+}
+
+void Ghost::isCollidingWithPacman(SDL_Rect pacman){
+     if(SDL_HasIntersection(&m_coordinates, &pacman)){
+         std::cout << "au jeg krasjet!" << std::endl;
+         SDL_Quit();
+     }
 }
