@@ -82,7 +82,7 @@ int GameManager::startGame() {
                 pacman.moveCharacter(level);
                 pacman.collisionHandling(level);
                 pacman.PickingUpPillHandler(*level);
-                /*
+
                 Rghost.getMovementDirection(level);
                 Rghost.moveCharacter(level);
                 Rghost.collisionHandling(level);
@@ -94,7 +94,7 @@ int GameManager::startGame() {
                 Bghost.getMovementDirection(level);
                 Bghost.moveCharacter(level);
                 Bghost.collisionHandling(level);
-                */
+
                 Oghost.getMovementDirection(level);
                 Oghost.moveCharacter(level);
                 Oghost.collisionHandling(level);
