@@ -9,15 +9,21 @@
 
 class Ghost : public GameCharacter {
 protected:
-    SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_UP.png");
+    SDL_Texture* m_texture;
     SDL_Rect m_pacmanPos;
+    int m_startingDestination [2];
+    direction m_direction = direction::NONE;
     int m_distanceToTarget [2];
+    bool m_startingDestinationReached = false;
+    std::vector<bool> wayPointsReached;
+    std::vector<int> wayPoints;
 public:
-    Ghost();
-    void setDistanceToTarget(SDL_Rect pacmanPos);
-    void getMovementDirection(Map * map);
-    virtual void moveCharacter(Map * map) ;
-    virtual void renderCharacter()  ;
+    Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
+    void setDistanceToTarget(int pacmanPos []);
+    virtual void getMovementDirection(Map * map);
+    virtual void moveCharacter(Map * map);
+    virtual void renderCharacter();
+    std::vector<bool> pathAvailable(Map * map) override;
 };
 
 

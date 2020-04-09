@@ -1,13 +1,19 @@
 #include "GameManager.h"
 #include "Pacman.h"
-#include "Ghost.h"
+#include "RedGhost.h"
+#include "BlueGhost.h"
+#include "PinkGhost.h"
+#include "OrangeGhost.h"
+
 SDL_Window *window;
 SDL_Renderer *GameManager::renderer = nullptr;
 double GameManager::deltaTime;
 Map * level;
 Pacman pacman;
-Ghost ghost;
-
+RedGhost Rghost(12, 16, 15, 12, 11, 9, 8, 7 );
+BlueGhost Bghost(17, 16, 13, 12, 17, 9, 20, 7);
+PinkGhost Pghost(12, 18, 15, 12, 8, 24, 5, 26);
+OrangeGhost Oghost(17, 18, 13, 12, 20, 24, 23, 26);
 
 void GameManager::playSound(){
     if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
@@ -42,7 +48,7 @@ int GameManager::startGame() {
             pacman.setHealth();
         }
         if(quitter[SDL_SCANCODE_ESCAPE]){
-            pacman.setHealth();
+            break;
         }
             if(game_state == 1)
             {
@@ -64,17 +70,30 @@ int GameManager::startGame() {
                 pacman.moveCharacter(level);
                 pacman.collisionHandling(level);
                 pacman.PickingUpPillHandler(*level);
-                ghost.setDistanceToTarget(pacman.getCoords());
-                ghost.getMovementDirection(level);
-                ghost.moveCharacter(level);
-                ghost.collisionHandling(level);
+                /*
+                Rghost.getMovementDirection(level);
+                Rghost.moveCharacter(level);
+                Rghost.collisionHandling(level);
+
+                Pghost.getMovementDirection(level);
+                Pghost.moveCharacter(level);
+                Pghost.collisionHandling(level);
+
+                Bghost.getMovementDirection(level);
+                Bghost.moveCharacter(level);
+                Bghost.collisionHandling(level);
+                */
+                Oghost.getMovementDirection(level);
+                Oghost.moveCharacter(level);
+                Oghost.collisionHandling(level);
+
                 render();
 
-                if (pacman.getPoints() == 80) {
-                    game_state = 1;
-                    pacman.setPoints(0);
-                    counter++;
-                }
+//                if (pacman.getPoints() == 80) {
+//                    game_state = 1;
+//                    pacman.setPoints(0);
+//                    counter++;
+//                }
                 if (counter == 2){
                     break;
             }
@@ -101,7 +120,10 @@ void GameManager::render() {
     } else {
         pacman.ripPacman(deathRect);
     }
-    ghost.renderCharacter();
+    Rghost.renderCharacter();
+    Bghost.renderCharacter();
+    Pghost.renderCharacter();
+    Oghost.renderCharacter();
     SDL_RenderPresent(renderer);
 }
 
@@ -126,5 +148,4 @@ void GameManager::calculateDeltaTime() {
     auto deltaTimeChrono = std::chrono::duration_cast<std::chrono::duration<double>>(currentFrame - m_lastFrame);
     deltaTime = deltaTimeChrono.count();
     m_lastFrame = currentFrame;
-    std::cout << deltaTime << std::endl;
 }

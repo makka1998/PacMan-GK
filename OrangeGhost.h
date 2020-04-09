@@ -1,19 +1,20 @@
 //
-// Created by Tobias on 28.03.2020.
+// Created by Tobias on 08.04.2020.
 //
 
-#ifndef PACMAN_GK_MASTER_PACMAN_H
-#define PACMAN_GK_MASTER_PACMAN_H
+#ifndef PACMAN_GK_MASTER_ORANGEGHOST_H
+#define PACMAN_GK_MASTER_ORANGEGHOST_H
 
-#include "GameCharacter.h"
+#include "Ghost.h"
 
-class OrangeGhost : public GameCharacter {
+class OrangeGhost : public Ghost{
 private:
-    SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Real_Pacman_UP.png");
+
 public:
-    OrangeGhost();
-    void renderCharacter(SDL_Rect *srect) override;
+    OrangeGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
+    void getMovementDirection(Map * map) override;
+    void renderCharacter() override;
 };
 
 
-#endif //PACMAN_GK_MASTER_PACMAN_H
+#endif //PACMAN_GK_MASTER_ORANGEGHOST_H

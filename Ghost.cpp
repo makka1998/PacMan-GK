@@ -3,12 +3,21 @@
 //
 
 #include "Ghost.h"
-Ghost::Ghost() {
-    m_coordinates.x = 24 * TILE_SIZE;
-    m_coordinates.y = 4 * TILE_SIZE;
+
+//Fiks denne constructoren så den ser pen ut
+Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) {
+    m_coordinates.x = x * TILE_SIZE;
+    m_coordinates.y = y * TILE_SIZE;
 
     m_coordinates.h = TILE_SIZE;
     m_coordinates.w = TILE_SIZE;
+
+    m_startingDestination[0] = 9;
+    m_startingDestination[1] = 11;
+
+    wayPointsReached  = {false, false, false, false, false, false, false};
+    wayPoints = {wp1, wp2, wp3, wp4, wp5, wp6};
+    setDistanceToTarget(m_startingDestination);
 }
 
 /*
@@ -47,7 +56,7 @@ void Ghost::checkMovementInput(Map *map) {
 */
 void Ghost::moveCharacter(Map *map) {
     m_speed = 250 * GameManager::deltaTime;
-
+    //m_speed = 3;
     if (m_direction == direction::RIGHT) {
         m_coordinates.x += m_speed;
 
@@ -61,47 +70,186 @@ void Ghost::moveCharacter(Map *map) {
     }
 }
 
-void Ghost::getMovementDirection(Map * map) {
-    int directionDecider;
-    //Checking which axis has the most amount of movement, making sure we dont have negative values by multiplying it with itself.
-    if((m_distanceToTarget[0] * m_distanceToTarget[0]) > (m_distanceToTarget[1] * m_distanceToTarget[1])){
-        if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){
-            m_direction = direction::LEFT;
-        } else if (pathAvailable(map).at(3) && m_distanceToTarget[0] > 0){
-            m_direction = direction::RIGHT;
-        } else {
-            if(pathAvailable(map).at(0)){
-                m_direction = direction::UP;
-                directionDecider = 1;
-            }else if(pathAvailable(map).at(1)){
-                m_direction = direction::DOWN;
-                directionDecider = 2;
-            }
-            std::cout << "stuck x akse" << std::endl;
-        }
-       // std::cout << "X:" << m_distanceToTarget[0] << std::endl;
-    } else if ((m_distanceToTarget[0] * m_distanceToTarget[0]) < (m_distanceToTarget[1] * m_distanceToTarget[1])) {
-        if (pathAvailable(map).at(0) && m_distanceToTarget[1] < 0){
-            m_direction = direction::UP;
-        } else if (pathAvailable(map).at(1) && m_distanceToTarget[1] > 0) {
-            m_direction = direction::DOWN;
-        } else {
-            if(pathAvailable(map).at(3)){
-                m_direction = direction::RIGHT;
-            } else if(pathAvailable(map).at(2)){
-                m_direction = direction::LEFT;
-            }
-            std::cout << "stuck y akse" << std::endl;
-        }
-       // std::cout << "Y: " << m_distanceToTarget[1] << std::endl;
-    } else {
-        if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){
-            m_direction = direction::LEFT;
-        } else if (pathAvailable(map).at(3) && m_distanceToTarget[0] > 0) {
-            m_direction = direction::RIGHT;
-        }
-    }
+void Ghost::getMovementDirection(Map *map) {
 
+
+
+//    if(pathAvailable(map).at(0)){
+//        if(m_direction != direction::UP){
+//            if(m_last_direction != direction::DOWN){
+//                m_last_direction = m_direction;
+//                m_direction = direction::UP;
+//            }
+//        }
+//        std::cout << "OPP!" << std::endl;
+//    }
+//    if (pathAvailable(map).at(3)){
+//        if(m_direction != direction::RIGHT){
+//            if(m_last_direction != direction::LEFT){
+//                m_last_direction = m_direction;
+//                m_direction = direction::RIGHT;
+//            }
+//        }
+//        std::cout << "HØYRE!" << std::endl;
+//    }
+//    if (pathAvailable(map).at(1)){
+//        if(m_direction != direction::DOWN){
+//            if( m_last_direction != direction::UP){
+//                m_last_direction = m_direction;
+//                m_direction = direction::DOWN;
+//            }
+//        }
+//        std::cout << "NED!" << std::endl;
+//    }
+//    if (pathAvailable(map).at(2)){
+//        if(m_direction != direction::LEFT){
+//            if(m_last_direction != direction::RIGHT){
+//                m_last_direction = m_direction;
+//                m_direction = direction::LEFT;
+//            }
+//        }
+//        std::cout << "VENSTRE!" << std::endl;
+//    }
+
+
+//    if(pathAvailable(map).at(0)){
+//        if(m_direction != direction::UP){
+//            m_last_direction = m_direction;
+//            m_direction = direction::UP;
+//        }
+//    } else if (pathAvailable(map).at(1)){
+//        if(m_direction != direction::DOWN){
+//            m_last_direction = m_direction;
+//            m_direction = direction::DOWN;
+//        }
+//    } else if(pathAvailable(map).at(2)){
+//        if(m_direction != direction::LEFT){
+//            m_last_direction = m_direction;
+//            m_direction = direction::LEFT;
+//        }
+//    } else if(pathAvailable(map).at(3)) {
+//        if(m_direction != direction::RIGHT){
+//            m_last_direction = m_direction;
+//            m_direction = direction::RIGHT;
+//        }
+//    }
+
+//    //Checking which axis has the most amount of movement, making sure we dont have negative values by multiplying it with itself.
+//    if((m_distanceToTarget[0] * m_distanceToTarget[0]) > (m_distanceToTarget[1] * m_distanceToTarget[1])){
+//        if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){
+//            if(m_direction != direction::LEFT){
+//                m_last_direction = m_direction;
+//                m_direction = direction::LEFT;
+//            }
+//        } else if (pathAvailable(map).at(3) && m_distanceToTarget[0] > 0){
+//            if(m_direction != direction::RIGHT){
+//                m_last_direction = m_direction;
+//                m_direction = direction::RIGHT;
+//            }
+//        } else {
+//            if(pathAvailable(map).at(0)){
+//                if(m_direction != direction::UP){
+//                    if(m_last_direction != direction::DOWN){
+//                        m_last_direction = m_direction;
+//                        m_direction = direction::UP;
+//                    }
+//                }
+//            }else if(pathAvailable(map).at(1)){
+//                if(m_direction != direction::DOWN){
+//                    if(m_last_direction != direction::UP){
+//                        m_last_direction = m_direction;
+//                        m_direction = direction::DOWN;
+//                    }
+//                }
+//            }
+//            std::cout << "stuck x akse" << std::endl;
+//        }
+//       // std::cout << "X:" << m_distanceToTarget[0] << std::endl;
+//    } else if ((m_distanceToTarget[0] * m_distanceToTarget[0]) < (m_distanceToTarget[1] * m_distanceToTarget[1])) {
+//        if (pathAvailable(map).at(0) && m_distanceToTarget[1] < 0){
+//            if(m_direction != direction::UP){
+//                m_last_direction = m_direction;
+//                m_direction = direction::UP;
+//            }
+//        } else if (pathAvailable(map).at(1) && m_distanceToTarget[1] > 0) {
+//            if(m_direction != direction::DOWN){
+//                m_last_direction = m_direction;
+//                m_direction = direction::DOWN;
+//            }
+//        } else {
+//            if(pathAvailable(map).at(3)){ //Hvis lastDir var opp || ned && !(lastDir == LEFT)
+//                if(m_direction != direction::RIGHT){
+//                    if(m_last_direction != direction::LEFT){
+//                        m_last_direction = m_direction;
+//                        m_direction = direction::RIGHT;
+//                    }
+//                }
+//            } else if(pathAvailable(map).at(2)){ //Hvis lastDir var opp || ned && !(lastDir == RIGHT)
+//                if(m_direction != direction::LEFT){
+//                    if(m_last_direction != direction::RIGHT){
+//                        m_last_direction = m_direction;
+//                        m_direction = direction::LEFT;
+//                    }
+//                }
+//            }
+//            std::cout << "stuck y akse" << std::endl;
+//        }
+//       // std::cout << "Y: " << m_distanceToTarget[1] << std::endl;
+//       }
+
+
+
+
+
+
+
+
+
+//    else {
+//        if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){
+//            m_direction = direction::LEFT;
+//        } else if (pathAvailable(map).at(0) && m_distanceToTarget[1] < 0) {
+//            m_direction = direction::UP;
+//        }
+//    }
+
+
+//    if(pathAvailable(map).at(0)){
+//        if(m_direction != direction::UP){
+//            if(m_last_direction != direction::DOWN){
+//                m_last_direction = m_direction;
+//                m_direction = direction::UP;
+//            }
+//        }
+//        std::cout << "OPP!" << std::endl;
+//    }
+//    if (pathAvailable(map).at(3)){
+//        if(m_direction != direction::RIGHT){
+//            if(m_last_direction != direction::LEFT){
+//                m_last_direction = m_direction;
+//                m_direction = direction::RIGHT;
+//            }
+//        }
+//        std::cout << "HØYRE!" << std::endl;
+//    }
+//    if (pathAvailable(map).at(1)){
+//        if(m_direction != direction::DOWN){
+//            if( m_last_direction != direction::UP){
+//                m_last_direction = m_direction;
+//                m_direction = direction::DOWN;
+//            }
+//        }
+//        std::cout << "NED!" << std::endl;
+//    }
+//    if (pathAvailable(map).at(2)){
+//        if(m_direction != direction::LEFT){
+//            if(m_last_direction != direction::RIGHT){
+//                m_last_direction = m_direction;
+//                m_direction = direction::LEFT;
+//            }
+//        }
+//        std::cout << "VENSTRE!" << std::endl;
+//    }
 
 
 //    if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){
@@ -130,29 +278,29 @@ void Ghost::getMovementDirection(Map * map) {
     /*
      if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){ // Er det mulig å dra til venstre og er pacman til venstre for meg?
         m_direction = direction::LEFT; // Dra til venstre
-    } else if (){
+    } else {
         m_direction = direction::RIGHT;
         std::cout << "left 1.2" << std::endl;
     }
     if (pathAvailable(map).at(3) && m_distanceToTarget[0] > 0){
         m_direction = direction::RIGHT;
-    } else if (){
+    } else {
         m_direction = direction::LEFT;
         std::cout << "right 1.2" << std::endl;
     }
     if (pathAvailable(map).at(0) && m_distanceToTarget[1] < 0){
         m_direction = direction::UP;
-    } else if (){
+    } else{
         m_direction = direction::DOWN;
         std::cout << "up 1.2" << std::endl;
     }
     if (pathAvailable(map).at(1) && m_distanceToTarget[1] > 0) {
         m_direction = direction::DOWN;
-    } else if (){
+    } else {
         m_direction = direction::UP;
         std::cout << "down 1.2" << std::endl;
     }
-     */
+    */
 
     /*
      if(distanceToTarget[0] != 0){
@@ -203,20 +351,73 @@ void Ghost::getMovementDirection(Map * map) {
     }
 
      */
+
 }
 
-void Ghost::setDistanceToTarget(SDL_Rect pacmanPos) {
-    m_distanceToTarget[0] = pacmanPos.x - m_coordinates.x;
-    m_distanceToTarget[1] = pacmanPos.y - m_coordinates.y;
-    m_pacmanPos = pacmanPos;
+void Ghost::setDistanceToTarget(int startingDest []) {
+    m_distanceToTarget[0] = startingDest[0] - m_coordinates.x / TILE_SIZE;
+    m_distanceToTarget[1] = startingDest[1] - m_coordinates.y / TILE_SIZE;
+}
+
+
+std::vector<bool> Ghost::pathAvailable(Map *map) {
+    std::vector<bool> pathAvailable = {false, false, false, false};
+    // By adding width and height to characters x and y coordinates, we get coordiantes for their center.
+    int xCoord = round((m_coordinates.x + (m_coordinates.w / 2)) / TILE_SIZE);
+    int yCoord = round((m_coordinates.y + (m_coordinates.h / 2)) / TILE_SIZE);
+    //int xCoord = m_coordinates.x;
+    //int yCoord = m_coordinates.y;
+
+//    for (Obstacle o : map->map) {
+//        if (xCoord + TILE_SIZE == o.getCoordinates().x && yCoord == o.getCoordinates().y) {
+//            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+//                pathAvailable.at(3) = true;
+//            }
+//        }
+//        if (xCoord - TILE_SIZE == o.getCoordinates().x && yCoord == o.getCoordinates().y) {
+//            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+//                pathAvailable.at(2) = true;
+//                std::cout << "fy faen jeg holder på å bli gal, vil gråte!" << std::endl;
+//            }
+//        }
+//        if (xCoord == o.getCoordinates().x && yCoord + TILE_SIZE == o.getCoordinates().y) {
+//            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+//                pathAvailable.at(1) = true;
+//            }
+//        }
+//        if (xCoord == o.getCoordinates().x && yCoord - TILE_SIZE == o.getCoordinates().y) {
+//            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+//                pathAvailable.at(0) = true;
+//            }
+//        }
+//    }
+
+
+    for (Obstacle o : map->map) {
+        if (xCoord + 1 == o.getCoordinates().x / TILE_SIZE && yCoord == o.getCoordinates().y / TILE_SIZE) {
+            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+                pathAvailable.at(3) = true;
+            }
+        }
+        if (xCoord - 1 == o.getCoordinates().x / TILE_SIZE && yCoord == o.getCoordinates().y / TILE_SIZE) {
+            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+                pathAvailable.at(2) = true;
+            }
+        }
+        if (xCoord == o.getCoordinates().x / TILE_SIZE && yCoord + 1 == o.getCoordinates().y / TILE_SIZE) {
+            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+                pathAvailable.at(1) = true;
+            }
+        }
+        if (xCoord == o.getCoordinates().x / TILE_SIZE && yCoord - 1 == o.getCoordinates().y / TILE_SIZE) {
+            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
+                pathAvailable.at(0) = true;
+            }
+        }
+    }
+    return pathAvailable;
 }
 
 void Ghost::renderCharacter() {
-    m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
-    SDL_Rect srect;
-    srect.y = 4 * TILE_SIZE;
-    srect.x = 0;
-    srect.h = TILE_SIZE;
-    srect.w = TILE_SIZE;
-    SDL_RenderCopy(GameManager::renderer, m_texture, &srect, &m_coordinates);
+
 }

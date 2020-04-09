@@ -34,7 +34,7 @@ public:
     bool isColliding(SDL_Rect character, SDL_Rect tile);
     void collisionHandling(Map * map);
     virtual void renderCharacter(SDL_Rect srect []);
-    std::vector<bool> pathAvailable(Map *map);
+    virtual std::vector<bool> pathAvailable(Map *map);
     double angle = 0;
     SDL_Point center = {10,10};
 };

@@ -193,8 +193,9 @@ void GameCharacter::moveCharacter(Map *map) {
     }
 */
 
-    int xCoord16th = m_coordinates.x / 16;
-    int yCoord16th = m_coordinates.y / 16;
+    int xCoord16th = m_coordinates.x / TILE_SIZE;
+    int yCoord16th = m_coordinates.y / TILE_SIZE;
+    //std::cout << "X: " << xCoord16th << " Y: " << yCoord16th << std::endl;
 //
 //    int MxCoord16th = m_coordinates.x / 16;
 //    int Mycoord16th = m_coordinates.y / 16;
@@ -309,8 +310,9 @@ bool GameCharacter::isColliding(SDL_Rect player, SDL_Rect tile) {
 std::vector<bool> GameCharacter::pathAvailable(Map *map) {
     std::vector<bool> pathAvailable = {false, false, false, false};
     // By adding width and height to characters x and y coordinates, we get coordiantes for their center.
-    int xCoord = round((m_coordinates.x + (m_coordinates.w) / 2) / TILE_SIZE);;
-    int yCoord = round((m_coordinates.y + (m_coordinates.h) / 2) / TILE_SIZE);;
+    int xCoord = round((m_coordinates.x + (m_coordinates.w / 2)) / TILE_SIZE);
+    int yCoord = round((m_coordinates.y + (m_coordinates.h / 2)) / TILE_SIZE);
+
     for (Obstacle o : map->map) {
         if (xCoord + 1 == o.getCoordinates().x / TILE_SIZE && yCoord == o.getCoordinates().y / TILE_SIZE) {
             if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
