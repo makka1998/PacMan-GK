@@ -40,23 +40,19 @@ int GameManager::startGame() {
     int counter = 0;
     running = true;
     calculateDeltaTime();
-    const Uint8 *quitter = SDL_GetKeyboardState(NULL);
+    const Uint8 *getKeyboardInput = SDL_GetKeyboardState(NULL);
     //----------------------------------------------------------------
     while(running){
 
-        if(quitter[SDL_SCANCODE_U]){
+        if(getKeyboardInput[SDL_SCANCODE_U]){
             pacman.setHealth();
         }
-        if(quitter[SDL_SCANCODE_ESCAPE]){
+        if(getKeyboardInput[SDL_SCANCODE_ESCAPE]){
             break;
         }
-//        if(quitter[SDL_SCANCODE_P]){
-//            if(game_state == 2){
-//                game_state = 3;
-//            } else if(game_state == 3) { Potentiell løsning for å pause programmet, problemet er at når man trykker på P så går den insta inn i gamestate 1 igjen :o - Martin
-//                game_state = 1;
-//        }
-//        }
+        if(getKeyboardInput[SDL_SCANCODE_P]){
+              game_state = 3;
+          }
             if(game_state == 1)
             {
 
@@ -69,9 +65,6 @@ int GameManager::startGame() {
                 Mix_Volume(-1, 5);
                 Mix_PlayChannel(1, openingSound, 0);
 
-               // while(!(Mix_Playing(1) == 0)){
-                    //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
-               //}
                 game_state = 2;
             }
             if(game_state == 2)
@@ -103,7 +96,6 @@ int GameManager::startGame() {
                 Oghost.collisionHandling(level);
                 Oghost.isCollidingWithPacman(pacman.getCoords());
                 render();
-
 //                if (pacman.getPoints() == 80) {
 //                    game_state = 1;
 //                    pacman.setPoints(0);
@@ -112,10 +104,14 @@ int GameManager::startGame() {
                 if (counter == 2){
                     break;
             }
+            }
             if(game_state == 3){
+                if(getKeyboardInput[SDL_SCANCODE_P]){
+                    game_state = 2;
+                }
                 // Do fuck all
             }
-        }
+
     }
        /* if(pacman.getPoints() == 240){
             running = false;

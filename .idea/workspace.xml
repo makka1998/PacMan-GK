@@ -13,12 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/mainLevel.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/mainLevel.txt" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,28 +49,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Tobias\CLionProjects\PacMan-GK" />
       <recent name="C:\Users\Martin\CLionProjects\Ayyo\PacMan-GK\Resources\Old_Tilesets" />
       <recent name="C:\Users\Martin\CLionProjects\Ayyo\PacMan-GK\Resources" />
       <recent name="C:\Users\Tobias\CLionProjects\PacMan-GK\Resources" />
       <recent name="C:\Users\Martin\PacMan-GK\Resources" />
+      <recent name="C:\Users\Martin\PacMan-GK" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="PacMan-GK-master" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PacMan-GK-master" TARGET_NAME="PacMan-GK-master" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PacMan-GK-master" RUN_TARGET_NAME="PacMan-GK-master">
@@ -80,6 +65,18 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -99,13 +96,9 @@
       <workItem from="1585315765399" duration="25326000" />
       <workItem from="1585514019104" duration="9335000" />
       <workItem from="1585737318351" duration="5905000" />
-      <workItem from="1585837076406" duration="623000" />
-      <workItem from="1585922427278" duration="1632000" />
-      <workItem from="1586177899509" duration="9719000" />
-      <workItem from="1586274520341" duration="10253000" />
-      <workItem from="1586355840541" duration="6889000" />
-      <workItem from="1586379775248" duration="11858000" />
-      <workItem from="1586438626376" duration="4157000" />
+      <workItem from="1586195765349" duration="3575000" />
+      <workItem from="1586255899672" duration="1215000" />
+      <workItem from="1586522294077" duration="2484000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -172,19 +165,13 @@
       <option name="presentableId" value="LOCAL−00010" />
       <updated>1585682722426</updated>
     </task>
-    <task id="LOCAL−00011" summary="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something.">
-      <created>1586398600192</created>
+    <task id="LOCAL−00011" summary="- Added potential solution for freezing game at the start while music is playing&#10;- Added possible solution for Pausing game.">
+      <created>1586198614869</created>
       <option name="number" value="LOCAL−00011" />
       <option name="presentableId" value="LOCAL−00011" />
-      <updated>1586398600192</updated>
+      <updated>1586198614869</updated>
     </task>
-    <task id="LOCAL−00012" summary="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something.">
-      <created>1586398685814</created>
-      <option name="number" value="LOCAL−00012" />
-      <option name="presentableId" value="LOCAL−00012" />
-      <updated>1586398685814</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,38 +203,38 @@
     <MESSAGE value="- Set up so you can change tile_size&#10;- Added a grid&#10;- you can now eat pills&#10;- cleaned up pacmans position in the grid" />
     <MESSAGE value="- Made deltaTime a static variable so everyone can access it. &#10;- Made slight improvements to the ai of the ghost." />
     <MESSAGE value="- Merged ghosts update and resetting of game update" />
-    <MESSAGE value="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something." />
+    <MESSAGE value="- Added potential solution for freezing game at the start while music is playing&#10;- Added possible solution for Pausing game." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added potential solution for freezing game at the start while music is playing&#10;- Added possible solution for Pausing game." />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147685470" />
-    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1585744509755">
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1586198613723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585744509755" />
+    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586198613723" />
     <state x="184" y="92" key="DiffContextDialog" timestamp="1585147629164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147629164" />
-    <state width="1877" height="283" key="GridCell.Tab.0.bottom" timestamp="1585743607263">
+    <state width="1877" height="124" key="GridCell.Tab.0.bottom" timestamp="1586531846372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585743607263" />
-    <state width="1877" height="283" key="GridCell.Tab.0.center" timestamp="1585743607263">
+    <state width="1877" height="124" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586531846372" />
+    <state width="1877" height="124" key="GridCell.Tab.0.center" timestamp="1586531846372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585743607263" />
-    <state width="1877" height="283" key="GridCell.Tab.0.left" timestamp="1585743607263">
+    <state width="1877" height="124" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586531846372" />
+    <state width="1877" height="124" key="GridCell.Tab.0.left" timestamp="1586531846372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585743607263" />
-    <state width="1877" height="283" key="GridCell.Tab.0.right" timestamp="1585743607263">
+    <state width="1877" height="124" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586531846372" />
+    <state width="1877" height="124" key="GridCell.Tab.0.right" timestamp="1586531846372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585743607263" />
+    <state width="1877" height="124" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586531846372" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1585683173705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -268,22 +255,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585601408423" />
-    <state x="672" y="237" key="MultipleFileMergeDialog" timestamp="1585601408428">
+    <state x="672" y="237" key="MultipleFileMergeDialog" timestamp="1586522350284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="672" y="237" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585601408428" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1585682728945">
+    <state x="672" y="237" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586522350284" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1586198620081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585682728945" />
-    <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1585737317941">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586198620081" />
+    <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586522297003">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585737317941" />
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585601430666">
+    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586522297003" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586522307484">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585601430666" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586522307484" />
     <state x="470" y="219" width="1595" height="1025" key="dock-window-1" timestamp="1585744433495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
