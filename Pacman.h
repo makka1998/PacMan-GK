@@ -12,12 +12,14 @@ private:
     SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Pacman_16x16_Tileset_Blue.png");
     int point = 1;
     int pacHealth = 3;
+    double m_powerUpDuration = 5;
 public:
     Pacman();
     int getHealth() const { return pacHealth;}
     void setHealth(){ pacHealth--;}
     int getPoints() const { return point;}
     void setPoints(int resetPoints){ point = resetPoints;}
+    double getPowerUpDuration(){return m_powerUpDuration;}
     void PickingUpPillHandler(Map &map);
     SDL_Rect getCoords();
     void renderCharacter(SDL_Rect *srect) override;

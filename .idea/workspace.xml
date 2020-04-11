@@ -16,7 +16,9 @@
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/mainLevel.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/mainLevel.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +107,8 @@
       <workItem from="1586274520341" duration="10253000" />
       <workItem from="1586355840541" duration="6889000" />
       <workItem from="1586379775248" duration="11858000" />
-      <workItem from="1586438626376" duration="4157000" />
+      <workItem from="1586438626376" duration="4850000" />
+      <workItem from="1586521331798" duration="10712000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -184,7 +187,13 @@
       <option name="presentableId" value="LOCAL−00012" />
       <updated>1586398685814</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL−00013" summary="- Added hitdetection for when pacman hits a ghost, still need to add for when he hits a big pill.">
+      <created>1586474737478</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1586474737478</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +226,8 @@
     <MESSAGE value="- Made deltaTime a static variable so everyone can access it. &#10;- Made slight improvements to the ai of the ghost." />
     <MESSAGE value="- Merged ghosts update and resetting of game update" />
     <MESSAGE value="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something." />
+    <MESSAGE value="- Added hitdetection for when pacman hits a ghost, still need to add for when he hits a big pill." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added hitdetection for when pacman hits a ghost, still need to add for when he hits a big pill." />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">

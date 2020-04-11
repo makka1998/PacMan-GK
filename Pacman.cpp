@@ -41,15 +41,24 @@ void Pacman::PickingUpPillHandler(Map &map) {
                     Mix_PlayChannel(-1, eatPillSound, 0 );
                 }
 
+            } else if(tile.getTileValue() == 9){
+                tile.setTileValue(0);
+                tile.WalkedOver=true;
+                m_powerUpDuration = 0;
             }
 
         }
     }
+    m_powerUpDuration += GameManager::deltaTime;
 }
 
 void Pacman::renderCharacter(SDL_Rect srect []) {
     //m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/PacManSpriteSheet_16x16.png");
-    m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
+    if(!(m_powerUpDuration < 5)){
+        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
+    } else {
+        m_texture = IMG_LoadTexture(GameManager::renderer,"../Resources/Old_Tilesets/PacManSpriteSheet_20x20_BLUE.png");
+    }
     if (m_animationNumber == 1) {
         srect[0].x = TILE_SIZE;
         srect[0].y = TILE_SIZE;
@@ -184,3 +193,4 @@ void Pacman::ripPacman(SDL_Rect srect []){
 SDL_Rect Pacman::getCoords(){
     return m_coordinates;
 }
+

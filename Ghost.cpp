@@ -12,12 +12,12 @@ Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6)
     m_coordinates.h = TILE_SIZE;
     m_coordinates.w = TILE_SIZE;
 
-    m_startingDestination[0] = 9;
-    m_startingDestination[1] = 11;
+    m_startingPosition[0] = x;
+    m_startingPosition[1] = y;
 
     wayPointsReached  = {false, false, false, false, false, false, false};
     wayPoints = {wp1, wp2, wp3, wp4, wp5, wp6};
-    setDistanceToTarget(m_startingDestination);
+    setDistanceToTarget(m_startingPosition);
 }
 
 /*
@@ -359,14 +359,24 @@ void Ghost::setDistanceToTarget(int startingDest []) {
     m_distanceToTarget[1] = startingDest[1] - m_coordinates.y / TILE_SIZE;
 }
 
+int *  Ghost::getStartingPosition(){
+    return m_startingPosition;
+}
+
+void Ghost::isCollidingWithPacman(SDL_Rect pacman, double powerUpPacman){
+
+     if (SDL_HasIntersection(&m_coordinates, &pacman) && powerUpPacman < 5) {
+         m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
+         m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
+         m_startingDestinationReached = false;
+         for(auto && wp : wayPointsReached){
+             wp = false;
+         }
+     } else if(SDL_HasIntersection(&m_coordinates, &pacman)){
+         std::cout << "au jeg krasjet!" << std::endl;
+    }
+}
 
 void Ghost::renderCharacter() {
 
-}
-
-void Ghost::isCollidingWithPacman(SDL_Rect pacman){
-     if(SDL_HasIntersection(&m_coordinates, &pacman)){
-         std::cout << "au jeg krasjet!" << std::endl;
-         SDL_Quit();
-     }
 }

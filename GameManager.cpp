@@ -86,22 +86,22 @@ int GameManager::startGame() {
                 Rghost.getMovementDirection(level);
                 Rghost.moveCharacter(level);
                 Rghost.collisionHandling(level);
-                Rghost.isCollidingWithPacman(pacman.getCoords());
+                Rghost.isCollidingWithPacman(pacman.getCoords(), pacman.getPowerUpDuration());
 
                 Pghost.getMovementDirection(level);
                 Pghost.moveCharacter(level);
                 Pghost.collisionHandling(level);
-                Pghost.isCollidingWithPacman(pacman.getCoords());
+                Pghost.isCollidingWithPacman(pacman.getCoords(), pacman.getPowerUpDuration());
 
                 Bghost.getMovementDirection(level);
                 Bghost.moveCharacter(level);
                 Bghost.collisionHandling(level);
-                Bghost.isCollidingWithPacman(pacman.getCoords());
+                Bghost.isCollidingWithPacman(pacman.getCoords(), pacman.getPowerUpDuration());
 
                 Oghost.getMovementDirection(level);
                 Oghost.moveCharacter(level);
                 Oghost.collisionHandling(level);
-                Oghost.isCollidingWithPacman(pacman.getCoords());
+                Oghost.isCollidingWithPacman(pacman.getCoords(), pacman.getPowerUpDuration());
                 render();
 
 //                if (pacman.getPoints() == 80) {
