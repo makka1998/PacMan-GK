@@ -21,6 +21,7 @@ private:
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
     static void playSound();
     int game_state = 1;
+    //std::vector<GameCharacter> m_gameCharacters;
 public:
     int startGame();
     static SDL_Renderer * renderer;
