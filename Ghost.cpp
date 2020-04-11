@@ -55,21 +55,24 @@ void Ghost::checkMovementInput(Map *map) {
 }
 */
 void Ghost::moveCharacter(Map *map) {
-    m_speed = 100 * GameManager::deltaTime;
-    //m_speed = 3;
-    if (m_direction == direction::RIGHT) {
-        m_coordinates.x += m_speed;
+    if (!(Mix_Playing(1) == 0)) {
+        //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
+    } else {
+        m_speed = 100 * GameManager::deltaTime;
+        //m_speed = 3;
+        if (m_direction == direction::RIGHT) {
+            m_coordinates.x += m_speed;
 
-    } else if (m_direction == direction::LEFT) {
-        m_coordinates.x += -m_speed;
+        } else if (m_direction == direction::LEFT) {
+            m_coordinates.x += -m_speed;
 
-    } else if (m_direction == direction::UP) {
-        m_coordinates.y += -m_speed;
-    } else if (m_direction == direction::DOWN) {
-        m_coordinates.y += m_speed;
+        } else if (m_direction == direction::UP) {
+            m_coordinates.y += -m_speed;
+        } else if (m_direction == direction::DOWN) {
+            m_coordinates.y += m_speed;
+        }
     }
 }
-
 void Ghost::getMovementDirection(Map *map) {
 
 

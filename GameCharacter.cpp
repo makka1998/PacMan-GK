@@ -14,36 +14,40 @@ GameCharacter::GameCharacter() {
 
 void GameCharacter::checkMovementInput(Map * map) {
     SDL_PumpEvents();
-    if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
-        if (m_direction != direction::UP) {
-            if(pathAvailable(map).at(0)){
-                m_last_direction = m_direction;
-                m_direction = direction::UP;
+    if (!(Mix_Playing(1) == 0)) {
+        //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
+    } else {
+        if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
+            if (m_direction != direction::UP) {
+                if (pathAvailable(map).at(0)) {
+                    m_last_direction = m_direction;
+                    m_direction = direction::UP;
+                }
             }
-        }
-    } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
-        if (m_direction != direction::DOWN) {
-            if(pathAvailable(map).at(1)){
-                m_last_direction = m_direction;
-                m_direction = direction::DOWN;
+        } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
+            if (m_direction != direction::DOWN) {
+                if (pathAvailable(map).at(1)) {
+                    m_last_direction = m_direction;
+                    m_direction = direction::DOWN;
+                }
             }
-        }
-    } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
-        if (m_direction != direction::RIGHT) {
-            if(pathAvailable(map).at(3)){
-                m_last_direction = m_direction;
-                m_direction = direction::RIGHT;
+        } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
+            if (m_direction != direction::RIGHT) {
+                if (pathAvailable(map).at(3)) {
+                    m_last_direction = m_direction;
+                    m_direction = direction::RIGHT;
+                }
             }
-        }
-    } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
-        if (m_direction != direction::LEFT) {
-            if(pathAvailable(map).at(2)){
-                m_last_direction = m_direction;
-                m_direction = direction::LEFT;
+        } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
+            if (m_direction != direction::LEFT) {
+                if (pathAvailable(map).at(2)) {
+                    m_last_direction = m_direction;
+                    m_direction = direction::LEFT;
+                }
             }
         }
     }
-
+}
 
 //    if (m_direction == direction::UP && m_last_direction == direction::DOWN) {
 //        //Tillat endring, det er på samme akse.
@@ -100,40 +104,44 @@ void GameCharacter::checkMovementInput(Map * map) {
 //    std::cout << "Current: " << (int)m_keyStates[SDL_SCANCODE_W] << (int)m_keyStates[SDL_SCANCODE_A] << (int)m_keyStates[SDL_SCANCODE_S] << (int)m_keyStates[SDL_SCANCODE_D] << std::endl;
 //    //std::cout << " Last: "<< (int)m_last_keyStates[SDL_SCANCODE_W] << (int)m_last_keyStates[SDL_SCANCODE_A] << (int)m_last_keyStates[SDL_SCANCODE_S] << (int)m_last_keyStates[SDL_SCANCODE_D] << std::endl;
 //    m_last_keyStates = m_keyStates;
-}
+
 
 void GameCharacter::moveCharacter(Map *map) {
-    m_speed = 200 * GameManager::deltaTime;
-    m_animationNumber++;
-    if (m_animationNumber >= 13) {
-        m_animationNumber = 1;
+
+        m_speed = 200 * GameManager::deltaTime;
+        m_animationNumber++;
+        if (m_animationNumber >= 13) {
+            m_animationNumber = 1;
+        }
+        if (m_keyStates[SDL_SCANCODE_TAB]) {
+            m_speed = 4;
+        }
+
+        if (m_direction == direction::RIGHT) {
+            m_coordinates.x += m_speed;
+            angle = 0;
+
+        } else if (m_direction == direction::LEFT) {
+            m_coordinates.x += -m_speed;
+            angle = 180;
+
+        } else if (m_direction == direction::UP) {
+            m_coordinates.y += -m_speed;
+            angle = -90;
+
+        } else if (m_direction == direction::DOWN) {
+            m_coordinates.y += m_speed;
+            angle = 90;
+        }
+
+        if (m_coordinates.x < 2 && m_coordinates.y == 17 * TILE_SIZE) {
+            m_coordinates.x = 29 * TILE_SIZE;
+        } else if ((m_coordinates.x < 30.5 * TILE_SIZE && m_coordinates.x > 29.5 * TILE_SIZE) &&
+                   m_coordinates.y == 17 * TILE_SIZE) {
+            m_coordinates.x = 1 * TILE_SIZE;
+        }
     }
-    if (m_keyStates[SDL_SCANCODE_TAB]) {
-        m_speed = 4;
-    }
 
-    if (m_direction == direction::RIGHT) {
-        m_coordinates.x += m_speed;
-        angle = 0;
-
-    } else if (m_direction == direction::LEFT) {
-        m_coordinates.x += -m_speed;
-        angle = 180;
-
-    } else if (m_direction == direction::UP) {
-        m_coordinates.y += -m_speed;
-        angle = -90;
-
-    } else if (m_direction == direction::DOWN) {
-        m_coordinates.y += m_speed;
-        angle = 90;
-    }
-
-    if(m_coordinates.x < 2 && m_coordinates.y == 17 * TILE_SIZE){
-        m_coordinates.x = 29 * TILE_SIZE;
-    } else if((m_coordinates.x < 30.5 * TILE_SIZE && m_coordinates.x > 29.5 * TILE_SIZE) && m_coordinates.y == 17 * TILE_SIZE){
-        m_coordinates.x = 1 * TILE_SIZE;
-    }
 
     /*  Sjekker om tiles rundt pacman er hindring.
     int playerGridCord_X = round((m_coordinates.x + (m_coordinates.w) / 2) / TILE_SIZE);
@@ -193,8 +201,8 @@ void GameCharacter::moveCharacter(Map *map) {
     }
 */
 
-    int xCoord16th = m_coordinates.x / TILE_SIZE;
-    int yCoord16th = m_coordinates.y / TILE_SIZE;
+    //int xCoord16th = m_coordinates.x / TILE_SIZE; xxx im triple X rated
+    //int yCoord16th = m_coordinates.y / TILE_SIZE; xxx im triple X rated
     //std::cout << "X: " << xCoord16th << " Y: " << yCoord16th << std::endl;
 //
 //    int MxCoord16th = m_coordinates.x / 16;
@@ -235,7 +243,7 @@ void GameCharacter::moveCharacter(Map *map) {
         }
     }
     */
-}
+
 
 //Check out if direction::NONE is making it not work. -Jonas
 void GameCharacter::collisionHandling(Map *map) {
