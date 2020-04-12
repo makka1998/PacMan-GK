@@ -84,4 +84,5 @@ void PinkGhost::renderCharacter() {
     srect.h = TILE_SIZE;
     srect.w = TILE_SIZE;
     SDL_RenderCopy(GameManager::renderer, m_texture, &srect, &m_coordinates);
+    SDL_DestroyTexture(m_texture);
 }

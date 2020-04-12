@@ -80,8 +80,8 @@ void OrangeGhost::renderCharacter() {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
     SDL_Rect srect;
     srect.y = 7 * TILE_SIZE;
-    srect.x = TILE_SIZE;
     srect.h = TILE_SIZE;
     srect.w = TILE_SIZE;
     SDL_RenderCopy(GameManager::renderer, m_texture, &srect, &m_coordinates);
+    SDL_DestroyTexture(m_texture);
 }

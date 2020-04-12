@@ -15,13 +15,15 @@ private:
     double m_powerUpDuration = 5;
 public:
     Pacman();
-    int getHealth() const { return pacHealth;}
-    void setHealth(){ pacHealth--;}
+    int getHealth() { return pacHealth;}
     int getPoints() const { return point;}
-    void setPoints(int resetPoints){ point = resetPoints;}
     double getPowerUpDuration(){return m_powerUpDuration;}
+    direction getDirection();
+    void setDirection(direction dir);
+    void setHealth(){ pacHealth -= 1;}
+    void setPoints(int resetPoints){ point = resetPoints;}
     void PickingUpPillHandler(Map &map);
-    SDL_Rect getCoords();
+    SDL_Rect * getCoords();
     void renderCharacter(SDL_Rect *srect) override;
     void ripPacman(SDL_Rect *srect);
 };

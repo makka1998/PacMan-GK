@@ -55,7 +55,7 @@ void Ghost::checkMovementInput(Map *map) {
 }
 */
 void Ghost::moveCharacter(Map *map) {
-    if (!(Mix_Playing(1) == 0)) {
+    if (Mix_Playing(1) != 0) {
         //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
     } else {
         m_speed = 100 * GameManager::deltaTime;
@@ -366,17 +366,30 @@ int *  Ghost::getStartingPosition(){
     return m_startingPosition;
 }
 
-void Ghost::isCollidingWithPacman(SDL_Rect pacman, double powerUpPacman){
-
-     if (SDL_HasIntersection(&m_coordinates, &pacman) && powerUpPacman < 5) {
+void Ghost::isCollidingWithPacman(Pacman & pMan){
+     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
          m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
          m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
          m_startingDestinationReached = false;
          for(auto && wp : wayPointsReached){
              wp = false;
          }
-     } else if(SDL_HasIntersection(&m_coordinates, &pacman)){
-         std::cout << "au jeg krasjet!" << std::endl;
+     } else if(SDL_HasIntersection(&m_coordinates, pMan.getCoords())){
+         std::cout << pMan.getHealth() << std::endl;
+         pMan.setHealth();
+         if(pMan.getDirection() == direction::UP){
+             pMan.getCoords()->y += TILE_SIZE * 2;
+             pMan.setDirection(direction::DOWN);
+         }  else if (pMan.getDirection() == direction::DOWN){
+             pMan.getCoords()->y -= TILE_SIZE * 2;
+             pMan.setDirection(direction::UP);
+         } else if (pMan.getDirection() == direction::LEFT){
+             pMan.getCoords()->x += TILE_SIZE * 2;
+             pMan.setDirection(direction::RIGHT);
+         } else if (pMan.getDirection() == direction::RIGHT){
+             pMan.getCoords()->x -= TILE_SIZE * 2;
+             pMan.setDirection(direction::LEFT);
+         }
     }
 }
 

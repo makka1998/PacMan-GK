@@ -31,7 +31,7 @@ void Pacman::PickingUpPillHandler(Map &map) {
             if (tile.getTileValue() == 10) {
 
                 //Plukk opp pillene
-                point++;
+                point += 1;
                 //std::cout << "Poeng: " << point << std::endl;
                 tile.setTileValue(0);
                 tile.WalkedOver=true;
@@ -190,7 +190,14 @@ void Pacman::ripPacman(SDL_Rect srect []){
         SDL_DestroyTexture(m_texture);
 }
 
-SDL_Rect Pacman::getCoords(){
-    return m_coordinates;
+SDL_Rect * Pacman::getCoords(){
+    return &m_coordinates;
 }
 
+direction Pacman::getDirection() {
+    return m_direction;
+}
+
+void Pacman::setDirection(direction dir) {
+    m_direction = dir;
+}

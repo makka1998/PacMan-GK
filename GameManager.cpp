@@ -47,7 +47,7 @@ int GameManager::startGame() {
         if(getKeyboardInput[SDL_SCANCODE_U]){
             pacman.setHealth();
         }
-        if(getKeyboardInput[SDL_SCANCODE_ESCAPE]){
+        if(getKeyboardInput[SDL_SCANCODE_ESCAPE] || pacman.getHealth() <= 0 || pacman.getPoints() >= 241){
             break;
         }
         if(getKeyboardInput[SDL_SCANCODE_P]){
@@ -79,22 +79,22 @@ int GameManager::startGame() {
                 Rghost.getMovementDirection(level);
                 Rghost.moveCharacter(level);
                 Rghost.collisionHandling(level);
-                Rghost.isCollidingWithPacman(pacman.getCoords(), pacman.getPowerUpDuration());
+                Rghost.isCollidingWithPacman(pacman);
 
                 Pghost.getMovementDirection(level);
                 Pghost.moveCharacter(level);
                 Pghost.collisionHandling(level);
-                Pghost.isCollidingWithPacman(pacman.getCoords(), pacman.getPowerUpDuration());
+                Pghost.isCollidingWithPacman(pacman);
 
                 Bghost.getMovementDirection(level);
                 Bghost.moveCharacter(level);
                 Bghost.collisionHandling(level);
-                Bghost.isCollidingWithPacman(pacman.getCoords(), pacman.getPowerUpDuration());
+                Bghost.isCollidingWithPacman(pacman);
 
                 Oghost.getMovementDirection(level);
                 Oghost.moveCharacter(level);
                 Oghost.collisionHandling(level);
-                Oghost.isCollidingWithPacman(pacman.getCoords(), pacman.getPowerUpDuration());
+                Oghost.isCollidingWithPacman(pacman);
                 render();
 //                if (pacman.getPoints() == 80) {
 //                    game_state = 1;

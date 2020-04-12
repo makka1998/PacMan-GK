@@ -6,7 +6,7 @@
 #define PACMAN_GK_MASTER_GHOST_H
 
 #include "GameCharacter.h"
-
+#include "Pacman.h"
 class Ghost : public GameCharacter {
 protected:
     SDL_Texture* m_texture;
@@ -24,7 +24,7 @@ public:
     int * getStartingPosition();
     virtual void moveCharacter(Map * map);
     virtual void renderCharacter();
-    void isCollidingWithPacman(SDL_Rect pacman, double powerUpPacman);
+    void isCollidingWithPacman(Pacman & pMan);
 };
 
 
