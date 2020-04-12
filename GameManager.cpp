@@ -50,9 +50,14 @@ int GameManager::startGame() {
         if(getKeyboardInput[SDL_SCANCODE_ESCAPE] || pacman.getHealth() <= 0 || pacman.getPoints() >= 241){
             break;
         }
-        if(getKeyboardInput[SDL_SCANCODE_P]){
+
+        /*if(getKeyboardInput[SDL_SCANCODE_P]){
               game_state = 3;
           }
+        if(game_state == 3){
+            if(getKeyboardInput[SDL_SCANCODE_P])    Dis shitt crashes game :S
+            { game_state = 2;}
+        }*/
             if(game_state == 1)
             {
 
@@ -69,7 +74,6 @@ int GameManager::startGame() {
             }
             if(game_state == 2)
             {
-
                 calculateDeltaTime();
                 pacman.checkMovementInput(level);
                 pacman.moveCharacter(level);
@@ -101,16 +105,8 @@ int GameManager::startGame() {
 //                    pacman.setPoints(0);
 //                    counter++;
 //                }
-                if (counter == 2){
-                    break;
             }
-            }
-            if(game_state == 3){
-                if(getKeyboardInput[SDL_SCANCODE_P]){
-                    game_state = 2;
-                }
-                // Do fuck all
-            }
+
 
     }
        /* if(pacman.getPoints() == 240){

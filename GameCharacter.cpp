@@ -14,8 +14,7 @@ GameCharacter::GameCharacter() {
 
 void GameCharacter::checkMovementInput(Map * map) {
     SDL_PumpEvents();
-    if (!(Mix_Playing(1) == 0)) {
-        //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
+    if (Mix_Playing(1) != 0) {
     } else {
         if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
             if (m_direction != direction::UP) {

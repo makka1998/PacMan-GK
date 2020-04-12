@@ -11,19 +11,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="- Refucked some of the pictures making them not transparent, will leave that for Jonas to fix. But added a proof of concept for how it will look when pacman eats a pill. Will need to look into whether or not pacman shifts color or the ghost do, anyway it is bascially the same principal.">
+    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="- Made freezing game on startup work&#10;- Continued to look at pausing game, still crashes when trying to unpause">
+      <change afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20_BLUE.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlueGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BlueGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrangeGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/OrangeGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrangeGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/OrangeGhost.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PinkGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PinkGhost.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RedGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/RedGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,15 +55,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Tobias\CLionProjects\PacMan-GK" />
       <recent name="C:\Users\Martin\CLionProjects\Ayyo\PacMan-GK\Resources\Old_Tilesets" />
       <recent name="C:\Users\Martin\CLionProjects\Ayyo\PacMan-GK\Resources" />
       <recent name="C:\Users\Tobias\CLionProjects\PacMan-GK\Resources" />
       <recent name="C:\Users\Martin\PacMan-GK\Resources" />
+      <recent name="C:\Users\Martin\PacMan-GK" />
     </key>
   </component>
   <component name="RunManager">
@@ -105,15 +102,10 @@
       <workItem from="1585315765399" duration="25326000" />
       <workItem from="1585514019104" duration="9335000" />
       <workItem from="1585737318351" duration="5905000" />
-      <workItem from="1585837076406" duration="623000" />
-      <workItem from="1585922427278" duration="1632000" />
-      <workItem from="1586177899509" duration="9719000" />
-      <workItem from="1586274520341" duration="10253000" />
-      <workItem from="1586355840541" duration="6889000" />
-      <workItem from="1586379775248" duration="11858000" />
-      <workItem from="1586438626376" duration="4850000" />
-      <workItem from="1586521331798" duration="11468000" />
-      <workItem from="1586614838946" duration="14083000" />
+      <workItem from="1586195765349" duration="3575000" />
+      <workItem from="1586255899672" duration="1215000" />
+      <workItem from="1586522294077" duration="5975000" />
+      <workItem from="1586696602535" duration="6784000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -180,31 +172,19 @@
       <option name="presentableId" value="LOCAL−00010" />
       <updated>1585682722426</updated>
     </task>
-    <task id="LOCAL−00011" summary="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something.">
-      <created>1586398600192</created>
+    <task id="LOCAL−00011" summary="- Added potential solution for freezing game at the start while music is playing&#10;- Added possible solution for Pausing game.">
+      <created>1586198614869</created>
       <option name="number" value="LOCAL−00011" />
       <option name="presentableId" value="LOCAL−00011" />
-      <updated>1586398600192</updated>
+      <updated>1586198614869</updated>
     </task>
-    <task id="LOCAL−00012" summary="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something.">
-      <created>1586398685814</created>
+    <task id="LOCAL−00012" summary="- Made freezing game on startup work&#10;- Continued to look at pausing game, still crashes when trying to unpause">
+      <created>1586531912416</created>
       <option name="number" value="LOCAL−00012" />
       <option name="presentableId" value="LOCAL−00012" />
-      <updated>1586398685814</updated>
+      <updated>1586531912416</updated>
     </task>
-    <task id="LOCAL−00013" summary="- Added hitdetection for when pacman hits a ghost, still need to add for when he hits a big pill.">
-      <created>1586474737478</created>
-      <option name="number" value="LOCAL−00013" />
-      <option name="presentableId" value="LOCAL−00013" />
-      <updated>1586474737478</updated>
-    </task>
-    <task id="LOCAL−00014" summary="- Refucked some of the pictures making them not transparent, will leave that for Jonas to fix. But added a proof of concept for how it will look when pacman eats a pill. Will need to look into whether or not pacman shifts color or the ghost do, anyway it is bascially the same principal.">
-      <created>1586565932323</created>
-      <option name="number" value="LOCAL−00014" />
-      <option name="presentableId" value="LOCAL−00014" />
-      <updated>1586565932323</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,44 +216,39 @@
     <MESSAGE value="- Set up so you can change tile_size&#10;- Added a grid&#10;- you can now eat pills&#10;- cleaned up pacmans position in the grid" />
     <MESSAGE value="- Made deltaTime a static variable so everyone can access it. &#10;- Made slight improvements to the ai of the ghost." />
     <MESSAGE value="- Merged ghosts update and resetting of game update" />
-    <MESSAGE value="- Fixed the ghosts AI movement, it is still random and they do not follow pacman, but in a worst case scenario this is atleast better than something." />
-    <MESSAGE value="- Added hitdetection for when pacman hits a ghost, still need to add for when he hits a big pill." />
-    <MESSAGE value="- Refucked some of the pictures making them not transparent, will leave that for Jonas to fix. But added a proof of concept for how it will look when pacman eats a pill. Will need to look into whether or not pacman shifts color or the ghost do, anyway it is bascially the same principal." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Refucked some of the pictures making them not transparent, will leave that for Jonas to fix. But added a proof of concept for how it will look when pacman eats a pill. Will need to look into whether or not pacman shifts color or the ghost do, anyway it is bascially the same principal." />
+    <MESSAGE value="- Added potential solution for freezing game at the start while music is playing&#10;- Added possible solution for Pausing game." />
+    <MESSAGE value="- Made freezing game on startup work&#10;- Continued to look at pausing game, still crashes when trying to unpause" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Made freezing game on startup work&#10;- Continued to look at pausing game, still crashes when trying to unpause" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147685470" />
-    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1585744509755">
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1586543202383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585744509755" />
+    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586543202383" />
     <state x="184" y="92" key="DiffContextDialog" timestamp="1585147629164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147629164" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1586652785758">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="124" key="GridCell.Tab.0.bottom" timestamp="1586703394807">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586652785758" />
-    <state width="1877" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585743607263" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1586652785757">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="124" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586703394807" />
+    <state width="1877" height="124" key="GridCell.Tab.0.center" timestamp="1586703394807">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586652785757" />
-    <state width="1877" height="283" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585743607263" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1586652785757">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="124" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586703394807" />
+    <state width="1877" height="124" key="GridCell.Tab.0.left" timestamp="1586703394807">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586652785757" />
-    <state width="1877" height="283" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585743607263" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1586652785758">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="124" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586703394807" />
+    <state width="1877" height="124" key="GridCell.Tab.0.right" timestamp="1586703394807">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586652785758" />
-    <state width="1877" height="283" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585743607263" />
+    <state width="1877" height="124" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586703394807" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1585683173705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -290,37 +265,37 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585683173705" />
-    <state x="184" y="92" key="MergeDialog" timestamp="1585601408423">
+    <state x="184" y="92" key="MergeDialog" timestamp="1586697232533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="184" y="92" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585601408423" />
-    <state x="672" y="237" key="MultipleFileMergeDialog" timestamp="1585601408428">
+    <state x="184" y="92" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586697232533" />
+    <state x="672" y="237" key="MultipleFileMergeDialog" timestamp="1586697238247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="672" y="237" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585601408428" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1585682728945">
+    <state x="672" y="237" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586697238247" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1586531916926">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585682728945" />
-    <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1585737317941">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586531916926" />
+    <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586696602581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585737317941" />
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585601430666">
+    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586696602581" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586697101956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585601430666" />
-    <state x="470" y="219" width="1595" height="1025" key="dock-window-1" timestamp="1585744433495">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586697101956" />
+    <state x="2024" y="0" width="1568" height="873" key="dock-window-1" timestamp="1586702925234">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="470" y="219" width="1595" height="1025" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585744433495" />
+    <state x="2024" y="0" width="1568" height="873" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586702925234" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1585742287290">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585742287290" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585737785847">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586702956779">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585737785847" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586702956779" />
   </component>
 </project>

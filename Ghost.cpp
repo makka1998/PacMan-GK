@@ -56,10 +56,10 @@ void Ghost::checkMovementInput(Map *map) {
 */
 void Ghost::moveCharacter(Map *map) {
     if (Mix_Playing(1) != 0) {
-        //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
     } else {
-        m_speed = 100 * GameManager::deltaTime;
+        m_speed = 130 * GameManager::deltaTime;
         //m_speed = 3;
+        std::cout << m_speed << std::endl;
         if (m_direction == direction::RIGHT) {
             m_coordinates.x += m_speed;
 

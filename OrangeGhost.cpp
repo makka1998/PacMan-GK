@@ -9,7 +9,8 @@ OrangeGhost::OrangeGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int w
 }
 
 void OrangeGhost::getMovementDirection(Map *map) {
-    if (!m_startingDestinationReached) {
+
+        if (!m_startingDestinationReached) {
         if(m_coordinates.x != wayPoints.at(0) * TILE_SIZE && !(wayPointsReached.at(0))){
             m_direction = direction::LEFT;
             if(m_coordinates.x / TILE_SIZE == wayPoints.at(0) + 1){
@@ -82,6 +83,15 @@ void OrangeGhost::renderCharacter() {
     srect.y = 7 * TILE_SIZE;
     srect.h = TILE_SIZE;
     srect.w = TILE_SIZE;
+    if(m_direction == direction::LEFT){
+        srect.x = 2 * TILE_SIZE;
+    }
+    if(m_direction == direction::DOWN){
+        srect.x = TILE_SIZE;
+    }
+    if(m_direction == direction::RIGHT){
+        srect.x = 3 * TILE_SIZE;
+    }
     SDL_RenderCopy(GameManager::renderer, m_texture, &srect, &m_coordinates);
     SDL_DestroyTexture(m_texture);
 }

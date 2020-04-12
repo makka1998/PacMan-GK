@@ -54,10 +54,10 @@ void Pacman::PickingUpPillHandler(Map &map) {
 
 void Pacman::renderCharacter(SDL_Rect srect []) {
     //m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/PacManSpriteSheet_16x16.png");
-    if(!(m_powerUpDuration < 5)){
-        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
+    if(m_powerUpDuration < 5){
+        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20_BLUE.png");
     } else {
-        m_texture = IMG_LoadTexture(GameManager::renderer,"../Resources/Old_Tilesets/PacManSpriteSheet_20x20_BLUE.png");
+        m_texture = IMG_LoadTexture(GameManager::renderer,"../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
     }
     if (m_animationNumber == 1) {
         srect[0].x = TILE_SIZE;
