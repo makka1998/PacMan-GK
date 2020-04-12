@@ -20,11 +20,46 @@ Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6)
     setDistanceToTarget(m_startingPosition);
 }
 
+/*
+void Ghost::checkMovementInput(Map *map) {
+    SDL_PumpEvents();
+    if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
+        if (m_direction != direction::UP) {
+            if(pathAvailable(map).at(0)){
+                m_last_direction = m_direction;
+                m_direction = direction::UP;
+            }
+        }
+    } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
+        if (m_direction != direction::DOWN) {
+            if(pathAvailable(map).at(1)){
+                m_last_direction = m_direction;
+                m_direction = direction::DOWN;
+            }
+        }
+    } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
+        if (m_direction != direction::RIGHT) {
+            if(pathAvailable(map).at(3)){
+                m_last_direction = m_direction;
+                m_direction = direction::RIGHT;
+            }
+        }
+    } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
+        if (m_direction != direction::LEFT) {
+            if(pathAvailable(map).at(2)){
+                m_last_direction = m_direction;
+                m_direction = direction::LEFT;
+            }
+        }
+    }
+}
+*/
 void Ghost::moveCharacter(Map *map) {
     if (Mix_Playing(1) != 0) {
+        //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
     } else {
-        m_speed = 110 * GameManager::deltaTime;
-        std::cout << m_speed << std::endl;
+        m_speed = 100 * GameManager::deltaTime;
+        //m_speed = 3;
         if (m_direction == direction::RIGHT) {
             m_coordinates.x += m_speed;
 
@@ -38,7 +73,6 @@ void Ghost::moveCharacter(Map *map) {
         }
     }
 }
-
 void Ghost::getMovementDirection(Map *map) {
 
 

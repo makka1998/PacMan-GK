@@ -6,9 +6,7 @@
 #include "OrangeGhost.h"
 
 SDL_Window *window;
-SDL_Renderer* GameManager::renderer = nullptr;
-//std::vector<std::shared_ptr<Ghost>>* GameManager::m_gameCharacters = nullptr;
-
+SDL_Renderer *GameManager::renderer = nullptr;
 double GameManager::deltaTime;
 Map * level;
 Pacman pacman;
@@ -33,9 +31,6 @@ void GameManager::playSound(){
 }
 
 int GameManager::startGame() {
-
-
-
     SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
     windowLoader windowLoader;
     renderManager renderManager;
@@ -65,7 +60,6 @@ int GameManager::startGame() {
         if(getKeyboardInput[SDL_SCANCODE_P]){
               game_state = 3;
           }
-            //loading in the game
             if(game_state == 1)
             {
 
@@ -80,7 +74,6 @@ int GameManager::startGame() {
 
                 game_state = 2;
             }
-            //while playing the game
             if(game_state == 2)
             {
 
@@ -92,13 +85,25 @@ int GameManager::startGame() {
 
                 ghostMovementWrapper();
 
-                render();
+                Bghost.getMovementDirection(level);
+                Bghost.moveCharacter(level);
+                Bghost.collisionHandling(level);
+                Bghost.isCollidingWithPacman(pacman);
 
+                Oghost.getMovementDirection(level);
+                Oghost.moveCharacter(level);
+                Oghost.collisionHandling(level);
+                Oghost.isCollidingWithPacman(pacman);
+                render();
+//                if (pacman.getPoints() == 80) {
+//                    game_state = 1;
+//                    pacman.setPoints(0);
+//                    counter++;
+//                }
                 if (counter == 2){
                     break;
             }
             }
-            //pause the game
             if(game_state == 3){
                 if(getKeyboardInput[SDL_SCANCODE_P]){
                     game_state = 2;
@@ -107,6 +112,9 @@ int GameManager::startGame() {
             }
 
     }
+       /* if(pacman.getPoints() == 240){
+            running = false;
+        }*/ // If statement for å vinne spillet istedenfor resetting.
     //----------------------------------------------------------------
 
     SDL_DestroyWindow(window);

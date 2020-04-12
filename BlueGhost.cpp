@@ -72,6 +72,15 @@ void BlueGhost::renderCharacter() {
     srect.x = 0;
     srect.h = TILE_SIZE;
     srect.w = TILE_SIZE;
+    if(m_direction == direction::LEFT){
+        srect.x = 2 * TILE_SIZE;
+    }
+    if(m_direction == direction::DOWN){
+        srect.x = TILE_SIZE;
+    }
+    if(m_direction == direction::RIGHT){
+        srect.x = 3 * TILE_SIZE;
+    }
     SDL_RenderCopy(GameManager::renderer, m_texture, &srect, &m_coordinates);
     SDL_DestroyTexture(m_texture);
 }
