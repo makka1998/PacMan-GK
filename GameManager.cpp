@@ -75,6 +75,7 @@ int GameManager::startGame() {
             if(game_state == 2)
             {
                 calculateDeltaTime();
+
                 pacman.checkMovementInput(level);
                 pacman.moveCharacter(level);
                 pacman.collisionHandling(level);
