@@ -8,10 +8,12 @@
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include <SDL2/SDL_mixer.h>
+#include <memory>
 
-
-class OrangeGhost;
+//characters include
+class Ghost;
 class Pacman;
+class GameCharacter;
 
 class GameManager {
 private:
@@ -21,8 +23,9 @@ private:
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
     static void playSound();
     int game_state = 1;
-    //std::vector<GameCharacter> m_gameCharacters;
 public:
+    std::vector<std::shared_ptr<Ghost>> m_gameCharacters;
+    GameManager();
     int startGame();
     static SDL_Renderer * renderer;
     static double deltaTime;
@@ -30,6 +33,8 @@ public:
     bool running;
 
     void render();
+
+    void ghostMovementWrapper();
 };
 
 #endif //PACMAN_GK_MASTER_GAMEMANAGER_H

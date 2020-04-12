@@ -26,6 +26,8 @@ public:
     SDL_Rect * getCoords();
     void renderCharacter(SDL_Rect *srect) override;
     void ripPacman(SDL_Rect *srect);
+
+    void startPos();
 };
 
 

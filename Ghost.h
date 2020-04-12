@@ -24,7 +24,9 @@ public:
     int * getStartingPosition();
     virtual void moveCharacter(Map * map);
     virtual void renderCharacter();
-    void isCollidingWithPacman(Pacman & pMan);
+    void isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& hei);
+
+    void moveStartPos();
 };
 
 

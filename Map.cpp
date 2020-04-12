@@ -1,9 +1,4 @@
-//
-// Created by Tobias on 27.03.2020.
-//
-
 #include "Map.h"
-#include <fstream>
 
 Map::Map(const char *filePath) {
     loadMap(filePath);

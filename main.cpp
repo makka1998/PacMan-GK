@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[])
 {
-    GameManager chief;
-    chief.startGame();
+    GameManager pacmanGame;
+    pacmanGame.startGame();
     return 0;
 }

@@ -201,3 +201,8 @@ direction Pacman::getDirection() {
 void Pacman::setDirection(direction dir) {
     m_direction = dir;
 }
+
+void Pacman::startPos(){
+    m_coordinates.x = 14 * TILE_SIZE;
+    m_coordinates.y = 26 * TILE_SIZE;
+}

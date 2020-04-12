@@ -20,46 +20,11 @@ Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6)
     setDistanceToTarget(m_startingPosition);
 }
 
-/*
-void Ghost::checkMovementInput(Map *map) {
-    SDL_PumpEvents();
-    if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
-        if (m_direction != direction::UP) {
-            if(pathAvailable(map).at(0)){
-                m_last_direction = m_direction;
-                m_direction = direction::UP;
-            }
-        }
-    } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
-        if (m_direction != direction::DOWN) {
-            if(pathAvailable(map).at(1)){
-                m_last_direction = m_direction;
-                m_direction = direction::DOWN;
-            }
-        }
-    } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
-        if (m_direction != direction::RIGHT) {
-            if(pathAvailable(map).at(3)){
-                m_last_direction = m_direction;
-                m_direction = direction::RIGHT;
-            }
-        }
-    } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
-        if (m_direction != direction::LEFT) {
-            if(pathAvailable(map).at(2)){
-                m_last_direction = m_direction;
-                m_direction = direction::LEFT;
-            }
-        }
-    }
-}
-*/
 void Ghost::moveCharacter(Map *map) {
     if (Mix_Playing(1) != 0) {
-        //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
     } else {
-        m_speed = 100 * GameManager::deltaTime;
-        //m_speed = 3;
+        m_speed = 110 * GameManager::deltaTime;
+        std::cout << m_speed << std::endl;
         if (m_direction == direction::RIGHT) {
             m_coordinates.x += m_speed;
 
@@ -73,6 +38,7 @@ void Ghost::moveCharacter(Map *map) {
         }
     }
 }
+
 void Ghost::getMovementDirection(Map *map) {
 
 
@@ -366,7 +332,7 @@ int *  Ghost::getStartingPosition(){
     return m_startingPosition;
 }
 
-void Ghost::isCollidingWithPacman(Pacman & pMan){
+void Ghost::isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& gameCharacters){
      if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
          m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
          m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
@@ -375,24 +341,26 @@ void Ghost::isCollidingWithPacman(Pacman & pMan){
              wp = false;
          }
      } else if(SDL_HasIntersection(&m_coordinates, pMan.getCoords())){
-         std::cout << pMan.getHealth() << std::endl;
          pMan.setHealth();
-         if(pMan.getDirection() == direction::UP){
-             pMan.getCoords()->y += TILE_SIZE * 2;
-             pMan.setDirection(direction::DOWN);
-         }  else if (pMan.getDirection() == direction::DOWN){
-             pMan.getCoords()->y -= TILE_SIZE * 2;
-             pMan.setDirection(direction::UP);
-         } else if (pMan.getDirection() == direction::LEFT){
-             pMan.getCoords()->x += TILE_SIZE * 2;
-             pMan.setDirection(direction::RIGHT);
-         } else if (pMan.getDirection() == direction::RIGHT){
-             pMan.getCoords()->x -= TILE_SIZE * 2;
-             pMan.setDirection(direction::LEFT);
+         pMan.startPos();
+
+         //ghost's Reset:
+         for (const auto& ghost : gameCharacters){
+                ghost->moveStartPos();
          }
     }
 }
 
 void Ghost::renderCharacter() {
 
+}
+
+void Ghost::moveStartPos(){
+    m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
+    m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
+    m_startingDestinationReached = false;
+
+    for(auto && wp : wayPointsReached){
+        wp = false;
+    }
 }
