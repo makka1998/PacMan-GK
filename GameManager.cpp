@@ -85,15 +85,6 @@ int GameManager::startGame() {
 
                 ghostMovementWrapper();
 
-                Bghost.getMovementDirection(level);
-                Bghost.moveCharacter(level);
-                Bghost.collisionHandling(level);
-                Bghost.isCollidingWithPacman(pacman);
-
-                Oghost.getMovementDirection(level);
-                Oghost.moveCharacter(level);
-                Oghost.collisionHandling(level);
-                Oghost.isCollidingWithPacman(pacman);
                 render();
 //                if (pacman.getPoints() == 80) {
 //                    game_state = 1;
