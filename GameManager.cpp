@@ -70,22 +70,22 @@ int GameManager::startGame() {
                 }
 
                 Mix_Volume(-1, 5);
-                Mix_PlayChannel(1, openingSound, 0);
+                Mix_PlayChannel(-1, openingSound, 0);
 
                 game_state = 2;
             }
             if(game_state == 2)
             {
+                    calculateDeltaTime();
+                    pacman.checkMovementInput(level);
+                    pacman.moveCharacter(level);
+                    pacman.collisionHandling(level);
+                    pacman.PickingUpPillHandler(*level);
 
-                calculateDeltaTime();
-                pacman.checkMovementInput(level);
-                pacman.moveCharacter(level);
-                pacman.collisionHandling(level);
-                pacman.PickingUpPillHandler(*level);
+                    ghostMovementWrapper();
 
-                ghostMovementWrapper();
+                    render();
 
-                render();
 //                if (pacman.getPoints() == 80) {
 //                    game_state = 1;
 //                    pacman.setPoints(0);

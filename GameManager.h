@@ -6,7 +6,6 @@
 #include <iostream>
 #include <chrono>
 #include <SDL.h>
-#include <SDL_mixer.h>
 #include <SDL2/SDL_mixer.h>
 #include <memory>
 

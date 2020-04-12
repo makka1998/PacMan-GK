@@ -55,10 +55,10 @@ void Ghost::checkMovementInput(Map *map) {
 }
 */
 void Ghost::moveCharacter(Map *map) {
-    if (Mix_Playing(1) != 0) {
+    if (Mix_Playing(-1) != 0 && Mix_Playing(1) == 0) {
         //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
     } else {
-        m_speed = 100 * GameManager::deltaTime;
+        m_speed = 130 * GameManager::deltaTime;
         //m_speed = 3;
         if (m_direction == direction::RIGHT) {
             m_coordinates.x += m_speed;
@@ -367,17 +367,25 @@ int *  Ghost::getStartingPosition(){
 }
 
 void Ghost::isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& gameCharacters){
-     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
+    auto death = Mix_LoadWAV("../Resources/pacman_death.wav");
+    auto pacmanEatGhost = Mix_LoadWAV("../Resources/pacman_eatghost.wav");
+    if(death == nullptr)
+    {
+        printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
+    }
+     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5){
+
+         Mix_PlayChannel(3, pacmanEatGhost, 0);
          m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
          m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
          m_startingDestinationReached = false;
-         for(auto && wp : wayPointsReached){
+         for(auto && wp : wayPointsReached) {
              wp = false;
          }
-     } else if(SDL_HasIntersection(&m_coordinates, pMan.getCoords())){
+         } else if(SDL_HasIntersection(&m_coordinates, pMan.getCoords())){
          pMan.setHealth();
          pMan.startPos();
-
+         Mix_PlayChannel(3, death, 0);
          //ghost's Reset:
          for (const auto& ghost : gameCharacters){
                 ghost->moveStartPos();
