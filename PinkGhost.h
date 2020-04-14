@@ -9,11 +9,16 @@
 
 class PinkGhost : public Ghost {
 private:
-
+    int v1 = 1;
+    double timer = 0;
 public:
     PinkGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
-    void getMovementDirection(Map * map) override;
+    void getMovementDirection(Map &map) override;
     void renderCharacter();
+
+    void checkMovementInput(Map *map);
+
+    void getPacmanCoords(SDL_Rect *pacmanCoords);
 };
 
 

@@ -29,14 +29,16 @@ protected:
     int m_speed;
 public:
     GameCharacter();
-    virtual void checkMovementInput(Map * map);
-    virtual void moveCharacter(Map * map);
+    void checkMovementInput(Map & map);
+    virtual void moveCharacter(Map & map);
     bool isColliding(SDL_Rect character, SDL_Rect tile);
-    void collisionHandling(Map * map);
+    void collisionHandling(Map & map);
     virtual void renderCharacter(SDL_Rect srect []);
-    virtual std::vector<bool> pathAvailable(Map *map);
+    virtual std::vector<bool> pathAvailable(Map &map);
     double angle = 0;
     SDL_Point center = {10,10};
+
+    void setDirection(direction dir);
 };
 
 

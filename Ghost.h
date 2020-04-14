@@ -20,13 +20,15 @@ protected:
 public:
     Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
     void setDistanceToTarget(int pacmanPos []);
-    virtual void getMovementDirection(Map * map);
+    virtual void getMovementDirection(Map &map);
     int * getStartingPosition();
-    virtual void moveCharacter(Map * map);
+    virtual void moveCharacter(Map & map);
     virtual void renderCharacter();
     void isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& hei);
 
     void moveStartPos();
+
+    virtual void getPacmanCoords(SDL_Rect *pacmanCoords);
 };
 
 

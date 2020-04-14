@@ -19,7 +19,6 @@ public:
     int getPoints() const { return point;}
     double getPowerUpDuration(){return m_powerUpDuration;}
     direction getDirection();
-    void setDirection(direction dir);
     void setHealth(){ pacHealth -= 1;}
     void setPoints(int resetPoints){ point = resetPoints;}
     void PickingUpPillHandler(Map &map);
@@ -28,6 +27,8 @@ public:
     void ripPacman(SDL_Rect *srect);
 
     void startPos();
+
+    void renderCharacter2();
 };
 
 

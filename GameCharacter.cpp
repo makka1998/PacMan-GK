@@ -12,7 +12,7 @@ GameCharacter::GameCharacter() {
 
 }
 
-void GameCharacter::checkMovementInput(Map * map) {
+void GameCharacter::checkMovementInput(Map & map) {
     SDL_PumpEvents();
     if (Mix_Playing(1) != 0) {
     } else {
@@ -105,7 +105,7 @@ void GameCharacter::checkMovementInput(Map * map) {
 //    m_last_keyStates = m_keyStates;
 
 
-void GameCharacter::moveCharacter(Map *map) {
+void GameCharacter::moveCharacter(Map &map) {
 
         m_speed = 200 * GameManager::deltaTime;
         m_animationNumber++;
@@ -113,7 +113,7 @@ void GameCharacter::moveCharacter(Map *map) {
             m_animationNumber = 1;
         }
         if (m_keyStates[SDL_SCANCODE_TAB]) {
-            m_speed = 4;
+           // m_speed = 4;
         }
 
         if (m_direction == direction::RIGHT) {
@@ -141,118 +141,17 @@ void GameCharacter::moveCharacter(Map *map) {
         }
     }
 
+void GameCharacter::setDirection(direction dir) {
+    m_direction = dir;
+}
 
-    /*  Sjekker om tiles rundt pacman er hindring.
-    int playerGridCord_X = round((m_coordinates.x + (m_coordinates.w) / 2) / TILE_SIZE);
-    int playerGridCord_Y = round((m_coordinates.y + (m_coordinates.h) / 2) / TILE_SIZE);
-
-    int Players_LeftTile = playerGridCord_X - 1;
-    int Players_RightTile = playerGridCord_X + 1;
-    int Players_UpTile = playerGridCord_Y - 1;
-    int Players_DownTile = playerGridCord_Y + 1;
-
-    for (Obstacle tile : map->map) {
-        int tileGridCord_X = tile.getCoordinates().x / TILE_SIZE;
-        int tileGridCord_Y = tile.getCoordinates().y / TILE_SIZE;
-        if (tile.getTileValue() != 10 && tile.getTileValue() != 9 && tile.getTileValue() != 6 && tile.getTileValue() != 0){
-            if (tileGridCord_X == Players_LeftTile && tileGridCord_Y == playerGridCord_Y) {     //LEFT
-                //Direction LEFT not allowed
-            } else if (tileGridCord_X == Players_RightTile && tileGridCord_Y == playerGridCord_Y) {  //RIGHT
-                //Direction RIGHT not allowed
-
-            } else if (tileGridCord_X == playerGridCord_X && tileGridCord_Y == Players_UpTile) {    //UP
-                //Direction UP not allowed
-
-            } else if (tileGridCord_X == playerGridCord_X && tileGridCord_Y == Players_DownTile) {  //DOWN
-                //Direction DOWN not allowed
-
-            }
-        }
-    }
-     */
-
-/*
-
-    int tileInfrontValue;
-    int tileBehindValue;
-    int tileLeftValue;
-    int tileRightValue;
-
-
-    if(m_direction == direction::LEFT){
-        std::cout << "DIR= LEFT" << std::endl;
-    }else if(m_direction == direction::RIGHT){
-        std::cout << "DIR= RIGHTH" << std::endl;
-    } else if(m_direction == direction::UP){
-        std::cout << "DIR= UP" << std::endl;
-    } else if(m_direction == direction::DOWN){
-        std::cout << "DIR= dOWN" << std::endl;
-    }
-
-    if(m_last_direction == direction::LEFT){
-        std::cout << "LAST DIR= LEFT" << std::endl;
-    }else if(m_last_direction == direction::RIGHT){
-        std::cout << "LAST DIR= RIGHTH" << std::endl;
-    } else if(m_last_direction == direction::UP){
-        std::cout << "LAST DIR= UP" << std::endl;
-    } else if(m_last_direction == direction::DOWN){
-        std::cout << "LAST DIR= dOWN" << std::endl;
-    }
-*/
-
-    //int xCoord16th = m_coordinates.x / TILE_SIZE; xxx im triple X rated
-    //int yCoord16th = m_coordinates.y / TILE_SIZE; xxx im triple X rated
-    //std::cout << "X: " << xCoord16th << " Y: " << yCoord16th << std::endl;
-//
-//    int MxCoord16th = m_coordinates.x / 16;
-//    int Mycoord16th = m_coordinates.y / 16;
-//
-//    std::vector<int> tileInfront;
-//    std::vector<int> tileBehind;
-//    std::vector<int> tileLeft;
-//    std::vector<int> tileRight;
-//
-//    for (Obstacle o : map->map) {
-//        if (xCoord16th + 1 == o.getCoordinates().x / 16 && yCoord16th == o.getCoordinates().y / 16) {
-//            tileRight.emplace_back(o.getCoordinates().x / 16);
-//            tileRight.emplace_back(o.getCoordinates().y / 16);
-//        }
-//        if (xCoord16th - 1 == o.getCoordinates().x / 16 && yCoord16th == o.getCoordinates().y / 16) {
-//            tileLeft.emplace_back(o.getCoordinates().x / 16);
-//            tileLeft.emplace_back(o.getCoordinates().y / 16);
-//        }
-//        if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th + 1 == o.getCoordinates().y / 16) {
-//            tileBehind.emplace_back(o.getCoordinates().x / 16);
-//            tileBehind.emplace_back(o.getCoordinates().y / 16);
-//        }
-//        if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th - 1 == o.getCoordinates().y / 16) {
-//            tileInfront.emplace_back(o.getCoordinates().x / 16);
-//            tileInfront.emplace_back(o.getCoordinates().y / 16);
-//        }
-//    }
-//
-
-
-/*
-    if ((o.getTileValue() == 4 || o.getTileValue() == 5) && ) {//Lodrette
-        if (m_direction == direction::LEFT) {
-            m_coordinates.x += pushBackDistance;
-        } else if (m_direction == direction::RIGHT) {
-            m_coordinates.x -= pushBackDistance;
-        }
-    }
-    */
-
-
-//Check out if direction::NONE is making it not work. -Jonas
-void GameCharacter::collisionHandling(Map *map) {
-    //int pushBackDistance = 10;
-    for (Obstacle o : map->map) {
+void GameCharacter::collisionHandling(Map &map) {
+    for (Obstacle o : map.map) {
         if (isColliding(m_coordinates, o.getCoordinates())) {
             if (o.getTileValue() == 3) { //Vanrette
-                if (m_direction == direction::DOWN) {
+                if (m_direction == direction::DOWN ) {
                     m_coordinates.y = o.getCoordinates().y - TILE_SIZE;
-                } else if (m_direction == direction::UP) {
+                } else if (m_direction == direction::UP ) {
                     m_coordinates.y = o.getCoordinates().y + TILE_SIZE;
                 }
             }
@@ -266,47 +165,46 @@ void GameCharacter::collisionHandling(Map *map) {
             }
 
             if (o.getTileValue() == 1 || o.getTileValue() == 11) {//Top-Venstre hjørne
-                if (m_direction == direction::DOWN) {
+                if (m_direction == direction::DOWN || m_last_direction == direction::UP) {
                     m_coordinates.y = o.getCoordinates().y - TILE_SIZE;
                     m_coordinates.x = o.getCoordinates().x - TILE_SIZE;
-                } else if (m_direction == direction::RIGHT) {
+                } else if (m_direction == direction::RIGHT || m_last_direction == direction::LEFT) {
                     m_coordinates.x = o.getCoordinates().x - TILE_SIZE;
                     m_coordinates.y = o.getCoordinates().y - TILE_SIZE;
                 }
             }
 
             if (o.getTileValue() == 2 || o.getTileValue() == 12) {//Top-Høyre hjørne
-                if (m_direction == direction::DOWN) {
+                if (m_direction == direction::DOWN || m_last_direction == direction::UP) {
                     m_coordinates.y = o.getCoordinates().y - TILE_SIZE;
                     m_coordinates.x = o.getCoordinates().x + TILE_SIZE;
-                } else if (m_direction == direction::LEFT) {
+                } else if (m_direction == direction::LEFT || m_last_direction == direction::RIGHT) {
                     m_coordinates.x = o.getCoordinates().x + TILE_SIZE;
                     m_coordinates.y = o.getCoordinates().y - TILE_SIZE;
                 }
             }
 
             if (o.getTileValue() == 7 || o.getTileValue() == 13) {//Nedre-Venstre hjørne
-                if (m_direction == direction::RIGHT) {
+                if (m_direction == direction::RIGHT|| m_last_direction == direction::LEFT) {
                     m_coordinates.x = o.getCoordinates().x - TILE_SIZE;
                     m_coordinates.y = o.getCoordinates().y + TILE_SIZE;
-                } else if (m_direction == direction::UP) {
+                } else if (m_direction == direction::UP  || m_last_direction == direction::DOWN) {
                     m_coordinates.y = o.getCoordinates().y + TILE_SIZE;
                     m_coordinates.x = o.getCoordinates().x - TILE_SIZE;
                 }
             }
 
             if (o.getTileValue() == 8 || o.getTileValue() == 14) {//Nedre-Høyre hjørne
-                if (m_direction == direction::LEFT) {
+                if (m_direction == direction::LEFT  || m_direction == direction::RIGHT || m_last_direction == direction::RIGHT ) {
                     m_coordinates.x = o.getCoordinates().x + TILE_SIZE;
                     m_coordinates.y = o.getCoordinates().y + TILE_SIZE;
-                } else if (m_direction == direction::UP) {
+                } else if (m_direction == direction::UP  || m_last_direction == direction::DOWN) {
                     m_coordinates.y = o.getCoordinates().y + TILE_SIZE;
                     m_coordinates.x = o.getCoordinates().x + TILE_SIZE;
                 }
             }
         }
     }
-
 }
 
 bool GameCharacter::isColliding(SDL_Rect player, SDL_Rect tile) {
@@ -314,13 +212,13 @@ bool GameCharacter::isColliding(SDL_Rect player, SDL_Rect tile) {
     return SDL_HasIntersection(&player, &tile);
 };
 
-std::vector<bool> GameCharacter::pathAvailable(Map *map) {
+std::vector<bool> GameCharacter::pathAvailable(Map &map) {
     std::vector<bool> pathAvailable = {false, false, false, false};
     // By adding width and height to characters x and y coordinates, we get coordiantes for their center.
     int xCoord = round((m_coordinates.x + (m_coordinates.w / 2)) / TILE_SIZE);
     int yCoord = round((m_coordinates.y + (m_coordinates.h / 2)) / TILE_SIZE);
 
-    for (Obstacle o : map->map) {
+    for (Obstacle &o : map.map) {
         if (xCoord + 1 == o.getCoordinates().x / TILE_SIZE && yCoord == o.getCoordinates().y / TILE_SIZE) {
             if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
                 pathAvailable.at(3) = true;

@@ -190,7 +190,7 @@ void Pacman::ripPacman(SDL_Rect srect []){
         SDL_DestroyTexture(m_texture);
 }
 
-SDL_Rect * Pacman::getCoords(){
+ SDL_Rect * Pacman::getCoords(){
     return &m_coordinates;
 }
 
@@ -198,9 +198,6 @@ direction Pacman::getDirection() {
     return m_direction;
 }
 
-void Pacman::setDirection(direction dir) {
-    m_direction = dir;
-}
 
 void Pacman::startPos(){
     m_coordinates.x = 14 * TILE_SIZE;

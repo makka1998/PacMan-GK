@@ -35,6 +35,20 @@ public:
     void render();
 
     void ghostMovementWrapper();
+
+    void MainMenu();
+
+    void quit();
+
+    void renderMainMenu();
+
+    void pacmanWrapper();
+
+    void pacmanWrapper(bool pause);
+
+    void render(bool pause);
+
+    void ghostMovementWrapper(bool pause);
 };
 
 #endif //PACMAN_GK_MASTER_GAMEMANAGER_H
