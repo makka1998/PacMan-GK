@@ -41,9 +41,19 @@ void GameManager::renderMainMenu(){
             timer= 0;
         }
     }
-        SDL_RenderCopy(GameManager::renderer, background, nullptr, nullptr);
-        SDL_DestroyTexture(background);
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(GameManager::renderer, background, nullptr, nullptr);
+    SDL_RenderPresent(renderer);
+    SDL_DestroyTexture(background);
 }
+void GameManager::renderGameOverScreen(){
+    SDL_Texture* background = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/gameOver_1.png");
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(GameManager::renderer, background, nullptr, nullptr);
+    SDL_RenderPresent(renderer);
+    SDL_DestroyTexture(background);
+}
+
 int GameManager::startGame() {
     srand(time(NULL));
     SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
@@ -60,41 +70,51 @@ int GameManager::startGame() {
 
     running = true;
     bool pause = true;
+    bool programRunning = true;
     calculateDeltaTime();
     const Uint8 *getKeyboardInput = SDL_GetKeyboardState(NULL);
     //----------------------------------------------------------------
-    while(running){
-        while(pause){
-            calculateDeltaTime();
-            ghostMovementWrapper(pause);
-            pacmanWrapper(pause);
-            render(pause);
+    while(programRunning) {
+        while (running) {
+            while (pause) {
+                Mix_HaltChannel(-1);
+                calculateDeltaTime();
+                ghostMovementWrapper(pause);
+                pacmanWrapper(pause);
+                renderMainMenu();
 
-            if(getKeyboardInput[SDL_SCANCODE_RETURN]){
-                pause=false;
+                if (getKeyboardInput[SDL_SCANCODE_RETURN]) {
+                    pause = false;
+                }
             }
-        }
-        if(getKeyboardInput[SDL_SCANCODE_ESCAPE] || pacman.getHealth() <= 0 || pacman.getPoints() >= 241){
-           break;
-        }
-            if(game_state == 1){
+            if (getKeyboardInput[SDL_SCANCODE_ESCAPE] || pacman.getHealth() <= 0 || pacman.getPoints() >= 241) {
+                running = false;
+            }
+            if (game_state == 1) {
                 level = new Map("../Resources/mainLevel.txt");
                 //Opening sound
                 auto openingSound = Mix_LoadWAV("../Resources/pacman_beginning.wav");
-                if (openingSound == nullptr) {printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());}
+                if (openingSound == nullptr) {
+                    printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+                }
                 Mix_Volume(-1, 5);
-                Mix_PlayChannel(-1, openingSound, 0);
-                    game_state = 2;
+                Mix_PlayChannel(6, openingSound, 0);
+                game_state = 2;
             }
-            if(game_state == 2){
+            if (game_state == 2) {
                 calculateDeltaTime();
                 pacmanWrapper(pause);
                 ghostMovementWrapper(pause);
-                render(pause);
+                render();
 
-                if(getKeyboardInput[SDL_SCANCODE_P]){
+                if (getKeyboardInput[SDL_SCANCODE_P]) {
                     pause = true;
                 }
+            }
+        }
+        renderGameOverScreen();
+        if (getKeyboardInput[SDL_SCANCODE_ESCAPE]){
+            break;
         }
     }
     quit();
@@ -104,13 +124,11 @@ void GameManager::quit(){
     SDL_DestroyWindow(window);
     SDL_Quit(); // Be SDL om å rydde opp
 };
-void GameManager::render(bool pause) {
+void GameManager::render() {
     SDL_SetRenderDrawColor(renderer,0,0,0,0);
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer,255,255,255,0);
-    if(pause){
-        renderMainMenu();
-    }else {
+
         std::string poeng = std::to_string(pacman.getPoints());
         scoreDisplay score(GameManager::renderer, "../Resources/Old_Tilesets/Arial.ttf", 1*TILE_SIZE, "Poeng: "+poeng , {255,255,255,255});
         score.display(13*TILE_SIZE,1.5*TILE_SIZE, renderer);
@@ -125,7 +143,7 @@ void GameManager::render(bool pause) {
         for(const auto& ghost: m_gameCharacters){
             ghost->renderCharacter();
         }
-    }
+
     SDL_RenderPresent(renderer);
 }
 

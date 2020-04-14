@@ -19,7 +19,7 @@ Ghost::Ghost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4,
 }
 
 void Ghost::moveCharacter(Map &map) {
-    if(Mix_Playing(-1) != 0 && Mix_Playing(1) == 0) {
+    if (Mix_Playing(6) != 0 || Mix_Playing(3) != 0) {
         //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
     } else {
             m_speed = 140 * GameManager::deltaTime;
@@ -52,22 +52,17 @@ int *  Ghost::getStartingPosition(){
 }
 
 void Ghost::isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& gameCharacters){
-    auto death = Mix_LoadWAV("../Resources/pacman_death.wav");
-    auto pacmanEatGhost = Mix_LoadWAV("../Resources/pacman_eatghost.wav");
-    if(death == nullptr)
-    {
-        printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
-    }
+
      if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
-         Mix_PlayChannel(3, pacmanEatGhost, 0);
+         playEatenSound();
          m_coordinates.x = m_respawnPosition[0] * TILE_SIZE;
          m_coordinates.y = m_respawnPosition[1] * TILE_SIZE;
      } else if(SDL_HasIntersection(&m_coordinates, pMan.getCoords())){
+         playDeathSound();
          pMan.setHealth();
          pMan.startPos();
-         Mix_PlayChannel(3, death, 0);
 
-         //ghost's Reset:
+         //set ghost position
          for (const auto& ghost : gameCharacters){
                 ghost->moveRespawnPos();
          }
@@ -84,11 +79,20 @@ void Ghost::getPacmanCoords(SDL_Rect* pacmanCoords){
 void Ghost::moveRespawnPos(){
     m_coordinates.x = m_respawnPosition[0] * TILE_SIZE;
     m_coordinates.y = m_respawnPosition[1] * TILE_SIZE;
-   /*
-    m_startingDestinationReached = false;
+}
 
-    for(auto && wp : wayPointsReached){
-        wp = false;
+void Ghost::playDeathSound(){
+    auto death = Mix_LoadWAV("../Resources/pacman_death.wav");
+    if(death == nullptr){
+        std::cout << "Could not play death sound!" << std::endl;
     }
-    */
+    Mix_PlayChannel(3, death, 0);
+}
+
+void Ghost::playEatenSound(){
+    auto pacmanEatGhost = Mix_LoadWAV("../Resources/pacman_eatghost.wav");
+    if(pacmanEatGhost == nullptr){
+        std::cout << "Could not play death sound!" << std::endl;
+    }
+    Mix_PlayChannel(3, pacmanEatGhost, 0);
 }

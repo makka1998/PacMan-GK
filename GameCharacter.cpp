@@ -14,7 +14,6 @@ GameCharacter::GameCharacter() {
 
 void GameCharacter::checkMovementInput(Map & map) {
     SDL_PumpEvents();
-
         if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
             if (m_direction != direction::UP) {
                 if (pathAvailable(map).at(0)) {
@@ -47,100 +46,43 @@ void GameCharacter::checkMovementInput(Map & map) {
     }
 
 
-//    if (m_direction == direction::UP && m_last_direction == direction::DOWN) {
-//        //Tillat endring, det er på samme akse.
-//        m_direction = direction::UP;
-//    } else if (m_direction == direction::DOWN && m_last_direction == direction::UP) {
-//        //Tillat endring, det er på samme akse.
-//        m_direction = direction::DOWN;
-//    } else if (m_direction == direction::LEFT && m_last_direction == direction::RIGHT) {
-//        //Tillat endring, det er på samme akse.
-//        m_direction = direction::LEFT;
-//    } else if (m_direction == direction::RIGHT && m_last_direction == direction::LEFT) {
-//        //Tillat endring, det er på samme akse.
-//        m_direction = direction::RIGHT;
-//
-//    } else if ((m_direction == direction::RIGHT || m_direction == direction::LEFT) && (m_last_direction == direction::DOWN || m_last_direction == direction::UP)) {
-//        if (m_direction == direction::RIGHT) {
-//            if(pathAvailable(map).at(3)){
-//                m_direction = direction::RIGHT;
-//            }
-//
-//        } else if (m_direction == direction::LEFT) {
-//            if(pathAvailable(map).at(2)){
-//                m_direction = direction::LEFT;
-//            }
-//        }
-//    } else if ((m_direction == direction::UP || m_direction == direction::DOWN) && (m_last_direction == direction::LEFT || m_last_direction == direction::RIGHT)) {
-//        if (m_direction == direction::UP) {
-//            for (Obstacle o : map->map) {
-//                if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th - 1 == o.getCoordinates().y / 16) {
-//                    m_coordinates.y += -m_speed;
-//                }
-//            }
-//        } else if (m_direction == direction::DOWN) {
-//            for (Obstacle o : map->map) {
-//                if (xCoord16th == o.getCoordinates().x / 16 && yCoord16th + 1 == o.getCoordinates().y / 16) {
-//                    m_coordinates.y += m_speed;
-//                }
-//            }
-//        }
-//    }
-
-
-
-//    if (m_keyStates[SDL_SCANCODE_W] && !(m_last_keyStates[SDL_SCANCODE_W])) {
-//        m_direction = direction::UP;
-//    } else if (m_keyStates[SDL_SCANCODE_S] && !(m_last_keyStates[SDL_SCANCODE_S])) {
-//        m_direction = direction::DOWN;
-//    } else if (m_keyStates[SDL_SCANCODE_D] && !(m_last_keyStates[SDL_SCANCODE_D])) {
-//        m_direction = direction::RIGHT;
-//    } else if (m_keyStates[SDL_SCANCODE_A] && !(m_last_keyStates[SDL_SCANCODE_A])) {
-//        m_direction = direction::LEFT;
-//    }
-//
-//    std::cout << "Current: " << (int)m_keyStates[SDL_SCANCODE_W] << (int)m_keyStates[SDL_SCANCODE_A] << (int)m_keyStates[SDL_SCANCODE_S] << (int)m_keyStates[SDL_SCANCODE_D] << std::endl;
-//    //std::cout << " Last: "<< (int)m_last_keyStates[SDL_SCANCODE_W] << (int)m_last_keyStates[SDL_SCANCODE_A] << (int)m_last_keyStates[SDL_SCANCODE_S] << (int)m_last_keyStates[SDL_SCANCODE_D] << std::endl;
-//    m_last_keyStates = m_keyStates;
-
-
 void GameCharacter::moveCharacter(Map &map) {
-    if (Mix_Playing(-1) != 0 && Mix_Playing(1) == 0) {}
-    else {
-        m_speed = 160 * GameManager::deltaTime;
-        m_animationNumber++;
-        if (m_animationNumber >= 13) {
-            m_animationNumber = 1;
+        if (Mix_Playing(-1) != 0  && Mix_Playing(1) == 0) {}
+        else {
+            m_speed = 200 * GameManager::deltaTime;
+            m_animationNumber++;
+            if (m_animationNumber >= 13) {
+                m_animationNumber = 1;
+            }
+            if (m_keyStates[SDL_SCANCODE_TAB]) {
+                // m_speed = 4;
+            }
+
+            if (m_direction == direction::RIGHT) {
+                m_coordinates.x += m_speed;
+                angle = 0;
+
+            } else if (m_direction == direction::LEFT) {
+                m_coordinates.x += -m_speed;
+                angle = 180;
+
+            } else if (m_direction == direction::UP) {
+                m_coordinates.y += -m_speed;
+                angle = -90;
+
+            } else if (m_direction == direction::DOWN) {
+                m_coordinates.y += m_speed;
+                angle = 90;
+            }
+
+            if (m_coordinates.x < 2 && m_coordinates.y == 17 * TILE_SIZE) {
+                m_coordinates.x = 29 * TILE_SIZE;
+            } else if ((m_coordinates.x < 30.5 * TILE_SIZE && m_coordinates.x > 29.5 * TILE_SIZE) && m_coordinates.y == 17 * TILE_SIZE) {
+                m_coordinates.x = 1 * TILE_SIZE;
+            }
         }
-        if (m_keyStates[SDL_SCANCODE_TAB]) {
-            // m_speed = 4;
-        }
-
-        if (m_direction == direction::RIGHT) {
-            m_coordinates.x += m_speed;
-            angle = 0;
-
-        } else if (m_direction == direction::LEFT) {
-            m_coordinates.x += -m_speed;
-            angle = 180;
-
-        } else if (m_direction == direction::UP) {
-            m_coordinates.y += -m_speed;
-            angle = -90;
-
-        } else if (m_direction == direction::DOWN) {
-            m_coordinates.y += m_speed;
-            angle = 90;
-        }
-
-        if (m_coordinates.x < 2 && m_coordinates.y == 17 * TILE_SIZE) {
-            m_coordinates.x = 29 * TILE_SIZE;
-        } else if ((m_coordinates.x < 30.5 * TILE_SIZE && m_coordinates.x > 29.5 * TILE_SIZE) &&
-                   m_coordinates.y == 17 * TILE_SIZE) {
-            m_coordinates.x = 1 * TILE_SIZE;
-        }
-    }
 }
+
 void GameCharacter::setDirection(direction dir) {
     m_direction = dir;
 }

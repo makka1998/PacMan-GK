@@ -49,6 +49,8 @@ public:
     void render(bool pause);
 
     void ghostMovementWrapper(bool pause);
+
+    void renderGameOverScreen();
 };
 
 #endif //PACMAN_GK_MASTER_GAMEMANAGER_H

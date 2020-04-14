@@ -6,7 +6,7 @@
 #define PACMAN_GK_MASTER_BLUEGHOST_H
 
 #include "Ghost.h"
-
+// Sug en tiss
 class BlueGhost : public Ghost {
 private:
     int v1 = 1;
