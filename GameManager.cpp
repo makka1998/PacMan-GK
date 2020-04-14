@@ -83,7 +83,7 @@ int GameManager::startGame() {
                 auto openingSound = Mix_LoadWAV("../Resources/pacman_beginning.wav");
                 if (openingSound == nullptr) {printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());}
                 Mix_Volume(-1, 5);
-                Mix_PlayChannel(1, openingSound, 0);
+                Mix_PlayChannel(-1, openingSound, 0);
                     game_state = 2;
             }
             if(game_state == 2){

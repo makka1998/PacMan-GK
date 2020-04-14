@@ -14,8 +14,7 @@ GameCharacter::GameCharacter() {
 
 void GameCharacter::checkMovementInput(Map & map) {
     SDL_PumpEvents();
-    if (Mix_Playing(1) != 0) {
-    } else {
+
         if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
             if (m_direction != direction::UP) {
                 if (pathAvailable(map).at(0)) {
@@ -46,7 +45,7 @@ void GameCharacter::checkMovementInput(Map & map) {
             }
         }
     }
-}
+
 
 //    if (m_direction == direction::UP && m_last_direction == direction::DOWN) {
 //        //Tillat endring, det er på samme akse.
@@ -106,14 +105,15 @@ void GameCharacter::checkMovementInput(Map & map) {
 
 
 void GameCharacter::moveCharacter(Map &map) {
-
-        m_speed = 200 * GameManager::deltaTime;
+    if (Mix_Playing(-1) != 0 && Mix_Playing(1) == 0) {}
+    else {
+        m_speed = 160 * GameManager::deltaTime;
         m_animationNumber++;
         if (m_animationNumber >= 13) {
             m_animationNumber = 1;
         }
         if (m_keyStates[SDL_SCANCODE_TAB]) {
-           // m_speed = 4;
+            // m_speed = 4;
         }
 
         if (m_direction == direction::RIGHT) {
@@ -140,7 +140,7 @@ void GameCharacter::moveCharacter(Map &map) {
             m_coordinates.x = 1 * TILE_SIZE;
         }
     }
-
+}
 void GameCharacter::setDirection(direction dir) {
     m_direction = dir;
 }

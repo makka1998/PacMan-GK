@@ -12,13 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Arial.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,24 +60,24 @@
       <recent name="C:\Users\Martin\PacMan-GK" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="PacMan-GK-master" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PacMan-GK-master" TARGET_NAME="PacMan-GK-master" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PacMan-GK-master" RUN_TARGET_NAME="PacMan-GK-master">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -103,6 +102,7 @@
       <workItem from="1586522294077" duration="5975000" />
       <workItem from="1586696602535" duration="14257000" />
       <workItem from="1586880421377" duration="530000" />
+      <workItem from="1586881246536" duration="2109000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -244,22 +244,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147629164" />
-    <state width="1877" height="124" key="GridCell.Tab.0.bottom" timestamp="1586714347977">
+    <state width="1877" height="125" key="GridCell.Tab.0.bottom" timestamp="1586883798799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586714347977" />
-    <state width="1877" height="124" key="GridCell.Tab.0.center" timestamp="1586714347977">
+    <state width="1877" height="125" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586883798799" />
+    <state width="1877" height="125" key="GridCell.Tab.0.center" timestamp="1586883798799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586714347977" />
-    <state width="1877" height="124" key="GridCell.Tab.0.left" timestamp="1586714347977">
+    <state width="1877" height="125" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586883798799" />
+    <state width="1877" height="125" key="GridCell.Tab.0.left" timestamp="1586883798799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586714347977" />
-    <state width="1877" height="124" key="GridCell.Tab.0.right" timestamp="1586714347977">
+    <state width="1877" height="125" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586883798799" />
+    <state width="1877" height="125" key="GridCell.Tab.0.right" timestamp="1586883798799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586714347977" />
+    <state width="1877" height="125" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586883798799" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1585683173705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
