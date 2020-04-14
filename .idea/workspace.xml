@@ -11,16 +11,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Resources/pacman_death.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/pacman_eatghost.wav" afterDir="false" />
+    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="- må fikse respwanen til ghosts!">
+      <change afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/mainMenu_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/mainMenu_2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20_BLUE.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/PacManSpriteSheet_20x20_BLUE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Old_Tilesets/Pacman_Tileset_20x20.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/Pacman_Tileset_20x20.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,24 +63,24 @@
       <recent name="C:\Users\Martin\PacMan-GK" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="PacMan-GK-master" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PacMan-GK-master" TARGET_NAME="PacMan-GK-master" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PacMan-GK-master" RUN_TARGET_NAME="PacMan-GK-master">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />

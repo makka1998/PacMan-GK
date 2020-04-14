@@ -1,7 +1,3 @@
-//
-// Created by Tobias on 30.03.2020.
-//
-
 #include "Ghost.h"
 
 //Fiks denne constructoren så den ser pen ut
@@ -42,156 +38,6 @@ void Ghost::moveCharacter(Map &map) {
 void Ghost::getMovementDirection(Map &map) {
 
 
-
-
-
-//    else {
-//        if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){
-//            m_direction = direction::LEFT;
-//        } else if (pathAvailable(map).at(0) && m_distanceToTarget[1] < 0) {
-//            m_direction = direction::UP;
-//        }
-//    }
-
-
-//    if(pathAvailable(map).at(0)){
-//        if(m_direction != direction::UP){
-//            if(m_last_direction != direction::DOWN){
-//                m_last_direction = m_direction;
-//                m_direction = direction::UP;
-//            }
-//        }
-//        std::cout << "OPP!" << std::endl;
-//    }
-//    if (pathAvailable(map).at(3)){
-//        if(m_direction != direction::RIGHT){
-//            if(m_last_direction != direction::LEFT){
-//                m_last_direction = m_direction;
-//                m_direction = direction::RIGHT;
-//            }
-//        }
-//        std::cout << "HØYRE!" << std::endl;
-//    }
-//    if (pathAvailable(map).at(1)){
-//        if(m_direction != direction::DOWN){
-//            if( m_last_direction != direction::UP){
-//                m_last_direction = m_direction;
-//                m_direction = direction::DOWN;
-//            }
-//        }
-//        std::cout << "NED!" << std::endl;
-//    }
-//    if (pathAvailable(map).at(2)){
-//        if(m_direction != direction::LEFT){
-//            if(m_last_direction != direction::RIGHT){
-//                m_last_direction = m_direction;
-//                m_direction = direction::LEFT;
-//            }
-//        }
-//        std::cout << "VENSTRE!" << std::endl;
-//    }
-
-
-//    if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){
-//        m_direction = direction::LEFT;
-//    }
-//    if (pathAvailable(map).at(3) && m_distanceToTarget[0] > 0){
-//
-//        m_direction = direction::RIGHT;
-//    }
-//    if (pathAvailable(map).at(0) && m_distanceToTarget[1] < 0){
-//        m_direction = direction::UP;
-//    }
-//    if (pathAvailable(map).at(1) && m_distanceToTarget[1] > 0) {
-//        m_direction = direction::DOWN;
-//    }
-
-//    if(("Er til venstre"){
-//        if(!(pathAvailable(map).at(2))){
-//            //m_direction = direction::UP;
-//            //m_direction = direction::DOWN;
-//        }else{
-//            m_direction = direction::LEFT;
-//        }
-//    }
-
-    /*
-     if (pathAvailable(map).at(2) && m_distanceToTarget[0] < 0){ // Er det mulig å dra til venstre og er pacman til venstre for meg?
-        m_direction = direction::LEFT; // Dra til venstre
-    } else {
-        m_direction = direction::RIGHT;
-        std::cout << "left 1.2" << std::endl;
-    }
-    if (pathAvailable(map).at(3) && m_distanceToTarget[0] > 0){
-        m_direction = direction::RIGHT;
-    } else {
-        m_direction = direction::LEFT;
-        std::cout << "right 1.2" << std::endl;
-    }
-    if (pathAvailable(map).at(0) && m_distanceToTarget[1] < 0){
-        m_direction = direction::UP;
-    } else{
-        m_direction = direction::DOWN;
-        std::cout << "up 1.2" << std::endl;
-    }
-    if (pathAvailable(map).at(1) && m_distanceToTarget[1] > 0) {
-        m_direction = direction::DOWN;
-    } else {
-        m_direction = direction::UP;
-        std::cout << "down 1.2" << std::endl;
-    }
-    */
-
-    /*
-     if(distanceToTarget[0] != 0){
-        if(distanceToTarget[0] < 0){
-            m_direction = direction::LEFT;
-        } else {
-            m_direction = direction::RIGHT;
-        }
-    } else if(distanceToTarget[1] != 0){
-        if(distanceToTarget[1] < 0){
-            m_direction = direction::UP;
-        } else {
-            m_direction = direction::DOWN;
-        }
-    }
-     */
-
-    /*
-     SDL_PumpEvents();
-    if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
-        if (m_direction != direction::UP) {
-            if(pathAvailable(map).at(0)){
-                m_last_direction = m_direction;
-                m_direction = direction::UP;
-            }
-        }
-    } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
-        if (m_direction != direction::DOWN) {
-            if(pathAvailable(map).at(1)){
-                m_last_direction = m_direction;
-                m_direction = direction::DOWN;
-            }
-        }
-    } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
-        if (m_direction != direction::RIGHT) {
-            if(pathAvailable(map).at(3)){
-                m_last_direction = m_direction;
-                m_direction = direction::RIGHT;
-            }
-        }
-    } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
-        if (m_direction != direction::LEFT) {
-            if(pathAvailable(map).at(2)){
-                m_last_direction = m_direction;
-                m_direction = direction::LEFT;
-            }
-        }
-    }
-
-     */
-
 }
 
 void Ghost::setDistanceToTarget(int startingDest []) {
@@ -204,25 +50,17 @@ int *  Ghost::getStartingPosition(){
 }
 
 void Ghost::isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& gameCharacters){
-    auto death = Mix_LoadWAV("../Resources/pacman_death.wav");
-    auto pacmanEatGhost = Mix_LoadWAV("../Resources/pacman_eatghost.wav");
-    if(death == nullptr)
-    {
-        printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
-    }
-     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5){
-
-         Mix_PlayChannel(3, pacmanEatGhost, 0);
+     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
          m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
          m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
          m_startingDestinationReached = false;
          for(auto && wp : wayPointsReached){
              wp = false;
          }
-         } else if(SDL_HasIntersection(&m_coordinates, pMan.getCoords())){
+     } else if(SDL_HasIntersection(&m_coordinates, pMan.getCoords())){
          pMan.setHealth();
          pMan.startPos();
-         Mix_PlayChannel(3, death, 0);
+
          //ghost's Reset:
          for (const auto& ghost : gameCharacters){
                 ghost->moveStartPos();
