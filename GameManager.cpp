@@ -14,10 +14,10 @@ Pacman pacman;
 GameManager::GameManager(){
 
     SDL_Rect* pacmanCoords = pacman.getCoords();
-    m_gameCharacters.push_back(std::make_shared<RedGhost>(12, 16, 15, 12, 11, 9, 8, 7 ));
-    m_gameCharacters.push_back(std::make_shared<BlueGhost>(17, 16, 13, 12, 17, 9, 20, 7));
-    m_gameCharacters.push_back(std::make_shared<PinkGhost>(12, 18, 15, 12, 8, 24, 5, 26));
-    m_gameCharacters.push_back(std::make_shared<OrangeGhost>(17, 18, 13, 12, 20, 24, 23, 26));
+    m_gameCharacters.push_back(std::make_shared<RedGhost>(12, 16, 10, 11, 15, 12, 11, 9, 8, 7));
+    m_gameCharacters.push_back(std::make_shared<BlueGhost>(17, 16, 19, 11, 13, 12, 17, 9, 20, 7));
+    m_gameCharacters.push_back(std::make_shared<PinkGhost>(12, 18, 10, 14, 15, 12, 8, 24, 5, 26));
+    m_gameCharacters.push_back(std::make_shared<OrangeGhost>(17, 18, 19, 14, 13, 12, 20, 24, 23, 26));
 }
 
 void GameManager::playSound(){

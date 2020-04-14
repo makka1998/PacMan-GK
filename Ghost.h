@@ -13,13 +13,14 @@ protected:
     SDL_Texture* m_texture;
     SDL_Rect m_pacmanPos;
     int m_startingPosition [2];
+    int m_respawnPosition [2];
     direction m_direction = direction::NONE;
     int m_distanceToTarget [2];
     bool m_startingDestinationReached = false;
     std::vector<bool> wayPointsReached;
     std::vector<int> wayPoints;
 public:
-    Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
+    Ghost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
     void setDistanceToTarget(int pacmanPos []);
     virtual void getMovementDirection(Map &map);
     int * getStartingPosition();
@@ -27,7 +28,7 @@ public:
     virtual void renderCharacter();
     void isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& hei);
 
-    void moveStartPos();
+    void moveRespawnPos();
 
     virtual void getPacmanCoords(SDL_Rect *pacmanCoords);
 };

@@ -12,7 +12,7 @@ private:
     int v1 = 1;
     double timer = 0;
 public:
-    BlueGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
+    BlueGhost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
 
     void getMovementDirection(Map & map) override;
     void renderCharacter() override;

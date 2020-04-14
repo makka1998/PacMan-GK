@@ -6,7 +6,7 @@
 
 int i = 1;
 
-BlueGhost::BlueGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(x, y, wp1, wp2, wp3, wp4, wp5, wp6) {
+BlueGhost::BlueGhost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(xs, ys, xr, yr, wp1, wp2, wp3, wp4, wp5, wp6) {
 }
 
 void BlueGhost::getMovementDirection(Map &map) {
@@ -77,21 +77,21 @@ void BlueGhost::getMovementDirection(Map &map) {
                 }
                 break;
             case 3 :
-                if (pathAvailable(map).at(2) && m_direction != direction::RIGHT) {
-                    if (m_direction != direction::LEFT) {
-                        m_last_direction = m_direction;
-                    }
-                    m_direction = direction::LEFT;
-                } else {
-                    v1 = 4;
-                }
-                break;
-            case 4 :
                 if (pathAvailable(map).at(3) && m_direction != direction::LEFT) {
                     if (m_direction != direction::RIGHT) {
                         m_last_direction = m_direction;
                     }
                     m_direction = direction::RIGHT;
+                } else {
+                    v1 = 4;
+                }
+                break;
+            case 4 :
+                if (pathAvailable(map).at(2) && m_direction != direction::RIGHT) {
+                    if (m_direction != direction::LEFT) {
+                        m_last_direction = m_direction;
+                    }
+                    m_direction = direction::LEFT;
                 } else {
                     v1 = 1;
                 }

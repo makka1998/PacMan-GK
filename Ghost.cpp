@@ -1,16 +1,18 @@
 #include "Ghost.h"
 
 //Fiks denne constructoren så den ser pen ut
-Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) {
-    m_coordinates.x = x * TILE_SIZE;
-    m_coordinates.y = y * TILE_SIZE;
+Ghost::Ghost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) {
+    m_coordinates.x = xs * TILE_SIZE;
+    m_coordinates.y = ys * TILE_SIZE;
 
     m_coordinates.h = TILE_SIZE;
     m_coordinates.w = TILE_SIZE;
 
-    m_startingPosition[0] = x;
-    m_startingPosition[1] = y;
+    m_startingPosition[0] = xs;
+    m_startingPosition[1] = ys;
 
+    m_respawnPosition[0] = xr;
+    m_respawnPosition[1] = yr;
     wayPointsReached  = {false, false, false, false, false, false, false};
     wayPoints = {wp1, wp2, wp3, wp4, wp5, wp6};
     setDistanceToTarget(m_startingPosition);
@@ -51,19 +53,15 @@ int *  Ghost::getStartingPosition(){
 
 void Ghost::isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& gameCharacters){
      if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
-         m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
-         m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
-         m_startingDestinationReached = false;
-         for(auto && wp : wayPointsReached){
-             wp = false;
-         }
+         m_coordinates.x = m_respawnPosition[0] * TILE_SIZE;
+         m_coordinates.y = m_respawnPosition[1] * TILE_SIZE;
      } else if(SDL_HasIntersection(&m_coordinates, pMan.getCoords())){
          pMan.setHealth();
          pMan.startPos();
 
          //ghost's Reset:
          for (const auto& ghost : gameCharacters){
-                ghost->moveStartPos();
+                ghost->moveRespawnPos();
          }
     }
 }
@@ -75,12 +73,14 @@ void Ghost::getPacmanCoords(SDL_Rect* pacmanCoords){
 
 }
 
-void Ghost::moveStartPos(){
-    m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
-    m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
+void Ghost::moveRespawnPos(){
+    m_coordinates.x = m_respawnPosition[0] * TILE_SIZE;
+    m_coordinates.y = m_respawnPosition[1] * TILE_SIZE;
+   /*
     m_startingDestinationReached = false;
 
     for(auto && wp : wayPointsReached){
         wp = false;
     }
+    */
 }

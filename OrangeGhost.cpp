@@ -4,8 +4,7 @@
 
 #include "OrangeGhost.h"
 
-OrangeGhost::OrangeGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(x, y, wp1, wp2, wp3, wp4, wp5, wp6) {
-
+OrangeGhost::OrangeGhost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(xs, ys, xr, yr, wp1, wp2, wp3, wp4, wp5, wp6) {
 }
 void OrangeGhost::getMovementDirection(Map &map) {
     int ghost_x = floor(m_coordinates.x / TILE_SIZE);
