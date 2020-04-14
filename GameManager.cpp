@@ -4,6 +4,9 @@
 #include "BlueGhost.h"
 #include "PinkGhost.h"
 #include "OrangeGhost.h"
+#include "SDL2/SDL_ttf.h"
+#include "scoreDisplay.h"
+#include <string>
 
 SDL_Window *window;
 SDL_Renderer *GameManager::renderer = nullptr;
@@ -29,7 +32,15 @@ void GameManager::playSound(){
 }
 
 void GameManager::renderMainMenu(){
-        SDL_Texture* background = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/mainMenu_1.png");
+    timer += GameManager::deltaTime;
+    SDL_Texture* background = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/mainMenu_1.png");
+    if (timer >=0.5) {
+        SDL_DestroyTexture(background);
+        background = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/mainMenu_2.png");
+        if(timer >=1 ){
+            timer= 0;
+        }
+    }
         SDL_RenderCopy(GameManager::renderer, background, nullptr, nullptr);
         SDL_DestroyTexture(background);
 }
@@ -38,6 +49,7 @@ int GameManager::startGame() {
     SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
     windowLoader windowLoader;
     renderManager renderManager;
+    TTF_Init();
 
     window = windowLoader.createWindow("Pacman");
     renderer = renderManager.createRenderer(window);
@@ -99,8 +111,12 @@ void GameManager::render(bool pause) {
     if(pause){
         renderMainMenu();
     }else {
+        std::string poeng = std::to_string(pacman.getPoints());
+        scoreDisplay score(GameManager::renderer, "../Resources/Old_Tilesets/Arial.ttf", 1*TILE_SIZE, "Poeng: "+poeng , {255,255,255,255});
+        score.display(13*TILE_SIZE,1.5*TILE_SIZE, renderer);
+
         level->drawMap();
-        showGrid();
+        //showGrid();
         if(pacman.getHealth() > 0){
             pacman.renderCharacter(srect);
         } else {

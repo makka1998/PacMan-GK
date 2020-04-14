@@ -27,8 +27,6 @@ public:
     void ripPacman(SDL_Rect *srect);
 
     void startPos();
-
-    void renderCharacter2();
 };
 
 
