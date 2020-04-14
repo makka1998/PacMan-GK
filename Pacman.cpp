@@ -38,7 +38,7 @@ void Pacman::PickingUpPillHandler(Map &map) {
                 if(Mix_Playing(-1) == 0)
                 {
                     //Play the music
-                    Mix_PlayChannel(-1, eatPillSound, 0 );
+                    Mix_PlayChannel(1, eatPillSound, 0 );
                 }
 
             } else if(tile.getTileValue() == 9){

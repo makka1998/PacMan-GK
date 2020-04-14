@@ -7,6 +7,7 @@
 
 #include "GameCharacter.h"
 #include "Pacman.h"
+#include <SDL2/SDL_mixer.h>
 class Ghost : public GameCharacter {
 protected:
     SDL_Texture* m_texture;
