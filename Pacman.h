@@ -10,9 +10,12 @@
 class Pacman : public GameCharacter {
 private:
     SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Resources/Old_Tilesets/Pacman_Tileset_20x20.png");
+    Mix_Chunk *eatPillSound;
     int point;
     int pacHealth = 3;
     double m_powerUpDuration = 5;
+    double timer=0;
+
 public:
     Pacman();
     int getHealth() { return pacHealth;}
@@ -27,6 +30,8 @@ public:
     void ripPacman(SDL_Rect *srect);
 
     void startPos();
+
+    void playPillSound();
 };
 
 

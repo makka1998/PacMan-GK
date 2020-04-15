@@ -55,7 +55,7 @@ void GameCharacter::moveCharacter(Map &map) {
                 m_animationNumber = 1;
             }
             if (m_keyStates[SDL_SCANCODE_TAB]) {
-                // m_speed = 4;
+                m_speed = 4;
             }
 
             if (m_direction == direction::RIGHT) {

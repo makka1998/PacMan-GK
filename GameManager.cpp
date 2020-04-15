@@ -23,6 +23,114 @@ GameManager::GameManager(){
     m_gameCharacters.push_back(std::make_shared<OrangeGhost>(17, 18, 19, 14, 13, 12, 20, 24, 23, 26));
 }
 
+int GameManager::startGame() {
+    srand(time(NULL));
+    SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
+    windowLoader windowLoader;
+    renderManager renderManager;
+    TTF_Init();
+
+    window = windowLoader.createWindow("Pacman");
+    renderer = renderManager.createRenderer(window);
+    playSound();
+
+    SDL_Event event;
+    SDL_PollEvent(&event);
+    const Uint8 *getKeyboardInput = SDL_GetKeyboardState(NULL);
+
+
+    running = true;
+    bool pause = true;
+    bool programRunning = true;
+    bool pacmanWin= false;
+
+    //calculateDeltaTime();
+    //----------------------------------------------------------------
+    while(programRunning) {
+        while (running) {
+            while (pause) {
+                Mix_HaltChannel(-1);
+                calculateDeltaTime();
+                pacmanWrapper(pause);
+                renderMainMenu();
+
+                if (getKeyboardInput[SDL_SCANCODE_RETURN]) {
+                    pause = false;
+                }
+            }
+            if (getKeyboardInput[SDL_SCANCODE_ESCAPE] || pacman.getHealth() <= 0 || pacman.getPoints() >= 240) {
+                if(pacman.getPoints() >= 240){
+                    pacmanWin = true;
+                }
+                running = false;
+                timer = 0;
+            }
+            if (game_state == 1) {
+                level = new Map("../Resources/mainLevel.txt");
+                //Opening sound
+                auto openingSound = Mix_LoadWAV("../Resources/pacman_beginning.wav");
+                if (openingSound == nullptr) {
+                    printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+                }
+                Mix_Volume(-1, 5);
+                Mix_PlayChannel(6, openingSound, 0);
+                game_state = 2;
+            }
+            if (game_state == 2) {
+                calculateDeltaTime();
+                pacmanWrapper(pause);
+                ghostWrapper();
+                render();
+
+                if (getKeyboardInput[SDL_SCANCODE_P]) {
+                    pause = true;
+                }
+            }
+        }
+
+        if (getKeyboardInput[SDL_SCANCODE_ESCAPE]){
+            break;
+        }
+        timer += deltaTime;
+        //show screen for 5 seconds.
+        if(timer <= 50){
+            SDL_RenderClear(renderer);
+            SDL_SetRenderDrawColor(renderer,0,0,0,0);
+            level->drawMap();
+            renderGameOverText(pacmanWin);
+            SDL_RenderPresent(renderer);
+        } else{
+            break;
+        }
+    }
+    quit();
+    return EXIT_SUCCESS;
+}
+
+void GameManager::quit(){
+    SDL_DestroyWindow(window);
+    TTF_Quit();
+    Mix_Quit();
+    SDL_Quit(); // Be SDL om å rydde opp
+};
+
+void GameManager::render() {
+    SDL_SetRenderDrawColor(renderer,0,0,0,0);
+    SDL_RenderClear(renderer);
+    SDL_SetRenderDrawColor(renderer,255,255,255,0);
+
+    renderPoeng();
+    level->drawMap();
+    //showGrid();
+    pacman.renderCharacter(srect);
+
+    for(const auto& ghost: m_gameCharacters){
+        ghost->renderCharacter(pacman);
+    }
+
+    SDL_RenderPresent(renderer);
+}
+
 void GameManager::playSound(){
     if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
     {
@@ -46,105 +154,23 @@ void GameManager::renderMainMenu(){
     SDL_RenderPresent(renderer);
     SDL_DestroyTexture(background);
 }
-void GameManager::renderGameOverScreen(){
-    SDL_Texture* background = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/gameOver_1.png");
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(GameManager::renderer, background, nullptr, nullptr);
-    SDL_RenderPresent(renderer);
-    SDL_DestroyTexture(background);
+
+void GameManager::renderPoeng(){
+    std::string poeng = std::to_string(pacman.getPoints());
+    scoreDisplay score(GameManager::renderer, "../Resources/Old_Tilesets/Arial.ttf", 1 * TILE_SIZE, "Points: " + poeng, {255,255,255,255});
+    score.display(13*TILE_SIZE,1.5*TILE_SIZE, renderer);
 }
 
-int GameManager::startGame() {
-    srand(time(NULL));
-    SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
-    windowLoader windowLoader;
-    renderManager renderManager;
-    TTF_Init();
-
-    window = windowLoader.createWindow("Pacman");
-    renderer = renderManager.createRenderer(window);
-    playSound();
-
-    SDL_Event event;
-    SDL_PollEvent(&event);
-
-    running = true;
-    bool pause = true;
-    bool programRunning = true;
-    calculateDeltaTime();
-    const Uint8 *getKeyboardInput = SDL_GetKeyboardState(NULL);
-    //----------------------------------------------------------------
-    while(programRunning) {
-        while (running) {
-            while (pause) {
-                Mix_HaltChannel(-1);
-                calculateDeltaTime();
-                ghostMovementWrapper(pause);
-                pacmanWrapper(pause);
-                renderMainMenu();
-
-                if (getKeyboardInput[SDL_SCANCODE_RETURN]) {
-                    pause = false;
-                }
-            }
-            if (getKeyboardInput[SDL_SCANCODE_ESCAPE] || pacman.getHealth() <= 0 || pacman.getPoints() >= 241) {
-                running = false;
-            }
-            if (game_state == 1) {
-                level = new Map("../Resources/mainLevel.txt");
-                //Opening sound
-                auto openingSound = Mix_LoadWAV("../Resources/pacman_beginning.wav");
-                if (openingSound == nullptr) {
-                    printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
-                }
-                Mix_Volume(-1, 5);
-                Mix_PlayChannel(6, openingSound, 0);
-                game_state = 2;
-            }
-            if (game_state == 2) {
-                calculateDeltaTime();
-                pacmanWrapper(pause);
-                ghostMovementWrapper(pause);
-                render();
-
-                if (getKeyboardInput[SDL_SCANCODE_P]) {
-                    pause = true;
-                }
-            }
-        }
-        renderGameOverScreen();
-        if (getKeyboardInput[SDL_SCANCODE_ESCAPE]){
-            break;
-        }
+void GameManager::renderGameOverText(bool win){
+    scoreDisplay text(GameManager::renderer, "../Resources/Old_Tilesets/8-BIT WONDER.TTF", 1 * TILE_SIZE, "GAME OVER", {255,255,0,255});
+    text.display(11 *TILE_SIZE,26*TILE_SIZE, renderer);
+    std::string gameResult = "YOU LOSE";
+    if(win){
+        gameResult = "YOU WIN";
     }
-    quit();
-    return EXIT_SUCCESS;
-}
-void GameManager::quit(){
-    SDL_DestroyWindow(window);
-    SDL_Quit(); // Be SDL om å rydde opp
-};
-void GameManager::render() {
-    SDL_SetRenderDrawColor(renderer,0,0,0,0);
-    SDL_RenderClear(renderer);
-    SDL_SetRenderDrawColor(renderer,255,255,255,0);
+   scoreDisplay gameCondtitionText(GameManager::renderer, "../Resources/Old_Tilesets/8-BIT WONDER.TTF", 1 * TILE_SIZE, gameResult, {255,255,0,255});
+   gameCondtitionText.display(11.5*TILE_SIZE,35*TILE_SIZE, renderer);
 
-        std::string poeng = std::to_string(pacman.getPoints());
-        scoreDisplay score(GameManager::renderer, "../Resources/Old_Tilesets/Arial.ttf", 1 * TILE_SIZE, "Points: " + poeng, {255,255,255,255});
-        score.display(13*TILE_SIZE,1.5*TILE_SIZE, renderer);
-
-        level->drawMap();
-        //showGrid();
-        if(pacman.getHealth() > 0){
-            pacman.renderCharacter(srect);
-        } else {
-            pacman.ripPacman(deathRect);
-        }
-        for(const auto& ghost: m_gameCharacters){
-            ghost->renderCharacter(pacman);
-        }
-
-    SDL_RenderPresent(renderer);
 }
 
 void GameManager::showGrid(){
@@ -170,18 +196,15 @@ void GameManager::calculateDeltaTime() {
     m_lastFrame = currentFrame;
 }
 
-void GameManager::ghostMovementWrapper(bool pause){
+void GameManager::ghostWrapper(){
     for(const auto& ghost : m_gameCharacters){
-        if(pause){
-            ghost->setDirection(direction::NONE);
-        }else{
             ghost->getMovementDirection(*level);
             ghost->moveCharacter(*level);
             ghost->collisionHandling(*level);
             ghost->isCollidingWithPacman(pacman,m_gameCharacters, *level);
-        }
     }
 }
+
 void GameManager::pacmanWrapper(bool pause){
     if(pause){
        pacman.checkMovementInput(*level);
