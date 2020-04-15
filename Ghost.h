@@ -25,8 +25,8 @@ public:
     virtual void getMovementDirection(Map &map);
     int * getStartingPosition();
     virtual void moveCharacter(Map & map);
-    virtual void renderCharacter();
-    void isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& hei);
+    virtual void renderCharacter(Pacman & pMan);
+    void isCollidingWithPacman(Pacman & pMan, const std::vector<std::shared_ptr<Ghost>>& gameCharacters, Map &map);
 
     void moveRespawnPos();
 

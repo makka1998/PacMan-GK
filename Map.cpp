@@ -24,7 +24,6 @@ void Map::loadMap(const char *filePath) {
             tmp.setSource((currentTileValue - 1) * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE); //which picture we are getting from tile-set.
             tmp.setCoordinates((j * TILE_SIZE), (i * TILE_SIZE), TILE_SIZE, TILE_SIZE); //Hvor i griden
             tmp.setTileValue(currentTileValue);
-            tmp.WalkedOver=false;
             map.push_back(tmp);
         }
     }

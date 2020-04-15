@@ -4,8 +4,8 @@
 #include "BlueGhost.h"
 #include "PinkGhost.h"
 #include "OrangeGhost.h"
-#include "SDL2/SDL_ttf.h"
 #include "scoreDisplay.h"
+#include "SDL2/SDL_ttf.h"
 #include <string>
 
 SDL_Window *window;
@@ -130,7 +130,7 @@ void GameManager::render() {
     SDL_SetRenderDrawColor(renderer,255,255,255,0);
 
         std::string poeng = std::to_string(pacman.getPoints());
-        scoreDisplay score(GameManager::renderer, "../Resources/Old_Tilesets/Arial.ttf", 1*TILE_SIZE, "Poeng: "+poeng , {255,255,255,255});
+        scoreDisplay score(GameManager::renderer, "../Resources/Old_Tilesets/Arial.ttf", 1 * TILE_SIZE, "Points: " + poeng, {255,255,255,255});
         score.display(13*TILE_SIZE,1.5*TILE_SIZE, renderer);
 
         level->drawMap();
@@ -141,7 +141,7 @@ void GameManager::render() {
             pacman.ripPacman(deathRect);
         }
         for(const auto& ghost: m_gameCharacters){
-            ghost->renderCharacter();
+            ghost->renderCharacter(pacman);
         }
 
     SDL_RenderPresent(renderer);
@@ -178,7 +178,7 @@ void GameManager::ghostMovementWrapper(bool pause){
             ghost->getMovementDirection(*level);
             ghost->moveCharacter(*level);
             ghost->collisionHandling(*level);
-            ghost->isCollidingWithPacman(pacman,m_gameCharacters);
+            ghost->isCollidingWithPacman(pacman,m_gameCharacters, *level);
             ghost->getPacmanCoords(pacman.getCoords());
         }
     }

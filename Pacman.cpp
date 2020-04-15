@@ -20,10 +20,6 @@ void Pacman::PickingUpPillHandler(Map &map) {
     //OrangeGhost's position in ratio of the grid/tiles.
     int player_X = round((m_coordinates.x + (m_coordinates.w) / 2) / TILE_SIZE);
     int player_Y = round((m_coordinates.y + (m_coordinates.h) / 2) / TILE_SIZE);
-    if(point == 0){
-        m_coordinates.x = 14 * TILE_SIZE;
-        m_coordinates.y = 26 * TILE_SIZE;
-    }
     for (auto& tile : map.map) {
         int tile_X = tile.getCoordinates().x/TILE_SIZE;
         int tile_Y = tile.getCoordinates().y/TILE_SIZE;
@@ -32,7 +28,6 @@ void Pacman::PickingUpPillHandler(Map &map) {
 
                 //Plukk opp pillene
                 point += 1;
-                //std::cout << "Poeng: " << point << std::endl;
                 tile.setTileValue(0);
                 tile.WalkedOver=true;
                 if(Mix_Playing(-1) == 0)
@@ -53,12 +48,8 @@ void Pacman::PickingUpPillHandler(Map &map) {
 }
 
 void Pacman::renderCharacter(SDL_Rect srect []) {
-    //m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/PacManSpriteSheet_16x16.png");
-    if(m_powerUpDuration < 5){
-        m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20_BLUE.png");
-    } else {
-        m_texture = IMG_LoadTexture(GameManager::renderer,"../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
-    }
+    m_texture = IMG_LoadTexture(GameManager::renderer,"../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
+
     if (m_animationNumber == 1) {
         srect[0].x = TILE_SIZE;
         srect[0].y = TILE_SIZE;
@@ -202,4 +193,5 @@ direction Pacman::getDirection() {
 void Pacman::startPos(){
     m_coordinates.x = 14 * TILE_SIZE;
     m_coordinates.y = 26 * TILE_SIZE;
+    m_direction = direction::NONE;
 }

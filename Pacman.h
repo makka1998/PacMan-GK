@@ -10,7 +10,7 @@
 class Pacman : public GameCharacter {
 private:
     SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Resources/Old_Tilesets/Pacman_Tileset_20x20.png");
-    int point = 1;
+    int point;
     int pacHealth = 3;
     double m_powerUpDuration = 5;
 public:

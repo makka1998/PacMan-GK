@@ -108,7 +108,7 @@ void RedGhost::getPacmanCoords(SDL_Rect *pacmanCoords) {
     //m_pacmanPos.y= pacmanCoords->y;
 }
 
-void RedGhost::renderCharacter() {
+void RedGhost::renderCharacter(Pacman & pMan) {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
     SDL_Rect srect;
     srect.y = 4 * TILE_SIZE;
@@ -123,6 +123,10 @@ void RedGhost::renderCharacter() {
     }
     if(m_direction == direction::RIGHT){
         srect.x = 3 * TILE_SIZE;
+    }
+    if(pMan.getPowerUpDuration() < 5){
+        srect.x = 0;
+        srect.y = 8 * TILE_SIZE;
     }
     SDL_RenderCopy(GameManager::renderer, m_texture, &srect, &m_coordinates);
     SDL_DestroyTexture(m_texture);
