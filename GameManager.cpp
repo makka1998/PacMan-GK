@@ -179,7 +179,6 @@ void GameManager::ghostMovementWrapper(bool pause){
             ghost->moveCharacter(*level);
             ghost->collisionHandling(*level);
             ghost->isCollidingWithPacman(pacman,m_gameCharacters, *level);
-            ghost->getPacmanCoords(pacman.getCoords());
         }
     }
 }

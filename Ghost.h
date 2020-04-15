@@ -30,8 +30,6 @@ public:
 
     void moveRespawnPos();
 
-    virtual void getPacmanCoords(SDL_Rect *pacmanCoords);
-
     void playDeathSound();
 
     void playEatenSound();

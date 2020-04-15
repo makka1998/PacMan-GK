@@ -81,10 +81,6 @@ void Ghost::renderCharacter(Pacman &pMan) {
 
 }
 
-void Ghost::getPacmanCoords(SDL_Rect *pacmanCoords) {
-
-}
-
 void Ghost::moveRespawnPos() {
     m_coordinates.x = m_respawnPosition[0] * TILE_SIZE;
     m_coordinates.y = m_respawnPosition[1] * TILE_SIZE;

@@ -16,8 +16,6 @@ public:
 
     void getMovementDirection(Map & map) override;
     void renderCharacter(Pacman & pMan) override;
-
-    void getPacmanCoords(SDL_Rect *pacmanCoords);
 };
 
 

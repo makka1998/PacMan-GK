@@ -101,12 +101,6 @@ void RedGhost::getMovementDirection(Map &map) {
 
 }
 
-void RedGhost::getPacmanCoords(SDL_Rect *pacmanCoords) {
-    m_pacmanPos.x = floor(pacmanCoords->x / TILE_SIZE);
-    m_pacmanPos.y = floor(pacmanCoords->y / TILE_SIZE);
-    //m_pacmanPos.x= pacmanCoords->x;
-    //m_pacmanPos.y= pacmanCoords->y;
-}
 
 void RedGhost::renderCharacter(Pacman & pMan) {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
