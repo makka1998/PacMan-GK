@@ -12,23 +12,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="- Blue">
+    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlueGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BlueGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlueGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/BlueGhost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obstacle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Obstacle.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrangeGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/OrangeGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrangeGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/OrangeGhost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PinkGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PinkGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PinkGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/PinkGhost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RedGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/RedGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RedGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/RedGhost.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Old_Tilesets/Pacman_Tileset_20x20.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Old_Tilesets/Pacman_Tileset_20x20.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/mainLevel.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/mainLevel.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,7 +106,7 @@
       <workItem from="1586880421377" duration="530000" />
       <workItem from="1586886260830" duration="5846000" />
       <workItem from="1586893115281" duration="259000" />
-      <workItem from="1586908047180" duration="5149000" />
+      <workItem from="1586908047180" duration="5995000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -211,7 +197,13 @@
       <option name="presentableId" value="LOCAL−00014" />
       <updated>1586705856732</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL−00015" summary="- Changed the graphic when pacman eats a power pellet to showing the ghosts being scared of him and not just turning pacman blue.&#10;- Can now display &quot;live&quot; hp, i dont have the right image for it though. And it adds another for loop running that is running the whole time which idk how badly affects our performance.">
+      <created>1586919083547</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1586919083548</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +239,8 @@
     <MESSAGE value="- Made freezing game on startup work&#10;- Continued to look at pausing game, still crashes when trying to unpause" />
     <MESSAGE value="- Ghosts now look in the direction they are moving" />
     <MESSAGE value="- Blue Pacman looks nice" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Blue Pacman looks nice" />
+    <MESSAGE value="- Changed the graphic when pacman eats a power pellet to showing the ghosts being scared of him and not just turning pacman blue.&#10;- Can now display &quot;live&quot; hp, i dont have the right image for it though. And it adds another for loop running that is running the whole time which idk how badly affects our performance." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Changed the graphic when pacman eats a power pellet to showing the ghosts being scared of him and not just turning pacman blue.&#10;- Can now display &quot;live&quot; hp, i dont have the right image for it though. And it adds another for loop running that is running the whole time which idk how badly affects our performance." />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585147685470">
