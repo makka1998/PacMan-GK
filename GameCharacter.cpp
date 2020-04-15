@@ -47,7 +47,7 @@ void GameCharacter::checkMovementInput(Map & map) {
 
 
 void GameCharacter::moveCharacter(Map &map) {
-        if (Mix_Playing(-1) != 0  && Mix_Playing(1) == 0) {}
+        if (Mix_Playing(6) != 0  || Mix_Playing(3) != 0) {}
         else {
             m_speed = 200 * GameManager::deltaTime;
             m_animationNumber++;

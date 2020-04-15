@@ -9,29 +9,41 @@
 
 class Pacman : public GameCharacter {
 private:
-    SDL_Texture* m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Resources/Old_Tilesets/Pacman_Tileset_20x20.png");
-    Mix_Chunk *eatPillSound;
-    int point;
-    int pacHealth = 3;
+    SDL_Texture *m_texture = IMG_LoadTexture(GameManager::renderer,"../Resources/Resources/Old_Tilesets/Pacman_Tileset_20x20.png");
+    Mix_Chunk *m_eatPillSound;
+    Mix_Chunk *m_eatPowerPillSound;
+    int m_point;
+    int m_pacHealth = 1;
     double m_powerUpDuration = 5;
-    double timer=0;
+    double m_timer = 0;
+    bool m_lastLife;
 
 public:
     Pacman();
-    int getHealth() { return pacHealth;}
-    int getPoints() const { return point;}
-    double getPowerUpDuration(){return m_powerUpDuration;}
-    direction getDirection();
-    void setHealth(){ pacHealth -= 1;}
-    void setPoints(int resetPoints){ point = resetPoints;}
+
+    bool islastLife() { return m_lastLife; }
+
+    int getHealth() { return m_pacHealth; }
+
+    int getPoints() const { return m_point; }
+
+    double getPowerUpDuration() { return m_powerUpDuration; }
+
+    void setHealth();
+
     void PickingUpPillHandler(Map &map);
-    SDL_Rect * getCoords();
+
+    SDL_Rect *getCoords();
+
     void renderCharacter(SDL_Rect *srect) override;
+
     void ripPacman(SDL_Rect *srect);
 
     void startPos();
 
     void playPillSound();
+
+    void playPowerPillSound();
 };
 
 

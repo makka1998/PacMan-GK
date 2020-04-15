@@ -68,6 +68,9 @@ void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_pt
             } else if (tile.getCoordinates().x == 40 && tile.getCoordinates().y == 700 && pMan.getHealth() == 1) {
                 tile.setTileValue(0);
                 tile.WalkedOver = true;
+            } else if (tile.getCoordinates().x == 20 && tile.getCoordinates().y == 700 && pMan.getHealth() == 0) {
+                tile.setTileValue(0);
+                tile.WalkedOver = true;
             }
         }
         //set ghost position
