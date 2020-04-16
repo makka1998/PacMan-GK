@@ -67,6 +67,39 @@ void Pacman::renderCharacter(SDL_Rect srect[]) {
     SDL_DestroyTexture(m_texture);
 }
 
+void Pacman::checkMovementInput(Map & map) {
+    SDL_PumpEvents();
+    if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
+        if (m_direction != direction::UP) {
+            if (pathAvailable(map).at(0)) {
+                m_last_direction = m_direction;
+                m_direction = direction::UP;
+            }
+        }
+    } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
+        if (m_direction != direction::DOWN) {
+            if (pathAvailable(map).at(1)) {
+                m_last_direction = m_direction;
+                m_direction = direction::DOWN;
+            }
+        }
+    } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
+        if (m_direction != direction::RIGHT) {
+            if (pathAvailable(map).at(3)) {
+                m_last_direction = m_direction;
+                m_direction = direction::RIGHT;
+            }
+        }
+    } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
+        if (m_direction != direction::LEFT) {
+            if (pathAvailable(map).at(2)) {
+                m_last_direction = m_direction;
+                m_direction = direction::LEFT;
+            }
+        }
+    }
+}
+
 void Pacman::ripPacman(SDL_Rect srect[]) {
     int deathPosition = TILE_SIZE * 10;
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");

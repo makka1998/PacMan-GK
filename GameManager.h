@@ -3,10 +3,12 @@
 #include "windowLoader.h"
 #include "renderManager.h"
 #include "Map.h"
+#include "scoreDisplay.h"
 #include <iostream>
 #include <chrono>
 #include <SDL.h>
 #include <SDL2/SDL_mixer.h>
+#include <string>
 #include <memory>
 
 //characters include

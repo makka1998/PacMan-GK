@@ -1,6 +1,5 @@
 #include "Ghost.h"
 
-//Fiks denne constructoren så den ser pen ut
 Ghost::Ghost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) {
     m_coordinates.x = xs * TILE_SIZE;
     m_coordinates.y = ys * TILE_SIZE;
@@ -18,38 +17,62 @@ Ghost::Ghost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4,
     setDistanceToTarget(m_startingPosition);
 }
 
-void Ghost::moveCharacter(Map &map) {
-    if (Mix_Playing(6) != 0 || Mix_Playing(3) != 0) {
-        //  Denne While loopen fryser spillet på riktig måte men Spøkelset blir ikke med :o -Martin
-    } else {
-        m_speed = 140 * GameManager::deltaTime;
-        //m_speed = 1;
-        if (m_direction == direction::RIGHT) {
-            m_coordinates.x += m_speed;
 
-        } else if (m_direction == direction::LEFT) {
-            m_coordinates.x += -m_speed;
-
-        } else if (m_direction == direction::UP) {
-            m_coordinates.y += -m_speed;
-        } else if (m_direction == direction::DOWN) {
-            m_coordinates.y += m_speed;
-        }
+void Ghost::wanderRandom(Map &map) {
+    //Random seed
+    srand(time(NULL));
+    m_timer += GameManager::deltaTime;
+    if (m_timer >= 1.5) {
+        m_RNG = rand() % 4 + 1;
+        m_timer = 0;
     }
-}
-
-void Ghost::getMovementDirection(Map &map) {
-
-
+    switch (m_RNG) {
+        case 1 :
+            if (pathAvailable(map).at(0) && m_direction != direction::DOWN) {
+                if (m_direction != direction::UP) {
+                    m_last_direction = m_direction;
+                }
+                m_direction = direction::UP;
+            } else {
+                m_RNG = 2;
+            }
+            break;
+        case 2 :
+            if (pathAvailable(map).at(1) && m_direction != direction::UP) {
+                if (m_direction != direction::DOWN) {
+                    m_last_direction = m_direction;
+                }
+                m_direction = direction::DOWN;
+            } else {
+                m_RNG = 3;
+            }
+            break;
+        case 3 :
+            if (pathAvailable(map).at(3) && m_direction != direction::LEFT) {
+                if (m_direction != direction::RIGHT) {
+                    m_last_direction = m_direction;
+                }
+                m_direction = direction::RIGHT;
+            } else {
+                m_RNG = 4;
+            }
+            break;
+        case 4 :
+            if (pathAvailable(map).at(2) && m_direction != direction::RIGHT) {
+                if (m_direction != direction::LEFT) {
+                    m_last_direction = m_direction;
+                }
+                m_direction = direction::LEFT;
+            } else {
+                m_RNG = 1;
+            }
+            break;
+    }
 }
 
 void Ghost::setDistanceToTarget(int startingDest[]) {
     m_distanceToTarget[0] = startingDest[0] - m_coordinates.x / TILE_SIZE;
     m_distanceToTarget[1] = startingDest[1] - m_coordinates.y / TILE_SIZE;
-}
-
-int *Ghost::getStartingPosition() {
-    return m_startingPosition;
 }
 
 void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map) {
@@ -75,7 +98,7 @@ void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_pt
         }
         //set ghost position
         for (const auto &ghost : gameCharacters) {
-            ghost->moveRespawnPos();
+            ghost->moveToRespawnPos();
         }
     }
 }
@@ -84,7 +107,7 @@ void Ghost::renderCharacter(Pacman &pMan) {
 
 }
 
-void Ghost::moveRespawnPos() {
+void Ghost::moveToRespawnPos() {
     m_coordinates.x = m_respawnPosition[0] * TILE_SIZE;
     m_coordinates.y = m_respawnPosition[1] * TILE_SIZE;
 }

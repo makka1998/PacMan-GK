@@ -13,12 +13,15 @@ private:
     Mix_Chunk *m_eatPillSound;
     Mix_Chunk *m_eatPowerPillSound;
     int m_point;
-    int m_pacHealth = 1;
+    int m_pacHealth = 3;
     double m_powerUpDuration = 5;
     double m_timer = 0;
     bool m_lastLife;
 
+    Uint8 const* m_keyStates = SDL_GetKeyboardState(nullptr);
+
 public:
+
     Pacman();
 
     bool islastLife() { return m_lastLife; }
@@ -44,6 +47,8 @@ public:
     void playPillSound();
 
     void playPowerPillSound();
+
+    void checkMovementInput(Map &map);
 };
 
 

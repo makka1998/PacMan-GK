@@ -4,10 +4,11 @@
 #include "BlueGhost.h"
 #include "PinkGhost.h"
 #include "OrangeGhost.h"
-#include "scoreDisplay.h"
-#include <string>
 
+//kan SDL_window * være inne i startGame()??
 SDL_Window *window;
+
+//static variables
 SDL_Renderer *GameManager::renderer = nullptr;
 double GameManager::deltaTime;
 Map *level;
@@ -16,19 +17,22 @@ Pacman pacman;
 GameManager::GameManager() {
 
     SDL_Rect *pacmanCoords = pacman.getCoords();
-    m_gameCharacters.push_back(std::make_shared<RedGhost>(12, 16, 10, 11, 15, 12, 11, 9, 8, 7));
-    m_gameCharacters.push_back(std::make_shared<BlueGhost>(17, 16, 19, 11, 13, 12, 17, 9, 20, 7));
-    m_gameCharacters.push_back(std::make_shared<PinkGhost>(12, 18, 10, 14, 15, 12, 8, 24, 5, 26));
-    m_gameCharacters.push_back(std::make_shared<OrangeGhost>(17, 18, 19, 14, 13, 12, 20, 24, 23, 26));
+    //Creating and adding all ghost to m_gameCharacters.
+    m_gameCharacters.push_back(std::make_shared<RedGhost>(12, 16, 10, 11, 14, 14, 12, 11, 10, 8));
+    m_gameCharacters.push_back(std::make_shared<BlueGhost>(17, 16, 19, 11, 14, 14, 16, 11, 19, 8));
+    m_gameCharacters.push_back(std::make_shared<PinkGhost>(12, 18, 10, 14, 14, 14, 10, 23, 6, 25));
+    m_gameCharacters.push_back(std::make_shared<OrangeGhost>(17, 18, 19, 14, 13, 14, 20, 24, 23, 26));
 }
 
 int GameManager::startGame() {
-    srand(time(NULL));
+
+    //initialize all libraries
     SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
+    TTF_Init();
+    //Mix_init(); ?? add this? instead of playSound()?
+
     windowLoader windowLoader;
     renderManager renderManager;
-    TTF_Init();
-
     window = windowLoader.createWindow("Pacman");
     renderer = renderManager.createRenderer(window);
     playSound();
@@ -58,33 +62,41 @@ int GameManager::startGame() {
                     renderMainMenu();
                 }
 
+                //exit game
                 if (getKeyboardInput[SDL_SCANCODE_RETURN]) {
                     pause = false;
                     game_state = 1;
                 }
+
+                //unpause
                 if (getKeyboardInput[SDL_SCANCODE_ESCAPE]) {
                     pause = false;
                     running = false;
                 }
             }
-                if (pacman.getPoints() >= 240) {
-                    pacmanWin = true;
-                    running = false;
-                }
-                if (pacman.getHealth() <= 0) {
-                    if (game_state != 3) {
+
+            //end game conditions for pacman health
+            if (pacman.getPoints() >= 240) {
+                pacmanWin = true;
+                running = false;
+            }
+            if (pacman.getHealth() <= 0) {
+                if (game_state != 3) {
                     game_state = 3;
                     timer = 0;
                 }
-                }
+            }
 
+            //happens once every time the game starts
             if (game_state == 1) {
                 level = new Map("../Resources/mainLevel.txt");
                 //Opening sound
                 playOpeningSound();
                 game_state = 2;
             }
+            //main game-play
             if (game_state == 2) {
+                //make this a function named main_gameplay or just game_state 2=?
                 calculateDeltaTime();
                 pacmanWrapper(pause);
                 ghostWrapper();
@@ -95,40 +107,44 @@ int GameManager::startGame() {
                 }
             }
             if (game_state == 3) {
+                //make this a function named death? or game_state 3?
                 timer += deltaTime;
+                //show death animation for approx 5 seconds.
                 if (timer <= 5) {
-                    //std::cout << timer;
                     SDL_RenderClear(renderer);
                     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
                     level->drawMap();
                     pacman.ripPacman(deathRect);
                     SDL_RenderPresent(renderer);
                 } else {
-                timer = 0;
-                running = false;}
+                    timer = 0;
+                    running = false;
+                }
             }
         }
-            if (getKeyboardInput[SDL_SCANCODE_ESCAPE]) {
-                break;
-            }
-            timer += deltaTime;
-            //show screen for 3 seconds.
-            if (timer <= 30) {
-                SDL_RenderClear(renderer);
-                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-                level->drawMap();
-                renderGameOverText(pacmanWin);
-                SDL_RenderPresent(renderer);
-            } else {
-                break;
-            }
+        //you can quit the game if you dont want to wait approx 3 seconds in the game over scenario.
+        if (getKeyboardInput[SDL_SCANCODE_ESCAPE]) {
+            break;
         }
-        quit();
-        return EXIT_SUCCESS;
+        timer += deltaTime;
+        //show screen for approx 3 seconds.
+        if (timer <= 30) {
+            SDL_RenderClear(renderer);
+            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+            level->drawMap();
+            renderGameOverText(pacmanWin);
+            SDL_RenderPresent(renderer);
+        } else {
+            break;
+        }
+    }
+    quit();
+    return 0;
 }
 
 void GameManager::quit() {
     SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
     TTF_Quit();
     Mix_Quit();
     SDL_Quit(); // Be SDL om å rydde opp
@@ -141,7 +157,7 @@ void GameManager::render() {
 
     renderPoeng();
     level->drawMap();
-    //showGrid();
+    showGrid();
     pacman.renderCharacter(srect);
 
     for (const auto &ghost: m_gameCharacters) {
@@ -151,6 +167,7 @@ void GameManager::render() {
     SDL_RenderPresent(renderer);
 }
 
+//name change?
 void GameManager::playSound() {
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
         printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
@@ -158,7 +175,7 @@ void GameManager::playSound() {
 }
 
 void GameManager::playOpeningSound() {
-    if(Mix_Playing(6)) {
+    if (Mix_Playing(6)) {
         Mix_HaltChannel(6);
     }
     auto openingSound = Mix_LoadWAV("../Resources/pacman_beginning.wav");
@@ -168,8 +185,9 @@ void GameManager::playOpeningSound() {
     Mix_Volume(-1, 5);
     Mix_PlayChannel(6, openingSound, 0);
 }
+
 void GameManager::playMenuMusic() {
-    if(Mix_Playing(6)) {
+    if (Mix_Playing(6)) {
         Mix_HaltChannel(6);
     }
     auto menuMusic = Mix_LoadWAV("../Resources/pacman_menumusic.wav");
@@ -243,7 +261,7 @@ void GameManager::calculateDeltaTime() {
 void GameManager::ghostWrapper() {
     for (const auto &ghost : m_gameCharacters) {
         ghost->getMovementDirection(*level);
-        ghost->moveCharacter(*level);
+        ghost->moveCharacter(*level,140);
         ghost->collisionHandling(*level);
         ghost->isCollidingWithPacman(pacman, m_gameCharacters, *level);
     }
@@ -255,7 +273,7 @@ void GameManager::pacmanWrapper(bool pause) {
         pacman.setDirection(direction::NONE);
     } else {
         pacman.checkMovementInput(*level);
-        pacman.moveCharacter(*level);
+        pacman.moveCharacter(*level, 200);
         pacman.collisionHandling(*level);
         pacman.PickingUpPillHandler(*level);
     }
