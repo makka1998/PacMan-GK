@@ -5,11 +5,9 @@ Map::Map(const char *filePath) {
 }
 
 void Map::loadMap(const char *filePath) {
-    //Obstacle tmp("../Resources/Pacman_16x16_Tileset_Blue.png");
-    //Obstacle tmp("../Resources/Old_Tilesets/Pacman_fancy_tileset_32x32.png");
-    Obstacle tmp("../Resources/Old_Tilesets/Pacman_Tileset_20x20.png");
+    Tile tmp("../Resources/Images/Pacman_Tileset_20x20.png");
     int currentTileValue, xAxisOfTileset, yAxisOfTileset;
-    std::ifstream input(filePath); //Our mainLevel.txt file
+    std::ifstream input(filePath); ///Our mainLevel.txt file
     if (!input.is_open()) {
         std::cerr << "Failed to open file: " << filePath << std::endl;
         return;

@@ -67,7 +67,7 @@ bool GameCharacter::isColliding(SDL_Rect player, SDL_Rect tile) {
  */
 void GameCharacter::collisionHandling(Map &map) {
     ///Checking every tile to see if you collided with it.
-    for (Obstacle o : map.map) {
+    for (Tile o : map.map) {
         if (isColliding(m_coordinates, o.getCoordinates())) {
             if (o.getTileValue() == 3) { ///Horizontal obstacles
                 if (m_direction == direction::DOWN || m_direction == direction::RIGHT || m_direction == direction::LEFT) {
@@ -127,7 +127,7 @@ std::vector<bool> GameCharacter::pathAvailable(Map &map) {
     int xCoord = round((m_coordinates.x + (m_coordinates.w / 2)) / TILE_SIZE);
     int yCoord = round((m_coordinates.y + (m_coordinates.h / 2)) / TILE_SIZE);
 
-    for (Obstacle &o : map.map) {
+    for (Tile &o : map.map) {
         if (xCoord + 1 == o.getCoordinates().x / TILE_SIZE && yCoord == o.getCoordinates().y / TILE_SIZE) {
             if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
                 pathAvailable.at(3) = true;

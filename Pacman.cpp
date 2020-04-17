@@ -43,7 +43,7 @@ void Pacman::PickingUpPillHandler(Map &map) {
  * @param srect An array of SDL_Rects that contains the different places in the spritesheet we have to look to get the correct pacman graphic.
  */
 void Pacman::renderCharacter(SDL_Rect srect[]) {
-    m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
+    m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/PacManSpriteSheet_20x20.png");
     ///Using a timer to display the correct part of the animation.
     m_timer += GameManager::deltaTime;
     if (m_timer <= 0.1) {
@@ -107,7 +107,7 @@ void Pacman::checkMovementInput(Map &map) {
  */
 void Pacman::ripPacman(SDL_Rect srect[]) {
     int deathPosition = TILE_SIZE * 10;
-    m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
+    m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/PacManSpriteSheet_20x20.png");
     ///Using a timer to display the correct part of the animation.
     m_timer += GameManager::deltaTime;
     if (m_timer <= 0) {
@@ -152,7 +152,7 @@ void Pacman::ripPacman(SDL_Rect srect[]) {
 }
 
 void Pacman::playPillSound() {
-    Mix_Chunk *eatPillSound = Mix_LoadWAV("../Resources/EatPillSound3.wav");
+    Mix_Chunk *eatPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_eat_pill_sound.wav");
     if (eatPillSound == nullptr) {
         printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
@@ -165,7 +165,7 @@ void Pacman::playPillSound() {
 
 void Pacman::playPowerPillSound() {
     Mix_HaltChannel(-1);
-    Mix_Chunk *eatPowerPillSound = Mix_LoadWAV("../Resources/pacman_powerpill.wav");
+    Mix_Chunk *eatPowerPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_powerpellet_sound.wav");
     if (eatPowerPillSound == nullptr) {
         printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }

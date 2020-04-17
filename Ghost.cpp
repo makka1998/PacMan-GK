@@ -93,7 +93,7 @@ void Ghost::moveToRespawnPos() {
 }
 
 void Ghost::playDeathSound() {
-    auto death = Mix_LoadWAV("../Resources/pacman_death.wav");
+    auto death = Mix_LoadWAV("../Resources/Sounds/pacman_death_sound.wav");
     if (death == nullptr) {
         std::cout << "Could not play death sound!" << std::endl;
     }
@@ -101,7 +101,7 @@ void Ghost::playDeathSound() {
 }
 
 void Ghost::playEatenSound() {
-    auto pacmanEatGhost = Mix_LoadWAV("../Resources/pacman_eatghost.wav");
+    auto pacmanEatGhost = Mix_LoadWAV("../Resources/Sounds/pacman_eat_ghost_sound.wav");
     if (pacmanEatGhost == nullptr) {
         std::cout << "Could not play death sound!" << std::endl;
     }

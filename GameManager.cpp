@@ -13,6 +13,7 @@ SDL_Renderer *GameManager::renderer = nullptr;
 double GameManager::deltaTime;
 Map *level;
 Pacman pacman;
+
 GameManager::GameManager() {
     //Creating and adding all ghost to m_gameCharacters.
     m_gameCharacters.push_back(std::make_shared<RedGhost>(11, 16, 9, 11, 13, 14, 11, 11, 9, 8));
@@ -86,7 +87,7 @@ int GameManager::startGame() {
 
             //happens once every time the game starts
             if (game_state == 1) {
-                level = new Map("../Resources/mainLevel.txt");
+                level = new Map("../Resources/Levels/Level_layout_1.txt");
                 //Opening sound
                 playOpeningSound();
                 game_state = 2;
@@ -148,13 +149,10 @@ void GameManager::quit() {
 };
 
 void GameManager::render() {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_RenderClear(renderer);
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
 
     renderPoeng();
     level->drawMap();
-    showGrid();
     pacman.renderCharacter(srect);
 
     for (const auto &ghost: m_gameCharacters) {
@@ -175,7 +173,7 @@ void GameManager::playOpeningSound() {
     if (Mix_Playing(6)) {
         Mix_HaltChannel(6);
     }
-    auto openingSound = Mix_LoadWAV("../Resources/pacman_beginning.wav");
+    auto openingSound = Mix_LoadWAV("../Resources/Sounds/pacman_intro_sound.wav");
     if (openingSound == nullptr) {
         printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
@@ -187,7 +185,7 @@ void GameManager::playMenuMusic() {
     if (Mix_Playing(6)) {
         Mix_HaltChannel(6);
     }
-    auto menuMusic = Mix_LoadWAV("../Resources/pacman_menumusic.wav");
+    auto menuMusic = Mix_LoadWAV("../Resources/Sounds/pacman_menu_sound.wav");
     if (menuMusic == nullptr) {
         printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
@@ -197,10 +195,10 @@ void GameManager::playMenuMusic() {
 
 void GameManager::renderMainMenu() {
     timer += GameManager::deltaTime;
-    SDL_Texture *background = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/mainMenu_1.png");
+    SDL_Texture *background = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/Main_menu_1.png");
     if (timer >= 0.5) {
         SDL_DestroyTexture(background);
-        background = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/mainMenu_2.png");
+        background = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/Main_menu_2.png");
         if (timer >= 1) {
             timer = 0;
         }
@@ -213,39 +211,23 @@ void GameManager::renderMainMenu() {
 
 void GameManager::renderPoeng() {
     std::string poeng = std::to_string(pacman.getPoints());
-    scoreDisplay score(GameManager::renderer, "../Resources/Old_Tilesets/Arial.ttf", 1 * TILE_SIZE, "Points: " + poeng,
-                       {255, 255, 255, 255});
-    score.display(13 * TILE_SIZE, 1.5 * TILE_SIZE, renderer);
+    scoreDisplay score(GameManager::renderer, "../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,
+                       "Points " + poeng, {255, 255, 0, 255});
+    score.display(10.2 * TILE_SIZE, 1.5 * TILE_SIZE, renderer);
 }
 
 void GameManager::renderGameOverText(bool win) {
-    scoreDisplay text(GameManager::renderer, "../Resources/Old_Tilesets/8-BIT WONDER.TTF", 1 * TILE_SIZE, "GAME OVER",
+    scoreDisplay text(GameManager::renderer, "../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE, "GAME OVER",
                       {255, 255, 0, 255});
-    text.display(10.5 * TILE_SIZE, 26 * TILE_SIZE, renderer);
+    text.display(9.5 * TILE_SIZE, 14 * TILE_SIZE, renderer);
     std::string gameResult = "YOU LOSE";
     if (win) {
         gameResult = "YOU WIN";
     }
-    scoreDisplay gameCondtitionText(GameManager::renderer, "../Resources/Old_Tilesets/8-BIT WONDER.TTF", 1 * TILE_SIZE,
+    scoreDisplay gameCondtitionText(GameManager::renderer, "../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,
                                     gameResult, {255, 255, 0, 255});
-    gameCondtitionText.display(11.5 * TILE_SIZE, 35 * TILE_SIZE, renderer);
+    gameCondtitionText.display(10.25 * TILE_SIZE, 20 * TILE_SIZE, renderer);
 
-}
-
-void GameManager::showGrid() {
-    int grid_cell_size = TILE_SIZE;
-    int grid_width = 29;
-    int grid_height = 36;
-
-    for (int x = 0; x < 1 + grid_width * grid_cell_size;
-         x += grid_cell_size) {
-        SDL_RenderDrawLine(renderer, x, 0, x, HEIGHT);
-    }
-
-    for (int y = 0; y < 1 + grid_height * grid_cell_size;
-         y += grid_cell_size) {
-        SDL_RenderDrawLine(renderer, 0, y, WIDTH, y);
-    }
 }
 
 void GameManager::calculateDeltaTime() {

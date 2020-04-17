@@ -69,7 +69,7 @@ void PinkGhost::doWaypointPath() {
  * @param pMan A reference to the pacman game object.
  */
 void PinkGhost::renderCharacter(Pacman &pMan) {
-    m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
+    m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/PacManSpriteSheet_20x20.png");
     SDL_Rect srect;
     srect.y = 5 * TILE_SIZE;
     srect.x = 0;

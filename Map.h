@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include "Obstacle.h"
+#include "Tile.h"
 #include "GameManager.h"
 
 class Map {
@@ -19,7 +19,7 @@ public:
     Map(const char* filePath);
     void loadMap(const char* filePath);
     void drawMap();
-    std::vector<Obstacle> map;
+    std::vector<Tile> map;
 };
 
 

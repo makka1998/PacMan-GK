@@ -10,13 +10,13 @@
 #include <SDL_image.h>
 
 
-class Obstacle {
+class Tile {
 private:
     SDL_Texture* texture;
     int tileValue;
     SDL_Rect coordinates, src;
 public:
-    Obstacle(const char * fileName);
+    Tile(const char * fileName);
     int getTileValue() const;
     SDL_Rect getCoordinates();
     SDL_Rect getSrc();

@@ -20,7 +20,6 @@ class GameManager {
 private:
     SDL_Rect srect [3];
     SDL_Rect deathRect [6];
-    void showGrid();
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
     static void playSound();
     int game_state = 1;
