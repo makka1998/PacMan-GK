@@ -104,7 +104,7 @@ void Ghost::playDeathSound() {
 void Ghost::playEatenSound() {
     auto pacmanEatGhost = Mix_LoadWAV("../Resources/Sounds/pacman_eat_ghost_sound.wav");
     if (pacmanEatGhost == nullptr) {
-        std::cout << "Could not play death sound!" << std::endl;
+        std::cout << "Could not play eat ghost sound!" << std::endl;
     }
     Mix_PlayChannel(3, pacmanEatGhost, 0);
 }

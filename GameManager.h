@@ -21,10 +21,13 @@ private:
     SDL_Rect srect [3];
     SDL_Rect deathRect [6];
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
-    static void playSound();
+    static void audioInitializer();
+    void playOpeningSound();
+    void playMenuMusic();
     int game_state = 1;
     double timer = 0;
     bool running;
+    bool playedOnce = false;
     std::vector<std::shared_ptr<Ghost>> m_gameCharacters;
 public:
     GameManager();
@@ -41,9 +44,7 @@ public:
 
     void renderGameOverText(bool win);
 
-    void playOpeningSound();
 
-    void playMenuMusic();
 };
 
 #endif //PACMAN_GK_MASTER_GAMEMANAGER_H

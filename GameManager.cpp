@@ -27,13 +27,13 @@ int GameManager::startGame() {
     //initialize all libraries
     SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
     TTF_Init();
-    //Mix_init(); ?? add this? instead of playSound()?
+    //Mix_init(); ?? add this? instead of audioInitializer()?
 
     windowLoader windowLoader;
     renderManager renderManager;
     window = windowLoader.createWindow("Pacman");
     renderer = renderManager.createRenderer(window);
-    playSound();
+    audioInitializer();
 
     SDL_Event event;
     SDL_PollEvent(&event);
@@ -54,7 +54,6 @@ int GameManager::startGame() {
                     playMenuMusic();
                     game_state = 2;
                 } else if (game_state == 2) {
-                    //Mix_HaltChannel(-1);
                     calculateDeltaTime();
                     pacmanWrapper(pause);
                     renderMainMenu();
@@ -87,10 +86,14 @@ int GameManager::startGame() {
 
             //happens once every time the game starts
             if (game_state == 1) {
-                level = new Map("../Resources/Levels/Level_layout_1.txt");
-                //Opening sound
-                playOpeningSound();
-                game_state = 2;
+                if(playedOnce){
+                    Mix_HaltChannel(-1);
+                    game_state = 2;
+                } else {
+                    level = new Map("../Resources/Levels/Level_layout_1.txt");
+                    playOpeningSound();
+                    game_state = 2;
+                }
             }
             //main game-play
             if (game_state == 2) {
@@ -145,8 +148,9 @@ void GameManager::quit() {
     SDL_DestroyRenderer(renderer);
     TTF_Quit();
     Mix_Quit();
+    Mix_CloseAudio();
     SDL_Quit(); // Be SDL om å rydde opp
-};
+}
 
 void GameManager::render() {
     SDL_RenderClear(renderer);
@@ -163,9 +167,9 @@ void GameManager::render() {
 }
 
 //name change?
-void GameManager::playSound() {
+void GameManager::audioInitializer() {
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
-        printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("SDL_mixer initialization failed! SDL_mixer Error: %s\n", Mix_GetError());
     }
 }
 
@@ -175,19 +179,19 @@ void GameManager::playOpeningSound() {
     }
     auto openingSound = Mix_LoadWAV("../Resources/Sounds/pacman_intro_sound.wav");
     if (openingSound == nullptr) {
-        printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("Failed to load intro sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
-    Mix_Volume(-1, 5);
+    playedOnce = true;
     Mix_PlayChannel(6, openingSound, 0);
 }
 
 void GameManager::playMenuMusic() {
-    if (Mix_Playing(6)) {
-        Mix_HaltChannel(6);
+    if (Mix_Playing(-1)) {
+        Mix_HaltChannel(-1);
     }
     auto menuMusic = Mix_LoadWAV("../Resources/Sounds/pacman_menu_sound.wav");
     if (menuMusic == nullptr) {
-        printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("Failed to load menu sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
     Mix_Volume(-1, 5);
     Mix_PlayChannel(6, menuMusic, -1);
