@@ -148,8 +148,9 @@ void GameManager::quit() {
     SDL_DestroyRenderer(renderer);
     TTF_Quit();
     Mix_Quit();
+    Mix_CloseAudio();
     SDL_Quit(); // Be SDL om å rydde opp
-};
+}
 
 void GameManager::render() {
     SDL_RenderClear(renderer);
