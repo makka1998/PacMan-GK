@@ -27,13 +27,13 @@ int GameManager::startGame() {
     //initialize all libraries
     SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
     TTF_Init();
-    //Mix_init(); ?? add this? instead of playSound()?
+    //Mix_init(); ?? add this? instead of audioInitializer()?
 
     windowLoader windowLoader;
     renderManager renderManager;
     window = windowLoader.createWindow("Pacman");
     renderer = renderManager.createRenderer(window);
-    playSound();
+    audioInitializer();
 
     SDL_Event event;
     SDL_PollEvent(&event);
@@ -166,7 +166,7 @@ void GameManager::render() {
 }
 
 //name change?
-void GameManager::playSound() {
+void GameManager::audioInitializer() {
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
         printf("SDL_mixer initialization failed! SDL_mixer Error: %s\n", Mix_GetError());
     }
