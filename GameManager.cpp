@@ -25,8 +25,8 @@ int GameManager::startGame() {
     TTF_Init();
     //Mix_init(); ?? add this? instead of audioInitializer()?
 
-    windowLoader windowLoader;
-    renderManager renderManager;
+    WindowLoader windowLoader;
+    RenderManager renderManager;
     window = windowLoader.createWindow("Pacman");
     renderer = renderManager.createRenderer(window);
     audioInitializer();

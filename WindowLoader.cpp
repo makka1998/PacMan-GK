@@ -1,7 +1,7 @@
-#include "windowLoader.h"
+#include "WindowLoader.h"
 #include <iostream>
 
-SDL_Window* windowLoader::createWindow(const char* title)
+SDL_Window* WindowLoader::createWindow(const char* title)
 {
 	SDL_Window* window = nullptr; 
 	window = SDL_CreateWindow(

@@ -6,8 +6,8 @@
 #include "BlueGhost.h"
 #include "PinkGhost.h"
 #include "OrangeGhost.h"
-#include "windowLoader.h"
-#include "renderManager.h"
+#include "WindowLoader.h"
+#include "RenderManager.h"
 #include "scoreDisplay.h"
 #include "Map.h"
 #include <iostream>
