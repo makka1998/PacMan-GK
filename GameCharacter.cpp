@@ -139,7 +139,7 @@ std::vector<bool> GameCharacter::pathAvailable(Map &map) {
             }
         }
         if (xCoord == o.getCoordinates().x / TILE_SIZE && yCoord + 1 == o.getCoordinates().y / TILE_SIZE) {
-            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10 || o.getTileValue() == 6) {
+            if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
                 pathAvailable.at(1) = true;
             }
         }

@@ -13,13 +13,12 @@ SDL_Renderer *GameManager::renderer = nullptr;
 double GameManager::deltaTime;
 Map *level;
 Pacman pacman;
-
 GameManager::GameManager() {
     //Creating and adding all ghost to m_gameCharacters.
-    m_gameCharacters.push_back(std::make_shared<RedGhost>(12, 16, 10, 11, 14, 14, 12, 11, 10, 8));
-    m_gameCharacters.push_back(std::make_shared<BlueGhost>(17, 16, 19, 11, 14, 14, 16, 11, 19, 8));
-    m_gameCharacters.push_back(std::make_shared<PinkGhost>(12, 18, 10, 14, 14, 14, 10, 23, 6, 25));
-    m_gameCharacters.push_back(std::make_shared<OrangeGhost>(17, 18, 19, 14, 13, 14, 20, 24, 23, 26));
+    m_gameCharacters.push_back(std::make_shared<RedGhost>(11, 16, 9, 11, 13, 14, 11, 11, 9, 8));
+    m_gameCharacters.push_back(std::make_shared<BlueGhost>(16, 16, 18, 11, 13, 14, 15, 11, 18, 8));
+    m_gameCharacters.push_back(std::make_shared<PinkGhost>(11, 18, 9, 14, 13, 14, 9, 23, 5, 25));
+    m_gameCharacters.push_back(std::make_shared<OrangeGhost>(16, 18, 18, 14, 12, 14, 19, 24, 22, 26));
 }
 
 int GameManager::startGame() {
@@ -222,7 +221,7 @@ void GameManager::renderPoeng() {
 void GameManager::renderGameOverText(bool win) {
     scoreDisplay text(GameManager::renderer, "../Resources/Old_Tilesets/8-BIT WONDER.TTF", 1 * TILE_SIZE, "GAME OVER",
                       {255, 255, 0, 255});
-    text.display(11 * TILE_SIZE, 26 * TILE_SIZE, renderer);
+    text.display(10.5 * TILE_SIZE, 26 * TILE_SIZE, renderer);
     std::string gameResult = "YOU LOSE";
     if (win) {
         gameResult = "YOU WIN";

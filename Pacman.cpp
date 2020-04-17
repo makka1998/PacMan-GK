@@ -4,7 +4,7 @@
 
 #include "Pacman.h"
 
-Pacman::Pacman() : GameCharacter(14, 26) {
+Pacman::Pacman() : GameCharacter(13, 26) {
 }
 
 /**
@@ -80,33 +80,23 @@ void Pacman::renderCharacter(SDL_Rect srect[]) {
 void Pacman::checkMovementInput(Map &map) {
     SDL_PumpEvents();
     if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
-        ///Only changes the direction when it is a new direction that is pressed, doing this allows us to keep track of the last direction it travelled in.
-        if (m_direction != direction::UP) {
-            if (pathAvailable(map).at(0)) {
-                m_last_direction = m_direction;
-                m_direction = direction::UP;
-            }
+        if (pathAvailable(map).at(0)) {
+            m_direction = direction::UP;
         }
+
     } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
-        if (m_direction != direction::DOWN) {
-            if (pathAvailable(map).at(1)) {
-                m_last_direction = m_direction;
-                m_direction = direction::DOWN;
-            }
+        if (pathAvailable(map).at(1)) {
+            m_direction = direction::DOWN;
         }
+
     } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
-        if (m_direction != direction::RIGHT) {
-            if (pathAvailable(map).at(3)) {
-                m_last_direction = m_direction;
-                m_direction = direction::RIGHT;
-            }
+        if (pathAvailable(map).at(3)) {
+            m_direction = direction::RIGHT;
         }
+
     } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
-        if (m_direction != direction::LEFT) {
-            if (pathAvailable(map).at(2)) {
-                m_last_direction = m_direction;
-                m_direction = direction::LEFT;
-            }
+        if (pathAvailable(map).at(2)) {
+            m_direction = direction::LEFT;
         }
     }
 }
@@ -162,23 +152,24 @@ void Pacman::ripPacman(SDL_Rect srect[]) {
 }
 
 void Pacman::playPillSound() {
-    m_eatPillSound = Mix_LoadWAV("../Resources/EatPillSound3.wav");
-    if (m_eatPillSound == nullptr) {
+    Mix_Chunk *eatPillSound = Mix_LoadWAV("../Resources/EatPillSound3.wav");
+    if (eatPillSound == nullptr) {
         printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
+    ///Since you can pick up pills so fast, we need to let the first sound play fully.
     if (Mix_Playing(-1) == 0) {
         //Play the music
-        Mix_PlayChannel(1, m_eatPillSound, 0);
+        Mix_PlayChannel(1, eatPillSound, 0);
     }
 }
 
 void Pacman::playPowerPillSound() {
     Mix_HaltChannel(-1);
-    m_eatPowerPillSound = Mix_LoadWAV("../Resources/pacman_powerpill.wav");
-    if (m_eatPowerPillSound == nullptr) {
+    Mix_Chunk *eatPowerPillSound = Mix_LoadWAV("../Resources/pacman_powerpill.wav");
+    if (eatPowerPillSound == nullptr) {
         printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
-    Mix_PlayChannel(1, m_eatPowerPillSound, 0);
+    Mix_PlayChannel(1, eatPowerPillSound, 0);
 }
 
 /**

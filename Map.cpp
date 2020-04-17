@@ -31,8 +31,6 @@ void Map::loadMap(const char *filePath) {
 
 void Map::drawMap() {
     for (auto& o : map) {
-        if (o.getCoordinates().x >= TILE_SIZE && o.getCoordinates().y >= TILE_SIZE && o.getCoordinates().x <= WIDTH + TILE_SIZE && o.getCoordinates().y <= HEIGHT + TILE_SIZE) {
-        }
         if(o.WalkedOver) { o.setSource((0 - 1) * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE); }
         SDL_Rect src = o.getSrc();
         SDL_Rect coordinates = o.getCoordinates();

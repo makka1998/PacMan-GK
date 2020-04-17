@@ -9,7 +9,9 @@
 #include <SDL_image.h>
 #include "GameManager.h"
 
-///An enum used to represent the different directions all the gameCharacters can move.
+/**
+ *An enum used to represent the different directions all the gameCharacters can move.
+ */
 enum class direction {
     NONE,
     UP,
@@ -21,7 +23,6 @@ enum class direction {
 class GameCharacter {
 protected:
     direction m_direction = direction::NONE;
-    direction m_last_direction = direction::NONE;
     SDL_Rect m_coordinates;
     SDL_Texture *m_texture;
     ///Animation number is used to keep track of which frame of the animation we are on.
@@ -29,6 +30,7 @@ protected:
     int m_speed;
     ///Angle is used to rotate the picture we use as texture to correctly display the direction the character is moving.
     double m_angle = 0;
+    ///Center of pacman, used to base the rotation of the texture.
     SDL_Point m_center = {10, 10};
 public:
 

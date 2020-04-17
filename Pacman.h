@@ -9,8 +9,6 @@
 
 class Pacman : public GameCharacter {
 private:
-    Mix_Chunk *m_eatPillSound;
-    Mix_Chunk *m_eatPowerPillSound;
     int m_points;
     int m_pacHealth = 3;
     double m_powerUpDuration = 5;
