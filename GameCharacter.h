@@ -9,7 +9,8 @@
 #include <SDL_image.h>
 #include "GameManager.h"
 
-enum class direction{
+///An enum used to represent the different directions all the gameCharacters can move.
+enum class direction {
     NONE,
     UP,
     DOWN,
@@ -22,21 +23,28 @@ protected:
     direction m_direction = direction::NONE;
     direction m_last_direction = direction::NONE;
     SDL_Rect m_coordinates;
-    SDL_Texture * m_texture;
+    SDL_Texture *m_texture;
+    ///Animation number is used to keep track of which frame of the animation we are on.
     int m_animationNumber;
     int m_speed;
+    ///Angle is used to rotate the picture we use as texture to correctly display the direction the character is moving.
+    double m_angle = 0;
+    SDL_Point m_center = {10, 10};
 public:
-    GameCharacter();
-   // virtual void moveCharacter(Map & map);
+
+    GameCharacter(int xs, int ys);
+
+    void moveCharacter(int speed);
+
     bool isColliding(SDL_Rect character, SDL_Rect tile);
-    void collisionHandling(Map & map);
-    virtual void renderCharacter(SDL_Rect srect []){};
-    virtual std::vector<bool> pathAvailable(Map &map);
-    double angle = 0;
-    SDL_Point center = {10,10};
+
+    void collisionHandling(Map &map);
+
+    std::vector<bool> pathAvailable(Map &map);
 
     void setDirection(direction dir);
-    void moveCharacter(Map &map, int speed);
+
+    virtual void renderCharacter(SDL_Rect srect[]) {};
 };
 
 

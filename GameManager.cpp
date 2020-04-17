@@ -15,8 +15,6 @@ Map *level;
 Pacman pacman;
 
 GameManager::GameManager() {
-
-    SDL_Rect *pacmanCoords = pacman.getCoords();
     //Creating and adding all ghost to m_gameCharacters.
     m_gameCharacters.push_back(std::make_shared<RedGhost>(12, 16, 10, 11, 14, 14, 12, 11, 10, 8));
     m_gameCharacters.push_back(std::make_shared<BlueGhost>(17, 16, 19, 11, 14, 14, 16, 11, 19, 8));
@@ -261,7 +259,7 @@ void GameManager::calculateDeltaTime() {
 void GameManager::ghostWrapper() {
     for (const auto &ghost : m_gameCharacters) {
         ghost->getMovementDirection(*level);
-        ghost->moveCharacter(*level,140);
+        ghost->moveCharacter(140);
         ghost->collisionHandling(*level);
         ghost->isCollidingWithPacman(pacman, m_gameCharacters, *level);
     }
@@ -273,7 +271,7 @@ void GameManager::pacmanWrapper(bool pause) {
         pacman.setDirection(direction::NONE);
     } else {
         pacman.checkMovementInput(*level);
-        pacman.moveCharacter(*level, 200);
+        pacman.moveCharacter(200);
         pacman.collisionHandling(*level);
         pacman.PickingUpPillHandler(*level);
     }

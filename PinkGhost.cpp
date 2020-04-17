@@ -4,19 +4,14 @@
 
 #include "PinkGhost.h"
 
-PinkGhost::PinkGhost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(xs,
-                                                                                                                   ys,
-                                                                                                                   xr,
-                                                                                                                   yr,
-                                                                                                                   wp1,
-                                                                                                                   wp2,
-                                                                                                                   wp3,
-                                                                                                                   wp4,
-                                                                                                                   wp5,
-                                                                                                                   wp6) {
+PinkGhost::PinkGhost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(xs, ys, xr, yr, wp1, wp2, wp3, wp4, wp5, wp6) {
 
 }
 
+/**
+ * If the ghost has completed it's first set of non dynamic movement it will start wandering random.
+ * @param map Container with all the tiles the level is made up of.
+ */
 void PinkGhost::getMovementDirection(Map &map) {
     if (!m_startingDestinationReached) {
         doWaypointPath();
@@ -25,10 +20,14 @@ void PinkGhost::getMovementDirection(Map &map) {
     }
 }
 
+/**
+ * Moves the ghost along it's waypoints, practically this is to each of their own respective corners.
+ */
 void PinkGhost::doWaypointPath() {
     int ghost_x = floor(m_coordinates.x / TILE_SIZE);
     int ghost_y = floor(m_coordinates.y / TILE_SIZE);
 
+    ///Moving towards a point a greater distance away from where it actually needs to go. When it then reaches it's actual destination, sets the respective index in wayPointsReached to true.
     if (ghost_x <= wayPoints.at(0) && !(wayPointsReached.at(0))) {
         m_direction = direction::RIGHT;
         if (ghost_x == wayPoints.at(0)) {
@@ -60,10 +59,15 @@ void PinkGhost::doWaypointPath() {
             wayPointsReached.at(5) = true;
         }
     } else {
+        ///When all way points have been reached, we have arrived at out startingDestination.
         m_startingDestinationReached = true;
     }
 }
 
+/**
+ * Sets the texture of the ghost, to correctly show which direction it is traveling or if pacman has eaten a power pellet.
+ * @param pMan A reference to the pacman game object.
+ */
 void PinkGhost::renderCharacter(Pacman &pMan) {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
     SDL_Rect srect;

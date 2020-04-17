@@ -20,8 +20,6 @@ public:
     void loadMap(const char* filePath);
     void drawMap();
     std::vector<Obstacle> map;
-
-    void liveChanges(Obstacle o);
 };
 
 

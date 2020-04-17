@@ -5,8 +5,7 @@
 #include "Obstacle.h"
 #include "GameManager.h"
 
-Obstacle::Obstacle(const char * fileName) {
-    texture = IMG_LoadTexture(GameManager::renderer, fileName);
+Obstacle::Obstacle(const char * fileName) : texture(IMG_LoadTexture(GameManager::renderer, fileName)) {
     if(texture == nullptr){
         std::cout <<"load texture failure" << std::endl;
     }

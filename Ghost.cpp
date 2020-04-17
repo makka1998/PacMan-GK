@@ -1,26 +1,19 @@
 #include "Ghost.h"
 
-Ghost::Ghost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) {
-    m_coordinates.x = xs * TILE_SIZE;
-    m_coordinates.y = ys * TILE_SIZE;
-
-    m_coordinates.h = TILE_SIZE;
-    m_coordinates.w = TILE_SIZE;
-
-    m_startingPosition[0] = xs;
-    m_startingPosition[1] = ys;
-
-    m_respawnPosition[0] = xr;
-    m_respawnPosition[1] = yr;
-    wayPointsReached = {false, false, false, false, false, false, false};
-    wayPoints = {wp1, wp2, wp3, wp4, wp5, wp6};
-    setDistanceToTarget(m_startingPosition);
+///Using the parent class's constructor for it's none unique variables.
+Ghost::Ghost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : wayPointsReached{
+        false, false, false, false, false, false}, wayPoints{wp1, wp2, wp3, wp4, wp5, wp6}, m_respawnPosition{xr, yr},
+                                                                                                     GameCharacter(xs,
+                                                                                                                   ys) {
 }
 
-
+/**
+ * Choosing a direction at random, if that direction isn't available it switches to another one.
+ * @param map Container with all the tiles the level is made up of.
+ */
 void Ghost::wanderRandom(Map &map) {
-    //Random seed
     srand(time(NULL));
+    ///A timer is used to avoid switching direction too often.
     m_timer += GameManager::deltaTime;
     if (m_timer >= 1.5) {
         m_RNG = rand() % 4 + 1;
@@ -28,6 +21,7 @@ void Ghost::wanderRandom(Map &map) {
     }
     switch (m_RNG) {
         case 1 :
+            ///To avoid it turning back and forth or up and down endlessly, we dont allow the "AI" to choose a direction that is opposite of it's current direction. (LEFT & RIGHT) (UP & DOWN)
             if (pathAvailable(map).at(0) && m_direction != direction::DOWN) {
                 if (m_direction != direction::UP) {
                     m_last_direction = m_direction;
@@ -70,11 +64,12 @@ void Ghost::wanderRandom(Map &map) {
     }
 }
 
-void Ghost::setDistanceToTarget(int startingDest[]) {
-    m_distanceToTarget[0] = startingDest[0] - m_coordinates.x / TILE_SIZE;
-    m_distanceToTarget[1] = startingDest[1] - m_coordinates.y / TILE_SIZE;
-}
-
+/**
+ * Checks if the ghost is ever inn contact with Pacman, if it is, two things will happen depending on Pacman having the power up buff or not.
+ * @param pMan A reference to the pacman game object.
+ * @param gameCharacters A reference to all the ghosts.
+ * @param map Container with all the tiles the level is made up of.
+ */
 void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map) {
     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
         playEatenSound();
@@ -84,6 +79,7 @@ void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_pt
         playDeathSound();
         pMan.setHealth();
         pMan.startPos();
+        ///Changes the health indicator to correctly display the number of health pacman has.
         for (auto &tile : map.map) {
             if (tile.getCoordinates().x == 60 && tile.getCoordinates().y == 700 && pMan.getHealth() == 2) {
                 tile.setTileValue(0);
@@ -96,15 +92,11 @@ void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_pt
                 tile.WalkedOver = true;
             }
         }
-        //set ghost position
+        ///Returns all the ghosts to start.
         for (const auto &ghost : gameCharacters) {
             ghost->moveToRespawnPos();
         }
     }
-}
-
-void Ghost::renderCharacter(Pacman &pMan) {
-
 }
 
 void Ghost::moveToRespawnPos() {

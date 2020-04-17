@@ -39,13 +39,3 @@ void Map::drawMap() {
         SDL_RenderCopy(GameManager::renderer, o.getTexture(), &src, &coordinates);
     }
 }
-
-void Map::liveChanges(Obstacle o){
-    //Changing the numbers for Score.
-    if(o.getTileValue()>=15) {
-        if (o.changedNumber) {
-            o.setSource((0 - 1) * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE);
-        }
-    }
-}
-

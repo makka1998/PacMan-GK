@@ -4,25 +4,25 @@
 
 #include "Pacman.h"
 
-Pacman::Pacman() {
-    m_coordinates.x = 14 * TILE_SIZE;
-    m_coordinates.y = 26 * TILE_SIZE;
-
-    m_coordinates.h = TILE_SIZE;
-    m_coordinates.w = TILE_SIZE;
+Pacman::Pacman() : GameCharacter(14, 26) {
 }
 
+/**
+ * If u walk over any kind of pill sets the tile you walked over to a blank tile.
+ * What kind of pill you walked over will determine what sound plays, and if you get a power up or not.
+ * @param map Container with all the tiles the level is made up of.
+ */
 void Pacman::PickingUpPillHandler(Map &map) {
     int player_X = round((m_coordinates.x + (m_coordinates.w) / 2) / TILE_SIZE);
     int player_Y = round((m_coordinates.y + (m_coordinates.h) / 2) / TILE_SIZE);
 
+    ///Checking every tile to see if you walked over it.
     for (auto &tile : map.map) {
         int tile_X = tile.getCoordinates().x / TILE_SIZE;
         int tile_Y = tile.getCoordinates().y / TILE_SIZE;
         if (player_X == tile_X && player_Y == tile_Y) {
             if (tile.getTileValue() == 10) {
-                //Plukk opp pillene
-                m_point += 1;
+                m_points += 1;
                 tile.setTileValue(0);
                 tile.WalkedOver = true;
                 playPillSound();
@@ -34,11 +34,17 @@ void Pacman::PickingUpPillHandler(Map &map) {
             }
         }
     }
+    ///For every call it increases the powerUpDuration, but sets it zero when you walk over a power pellet. This way you will have a power up while m_powerUpDuration is less than some value.
     m_powerUpDuration += GameManager::deltaTime;
 }
 
+/**
+ * Sets the texture of pacman to correctly show which direction it is traveling.
+ * @param srect An array of SDL_Rects that contains the different places in the spritesheet we have to look to get the correct pacman graphic.
+ */
 void Pacman::renderCharacter(SDL_Rect srect[]) {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
+    ///Using a timer to display the correct part of the animation.
     m_timer += GameManager::deltaTime;
     if (m_timer <= 0.1) {
         m_animationNumber = 0;
@@ -62,14 +68,19 @@ void Pacman::renderCharacter(SDL_Rect srect[]) {
             m_timer = 0;
         }
     }
-    SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[m_animationNumber], &m_coordinates, angle, &center,
+    SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[m_animationNumber], &m_coordinates, m_angle, &m_center,
                      SDL_FLIP_NONE);
     SDL_DestroyTexture(m_texture);
 }
 
-void Pacman::checkMovementInput(Map & map) {
+/**
+ * Keeps track of if any of the movement keys have been pressed. Will only change to the corresponding direction when it is an open tile.
+ * @param map Container with all the tiles the level is made up of.
+ */
+void Pacman::checkMovementInput(Map &map) {
     SDL_PumpEvents();
     if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
+        ///Only changes the direction when it is a new direction that is pressed, doing this allows us to keep track of the last direction it travelled in.
         if (m_direction != direction::UP) {
             if (pathAvailable(map).at(0)) {
                 m_last_direction = m_direction;
@@ -100,9 +111,14 @@ void Pacman::checkMovementInput(Map & map) {
     }
 }
 
+/**
+ * Progressively cycles through the death animation of pacman.
+ * @param srect An array of SDL_Rects that contains the different places in the spritesheet we have to look to get the correct pacman graphic.
+ */
 void Pacman::ripPacman(SDL_Rect srect[]) {
     int deathPosition = TILE_SIZE * 10;
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Old_Tilesets/PacManSpriteSheet_20x20.png");
+    ///Using a timer to display the correct part of the animation.
     m_timer += GameManager::deltaTime;
     if (m_timer <= 0) {
         m_animationNumber = 0;
@@ -145,10 +161,6 @@ void Pacman::ripPacman(SDL_Rect srect[]) {
     SDL_DestroyTexture(m_texture);
 }
 
-SDL_Rect *Pacman::getCoords() {
-    return &m_coordinates;
-}
-
 void Pacman::playPillSound() {
     m_eatPillSound = Mix_LoadWAV("../Resources/EatPillSound3.wav");
     if (m_eatPillSound == nullptr) {
@@ -166,19 +178,24 @@ void Pacman::playPowerPillSound() {
     if (m_eatPowerPillSound == nullptr) {
         printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
-        Mix_PlayChannel(1, m_eatPowerPillSound, 0);
+    Mix_PlayChannel(1, m_eatPowerPillSound, 0);
 }
 
+/**
+ * If pacman is not on his last life, it return him to his start position.
+ */
 void Pacman::startPos() {
-    if(!m_lastLife){
+    if (!m_lastLife) {
         m_coordinates.x = 14 * TILE_SIZE;
         m_coordinates.y = 26 * TILE_SIZE;
     }
-        m_direction = direction::NONE;
+    m_direction = direction::NONE;
 }
 
+/**
+ * Reduces pacman's health with one.
+ */
 void Pacman::setHealth() {
-    m_lastLife = false;
     m_pacHealth -= 1;
     if (m_pacHealth == 0) {
         m_lastLife = true;
