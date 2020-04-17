@@ -152,9 +152,9 @@ void Pacman::ripPacman(SDL_Rect srect[]) {
 }
 
 void Pacman::playPillSound() {
-    Mix_Chunk *eatPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_eat_pill_sound.wav");
+    auto eatPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_eat_pill_sound.wav");
     if (eatPillSound == nullptr) {
-        printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("Failed to load pill eating sound ! SDL_mixer Error: %s\n", Mix_GetError());
     }
     ///Since you can pick up pills so fast, we need to let the first sound play fully.
     if (Mix_Playing(-1) == 0) {
@@ -165,9 +165,9 @@ void Pacman::playPillSound() {
 
 void Pacman::playPowerPillSound() {
     Mix_HaltChannel(-1);
-    Mix_Chunk *eatPowerPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_powerpellet_sound.wav");
+    auto eatPowerPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_powerpellet_sound.wav");
     if (eatPowerPillSound == nullptr) {
-        printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("Failed to load eat power pellet SDL_mixer Error: %s\n", Mix_GetError());
     }
     Mix_PlayChannel(1, eatPowerPillSound, 0);
 }

@@ -25,6 +25,7 @@ private:
     int game_state = 1;
     double timer = 0;
     bool running;
+    bool playedOnce = false;
     std::vector<std::shared_ptr<Ghost>> m_gameCharacters;
 public:
     GameManager();

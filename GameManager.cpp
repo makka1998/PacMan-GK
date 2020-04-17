@@ -54,7 +54,6 @@ int GameManager::startGame() {
                     playMenuMusic();
                     game_state = 2;
                 } else if (game_state == 2) {
-                    //Mix_HaltChannel(-1);
                     calculateDeltaTime();
                     pacmanWrapper(pause);
                     renderMainMenu();
@@ -87,10 +86,14 @@ int GameManager::startGame() {
 
             //happens once every time the game starts
             if (game_state == 1) {
-                level = new Map("../Resources/Levels/Level_layout_1.txt");
-                //Opening sound
-                playOpeningSound();
-                game_state = 2;
+                if(playedOnce){
+                    Mix_HaltChannel(-1);
+                    game_state = 2;
+                } else {
+                    level = new Map("../Resources/Levels/Level_layout_1.txt");
+                    playOpeningSound();
+                    game_state = 2;
+                }
             }
             //main game-play
             if (game_state == 2) {
@@ -165,7 +168,7 @@ void GameManager::render() {
 //name change?
 void GameManager::playSound() {
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
-        printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("SDL_mixer initialization failed! SDL_mixer Error: %s\n", Mix_GetError());
     }
 }
 
@@ -175,19 +178,19 @@ void GameManager::playOpeningSound() {
     }
     auto openingSound = Mix_LoadWAV("../Resources/Sounds/pacman_intro_sound.wav");
     if (openingSound == nullptr) {
-        printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("Failed to load intro sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
-    Mix_Volume(-1, 5);
+    playedOnce = true;
     Mix_PlayChannel(6, openingSound, 0);
 }
 
 void GameManager::playMenuMusic() {
-    if (Mix_Playing(6)) {
-        Mix_HaltChannel(6);
+    if (Mix_Playing(-1)) {
+        Mix_HaltChannel(-1);
     }
     auto menuMusic = Mix_LoadWAV("../Resources/Sounds/pacman_menu_sound.wav");
     if (menuMusic == nullptr) {
-        printf("Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("Failed to load menu sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
     Mix_Volume(-1, 5);
     Mix_PlayChannel(6, menuMusic, -1);
