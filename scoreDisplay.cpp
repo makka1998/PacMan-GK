@@ -7,10 +7,10 @@
 #include "GameManager.h"
 
 void scoreDisplay::display(int x, int y, SDL_Renderer *renderer) const{
-    _text_rect.x = x;
-    _text_rect.y = y;
-    SDL_RenderCopy(renderer, _text_texture, nullptr, &_text_rect);
-    SDL_DestroyTexture(_text_texture);
+    m_textRect.x = x;
+    m_textRect.y = y;
+    SDL_RenderCopy(renderer, m_textTexture, nullptr, &m_textRect);
+    SDL_DestroyTexture(m_textTexture);
 }
 
 SDL_Texture *scoreDisplay::loadFont(SDL_Renderer *renderer, const std::string &font_path, int font_size, const std::string &message_text, const SDL_Color &color){
@@ -37,6 +37,6 @@ scoreDisplay::scoreDisplay(
         const std::string &message_text,
         const SDL_Color &color)
 {
-    _text_texture = loadFont(renderer, font_path, font_size, message_text, color);
-    SDL_QueryTexture(_text_texture, nullptr, nullptr, &_text_rect.w, &_text_rect.h);
+    m_textTexture = loadFont(renderer, font_path, font_size, message_text, color);
+    SDL_QueryTexture(m_textTexture, nullptr, nullptr, &m_textRect.w, &m_textRect.h);
 }

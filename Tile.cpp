@@ -5,42 +5,42 @@
 #include "Tile.h"
 #include "GameManager.h"
 
-Tile::Tile(const char * fileName) : texture(IMG_LoadTexture(GameManager::renderer, fileName)) {
-    if(texture == nullptr){
-        std::cout <<"load texture failure" << std::endl;
+Tile::Tile(const char * fileName) : m_texture(IMG_LoadTexture(GameManager::renderer, fileName)) {
+    if(m_texture == nullptr){
+        std::cout <<"load m_texture failure" << std::endl;
     }
 }
 
 int Tile::getTileValue() const {
-    return tileValue;
+    return m_tileValue;
 }
 
 SDL_Texture* Tile::getTexture() const {
-    return texture;
+    return m_texture;
 }
 
 SDL_Rect Tile::getCoordinates() {
-    return coordinates;
+    return m_coordinates;
 }
 
 SDL_Rect Tile::getSrc(){
-    return src;
+    return m_src;
 }
 
 void Tile::setCoordinates(int x, int y, int height, int width) {
-    coordinates.x = x;
-    coordinates.y = y;
-    coordinates.h = height;
-    coordinates.w = width;
+    m_coordinates.x = x;
+    m_coordinates.y = y;
+    m_coordinates.h = height;
+    m_coordinates.w = width;
 }
 
 void Tile::setSource(int x, int y, int height, int width) {
-    src.x=x;
-    src.y=y;
-    src.w=width;
-    src.h=height;
+    m_src.x=x;
+    m_src.y=y;
+    m_src.w=width;
+    m_src.h=height;
 }
 
 void Tile::setTileValue(int value){
-    tileValue = value;
+    m_tileValue = value;
 }

@@ -5,9 +5,11 @@
 #ifndef PACMAN_GK_MASTER_GAMECHARACTER_H
 #define PACMAN_GK_MASTER_GAMECHARACTER_H
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include "GameManager.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+#include <memory>
+#include "Map.h"
 
 /**
  *An enum used to represent the different directions all the gameCharacters can move.

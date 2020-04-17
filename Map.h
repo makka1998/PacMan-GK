@@ -9,8 +9,8 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <iostream>
 #include "Tile.h"
-#include "GameManager.h"
 
 class Map {
 private:

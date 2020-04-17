@@ -12,9 +12,9 @@
 
 class Tile {
 private:
-    SDL_Texture* texture;
-    int tileValue;
-    SDL_Rect coordinates, src;
+    SDL_Texture* m_texture;
+    int m_tileValue;
+    SDL_Rect m_coordinates, m_src;
 public:
     Tile(const char * fileName);
     int getTileValue() const;

@@ -1,4 +1,5 @@
 #include "Map.h"
+#include "GameManager.h"
 
 Map::Map(const char *filePath) {
     loadMap(filePath);

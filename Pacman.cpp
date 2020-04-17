@@ -3,6 +3,7 @@
 //
 
 #include "Pacman.h"
+#include "GameManager.h"
 
 Pacman::Pacman() : GameCharacter(13, 26, 200) {
 }
@@ -173,11 +174,11 @@ void Pacman::playPowerPillSound() {
 }
 
 /**
- * If pacman is not on his last life, it return him to his start position.
+ * If pacman is not on his last life, it returns him to his start position.
  */
 void Pacman::moveToStartPos() {
     if (!m_lastLife) {
-        m_coordinates.x = 14 * TILE_SIZE;
+        m_coordinates.x = 13 * TILE_SIZE;
         m_coordinates.y = 26 * TILE_SIZE;
     }
     m_direction = direction::NONE;
