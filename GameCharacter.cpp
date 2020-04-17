@@ -8,8 +8,8 @@
  * @param xs x-coordinate it starts on.
  * @param ys y-coordinate it starts on.
  */
-GameCharacter::GameCharacter(int xs, int ys, int speed){
-    m_coordinates = {xs * TILE_SIZE, ys * TILE_SIZE, TILE_SIZE, TILE_SIZE};
+GameCharacter::GameCharacter(int x, int y, int speed){
+    m_coordinates = {x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE};
     m_speed = speed;
 }
 

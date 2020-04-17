@@ -175,7 +175,7 @@ void Pacman::playPowerPillSound() {
 /**
  * If pacman is not on his last life, it return him to his start position.
  */
-void Pacman::startPos() {
+void Pacman::moveToStartPos() {
     if (!m_lastLife) {
         m_coordinates.x = 14 * TILE_SIZE;
         m_coordinates.y = 26 * TILE_SIZE;

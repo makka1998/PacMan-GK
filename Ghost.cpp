@@ -58,12 +58,11 @@ void Ghost::wanderRandom(Map &map) {
 void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map) {
     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
         playEatenSound();
-        m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
-        m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
+        moveToStartPos();
     } else if (SDL_HasIntersection(&m_coordinates, pMan.getCoords())) {
         playDeathSound();
         pMan.setHealth();
-        pMan.startPos();
+        pMan.moveToStartPos();
         ///Changes the health indicator to correctly display the number of health pacman has.
         for (auto &tile : map.map) {
             if (tile.getCoordinates().x == 60 && tile.getCoordinates().y == 700 && pMan.getHealth() == 2) {
@@ -79,12 +78,12 @@ void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_pt
         }
         ///Returns all the ghosts to start.
         for (const auto &ghost : gameCharacters) {
-            ghost->moveToRespawnPos();
+            ghost->moveToStartPos();
         }
     }
 }
 
-void Ghost::moveToRespawnPos() {
+void Ghost::moveToStartPos() {
     m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
     m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
     m_startingDestinationReached = false;

@@ -33,7 +33,7 @@ public:
 
     void playPowerPillSound();
 
-    void startPos();
+    void moveToStartPos();
 
     void setHealth();
 

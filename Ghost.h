@@ -23,7 +23,7 @@ public:
 
     void isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map);
 
-    void moveToRespawnPos();
+    void moveToStartPos();
 
     void playDeathSound();
 
