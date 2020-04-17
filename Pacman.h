@@ -10,7 +10,7 @@
 class Pacman : public GameCharacter {
 private:
     int m_points;
-    int m_pacHealth = 1;
+    int m_pacHealth = 3;
     double m_powerUpDuration = 5;
     double m_timer = 0;
     bool m_lastLife = false;

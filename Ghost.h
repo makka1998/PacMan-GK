@@ -7,17 +7,17 @@
 class Ghost : public GameCharacter {
 protected:
     ///An array where index 0 is x-coordinate and index 1 is y-coordinate.
-    int m_respawnPosition[2];
+    int m_startingPosition[2];
     ///A variable used to determine which direction the ghost will wander.
-    int m_RNG = 1;
+    int m_randomDirection = 1;
     double m_timer = 0;
     bool m_startingDestinationReached = false;
 
-    std::vector<int> wayPoints;
-    std::vector<bool> wayPointsReached;
+    std::vector<bool> m_wayPointsReached = {false, false, false, false, false, false};
+    std::vector<int> m_wayPoints;
 
 public:
-    Ghost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
+    Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
 
     void wanderRandom(Map &map);
 

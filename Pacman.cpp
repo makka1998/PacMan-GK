@@ -4,7 +4,7 @@
 
 #include "Pacman.h"
 
-Pacman::Pacman() : GameCharacter(13, 26) {
+Pacman::Pacman() : GameCharacter(13, 26, 200) {
 }
 
 /**
@@ -32,7 +32,7 @@ void Pacman::PickingUpPillHandler(Map &map) {
                 m_powerUpDuration = 0;
                 playPowerPillSound();
             }
-        }
+    }
     }
     ///For every call it increases the powerUpDuration, but sets it zero when you walk over a power pellet. This way you will have a power up while m_powerUpDuration is less than some value.
     m_powerUpDuration += GameManager::deltaTime;

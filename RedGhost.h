@@ -9,7 +9,7 @@
 
 class RedGhost : public Ghost {
 public:
-    RedGhost(int xs, int ys, int xr, int yr, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
+    RedGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
 
     void getMovementDirection(Map &map) override;
 

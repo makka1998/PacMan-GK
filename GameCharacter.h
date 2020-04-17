@@ -34,7 +34,7 @@ protected:
     SDL_Point m_center = {10, 10};
 public:
 
-    GameCharacter(int xs, int ys);
+    GameCharacter(int xs, int ys, int speed);
 
     void moveCharacter(int speed);
 

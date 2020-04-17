@@ -16,10 +16,10 @@ Pacman pacman;
 
 GameManager::GameManager() {
     //Creating and adding all ghost to m_gameCharacters.
-    m_gameCharacters.push_back(std::make_shared<RedGhost>(11, 16, 9, 11, 13, 14, 11, 11, 9, 8));
-    m_gameCharacters.push_back(std::make_shared<BlueGhost>(16, 16, 18, 11, 13, 14, 15, 11, 18, 8));
-    m_gameCharacters.push_back(std::make_shared<PinkGhost>(11, 18, 9, 14, 13, 14, 9, 23, 5, 25));
-    m_gameCharacters.push_back(std::make_shared<OrangeGhost>(16, 18, 18, 14, 12, 14, 19, 24, 22, 26));
+    m_gameCharacters.push_back(std::make_shared<RedGhost>(11, 16, 13, 14, 11, 11, 9, 8));
+    m_gameCharacters.push_back(std::make_shared<BlueGhost>(16, 16, 13, 14, 15, 11, 18, 8));
+    m_gameCharacters.push_back(std::make_shared<PinkGhost>(11, 18, 13, 14, 9, 23, 5, 25));
+    m_gameCharacters.push_back(std::make_shared<OrangeGhost>(16, 18, 12, 14, 19, 24, 22, 26));
 }
 
 int GameManager::startGame() {
