@@ -180,21 +180,21 @@ void GameManager::displayMainMenu() {
 /// Displays the points pacman gets on the top of the screen.
 void GameManager::displayPoints() {
     std::string points = std::to_string(m_pacman.getPoints());
-    TextManager score(GameManager::renderer, "../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,
+    TextManager score("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,
                       "Points " + points, {255, 255, 0, 255});
     score.display(10.2 * TILE_SIZE, 1.5 * TILE_SIZE, renderer);
 }
 
 /// This function gets called when you win or lose to render the YOU LOSE/YOU WIN Text.
 void GameManager::displayGameOverText(bool win) {
-    TextManager text(GameManager::renderer, "../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE, "GAME OVER",
+    TextManager text("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE, "GAME OVER",
                      {255, 255, 0, 255});
     text.display(9.5 * TILE_SIZE, 14 * TILE_SIZE, renderer);
     std::string gameResult = "YOU LOSE";
     if (win) {
         gameResult = "YOU WIN";
     }
-    TextManager gameCondtitionText(GameManager::renderer, "../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,
+    TextManager gameCondtitionText("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,
                                    gameResult, {255, 255, 0, 255});
     gameCondtitionText.display(10.25 * TILE_SIZE, 20 * TILE_SIZE, renderer);
 

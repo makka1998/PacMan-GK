@@ -160,17 +160,18 @@ void Pacman::ripPacman(SDL_Rect srect[]) {
  * Reason for this is to prevent overlapping of the sound
  */
 void Pacman::playPillSound() {
-    auto eatPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_eat_pill_sound.wav");
+    Mix_Chunk *eatPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_eat_pill_sound.wav");
     if (eatPillSound == nullptr) {
         printf("Failed to load pill eating sound ! SDL_mixer Error: %s\n", Mix_GetError());
     }
 
     if (Mix_Playing(-1) == 0) {
-        //Play the music
         Mix_PlayChannel(1, eatPillSound, 0);
-    }
+    } else {
+       Mix_FreeChunk(eatPillSound);
+       eatPillSound = nullptr;
+     }
 }
-
 /**
  * plays the Powerpillsound
  */

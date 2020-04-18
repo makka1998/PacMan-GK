@@ -2,7 +2,7 @@
 #include "TextManager.h"
 #include <iostream>
 #include "GameManager.h"
-
+/// https://www.youtube.com/watch?v=FIjj6UVXtXk TextManager was made by following this guide on youtube.
 void TextManager::display(int x, int y, SDL_Renderer *renderer) const{
     m_textRect.x = x;
     m_textRect.y = y;
@@ -10,7 +10,8 @@ void TextManager::display(int x, int y, SDL_Renderer *renderer) const{
     SDL_DestroyTexture(m_textTexture);
 }
 
-SDL_Texture *TextManager::loadFont(SDL_Renderer *renderer, const std::string &font_path, int font_size, const std::string &message_text, const SDL_Color &color){
+SDL_Texture *TextManager::loadFont(const std::string &font_path, int font_size, const std::string &message_text,
+                                   const SDL_Color &color) {
     TTF_Font *font = TTF_OpenFont(font_path.c_str(), font_size);
     if(!font){
         std::cerr << "Failed to load font" << std::endl;
@@ -27,13 +28,9 @@ SDL_Texture *TextManager::loadFont(SDL_Renderer *renderer, const std::string &fo
     TTF_CloseFont(font);
     return text_texture;
 }
-TextManager::TextManager(
-        SDL_Renderer *renderer,
-        const std::string &font_path,
-        int font_size,
-        const std::string &message_text,
-        const SDL_Color &color)
+TextManager::TextManager(const std::string &font_path, int font_size, const std::string &message_text,
+                         const SDL_Color &color)
 {
-    m_textTexture = loadFont(renderer, font_path, font_size, message_text, color);
+    m_textTexture = loadFont(font_path, font_size, message_text, color);
     SDL_QueryTexture(m_textTexture, nullptr, nullptr, &m_textRect.w, &m_textRect.h);
 }
