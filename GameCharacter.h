@@ -35,7 +35,6 @@ protected:
     double m_timer = 0;
     SoundManager m_soundManager;
 
-
 public:
 
     GameCharacter(int xs, int ys, int speed);

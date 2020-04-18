@@ -1,6 +1,5 @@
 #include "GameManager.h"
 
-//kan SDL_window * være inne i startGame()?? ??????????????????????????????????????????????????????????????
 SDL_Window *window;
 
 /// Static variables
@@ -95,8 +94,9 @@ int GameManager::startGame() {
             }
             /// Main gameloop.
             if (m_gameState == 2) {
+                Mix_HaltMusic();
                 calculateDeltaTime();
-                pacmanWrapper(m_pause);
+                pacmanWrapper();
                 ghostWrapper();
                 render();
                 if (getKeyboardInput[SDL_SCANCODE_P]) {
@@ -143,6 +143,7 @@ void GameManager::quit() {
     TTF_Quit();
     Mix_CloseAudio();
     Mix_Quit();
+    Mix_CloseAudio();
     SDL_Quit();
 }
 
@@ -156,7 +157,6 @@ void GameManager::render() {
     for (const auto &ghost: m_gameCharacters) {
         ghost->renderCharacter(m_pacman);
     }
-
 
     SDL_RenderPresent(renderer);
 }
@@ -195,15 +195,8 @@ void GameManager::ghostWrapper() {
     }
 }
 
-/// idk
-void GameManager::pacmanWrapper(bool pause) {
-    if (pause) {
-        m_pacman.checkMovementInput(*m_level);
-        m_pacman.setDirection(direction::NONE);
-    } else {
-        m_pacman.checkMovementInput(*m_level);
-        m_pacman.characterHandler(*m_level);
-        m_pacman.PickingUpPillHandler(*m_level);
-    }
+void GameManager::pacmanWrapper() {
+    m_pacman.checkMovementInput(*m_level);
+    m_pacman.characterHandler(*m_level);
+    m_pacman.PickingUpPillHandler(*m_level);
 }
-

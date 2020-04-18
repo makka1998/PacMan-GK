@@ -62,7 +62,7 @@ public:
 
     void ghostWrapper();
 
-    void pacmanWrapper(bool pause);
+    void pacmanWrapper();
 
 
 };

@@ -9,7 +9,7 @@ Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6)
  * Choosing a direction at random, if that direction isn't available it switches to another one.
  * @param map Container with all the tiles the level is made up of.
  */
-void Ghost::wanderRandom(Map &map) {
+void Ghost::chooseRandomDirection(Map &map) {
     srand(time(NULL));
     ///A timer is used to avoid switching direction too often.
     m_timer += GameManager::deltaTime;
@@ -81,6 +81,18 @@ void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_pt
         for (const auto &ghost : gameCharacters) {
             ghost->moveToStartPos();
         }
+    }
+}
+
+/**
+ * If the ghost has completed it's first set of non dynamic movement it will start wandering random.
+ * @param map Container with all the tiles the level is made up of.
+ */
+void Ghost::getMovementDirection(Map &map) {
+    if (!m_startingDestinationReached) {
+        doWaypointPath();
+    } else {
+        chooseRandomDirection(map);
     }
 }
 

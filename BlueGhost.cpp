@@ -1,19 +1,10 @@
 #include "BlueGhost.h"
 #include "Managers/GameManager.h"
 
-BlueGhost::BlueGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(x, y, wp1, wp2, wp3,
-                                                                                                 wp4, wp5, wp6) {
+BlueGhost::BlueGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(x, y, wp1, wp2, wp3, wp4, wp5, wp6) {
 }
 
-void BlueGhost::getMovementDirection(Map &map) {
-    if (!m_startingDestinationReached) {
-        doWaypointPath();
-    } else {
-        wanderRandom(map);
-    }
-}
-
-void BlueGhost::doWaypointPath() {
+void BlueGhost::doWaypointPath(){
     int ghost_x = floor(m_coordinates.x / TILE_SIZE);
     int ghost_y = floor(m_coordinates.y / TILE_SIZE);
 
@@ -53,7 +44,7 @@ void BlueGhost::doWaypointPath() {
     }
 }
 
-void BlueGhost::renderCharacter(Pacman &pMan) {
+void BlueGhost::renderCharacter(Pacman & pMan) {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/PacManSpriteSheet_20x20.png");
     SDL_Rect srect;
     srect.y = 6 * TILE_SIZE;
@@ -69,7 +60,7 @@ void BlueGhost::renderCharacter(Pacman &pMan) {
     if (m_direction == direction::RIGHT) {
         srect.x = 3 * TILE_SIZE;
     }
-    if (pMan.getPowerUpDuration() < 5) {
+    if(pMan.getPowerUpDuration() < 5){
         srect.x = 0;
         srect.y = 8 * TILE_SIZE;
     }

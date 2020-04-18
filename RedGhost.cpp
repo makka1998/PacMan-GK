@@ -3,13 +3,7 @@
 
 RedGhost::RedGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(x, y, wp1, wp2, wp3, wp4, wp5, wp6) {
 }
-void RedGhost::getMovementDirection(Map &map) {
-    if (!m_startingDestinationReached) {
-        doWaypointPath();
-    } else {
-        wanderRandom(map);
-    }
-}
+
 void RedGhost::doWaypointPath() {
     int ghost_x = floor(m_coordinates.x / TILE_SIZE);
     int ghost_y = floor(m_coordinates.y / TILE_SIZE);
