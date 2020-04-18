@@ -9,11 +9,16 @@
 
 class Pacman : public GameCharacter {
 private:
-    int m_points;
-    int m_pacHealth = 1;
+    int m_points = 0;
+    int m_pacHealth = 3;
     double m_powerUpDuration = 5;
     double m_timer = 0;
     bool m_lastLife = false;
+
+    ///Angle is used to rotate the picture we use as texture to correctly display the direction the character is moving.
+    double m_angle = 0;
+    ///Center of pacman, used to base the rotation of the texture.
+    SDL_Point m_center = {10, 10};
 
     Uint8 const *m_keyStates = SDL_GetKeyboardState(nullptr);
 

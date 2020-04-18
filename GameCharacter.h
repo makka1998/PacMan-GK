@@ -10,6 +10,8 @@
 #include <SDL2/SDL_mixer.h>
 #include <memory>
 #include "Map.h"
+#include "CollisionManager.h"
+#include "MovementHandler.h"
 
 /**
  *An enum used to represent the different directions all the gameCharacters can move.
@@ -24,31 +26,24 @@ enum class direction {
 
 class GameCharacter {
 protected:
+    CollisionManager m_collisionManager;
+    MovementHandler m_movementManager;
     direction m_direction = direction::NONE;
     SDL_Rect m_coordinates;
     SDL_Texture *m_texture;
     ///Animation number is used to keep track of which frame of the animation we are on.
     int m_animationNumber;
     int m_speed;
-    ///Angle is used to rotate the picture we use as texture to correctly display the direction the character is moving.
-    double m_angle = 0;
-    ///Center of pacman, used to base the rotation of the texture.
-    SDL_Point m_center = {10, 10};
+
 public:
 
     GameCharacter(int xs, int ys, int speed);
 
-    void moveCharacter(int speed);
-
-    bool isColliding(SDL_Rect character, SDL_Rect tile);
-
-    void collisionHandling(Map &map);
-
-    std::vector<bool> pathAvailable(Map &map);
-
     void setDirection(direction dir);
 
     virtual void renderCharacter(SDL_Rect srect[]) {};
+
+    void characterHandler(Map &map);
 };
 
 

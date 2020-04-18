@@ -33,7 +33,7 @@ void Pacman::PickingUpPillHandler(Map &map) {
                 m_powerUpDuration = 0;
                 playPowerPillSound();
             }
-    }
+        }
     }
     ///For every call it increases the powerUpDuration, but sets it zero when you walk over a power pellet. This way you will have a power up while m_powerUpDuration is less than some value.
     m_powerUpDuration += GameManager::deltaTime;
@@ -80,23 +80,28 @@ void Pacman::renderCharacter(SDL_Rect srect[]) {
  */
 void Pacman::checkMovementInput(Map &map) {
     if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
-        if (pathAvailable(map).at(0)) {
+        if (m_movementManager.pathAvailable(map, m_coordinates).at(0)) {
             m_direction = direction::UP;
+            m_angle = -90;
         }
 
     } else if (m_keyStates[SDL_SCANCODE_S] || m_keyStates[SDL_SCANCODE_DOWN]) {
-        if (pathAvailable(map).at(1)) {
+        if (m_movementManager.pathAvailable(map, m_coordinates).at(1)) {
             m_direction = direction::DOWN;
+            m_angle = 90;
+
         }
 
     } else if (m_keyStates[SDL_SCANCODE_D] || m_keyStates[SDL_SCANCODE_RIGHT]) {
-        if (pathAvailable(map).at(3)) {
+        if (m_movementManager.pathAvailable(map, m_coordinates).at(3)) {
             m_direction = direction::RIGHT;
+            m_angle = 0;
         }
 
     } else if (m_keyStates[SDL_SCANCODE_A] || m_keyStates[SDL_SCANCODE_LEFT]) {
-        if (pathAvailable(map).at(2)) {
+        if (m_movementManager.pathAvailable(map, m_coordinates).at(2)) {
             m_direction = direction::LEFT;
+            m_angle = 180;
         }
     }
 }

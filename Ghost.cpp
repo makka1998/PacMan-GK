@@ -20,28 +20,28 @@ void Ghost::wanderRandom(Map &map) {
     switch (m_randomDirection) {
         case 1 :
             ///To avoid it turning back and forth or up and down endlessly, we dont allow the "AI" to choose a direction that is opposite of it's current direction. (LEFT & RIGHT) (UP & DOWN)
-            if (pathAvailable(map).at(0) && m_direction != direction::DOWN) {
+            if (m_movementManager.pathAvailable(map, m_coordinates).at(0) && m_direction != direction::DOWN) {
                 m_direction = direction::UP;
             } else {
                 m_randomDirection = 2;
             }
             break;
         case 2 :
-            if (pathAvailable(map).at(1) && m_direction != direction::UP) {
+            if (m_movementManager.pathAvailable(map, m_coordinates).at(1) && m_direction != direction::UP) {
                 m_direction = direction::DOWN;
             } else {
                 m_randomDirection = 3;
             }
             break;
         case 3 :
-            if (pathAvailable(map).at(3) && m_direction != direction::LEFT) {
+            if (m_movementManager.pathAvailable(map, m_coordinates).at(3) && m_direction != direction::LEFT) {
                 m_direction = direction::RIGHT;
             } else {
                 m_randomDirection = 4;
             }
             break;
         case 4 :
-            if (pathAvailable(map).at(2) && m_direction != direction::RIGHT) {
+            if (m_movementManager.pathAvailable(map, m_coordinates).at(2) && m_direction != direction::RIGHT) {
                 m_direction = direction::LEFT;
             } else {
                 m_randomDirection = 1;

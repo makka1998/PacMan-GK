@@ -210,8 +210,7 @@ void GameManager::calculateDeltaTime() {
 void GameManager::ghostWrapper() {
     for (const auto &ghost : m_gameCharacters) {
         ghost->getMovementDirection(*m_level);
-        ghost->moveCharacter(140);
-        ghost->collisionHandling(*m_level);
+        ghost->characterHandler(*m_level);
         ghost->isCollidingWithPacman(m_pacman, m_gameCharacters, *m_level);
     }
 }
@@ -222,8 +221,7 @@ void GameManager::pacmanWrapper(bool pause) {
         m_pacman.setDirection(direction::NONE);
     } else {
         m_pacman.checkMovementInput(*m_level);
-        m_pacman.moveCharacter(200);
-        m_pacman.collisionHandling(*m_level);
+        m_pacman.characterHandler(*m_level);
         m_pacman.PickingUpPillHandler(*m_level);
     }
 }
