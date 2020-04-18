@@ -1,15 +1,15 @@
 #include "GameManager.h"
 
-//kan SDL_window * være inne i startGame()??
+//kan SDL_window * være inne i startGame()?? ??????????????????????????????????????????????????????????????
 SDL_Window *window;
 
-//static variables
+/// Static variables
 SDL_Renderer *GameManager::renderer = nullptr;
 double GameManager::deltaTime;
 
 
 GameManager::GameManager() {
-    //Creating and adding all ghost to m_gameCharacters.
+    /// Creating and adding all ghost to m_gameCharacters.
     m_gameCharacters.push_back(std::make_shared<RedGhost>(11, 16, 13, 14, 11, 11, 9, 8));
     m_gameCharacters.push_back(std::make_shared<BlueGhost>(16, 16, 13, 14, 15, 11, 18, 8));
     m_gameCharacters.push_back(std::make_shared<PinkGhost>(11, 18, 13, 14, 9, 23, 5, 25));
@@ -18,7 +18,7 @@ GameManager::GameManager() {
 
 int GameManager::startGame() {
 
-    ///Initializing the SDL tools we use.
+    /// Initializing the SDL tools we use.
     SDL_Init(SDL_INIT_VIDEO);
     TTF_Init();
     audioInitializer();
@@ -47,12 +47,12 @@ int GameManager::startGame() {
 
                 if (SDL_PollEvent(&event)) {
                     if (event.type == SDL_KEYDOWN) {
-                        ///Unpause
+                        /// Unpause
                         if (event.key.keysym.sym == SDLK_RETURN) {
                             m_pause = false;
                             m_gameState = 1;
 
-                            ///Exit game
+                            /// Exit game
                         } else if (event.key.keysym.sym == SDLK_ESCAPE) {
                             quit();
                             return 0;
@@ -64,7 +64,7 @@ int GameManager::startGame() {
                 }
             }
 
-            ///Different end conditions, either you collect all the pills, or you lose all your lives.
+            /// Different end conditions, either you collect all the pills, or you lose all your lives.
             if (m_pacman.getPoints() >= 240) {
                 m_pacmanWon = true;
                 m_gameRunning = false;
@@ -82,7 +82,7 @@ int GameManager::startGame() {
                 }
             }
 
-            ///happens once every time the game starts
+            /// Happens once every time the game starts.
             if (m_gameState == 1) {
                 if (m_playedOnce) {
                     Mix_HaltChannel(-1);
@@ -93,7 +93,7 @@ int GameManager::startGame() {
                     m_gameState = 2;
                 }
             }
-            /// main gameloop
+            /// Main gameloop.
             if (m_gameState == 2) {
                 calculateDeltaTime();
                 pacmanWrapper(m_pause);
@@ -160,7 +160,7 @@ void GameManager::render() {
     SDL_RenderPresent(renderer);
 }
 
-/// Displays the startup menu we render with 2 images to simulate animation on text similar to an arcade
+/// Displays the startup menu we render with 2 images to simulate animation on text similar to an arcade.
 void GameManager::displayMainMenu() {
     m_timer += GameManager::deltaTime;
     SDL_Texture *background = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/Main_menu_1.png");
@@ -177,7 +177,7 @@ void GameManager::displayMainMenu() {
     SDL_DestroyTexture(background);
 }
 
-/// Displays the points pacman gets on the top of the screen
+/// Displays the points pacman gets on the top of the screen.
 void GameManager::displayPoints() {
     std::string points = std::to_string(m_pacman.getPoints());
     TextManager score(GameManager::renderer, "../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,
@@ -185,7 +185,7 @@ void GameManager::displayPoints() {
     score.display(10.2 * TILE_SIZE, 1.5 * TILE_SIZE, renderer);
 }
 
-/// This function gets called when you win or lose to render the YOU LOSE/YOU WIN Text
+/// This function gets called when you win or lose to render the YOU LOSE/YOU WIN Text.
 void GameManager::displayGameOverText(bool win) {
     TextManager text(GameManager::renderer, "../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE, "GAME OVER",
                      {255, 255, 0, 255});
@@ -229,10 +229,10 @@ void GameManager::pacmanWrapper(bool pause) {
     }
 }
 
-/** AudioInitializer runs the Mixer library OpenAudio which lets you use chunksize, in our game we chose frequency 44100 which is similar to CD quality, in older games they used lower frequencies
- *   Since its modern times the increase in frequency has minimal change on the demand for a good computer
+/** AudioInitializer runs the Mixer library OpenAudio which lets you use chunksize, in our game we chose frequency 44100 which is similar to CD quality, in older games they used lower frequencies.
+ *   Since its modern times the increase in frequency has minimal change on the demand for a good computer.
  *   The amount of channels set is 2 basing it off the player using stereo and not mono: Reasoning behind this is that basically every sound device in modern time uses stereo.
- *   Chunksize is set to 4096, setting it to high or to low will have a negative outcome on slower computers so we put it in a healthy middle
+ *   Chunksize is set to 4096, setting it to high or to low will have a negative outcome on slower computers so we put it in a healthy middle.
  */
 void GameManager::audioInitializer() {
     int audioInit = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);

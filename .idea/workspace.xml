@@ -12,23 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlueGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BlueGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovementHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MovementHandler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pacman.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PinkGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PinkGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PinkGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/PinkGhost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RenderManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/RenderManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RenderManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/RenderManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scoreDisplay.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TextManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scoreDisplay.h" beforeDir="false" afterPath="$PROJECT_DIR$/TextManager.h" afterDir="false" />
-    </list>
+    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,7 +104,7 @@
       <workItem from="1586971411789" duration="11768000" />
       <workItem from="1587129400039" duration="25038000" />
       <workItem from="1587175288291" duration="2376000" />
-      <workItem from="1587213953650" duration="1968000" />
+      <workItem from="1587213953650" duration="2286000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -265,7 +249,13 @@
       <option name="presentableId" value="LOCAL−00023" />
       <updated>1587165042956</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL−00024" summary="- huge cleanup in code">
+      <created>1587218107322</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1587218107322</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,17 +299,19 @@
     <MESSAGE value="- Fixed eating a ghost" />
     <MESSAGE value="- Pushing as backup, cleaned up the code some more." />
     <MESSAGE value="- Changed name to capital letter" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Changed name to capital letter" />
+    <MESSAGE value="- huge cleanup in code" />
+    <option name="LAST_COMMIT_MESSAGE" value="- huge cleanup in code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979794456">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586979794456" />
-    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1586977425992">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2505" y="115" key="CommitChangelistDialog2" timestamp="1587218105659">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586977425992" />
+    <state x="2505" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587218105659" />
     <state x="184" y="92" key="DiffContextDialog" timestamp="1585147629164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -372,10 +364,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586893173971" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1586893659147">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2472" y="254" key="Vcs.Push.Dialog.v2" timestamp="1587218110666">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586893659147" />
+    <state x="2472" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587218110666" />
     <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586971425860">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
