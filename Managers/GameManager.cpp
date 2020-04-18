@@ -22,44 +22,17 @@ int GameManager::startGame() {
     TTF_Init();
     m_soundManager.audioInitializer();
 
-    WindowLoader windowLoader;
-    RenderManager renderManager;
+    ///Creating window and renderer
     window = windowLoader.createWindow("Pacman");
     renderer = renderManager.createRenderer(window);
 
     SDL_Event event;
-    const Uint8 *getKeyboardInput = SDL_GetKeyboardState(NULL);
-
     //----------------------------------------------------------------
-    while (m_programRunning) {
         while (m_gameRunning) {
             SDL_PumpEvents();
+
             while (m_pause) {
-                if (m_gameState == 1) {
-                    m_soundManager.playMenuMusic();
-                    m_gameState = 2;
-                } else if (m_gameState == 2) {
-                    calculateDeltaTime();
-                    displayMainMenu();
-                }
-
-                if (SDL_PollEvent(&event)) {
-                    if (event.type == SDL_KEYDOWN) {
-                        /// Unpause
-                        if (event.key.keysym.sym == SDLK_RETURN) {
-                            m_pause = false;
-                            m_gameState = 1;
-
-                            /// Exit game
-                        } else if (event.key.keysym.sym == SDLK_ESCAPE) {
-                            quit();
-                            return 0;
-                        }
-                    } else if (event.type == SDL_QUIT) {
-                        quit();
-                        return 0;
-                    }
-                }
+                pausedState(event);
             }
 
             /// Different end conditions, either you collect all the pills, or you lose all your lives.
@@ -73,6 +46,7 @@ int GameManager::startGame() {
                     m_timer = 0;
                 }
             }
+
             if (SDL_PollEvent(&event)) {
                 if (event.type == SDL_QUIT) {
                     quit();
@@ -82,56 +56,19 @@ int GameManager::startGame() {
 
             /// Happens once every time the game starts.
             if (m_gameState == 1) {
-                if (m_playedOnce) {
-                    Mix_HaltChannel(-1);
-                    m_gameState = 2;
-                } else {
-                    m_level = new Map("../Resources/Levels/Level_layout_1.txt");
-                    m_soundManager.playIntroSound(m_playedOnce);
-                    m_gameState = 2;
-                }
+                loadGame();
             }
+
             /// Main gameloop.
             if (m_gameState == 2) {
-                Mix_HaltMusic();
-                calculateDeltaTime();
-                pacmanWrapper();
-                ghostWrapper();
-                render();
-                if (getKeyboardInput[SDL_SCANCODE_P]) {
-                    m_pause = true;
-                    m_gameState = 1;
-                }
+                gamePlayingState(event);
             }
-            if (m_gameState == 3) {
-                m_timer += deltaTime;
 
-                ///show death animation for approx 5 seconds.
-                if (m_timer <= 5) {
-                    SDL_RenderClear(renderer);
-                    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-                    m_level->drawMap();
-                    m_pacman.ripPacman(m_deathRect);
-                    SDL_RenderPresent(renderer);
-                } else {
-                    m_timer = 0;
-                    m_gameRunning = false;
-                }
+            /// Game over!
+            if(m_gameState == 3){
+                gameOverState();
             }
         }
-        m_timer += deltaTime;
-        ///Show screen for approx 3 seconds.
-        if (m_timer <= 30) {
-            SDL_RenderClear(renderer);
-            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-            m_level->drawMap();
-            m_textManager.displayGameOverText(m_pacmanWon);
-            SDL_RenderPresent(renderer);
-        } else {
-            break;
-        }
-    }
-    quit();
     return 0;
 }
 
@@ -145,7 +82,7 @@ void GameManager::quit() {
     Mix_CloseAudio();
     SDL_Quit();
 }
-
+///Loading in map and playing intro sound
 void GameManager::render() {
     SDL_RenderClear(renderer);
 
@@ -158,6 +95,84 @@ void GameManager::render() {
     }
 
     SDL_RenderPresent(renderer);
+}
+
+///Loading in map and playing intro sound
+void GameManager::loadGame(){
+    if (m_playedOnce) {
+        Mix_HaltChannel(-1);
+        m_gameState = 2;
+    } else {
+        m_level = new Map("../Resources/Levels/Level_layout_1.txt");
+        m_soundManager.playIntroSound(m_playedOnce);
+        m_gameState = 2;
+    }
+}
+
+///PAUSED STATE
+int GameManager::pausedState(SDL_Event event){
+    if (m_gameState == 1) {
+        m_soundManager.playMenuMusic();
+        m_gameState = 2;
+    } else if (m_gameState == 2) {
+        calculateDeltaTime();
+        displayMainMenu();
+    }
+
+    if (SDL_PollEvent(&event)) {
+        if (event.type == SDL_KEYDOWN) {
+            /// Unpause
+            if (event.key.keysym.sym == SDLK_RETURN) {
+                m_pause = false;
+                m_gameState = 1;
+
+                /// Exit game
+            } else if (event.key.keysym.sym == SDLK_ESCAPE) {
+                quit();
+                return 0;
+            }
+        } else if (event.type == SDL_QUIT) {
+            quit();
+            return 0;
+        }
+    }
+}
+
+///GAME OVER STATE
+int GameManager::gameOverState(){
+    m_timer += deltaTime;
+    SDL_RenderClear(renderer);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+    m_level->drawMap();
+    if (m_timer <= 5) {
+        m_pacman.ripPacman(m_deathRect);
+        SDL_RenderPresent(renderer);
+    } else if (m_timer > 5 && m_timer <= 8) {
+        m_textManager.displayGameOverText(m_pacmanWon);
+        SDL_RenderPresent(renderer);
+    } else{
+        quit();
+    }
+    return 0;
+}
+
+///GAME PLAYING STATE
+void GameManager::gamePlayingState(SDL_Event event) {
+    Mix_HaltMusic();
+    calculateDeltaTime();
+    pacmanWrapper();
+    ghostWrapper();
+    render();
+
+    if (SDL_PollEvent(&event)) {
+        if (event.type == SDL_KEYDOWN) {
+            /// Unpause
+            if (event.key.keysym.sym == SDLK_p) {
+                m_pause = true;
+                m_gameState = 1;
+            }
+        }
+    }
 }
 
 /// Displays the startup menu we render with 2 images to simulate animation on text similar to an arcade.

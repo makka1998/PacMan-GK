@@ -1,8 +1,9 @@
 #ifndef PAC_MAN_GK_RENDERMANAGER_H
 #define PAC_MAN_GK_RENDERMANAGER_H
 
-#include <SDL.h>
-#include "GameManager.h"
+#include <SDL2/SDL.h>
+#include <iostream>
+
 
 class RenderManager {
 public:

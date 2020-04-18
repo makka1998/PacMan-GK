@@ -19,15 +19,17 @@
 #include "TextManager.h"
 #include "SoundManager.h"
 
-//characters include
-class Ghost;
-
-class Pacman;
-
-class GameCharacter;
+///Forward declarations of classes
+class Ghost; class Pacman; class GameCharacter;
 
 class GameManager {
 private:
+    ///Manager objects
+    WindowLoader windowLoader;
+    RenderManager renderManager;
+    TextManager m_textManager= TextManager("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,{255, 255, 0, 255});
+    SoundManager m_soundManager;
+    ///animation Source rects for pacman
     SDL_Rect m_srect[3];
     SDL_Rect m_deathRect[6];
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
@@ -41,8 +43,7 @@ private:
     std::vector<std::shared_ptr<Ghost>> m_gameCharacters;
     Pacman m_pacman;
     Map * m_level;
-    TextManager m_textManager= TextManager("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,{255, 255, 0, 255});
-    SoundManager m_soundManager;
+
 
 public:
     GameManager();
@@ -64,7 +65,13 @@ public:
 
     void pacmanWrapper();
 
+    int pausedState(SDL_Event event);
 
+    int gameOverState();
+
+    void gamePlayingState(SDL_Event event);
+
+    void loadGame();
 };
 
 #endif //PACMAN_GK_MASTER_GAMEMANAGER_H

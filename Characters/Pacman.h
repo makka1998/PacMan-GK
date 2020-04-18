@@ -7,7 +7,7 @@
 class Pacman : public GameCharacter {
 private:
     int m_points = 0;
-    int m_pacHealth = 3;
+    int m_pacHealth = 1;
     double m_powerUpDuration = 5;
     bool m_lastLife = false;
 
@@ -43,9 +43,6 @@ public:
 
     SDL_Rect *getCoords() { return &m_coordinates; }
 
-    void playPowerPillSound();
-
-    void playPillSound();
 };
 
 

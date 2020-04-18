@@ -26,13 +26,9 @@ public:
 
     virtual void doWaypointPath(){};
 
-    void moveToStartPos();
-
-    void playDeathSound();
-
-    void playEatenSound();
-
     virtual void renderCharacter(Pacman &pMan) {};
+
+    void moveToStartPos();
 };
 
 

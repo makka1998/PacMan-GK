@@ -1,5 +1,5 @@
 #include "RenderManager.h"
-#include <iostream>
+#include "GameManager.h"
 
 SDL_Renderer* RenderManager::createRenderer(SDL_Window* window)
 {
