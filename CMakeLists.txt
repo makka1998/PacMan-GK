@@ -9,5 +9,5 @@ pkg_check_modules(SDL2_TTF REQUIRED SDL2_ttf)
 
 include_directories(${SDL2_INCLUDE_DIRS}  ${SDL2_IMAGE_INCLUDE_DIRS} ${SDL2_MIXER_INCLUDE_DIRS} ${SDL2_TTF_INCLUDE_DIRS}  )
 
-add_executable(PacMan-GK main.cpp GameManager.h GameManager.cpp RenderManager.cpp RenderManager.h WindowLoader.cpp WindowLoader.h Map.cpp Map.h Tile.cpp Tile.h GameCharacter.cpp GameCharacter.h Pacman.cpp Pacman.h Ghost.cpp Ghost.h RedGhost.cpp RedGhost.h PinkGhost.cpp PinkGhost.h OrangeGhost.cpp OrangeGhost.h BlueGhost.cpp BlueGhost.h scoreDisplay.cpp scoreDisplay.h CollisionManager.cpp CollisionManager.h MovementHandler.cpp MovementHandler.h)
+add_executable(PacMan-GK main.cpp GameManager.h GameManager.cpp RenderManager.cpp RenderManager.h WindowLoader.cpp WindowLoader.h Map.cpp Map.h Tile.cpp Tile.h GameCharacter.cpp GameCharacter.h Pacman.cpp Pacman.h Ghost.cpp Ghost.h RedGhost.cpp RedGhost.h PinkGhost.cpp PinkGhost.h OrangeGhost.cpp OrangeGhost.h BlueGhost.cpp BlueGhost.h TextManager.cpp TextManager.h CollisionManager.cpp CollisionManager.h MovementHandler.cpp MovementHandler.h)
 target_link_libraries(PacMan-GK ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES}  ${SDL2_MIXER_LIBRARIES} ${SDL2_TTF_LIBRARIES})

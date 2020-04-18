@@ -8,7 +8,7 @@
 #include "OrangeGhost.h"
 #include "WindowLoader.h"
 #include "RenderManager.h"
-#include "scoreDisplay.h"
+#include "TextManager.h"
 #include "Map.h"
 #include <iostream>
 #include <chrono>
@@ -44,7 +44,7 @@ private:
 
     void playMenuMusic();
 
-    void playOpeningSound();
+    void playIntroSound();
 
 public:
     GameManager();

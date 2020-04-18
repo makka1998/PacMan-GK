@@ -1,6 +1,3 @@
-//
-// Created by Tobias on 28.03.2020.
-//
 
 #include "GameCharacter.h"
 #include "GameManager.h"

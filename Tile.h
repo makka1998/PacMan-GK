@@ -1,6 +1,3 @@
-//
-// Created by Tobias on 27.03.2020.
-//
 
 #ifndef PACMAN_GK_MASTER_OBSTACLE_H
 #define PACMAN_GK_MASTER_OBSTACLE_H
@@ -25,7 +22,6 @@ public:
     void setSource(int x, int y, int height, int width);
     void setTileValue(int value);
     bool WalkedOver = false;
-    bool changedNumber;
 };
 
 

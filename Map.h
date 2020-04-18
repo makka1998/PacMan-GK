@@ -1,6 +1,3 @@
-//
-// Created by Tobias on 27.03.2020.
-//
 
 #ifndef PACMAN_GK_MASTER_MAP_H
 #define PACMAN_GK_MASTER_MAP_H
