@@ -1,21 +1,23 @@
 #ifndef PAC_MAN_GK_GAMEMANAGER_H
 #define PAC_MAN_GK_GAMEMANAGER_H
 
-#include "Pacman.h"
-#include "RedGhost.h"
-#include "BlueGhost.h"
-#include "PinkGhost.h"
-#include "OrangeGhost.h"
+#include "../Pacman.h"
+#include "../RedGhost.h"
+#include "../BlueGhost.h"
+#include "../PinkGhost.h"
+#include "../OrangeGhost.h"
 #include "WindowLoader.h"
 #include "RenderManager.h"
 #include "TextManager.h"
-#include "Map.h"
+#include "../Map.h"
 #include <iostream>
 #include <chrono>
 #include <SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <string>
 #include <memory>
+#include "TextManager.h"
+#include "SoundManager.h"
 
 //characters include
 class Ghost;
@@ -39,12 +41,8 @@ private:
     std::vector<std::shared_ptr<Ghost>> m_gameCharacters;
     Pacman m_pacman;
     Map * m_level;
-
-    static void audioInitializer();
-
-    void playMenuMusic();
-
-    void playIntroSound();
+    TextManager m_textManager= TextManager("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,{255, 255, 0, 255});
+    SoundManager m_soundManager;
 
 public:
     GameManager();
@@ -59,10 +57,6 @@ public:
     void render();
 
     void displayMainMenu();
-
-    void displayPoints();
-
-    void displayGameOverText(bool win);
 
     void calculateDeltaTime();
 

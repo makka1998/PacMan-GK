@@ -1,5 +1,5 @@
 #include "CollisionManager.h"
-#include "GameCharacter.h"
+#include "../GameCharacter.h"
 
 /**
  * Checking if any point of a gameCharacter overlaps with any point of the tile.

@@ -1,5 +1,5 @@
-#include "MovementHandler.h"
-#include "GameCharacter.h"
+#include "MovementManager.h"
+#include "../GameCharacter.h"
 #include "GameManager.h"
 
 /**
@@ -7,7 +7,7 @@
  * If either the start music is playing or the power pellet pick up sound is playing, dont allow any movement.
  * @param speed The speed the gameCharacter will move at.
  */
-void MovementHandler::moveCharacter(int &m_speed, SDL_Rect &m_coordinates, direction &m_direction) {
+void MovementManager::moveCharacter(int &m_speed, SDL_Rect &m_coordinates, direction &m_direction) {
     if (Mix_Playing(6) != 0 || Mix_Playing(3) != 0) {}
     else {
         int speed = m_speed * GameManager::deltaTime;
@@ -36,7 +36,7 @@ void MovementHandler::moveCharacter(int &m_speed, SDL_Rect &m_coordinates, direc
  * @param map Container with all the tiles the level is made up of.
  * @return a std::vector of size 4, where each index represents a direction. If a given direction has an available path that index in the vector is set true.
  */
-std::vector<bool> MovementHandler::pathAvailable(Map &map, SDL_Rect &m_coordinates) {
+std::vector<bool> MovementManager::pathAvailable(Map &map, SDL_Rect &m_coordinates) {
     std::vector<bool> pathAvailable = {false, false, false, false};
     ///By adding on the height and width onto the gameCharacters coordinates we get the coordinates of it's center instead of top left corner.
     int xCoord = round((m_coordinates.x + (m_coordinates.w / 2)) / TILE_SIZE);

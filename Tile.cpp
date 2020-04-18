@@ -1,6 +1,6 @@
 
 #include "Tile.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 /// This entire class is used to get information about the Tiles on the map.
 Tile::Tile(const char *fileName) : m_texture(IMG_LoadTexture(GameManager::renderer, fileName)) {
     if (m_texture == nullptr) {

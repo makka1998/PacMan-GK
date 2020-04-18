@@ -21,7 +21,7 @@ int GameManager::startGame() {
     /// Initializing the SDL tools we use.
     SDL_Init(SDL_INIT_VIDEO);
     TTF_Init();
-    audioInitializer();
+    m_soundManager.audioInitializer();
 
     WindowLoader windowLoader;
     RenderManager renderManager;
@@ -37,7 +37,7 @@ int GameManager::startGame() {
             SDL_PumpEvents();
             while (m_pause) {
                 if (m_gameState == 1) {
-                    playMenuMusic();
+                    m_soundManager.playMenuMusic();
                     m_gameState = 2;
                 } else if (m_gameState == 2) {
                     calculateDeltaTime();
@@ -89,7 +89,7 @@ int GameManager::startGame() {
                     m_gameState = 2;
                 } else {
                     m_level = new Map("../Resources/Levels/Level_layout_1.txt");
-                    playIntroSound();
+                    m_soundManager.playIntroSound(m_playedOnce);
                     m_gameState = 2;
                 }
             }
@@ -126,7 +126,7 @@ int GameManager::startGame() {
             SDL_RenderClear(renderer);
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
             m_level->drawMap();
-            displayGameOverText(m_pacmanWon);
+            m_textManager.displayGameOverText(m_pacmanWon);
             SDL_RenderPresent(renderer);
         } else {
             break;
@@ -149,13 +149,14 @@ void GameManager::quit() {
 void GameManager::render() {
     SDL_RenderClear(renderer);
 
-    displayPoints();
+    m_textManager.displayPoints(m_pacman.getPoints());
     m_level->drawMap();
     m_pacman.renderCharacter(m_srect);
 
     for (const auto &ghost: m_gameCharacters) {
         ghost->renderCharacter(m_pacman);
     }
+
 
     SDL_RenderPresent(renderer);
 }
@@ -175,29 +176,6 @@ void GameManager::displayMainMenu() {
     SDL_RenderCopy(GameManager::renderer, background, nullptr, nullptr);
     SDL_RenderPresent(renderer);
     SDL_DestroyTexture(background);
-}
-
-/// Displays the points pacman gets on the top of the screen.
-void GameManager::displayPoints() {
-    std::string points = std::to_string(m_pacman.getPoints());
-    TextManager score("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,
-                      "Points " + points, {255, 255, 0, 255});
-    score.display(10.2 * TILE_SIZE, 1.5 * TILE_SIZE, renderer);
-}
-
-/// This function gets called when you win or lose to render the YOU LOSE/YOU WIN Text.
-void GameManager::displayGameOverText(bool win) {
-    TextManager text("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE, "GAME OVER",
-                     {255, 255, 0, 255});
-    text.display(9.5 * TILE_SIZE, 14 * TILE_SIZE, renderer);
-    std::string gameResult = "YOU LOSE";
-    if (win) {
-        gameResult = "YOU WIN";
-    }
-    TextManager gameCondtitionText("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,
-                                   gameResult, {255, 255, 0, 255});
-    gameCondtitionText.display(10.25 * TILE_SIZE, 20 * TILE_SIZE, renderer);
-
 }
 
 /// Calculate delatime is used so that every computer that plays the game plays it at roughly the same speed.
@@ -229,41 +207,3 @@ void GameManager::pacmanWrapper(bool pause) {
     }
 }
 
-/** AudioInitializer runs the Mixer library OpenAudio which lets you use chunksize, in our game we chose frequency 44100 which is similar to CD quality, in older games they used lower frequencies.
- *   Since its modern times the increase in frequency has minimal change on the demand for a good computer.
- *   The amount of channels set is 2 basing it off the player using stereo and not mono: Reasoning behind this is that basically every sound device in modern time uses stereo.
- *   Chunksize is set to 4096, setting it to high or to low will have a negative outcome on slower computers so we put it in a healthy middle.
- */
-void GameManager::audioInitializer() {
-    int audioInit = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
-    if (audioInit < 0) {
-        printf("SDL_mixer initialization failed! SDL_mixer Error: %s\n", Mix_GetError());
-    }
-}
-
-/**
- *  Function that plays the Main Menu music, also checks whether music is currently playing on any channel and stops that music to prevent overlapping of sound.
- */
-void GameManager::playMenuMusic() {
-    if (Mix_Playing(-1)) {
-        Mix_HaltChannel(-1);
-    }
-    auto menuMusic = Mix_LoadWAV("../Resources/Sounds/pacman_menu_sound.wav");
-    if (menuMusic == nullptr) {
-        printf("Failed to load menu sound effect! SDL_mixer Error: %s\n", Mix_GetError());
-    }
-    Mix_Volume(-1, 5);
-    Mix_PlayChannel(6, menuMusic, -1);
-}
-
-/// Function that plays the intro sound
-void GameManager::playIntroSound() {
-
-    Mix_HaltChannel(6);
-    auto introSound = Mix_LoadWAV("../Resources/Sounds/pacman_intro_sound.wav");
-    if (introSound == nullptr) {
-        printf("Failed to load intro sound effect! SDL_mixer Error: %s\n", Mix_GetError());
-    }
-    m_playedOnce = true;
-    Mix_PlayChannel(6, introSound, 0);
-}

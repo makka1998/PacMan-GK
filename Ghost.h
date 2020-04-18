@@ -10,7 +10,6 @@ protected:
     int m_startingPosition[2];
     ///A variable used to determine which direction the ghost will wander.
     int m_randomDirection = 1;
-    double m_timer = 0;
     bool m_startingDestinationReached = false;
 
     std::vector<bool> m_wayPointsReached = {false, false, false, false, false, false};

@@ -7,8 +7,9 @@
 #include <SDL2/SDL_mixer.h>
 #include <memory>
 #include "Map.h"
-#include "CollisionManager.h"
-#include "MovementHandler.h"
+#include "Managers/CollisionManager.h"
+#include "Managers/MovementManager.h"
+#include "Managers/SoundManager.h"
 
 /**
  *An enum used to represent the different directions all the gameCharacters can move.
@@ -24,13 +25,16 @@ enum class direction {
 class GameCharacter {
 protected:
     CollisionManager m_collisionManager;
-    MovementHandler m_movementManager;
+    MovementManager m_movementManager;
     direction m_direction = direction::NONE;
     SDL_Rect m_coordinates;
     SDL_Texture *m_texture;
     ///Animation number is used to keep track of which frame of the animation we are on.
     int m_animationNumber;
     int m_speed;
+    double m_timer = 0;
+    SoundManager m_soundManager;
+
 
 public:
 

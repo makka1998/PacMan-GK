@@ -1,5 +1,5 @@
 #include "Ghost.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 
 ///Using the parent class's constructor for it's none unique variables.
 Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : m_wayPoints{wp1, wp2, wp3, wp4, wp5, wp6}, m_startingPosition{x, y}, GameCharacter(x, y, 140) {
@@ -58,10 +58,10 @@ void Ghost::wanderRandom(Map &map) {
  */
 void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map) {
     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
-        playEatenSound();
+        m_soundManager.playEatenSound();
         moveToStartPos();
     } else if (SDL_HasIntersection(&m_coordinates, pMan.getCoords())) {
-        playDeathSound();
+        m_soundManager.playPacmanDeathSound();
         pMan.setHealth();
         pMan.moveToStartPos();
         ///Changes the health indicator to correctly display the number of health pacman has.
@@ -93,18 +93,4 @@ void Ghost::moveToStartPos() {
     }
 }
 
-void Ghost::playDeathSound() {
-    auto death = Mix_LoadWAV("../Resources/Sounds/pacman_death_sound.wav");
-    if (death == nullptr) {
-        std::cout << "Could not play death sound!" << std::endl;
-    }
-    Mix_PlayChannel(3, death, 0);
-}
 
-void Ghost::playEatenSound() {
-    auto pacmanEatGhost = Mix_LoadWAV("../Resources/Sounds/pacman_eat_ghost_sound.wav");
-    if (pacmanEatGhost == nullptr) {
-        std::cout << "Could not play eat ghost sound!" << std::endl;
-    }
-    Mix_PlayChannel(3, pacmanEatGhost, 0);
-}

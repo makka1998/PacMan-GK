@@ -1,7 +1,5 @@
-
-
 #include "Pacman.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 
 Pacman::Pacman() : GameCharacter(13, 26, 200) {
 }
@@ -152,36 +150,6 @@ void Pacman::ripPacman(SDL_Rect srect[]) {
     }
     SDL_RenderCopy(GameManager::renderer, m_texture, &srect[m_animationNumber], &m_coordinates);
     SDL_DestroyTexture(m_texture);
-}
-
-/**
- * plays the pill sound
- * if(Mix_Playing(-1) == 0) checks if any channels are playing a sound, and if not, the eat pill sound effect will be played
- * Reason for this is to prevent overlapping of the sound
- */
-void Pacman::playPillSound() {
-    Mix_Chunk *eatPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_eat_pill_sound.wav");
-    if (eatPillSound == nullptr) {
-        printf("Failed to load pill eating sound ! SDL_mixer Error: %s\n", Mix_GetError());
-    }
-
-    if (Mix_Playing(-1) == 0) {
-        Mix_PlayChannel(1, eatPillSound, 0);
-    } else {
-       Mix_FreeChunk(eatPillSound);
-       eatPillSound = nullptr;
-     }
-}
-/**
- * plays the Powerpillsound
- */
-void Pacman::playPowerPillSound() {
-    Mix_HaltChannel(-1);
-    auto eatPowerPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_powerpellet_sound.wav");
-    if (eatPowerPillSound == nullptr) {
-        printf("Failed to load eat power pellet SDL_mixer Error: %s\n", Mix_GetError());
-    }
-    Mix_PlayChannel(1, eatPowerPillSound, 0);
 }
 
 /**

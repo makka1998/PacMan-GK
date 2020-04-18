@@ -1,7 +1,7 @@
 #ifndef PACMAN_GK_COLLISIONMANAGER_H
 #define PACMAN_GK_COLLISIONMANAGER_H
 
-#include "Map.h"
+#include "../Map.h"
 
 enum class direction;
 class CollisionManager {

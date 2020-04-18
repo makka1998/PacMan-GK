@@ -9,8 +9,8 @@ private:
     int m_points = 0;
     int m_pacHealth = 3;
     double m_powerUpDuration = 5;
-    double m_timer = 0;
     bool m_lastLife = false;
+
 
     ///Angle is used to rotate the picture we use as texture to correctly display the direction the character is moving.
     double m_angle = 0;
@@ -31,10 +31,6 @@ public:
 
     void ripPacman(SDL_Rect *srect);
 
-    void playPillSound();
-
-    void playPowerPillSound();
-
     void moveToStartPos();
 
     void setHealth();
@@ -46,6 +42,10 @@ public:
     double getPowerUpDuration() { return m_powerUpDuration; }
 
     SDL_Rect *getCoords() { return &m_coordinates; }
+
+    void playPowerPillSound();
+
+    void playPillSound();
 };
 
 
