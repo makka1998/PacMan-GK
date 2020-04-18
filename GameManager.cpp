@@ -20,63 +20,67 @@ GameManager::GameManager() {
 
 int GameManager::startGame() {
 
-    //initialize all libraries
-    SDL_Init(SDL_INIT_VIDEO); // Init. SDL2
+    ///Initializing the SDL tools we use.
+    SDL_Init(SDL_INIT_VIDEO);
     TTF_Init();
-    //Mix_init(); ?? add this? instead of audioInitializer()?
+    audioInitializer();
 
     WindowLoader windowLoader;
     RenderManager renderManager;
     window = windowLoader.createWindow("Pacman");
     renderer = renderManager.createRenderer(window);
-    audioInitializer();
 
     SDL_Event event;
-    SDL_PollEvent(&event);
     const Uint8 *getKeyboardInput = SDL_GetKeyboardState(NULL);
 
-
-    m_running = true;
-    bool pause = true;
-    bool programRunning = true;
-    bool pacmanWin = false;
-
-    //calculateDeltaTime();
     //----------------------------------------------------------------
-    while (programRunning) {
-        while (m_running) {
-            while (pause) {
+    while (m_programRunning) {
+        while (m_gameRunning) {
+            SDL_PumpEvents();
+            while (m_pause) {
                 if (m_gameState == 1) {
                     playMenuMusic();
                     m_gameState = 2;
                 } else if (m_gameState == 2) {
                     calculateDeltaTime();
-                    pacmanWrapper(pause);
+                    pacmanWrapper(m_pause);
                     displayMainMenu();
                 }
 
-                //exit game
-                if (getKeyboardInput[SDL_SCANCODE_RETURN]) {
-                    pause = false;
-                    m_gameState = 1;
-                }
+                if (SDL_PollEvent(&event)) {
+                    if(event.type == SDL_KEYDOWN){
+                        ///Unpause
+                        if(event.key.keysym.sym == SDLK_RETURN){
+                            m_pause = false;
+                            m_gameState = 1;
 
-                //unpause
-                if (getKeyboardInput[SDL_SCANCODE_ESCAPE]) {
-                    pause = false;
-                    m_running = false;
+                            ///Exit game
+                        } else if(event.key.keysym.sym == SDLK_ESCAPE){
+                            quit();
+                            return 0;
+                        }
+                    } else if (event.type == SDL_QUIT){
+                        quit();
+                        return 0;
+                    }
                 }
             }
 
-            //end game conditions for m_pacman health
+            ///Different end conditions, either you collect all the pills, or you lose all your lives.
             if (m_pacman.getPoints() >= 240) {
-                pacmanWin = true;
-                m_running = false;
+                m_pacmanWon = true;
+                m_gameRunning = false;
             }
             if (m_pacman.getHealth() <= 0) {
                 if (m_gameState != 3) {
                     m_gameState = 3;
                     m_timer = 0;
+                }
+            }
+            if(SDL_PollEvent(&event)){
+                if(event.type == SDL_QUIT){
+                    quit();
+                    return 0;
                 }
             }
 
@@ -95,11 +99,11 @@ int GameManager::startGame() {
             if (m_gameState == 2) {
                 //make this a function named main_gameplay or just m_gameState 2=?
                 calculateDeltaTime();
-                pacmanWrapper(pause);
+                pacmanWrapper(m_pause);
                 ghostWrapper();
                 render();
                 if (getKeyboardInput[SDL_SCANCODE_P]) {
-                    pause = true;
+                    m_pause = true;
                     m_gameState = 1;
                 }
             }
@@ -115,21 +119,17 @@ int GameManager::startGame() {
                     SDL_RenderPresent(renderer);
                 } else {
                     m_timer = 0;
-                    m_running = false;
+                    m_gameRunning = false;
                 }
             }
         }
-        //you can quit the game if you dont want to wait approx 3 seconds in the game over scenario.
-        if (getKeyboardInput[SDL_SCANCODE_ESCAPE]) {
-            break;
-        }
         m_timer += deltaTime;
-        //show screen for approx 3 seconds.
+        ///Show screen for approx 3 seconds.
         if (m_timer <= 30) {
             SDL_RenderClear(renderer);
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
             m_level->drawMap();
-            displayGameOverText(pacmanWin);
+            displayGameOverText(m_pacmanWon);
             SDL_RenderPresent(renderer);
         } else {
             break;
@@ -140,12 +140,13 @@ int GameManager::startGame() {
 }
 
 void GameManager::quit() {
+    ///SDL cleaning up and quitting.
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     TTF_Quit();
     Mix_Quit();
     Mix_CloseAudio();
-    SDL_Quit(); // Be SDL om å rydde opp
+    SDL_Quit();
 }
 
 void GameManager::render() {

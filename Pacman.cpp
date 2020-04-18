@@ -79,7 +79,6 @@ void Pacman::renderCharacter(SDL_Rect srect[]) {
  * @param map Container with all the tiles the level is made up of.
  */
 void Pacman::checkMovementInput(Map &map) {
-    SDL_PumpEvents();
     if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
         if (pathAvailable(map).at(0)) {
             m_direction = direction::UP;

@@ -31,11 +31,15 @@ private:
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
     int m_gameState = 1;
     double m_timer = 0;
-    bool m_running;
+    bool m_gameRunning = true;
     bool m_playedOnce = false;
+    bool m_pause = true;
+    bool m_programRunning = true;
+    bool m_pacmanWon = false;
     std::vector<std::shared_ptr<Ghost>> m_gameCharacters;
     Pacman m_pacman;
     Map * m_level;
+
     static void audioInitializer();
 
     void playMenuMusic();
