@@ -6,10 +6,10 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 #include <memory>
-#include "Map.h"
-#include "Managers/CollisionManager.h"
-#include "Managers/MovementManager.h"
-#include "Managers/SoundManager.h"
+#include "../Map.h"
+#include "../Managers/CollisionManager.h"
+#include "../Managers/MovementManager.h"
+#include "../Managers/SoundManager.h"
 
 /**
  *An enum used to represent the different directions all the gameCharacters can move.

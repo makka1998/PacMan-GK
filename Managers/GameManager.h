@@ -1,11 +1,11 @@
 #ifndef PAC_MAN_GK_GAMEMANAGER_H
 #define PAC_MAN_GK_GAMEMANAGER_H
 
-#include "../Pacman.h"
-#include "../RedGhost.h"
-#include "../BlueGhost.h"
-#include "../PinkGhost.h"
-#include "../OrangeGhost.h"
+#include "../Characters/Pacman.h"
+#include "../Characters/RedGhost.h"
+#include "../Characters/BlueGhost.h"
+#include "../Characters/PinkGhost.h"
+#include "../Characters/OrangeGhost.h"
 #include "WindowLoader.h"
 #include "RenderManager.h"
 #include "TextManager.h"

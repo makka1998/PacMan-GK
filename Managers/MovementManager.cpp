@@ -1,5 +1,5 @@
 #include "MovementManager.h"
-#include "../GameCharacter.h"
+#include "../Characters/GameCharacter.h"
 #include "GameManager.h"
 
 /**

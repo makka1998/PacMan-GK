@@ -1,5 +1,5 @@
 #include "Pacman.h"
-#include "Managers/GameManager.h"
+#include "../Managers/GameManager.h"
 
 Pacman::Pacman() : GameCharacter(13, 26, 200) {
 }
@@ -22,12 +22,12 @@ void Pacman::PickingUpPillHandler(Map &map) {
                 m_points += 1;
                 tile.setTileValue(0);
                 tile.WalkedOver = true;
-                playPillSound();
+                m_soundManager.playPillSound();
             } else if (tile.getTileValue() == 9) {
                 tile.setTileValue(0);
                 tile.WalkedOver = true;
                 m_powerUpDuration = 0;
-                playPowerPillSound();
+                m_soundManager.playPowerPillSound();
             }
         }
     }

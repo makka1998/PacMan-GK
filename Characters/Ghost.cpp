@@ -1,5 +1,5 @@
 #include "Ghost.h"
-#include "Managers/GameManager.h"
+#include "../Managers/GameManager.h"
 
 ///Using the parent class's constructor for it's none unique variables.
 Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : m_wayPoints{wp1, wp2, wp3, wp4, wp5, wp6}, m_startingPosition{x, y}, GameCharacter(x, y, 140) {

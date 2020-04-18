@@ -40,7 +40,6 @@ int GameManager::startGame() {
                     m_gameState = 2;
                 } else if (m_gameState == 2) {
                     calculateDeltaTime();
-                    pacmanWrapper(m_pause);
                     displayMainMenu();
                 }
 

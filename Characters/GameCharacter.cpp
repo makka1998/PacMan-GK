@@ -1,6 +1,6 @@
 
 #include "GameCharacter.h"
-#include "Managers/GameManager.h"
+#include "../Managers/GameManager.h"
 /**
  * Sets the "spawn" location for the gameCharacter.
  * @param xs x-coordinate it starts on.
