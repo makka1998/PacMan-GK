@@ -15,8 +15,6 @@ class PinkGhost : public Ghost {
 public:
     PinkGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
 
-    void getMovementDirection(Map &map) override;
-
     void doWaypointPath();
 
     void renderCharacter(Pacman &pMan) override;

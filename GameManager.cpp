@@ -43,7 +43,6 @@ int GameManager::startGame() {
                     m_gameState = 2;
                 } else if (m_gameState == 2) {
                     calculateDeltaTime();
-                    pacmanWrapper(m_pause);
                     displayMainMenu();
                 }
 
@@ -98,8 +97,9 @@ int GameManager::startGame() {
             //main game-play
             if (m_gameState == 2) {
                 //make this a function named main_gameplay or just m_gameState 2=?
+                Mix_HaltMusic();
                 calculateDeltaTime();
-                pacmanWrapper(m_pause);
+                pacmanWrapper();
                 ghostWrapper();
                 render();
                 if (getKeyboardInput[SDL_SCANCODE_P]) {
@@ -151,7 +151,6 @@ void GameManager::quit() {
 
 void GameManager::render() {
     SDL_RenderClear(renderer);
-
     displayPoints();
     m_level->drawMap();
     m_pacman.renderCharacter(m_srect);
@@ -215,15 +214,10 @@ void GameManager::ghostWrapper() {
     }
 }
 
-void GameManager::pacmanWrapper(bool pause) {
-    if (pause) {
-        m_pacman.checkMovementInput(*m_level);
-        m_pacman.setDirection(direction::NONE);
-    } else {
-        m_pacman.checkMovementInput(*m_level);
-        m_pacman.characterHandler(*m_level);
-        m_pacman.PickingUpPillHandler(*m_level);
-    }
+void GameManager::pacmanWrapper() {
+    m_pacman.checkMovementInput(*m_level);
+    m_pacman.characterHandler(*m_level);
+    m_pacman.PickingUpPillHandler(*m_level);
 }
 
 //name change?
@@ -238,18 +232,17 @@ void GameManager::playMenuMusic() {
     if (Mix_Playing(-1)) {
         Mix_HaltChannel(-1);
     }
-    auto menuMusic = Mix_LoadWAV("../Resources/Sounds/pacman_menu_sound.wav");
+    auto menuMusic = Mix_LoadMUS("../Resources/Sounds/pacman_menu_sound.wav");
     if (menuMusic == nullptr) {
         printf("Failed to load menu sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
     Mix_Volume(-1, 5);
-    Mix_PlayChannel(6, menuMusic, -1);
+    Mix_VolumeMusic(5);
+    Mix_PlayMusic(menuMusic, -1);
 }
 
 void GameManager::playOpeningSound() {
-    if (Mix_Playing(6)) {
-        Mix_HaltChannel(6);
-    }
+    Mix_HaltMusic();
     auto openingSound = Mix_LoadWAV("../Resources/Sounds/pacman_intro_sound.wav");
     if (openingSound == nullptr) {
         printf("Failed to load intro sound effect! SDL_mixer Error: %s\n", Mix_GetError());

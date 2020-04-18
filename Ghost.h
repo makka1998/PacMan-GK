@@ -10,7 +10,6 @@ protected:
     int m_startingPosition[2];
     ///A variable used to determine which direction the ghost will wander.
     int m_randomDirection = 1;
-    double m_timer = 0;
     bool m_startingDestinationReached = false;
 
     std::vector<bool> m_wayPointsReached = {false, false, false, false, false, false};
@@ -19,17 +18,19 @@ protected:
 public:
     Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6);
 
-    void wanderRandom(Map &map);
+    void chooseRandomDirection(Map &map);
 
     void isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map);
+
+    void getMovementDirection(Map &map);
+
+    virtual void doWaypointPath(){};
 
     void moveToStartPos();
 
     void playDeathSound();
 
     void playEatenSound();
-
-    virtual void getMovementDirection(Map &map) {};
 
     virtual void renderCharacter(Pacman &pMan) {};
 };

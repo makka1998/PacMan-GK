@@ -34,7 +34,7 @@ protected:
     ///Animation number is used to keep track of which frame of the animation we are on.
     int m_animationNumber;
     int m_speed;
-
+    double m_timer;
 public:
 
     GameCharacter(int xs, int ys, int speed);

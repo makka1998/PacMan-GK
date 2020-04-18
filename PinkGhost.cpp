@@ -10,18 +10,6 @@ PinkGhost::PinkGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, 
 }
 
 /**
- * If the ghost has completed it's first set of non dynamic movement it will start wandering random.
- * @param map Container with all the tiles the level is made up of.
- */
-void PinkGhost::getMovementDirection(Map &map) {
-    if (!m_startingDestinationReached) {
-        doWaypointPath();
-    } else {
-        wanderRandom(map);
-    }
-}
-
-/**
  * Moves the ghost along it's waypoints, practically this is to each of their own respective corners.
  */
 void PinkGhost::doWaypointPath() {
