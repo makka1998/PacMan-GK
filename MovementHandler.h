@@ -1,6 +1,3 @@
-//
-// Created by jonas on 4/18/2020.
-//
 
 #ifndef PACMAN_GK_MOVEMENTHANDLER_H
 #define PACMAN_GK_MOVEMENTHANDLER_H

@@ -1,19 +1,16 @@
-//
-// Created by Martin on 12.04.2020.
-//
 
-#include "scoreDisplay.h"
+#include "TextManager.h"
 #include <iostream>
 #include "GameManager.h"
 
-void scoreDisplay::display(int x, int y, SDL_Renderer *renderer) const{
+void TextManager::display(int x, int y, SDL_Renderer *renderer) const{
     m_textRect.x = x;
     m_textRect.y = y;
     SDL_RenderCopy(renderer, m_textTexture, nullptr, &m_textRect);
     SDL_DestroyTexture(m_textTexture);
 }
 
-SDL_Texture *scoreDisplay::loadFont(SDL_Renderer *renderer, const std::string &font_path, int font_size, const std::string &message_text, const SDL_Color &color){
+SDL_Texture *TextManager::loadFont(SDL_Renderer *renderer, const std::string &font_path, int font_size, const std::string &message_text, const SDL_Color &color){
     TTF_Font *font = TTF_OpenFont(font_path.c_str(), font_size);
     if(!font){
         std::cerr << "Failed to load font" << std::endl;
@@ -30,7 +27,7 @@ SDL_Texture *scoreDisplay::loadFont(SDL_Renderer *renderer, const std::string &f
     TTF_CloseFont(font);
     return text_texture;
 }
-scoreDisplay::scoreDisplay(
+TextManager::TextManager(
         SDL_Renderer *renderer,
         const std::string &font_path,
         int font_size,

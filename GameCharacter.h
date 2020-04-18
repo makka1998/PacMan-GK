@@ -1,6 +1,3 @@
-//
-// Created by Tobias on 28.03.2020.
-//
 
 #ifndef PACMAN_GK_MASTER_GAMECHARACTER_H
 #define PACMAN_GK_MASTER_GAMECHARACTER_H
