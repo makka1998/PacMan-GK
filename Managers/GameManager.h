@@ -38,9 +38,8 @@ private:
     bool m_gameRunning = true;
     bool m_playedOnce = false;
     bool m_pause = true;
-    bool m_programRunning = true;
     bool m_pacmanWon = false;
-    std::vector<std::shared_ptr<Ghost>> m_gameCharacters;
+    std::vector<std::shared_ptr<Ghost>> m_ghosts;
     Pacman m_pacman;
     Map * m_level;
 
@@ -65,9 +64,9 @@ public:
 
     void pacmanWrapper();
 
-    int pausedState(SDL_Event event);
+    void pausedState(SDL_Event event);
 
-    int gameOverState();
+    void gameOverState();
 
     void gamePlayingState(SDL_Event event);
 

@@ -13,13 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/jonas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/jonas.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/RenderManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/RenderManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/RenderManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/RenderManager.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587244032512</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Cleaned up GameManager alot!&#10;cosidering to put game states and keyevents in own class!">
+      <created>1587249641845</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1587249641845</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +335,8 @@
     <MESSAGE value="- huge cleanup in code" />
     <MESSAGE value="- jeg skreiv . 5 ganger :=)" />
     <MESSAGE value="Filter out all sound and text from Gamemanager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filter out all sound and text from Gamemanager" />
+    <MESSAGE value="Cleaned up GameManager alot!&#10;cosidering to put game states and keyevents in own class!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up GameManager alot!&#10;cosidering to put game states and keyevents in own class!" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979794456">
