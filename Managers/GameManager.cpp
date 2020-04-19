@@ -76,9 +76,9 @@ void GameManager::quit() {
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     TTF_Quit();
+    m_soundManager.FreeAll();
     Mix_CloseAudio();
     Mix_Quit();
-    Mix_CloseAudio();
     SDL_Quit();
 }
 
@@ -146,7 +146,7 @@ void GameManager::pausedState(SDL_Event event) {
                 else if (event.key.keysym.sym == SDLK_1) {
                     if(!m_playedOnce){
                         m_mapChoice = 1;
-                        m_pacman = Pacman(26);
+                        m_pacman = Pacman();
                     }
                 }
                 else if (event.key.keysym.sym == SDLK_2) {

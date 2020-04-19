@@ -23,7 +23,7 @@ public:
     void setCoordinates(int x, int y, int height, int width);
     void setSource(int x, int y, int height, int width);
     void setTileValue(int value);
-    void setWalkedOver(bool boolean);
+    void setWalkedOver(bool boolean); 
 };
 
 
