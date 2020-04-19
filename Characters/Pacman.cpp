@@ -9,23 +9,23 @@ Pacman::Pacman() : GameCharacter(13, 26, 200) {
  * What kind of pill you walked over will determine what sound plays, and if you get a power up or not.
  * @param map Container with all the tiles the level is made up of.
  */
-void Pacman::PickingUpPillHandler(Map &map) {
+void Pacman::pickingUpPillHandler(Map &map) {
     int player_X = round((m_coordinates.x + (m_coordinates.w) / 2) / TILE_SIZE);
     int player_Y = round((m_coordinates.y + (m_coordinates.h) / 2) / TILE_SIZE);
 
     ///Checking every tile to see if you walked over it.
-    for (auto &tile : map.map) {
+    for (auto &tile : *map.getMap()) {
         int tile_X = tile.getCoordinates().x / TILE_SIZE;
         int tile_Y = tile.getCoordinates().y / TILE_SIZE;
         if (player_X == tile_X && player_Y == tile_Y) {
             if (tile.getTileValue() == 10) {
                 m_points += 1;
                 tile.setTileValue(0);
-                tile.WalkedOver = true;
+                tile.setWalkedOver(true);
                 m_soundManager.playPillSound();
             } else if (tile.getTileValue() == 9) {
                 tile.setTileValue(0);
-                tile.WalkedOver = true;
+                tile.setWalkedOver(true);
                 m_powerUpDuration = 0;
                 m_soundManager.playPowerPillSound();
             }
@@ -74,7 +74,7 @@ void Pacman::renderCharacter(SDL_Rect srect[]) {
  * Keeps track of if any of the movement keys have been pressed. Will only change to the corresponding direction when it is an open tile.
  * @param map Container with all the tiles the level is made up of.
  */
-void Pacman::checkMovementInput(Map &map) {
+void Pacman::setDirection(Map &map) {
     if (m_keyStates[SDL_SCANCODE_W] || m_keyStates[SDL_SCANCODE_UP]) {
         if (m_movementManager.pathAvailable(map, m_coordinates).at(0)) {
             m_direction = direction::UP;
@@ -106,7 +106,7 @@ void Pacman::checkMovementInput(Map &map) {
  * Progressively cycles through the death animation of pacman.
  * @param srect An array of SDL_Rects that contains the different places in the spritesheet we have to look to get the correct pacman graphic.
  */
-void Pacman::ripPacman(SDL_Rect srect[]) {
+void Pacman::pacmanDeathAnimation(SDL_Rect srect[]) {
     int deathPosition = TILE_SIZE * 10;
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/PacManSpriteSheet_20x20.png");
     ///Using a timer to display the correct part of the animation.
@@ -167,8 +167,8 @@ void Pacman::moveToStartPos() {
  * Reduces pacman's health with one.
  */
 void Pacman::setHealth() {
-    m_pacHealth -= 1;
-    if (m_pacHealth == 0) {
+    m_health -= 1;
+    if (m_health == 0) {
         m_lastLife = true;
     }
 

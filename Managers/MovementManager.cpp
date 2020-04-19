@@ -42,7 +42,7 @@ std::vector<bool> MovementManager::pathAvailable(Map &map, SDL_Rect &m_coordinat
     int xCoord = round((m_coordinates.x + (m_coordinates.w / 2)) / TILE_SIZE);
     int yCoord = round((m_coordinates.y + (m_coordinates.h / 2)) / TILE_SIZE);
 
-    for (Tile &o : map.map) {
+    for (Tile &o : *map.getMap()) {
         if (xCoord + 1 == o.getCoordinates().x / TILE_SIZE && yCoord == o.getCoordinates().y / TILE_SIZE) {
             if (o.getTileValue() == 0 || o.getTileValue() == 9 || o.getTileValue() == 10) {
                 pathAvailable.at(3) = true;

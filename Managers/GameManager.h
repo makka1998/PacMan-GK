@@ -2,10 +2,10 @@
 #define PAC_MAN_GK_GAMEMANAGER_H
 
 #include "../Characters/Pacman.h"
-#include "../Characters/RedGhost.h"
-#include "../Characters/BlueGhost.h"
-#include "../Characters/PinkGhost.h"
-#include "../Characters/OrangeGhost.h"
+#include "../Characters/Ghosts/RedGhost.h"
+#include "../Characters/Ghosts/BlueGhost.h"
+#include "../Characters/Ghosts/PinkGhost.h"
+#include "../Characters/Ghosts/OrangeGhost.h"
 #include "WindowLoader.h"
 #include "RenderManager.h"
 #include "TextManager.h"
@@ -38,7 +38,6 @@ private:
     bool m_gameRunning = true;
     bool m_playedOnce = false;
     bool m_pause = true;
-    bool m_programRunning = true;
     bool m_pacmanWon = false;
     std::vector<std::shared_ptr<Ghost>> m_gameCharacters;
     Pacman m_pacman;
@@ -46,16 +45,25 @@ private:
 
 
 public:
-    GameManager();
-
     static SDL_Renderer *renderer;
+
     static double deltaTime;
+
+    GameManager();
 
     int startGame();
 
     void quit();
 
     void render();
+
+    void loadGame();
+
+    int pausedState(SDL_Event event);
+
+    void gamePlayingState(SDL_Event event);
+
+    int gameOverState();
 
     void displayMainMenu();
 
@@ -64,14 +72,6 @@ public:
     void ghostWrapper();
 
     void pacmanWrapper();
-
-    int pausedState(SDL_Event event);
-
-    int gameOverState();
-
-    void gamePlayingState(SDL_Event event);
-
-    void loadGame();
 };
 
 #endif //PACMAN_GK_MASTER_GAMEMANAGER_H

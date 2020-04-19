@@ -39,8 +39,6 @@ public:
 
     GameCharacter(int xs, int ys, int speed);
 
-    void setDirection(direction dir);
-
     virtual void renderCharacter(SDL_Rect srect[]) {};
 
     void characterHandler(Map &map);

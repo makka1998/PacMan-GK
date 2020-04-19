@@ -7,42 +7,38 @@
 class Pacman : public GameCharacter {
 private:
     int m_points = 0;
-    int m_pacHealth = 1;
+    int m_health = 1;
     double m_powerUpDuration = 5;
     bool m_lastLife = false;
-
-
     ///Angle is used to rotate the picture we use as texture to correctly display the direction the character is moving.
     double m_angle = 0;
     ///Center of pacman, used to base the rotation of the texture.
     SDL_Point m_center = {10, 10};
-
     Uint8 const *m_keyStates = SDL_GetKeyboardState(nullptr);
 
 public:
 
     Pacman();
 
-    void PickingUpPillHandler(Map &map);
+    void pickingUpPillHandler(Map &map);
 
     void renderCharacter(SDL_Rect *srect) override;
 
-    void checkMovementInput(Map &map);
+    void setDirection(Map &map);
 
-    void ripPacman(SDL_Rect *srect);
+    void pacmanDeathAnimation(SDL_Rect *srect);
 
     void moveToStartPos();
 
     void setHealth();
 
-    int getHealth() { return m_pacHealth; }
+    int getHealth() { return m_health; }
 
     int getPoints() const { return m_points; }
 
     double getPowerUpDuration() { return m_powerUpDuration; }
 
     SDL_Rect *getCoords() { return &m_coordinates; }
-
 };
 
 

@@ -14,13 +14,33 @@
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/BlueGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/BlueGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/BlueGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/BlueGhost.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghost.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Characters/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghost.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/OrangeGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/OrangeGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Characters/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/PinkGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/PinkGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/RedGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/RedGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/RedGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/RedGhost.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/CollisionManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/CollisionManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/CollisionManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/CollisionManager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/RenderManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/RenderManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/RenderManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/RenderManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/MovementManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/MovementManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/TextManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/TextManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.h" beforeDir="false" afterPath="$PROJECT_DIR$/Map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.h" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,20 +70,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Characters" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Characters/Ghosts" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jonas\CLionProjects\EKSAMEN\Characters" />
-      <recent name="C:\Users\jonas\CLionProjects\EKSAMEN\Managers" />
+      <recent name="C:\Users\Tobias\OneDrive\Semester 4\PG4401 - C++ Programmering\PacMan-GK\Characters\Ghosts" />
       <recent name="C:\Users\Tobias\OneDrive\Semester 4\PG4401 - C++ Programmering\PacMan-GK\Resources\Levels" />
       <recent name="C:\Users\Tobias\OneDrive\Semester 4\PG4401 - C++ Programmering\PacMan-GK\Resources\Fonts" />
       <recent name="C:\Users\Tobias\OneDrive\Semester 4\PG4401 - C++ Programmering\PacMan-GK\Resources\Sounds" />
+      <recent name="C:\Users\Martin\CLionProjects\Ayyo\PacMan-GK\Resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -113,7 +132,6 @@
       <workItem from="1586971411789" duration="11768000" />
       <workItem from="1587129400039" duration="25038000" />
       <workItem from="1587175288291" duration="2376000" />
-      <workItem from="1587213953650" duration="5124000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -258,33 +276,19 @@
       <option name="presentableId" value="LOCAL−00023" />
       <updated>1587165042956</updated>
     </task>
-    <task id="LOCAL−00024" summary="- huge cleanup in code">
-      <created>1587218107322</created>
+    <task id="LOCAL−00024" summary="- Cleaned up the code some more">
+      <created>1587241292338</created>
       <option name="number" value="LOCAL−00024" />
       <option name="presentableId" value="LOCAL−00024" />
-      <updated>1587218107322</updated>
+      <updated>1587241292339</updated>
     </task>
-    <task id="LOCAL−00025" summary="- jeg skreiv . 5 ganger :=)">
-      <created>1587218269876</created>
+    <task id="LOCAL−00025" summary="- Cleaned up the code some more">
+      <created>1587241934105</created>
       <option name="number" value="LOCAL−00025" />
       <option name="presentableId" value="LOCAL−00025" />
-      <updated>1587218269876</updated>
+      <updated>1587241934105</updated>
     </task>
-    <task id="LOCAL-00026" summary="Filter out all sound and text from Gamemanager">
-      <created>1587242337109</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1587242337109</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Filter out all sound and text from Gamemanager">
-      <created>1587244032512</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1587244032512</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,51 +326,43 @@
     <MESSAGE value="- Blue Pacman looks nice" />
     <MESSAGE value="- Fixed Files" />
     <MESSAGE value="- Cleaned up some of the code(changed some variable names, removed some functions and variables that were not in use).&#10;- Commented on GameCharacter -&gt; Pacman -&gt; Ghost -&gt; PinkGhost(specified that i didnt comment the other types of ghosts since they are practically the same thing)." />
-    <MESSAGE value="- Cleaned up the code some more" />
     <MESSAGE value="- Cleaned up the code some more. &#10;- Deleted alot of files we did not use" />
     <MESSAGE value="- Cleaned up the code some more." />
     <MESSAGE value="- Fixed eating a ghost" />
     <MESSAGE value="- Pushing as backup, cleaned up the code some more." />
     <MESSAGE value="- Changed name to capital letter" />
-    <MESSAGE value="- huge cleanup in code" />
-    <MESSAGE value="- jeg skreiv . 5 ganger :=)" />
-    <MESSAGE value="Filter out all sound and text from Gamemanager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filter out all sound and text from Gamemanager" />
+    <MESSAGE value="- Cleaned up the code some more" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Cleaned up the code some more" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979794456">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586979794456" />
-    <state x="2505" y="115" key="CommitChangelistDialog2" timestamp="1587218268674">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1586977425992">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586977425992" />
-    <state x="2505" y="115" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587218268674" />
     <state x="184" y="92" key="DiffContextDialog" timestamp="1585147629164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585147629164" />
-    <state width="1877" height="125" key="GridCell.Tab.0.bottom" timestamp="1587221639431">
+    <state width="1877" height="125" key="GridCell.Tab.0.bottom" timestamp="1586983320526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="125" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587221639431" />
-    <state width="1877" height="125" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587217809581" />
-    <state width="1877" height="125" key="GridCell.Tab.0.center" timestamp="1587221639431">
+    <state width="1877" height="125" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586983320526" />
+    <state width="1877" height="125" key="GridCell.Tab.0.center" timestamp="1586983320526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="125" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587221639431" />
-    <state width="1877" height="125" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587217809581" />
-    <state width="1877" height="125" key="GridCell.Tab.0.left" timestamp="1587221639431">
+    <state width="1877" height="125" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586983320526" />
+    <state width="1877" height="125" key="GridCell.Tab.0.left" timestamp="1586983320526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="125" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587221639431" />
-    <state width="1877" height="125" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587217809581" />
-    <state width="1877" height="125" key="GridCell.Tab.0.right" timestamp="1587221639431">
+    <state width="1877" height="125" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586983320526" />
+    <state width="1877" height="125" key="GridCell.Tab.0.right" timestamp="1586983320526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="125" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587221639431" />
-    <state width="1877" height="125" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587217809581" />
+    <state width="1877" height="125" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586983320526" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1586981958842">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -395,11 +391,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586893173971" />
-    <state x="2472" y="254" key="Vcs.Push.Dialog.v2" timestamp="1587218271596">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1586893659147">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586893659147" />
-    <state x="2472" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587218271596" />
     <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586971425860">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

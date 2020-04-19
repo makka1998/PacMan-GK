@@ -27,7 +27,7 @@ int GameManager::startGame() {
     renderer = renderManager.createRenderer(window);
 
     SDL_Event event;
-    //----------------------------------------------------------------
+    //---------------------------------------------------------------
         while (m_gameRunning) {
             SDL_PumpEvents();
 
@@ -47,18 +47,10 @@ int GameManager::startGame() {
                 }
             }
 
-            if (SDL_PollEvent(&event)) {
-                if (event.type == SDL_QUIT) {
-                    quit();
-                    return 0;
-                }
-            }
-
             /// Happens once every time the game starts.
             if (m_gameState == 1) {
                 loadGame();
             }
-
             /// Main gameloop.
             if (m_gameState == 2) {
                 gamePlayingState(event);
@@ -67,6 +59,12 @@ int GameManager::startGame() {
             /// Game over!
             if(m_gameState == 3){
                 gameOverState();
+            }
+            if (SDL_PollEvent(&event)) {
+                if (event.type == SDL_QUIT) {
+                    quit();
+                    return 0;
+                }
             }
         }
     return 0;
@@ -136,6 +134,7 @@ int GameManager::pausedState(SDL_Event event){
             return 0;
         }
     }
+    return 0;
 }
 
 ///GAME OVER STATE
@@ -145,7 +144,7 @@ int GameManager::gameOverState(){
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     m_level->drawMap();
     if (m_timer <= 5) {
-        m_pacman.ripPacman(m_deathRect);
+        m_pacman.pacmanDeathAnimation(m_deathRect);
         SDL_RenderPresent(renderer);
     } else if (m_timer > 5 && m_timer <= 8) {
         m_textManager.displayGameOverText(m_pacmanWon);
@@ -205,12 +204,12 @@ void GameManager::ghostWrapper() {
     for (const auto &ghost : m_gameCharacters) {
         ghost->getMovementDirection(*m_level);
         ghost->characterHandler(*m_level);
-        ghost->isCollidingWithPacman(m_pacman, m_gameCharacters, *m_level);
+        ghost->pacmanGhostCollisionManager(m_pacman, m_gameCharacters, *m_level);
     }
 }
 
 void GameManager::pacmanWrapper() {
-    m_pacman.checkMovementInput(*m_level);
+    m_pacman.setDirection(*m_level);
     m_pacman.characterHandler(*m_level);
-    m_pacman.PickingUpPillHandler(*m_level);
+    m_pacman.pickingUpPillHandler(*m_level);
 }

@@ -66,5 +66,5 @@ void TextManager::loadFont(const std::string &text) {
     if (PacmanWon) {
         m_message_text = "YOU WIN";
         }
-    display(10.25 * TILE_SIZE, 20 * TILE_SIZE);
+    display(10.35 * TILE_SIZE, 20 * TILE_SIZE);
 }

@@ -1,7 +1,7 @@
 #ifndef PACMAN_GK_MASTER_BLUEGHOST_H
 #define PACMAN_GK_MASTER_BLUEGHOST_H
 
-#include "Ghost.h"
+#include "../Ghost.h"
 
 class BlueGhost : public Ghost {
 public:
