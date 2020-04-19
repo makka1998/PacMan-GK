@@ -12,7 +12,7 @@ private:
     double m_powerUpDuration = 5;
     bool m_lastLife = false;
 
-    ///animation Source rects for pacman
+    ///Animation Source rects for pacman
     SDL_Rect m_movementSrcRect[3];
     SDL_Rect m_DeathSrcRect[6];
 
