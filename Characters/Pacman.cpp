@@ -1,7 +1,12 @@
 #include "Pacman.h"
 #include "../Managers/GameManager.h"
 
-Pacman::Pacman() : GameCharacter(13, 26, 200) {
+Pacman::Pacman(int yPos) : GameCharacter(13, yPos, 200) {
+    m_yPos= yPos;
+}
+
+Pacman::Pacman(): GameCharacter(13, 26, 200) {
+    m_yPos= 26;
 }
 
 /**
@@ -158,7 +163,7 @@ void Pacman::pacmanDeathAnimation() {
 void Pacman::moveToStartPos() {
     if (!m_lastLife) {
         m_coordinates.x = 13 * TILE_SIZE;
-        m_coordinates.y = 26 * TILE_SIZE;
+        m_coordinates.y = m_yPos * TILE_SIZE;
     }
     m_direction = direction::NONE;
 }

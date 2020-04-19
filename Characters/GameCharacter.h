@@ -27,13 +27,14 @@ protected:
     CollisionManager m_collisionManager;
     MovementManager m_movementManager;
     direction m_direction = direction::NONE;
+    SoundManager m_soundManager;
+
     SDL_Rect m_coordinates;
     SDL_Texture *m_texture;
     ///Animation number is used to keep track of which frame of the animation we are on.
     int m_animationNumber;
     int m_speed;
     double m_timer = 0;
-    SoundManager m_soundManager;
 
 public:
 

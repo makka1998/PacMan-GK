@@ -18,3 +18,4 @@ void GameCharacter::characterHandler(Map &map){
     ///Collision Handling
     m_collisionManager.collisionHandling(map,m_coordinates,m_direction);
 }
+

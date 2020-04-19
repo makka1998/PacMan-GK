@@ -8,6 +8,7 @@ class Pacman : public GameCharacter {
 private:
     int m_points = 0;
     int m_health = 3;
+    int m_yPos;
     double m_powerUpDuration = 5;
     bool m_lastLife = false;
 
@@ -25,6 +26,7 @@ private:
 public:
 
     Pacman();
+    Pacman(int yPos);
 
     void pickingUpPillHandler(Map &map);
 

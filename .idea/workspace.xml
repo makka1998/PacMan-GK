@@ -13,8 +13,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Resources/Levels/Level_layout_2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghost.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/BlueGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/BlueGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/RedGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/RedGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Images/Main_menu_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Images/Main_menu_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Images/Main_menu_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Images/Main_menu_2.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +126,7 @@
       <workItem from="1586971411789" duration="11768000" />
       <workItem from="1587129400039" duration="25038000" />
       <workItem from="1587175288291" duration="2376000" />
-      <workItem from="1587268319107" duration="2207000" />
+      <workItem from="1587268319107" duration="12960000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -282,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587270089401</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="-set so win with 240 and not 20, me sleepy ZZzz">
+      <created>1587270554623</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1587270554623</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,7 +350,8 @@
     <MESSAGE value="- Cleaned up the code some more" />
     <MESSAGE value="- Orange Ghost contains blinking effect test, when powerpill effect only has 1 second left" />
     <MESSAGE value="-Fixed so the endgame screen is correct depending on the outcome!" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Fixed so the endgame screen is correct depending on the outcome!" />
+    <MESSAGE value="-set so win with 240 and not 20, me sleepy ZZzz" />
+    <option name="LAST_COMMIT_MESSAGE" value="-set so win with 240 and not 20, me sleepy ZZzz" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979794456">

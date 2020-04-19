@@ -42,7 +42,7 @@ void OrangeGhost::doWaypointPath(){
         }
     }
 }
-void OrangeGhost::renderCharacter(Pacman & pMan) {
+void OrangeGhost::renderCharacter(Pacman &pMan) {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/PacManSpriteSheet_20x20.png");
     SDL_Rect srect;
     srect.y = 7 * TILE_SIZE;
@@ -58,24 +58,8 @@ void OrangeGhost::renderCharacter(Pacman & pMan) {
     if(m_direction == direction::RIGHT){
         srect.x = 3 * TILE_SIZE;
     }
-    if(pMan.getPowerUpDuration() < 4){
-        srect.x = 0;
-        srect.y = 8 * TILE_SIZE;
-    }
-    /// Test example for blinking when 1 second left of powerpill effect
-    if(pMan.getPowerUpDuration() >= 4 && pMan.getPowerUpDuration() <=4.25){
-        srect.x = 1 * TILE_SIZE;
-        srect.y = 8 * TILE_SIZE;
-    } else if(pMan.getPowerUpDuration() >= 4.25 && pMan.getPowerUpDuration() <=4.5){
-        srect.x = 0 * TILE_SIZE;
-        srect.y = 8 * TILE_SIZE;
-    } else if(pMan.getPowerUpDuration() >= 4.5 && pMan.getPowerUpDuration() <=4.75){
-        srect.x = 1 * TILE_SIZE;
-        srect.y = 8 * TILE_SIZE;
-    }else if(pMan.getPowerUpDuration() >= 4.75 && pMan.getPowerUpDuration() <=5){
-        srect.x = 0 * TILE_SIZE;
-        srect.y = 8 * TILE_SIZE;
-    }
+    frightenMode(pMan,srect);
+
     SDL_RenderCopy(GameManager::renderer, m_texture, &srect, &m_coordinates);
     SDL_DestroyTexture(m_texture);
 }

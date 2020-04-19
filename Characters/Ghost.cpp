@@ -105,4 +105,25 @@ void Ghost::moveToStartPos() {
     }
 }
 
+void Ghost::frightenMode(Pacman & pMan, SDL_Rect &srect) {
+    /// Turn blue when powerpill effect is active and start blinking when its 1 second left.
+    if(pMan.getPowerUpDuration() < 4){
+        srect.x = 0;
+        srect.y = 8 * TILE_SIZE;
+    }
+    if(pMan.getPowerUpDuration() >= 4 && pMan.getPowerUpDuration() <=4.25){
+        srect.x = 1 * TILE_SIZE;
+        srect.y = 8 * TILE_SIZE;
+    } else if(pMan.getPowerUpDuration() >= 4.25 && pMan.getPowerUpDuration() <=4.5){
+        srect.x = 0 * TILE_SIZE;
+        srect.y = 8 * TILE_SIZE;
+    } else if(pMan.getPowerUpDuration() >= 4.5 && pMan.getPowerUpDuration() <=4.75){
+        srect.x = 1 * TILE_SIZE;
+        srect.y = 8 * TILE_SIZE;
+    }else if(pMan.getPowerUpDuration() >= 4.75 && pMan.getPowerUpDuration() <=5){
+        srect.x = 0 * TILE_SIZE;
+        srect.y = 8 * TILE_SIZE;
+    }
+}
+
 

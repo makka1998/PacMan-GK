@@ -33,6 +33,8 @@ public:
     virtual void doWaypointPath(){};
 
     virtual void renderCharacter(Pacman &pMan) {};
+
+    void frightenMode(Pacman &pMan, SDL_Rect &srect);
 };
 
 

@@ -32,6 +32,7 @@ private:
     SoundManager m_soundManager;
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
     int m_gameState = 1;
+    int m_mapChoice = 1;
     double m_timer = 0;
     bool m_gameRunning = true;
     bool m_playedOnce = false;

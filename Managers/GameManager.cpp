@@ -12,7 +12,7 @@ GameManager::GameManager() {
     /// Creating and adding all ghost to our ghosts vector.
     m_ghosts.push_back(std::make_shared<RedGhost>(11, 16, 13, 14, 11, 11, 9, 8));
     m_ghosts.push_back(std::make_shared<BlueGhost>(16, 16, 13, 14, 15, 11, 18, 8));
-    m_ghosts.push_back(std::make_shared<PinkGhost>(11, 18, 13, 14, 9, 23, 5, 25));
+    m_ghosts.push_back(std::make_shared<PinkGhost>(11, 18, 13, 14, 9, 23, 6, 25));
     m_ghosts.push_back(std::make_shared<OrangeGhost>(16, 18, 12, 14, 19, 24, 22, 26));
 }
 
@@ -107,7 +107,11 @@ void GameManager::loadGame() {
         Mix_HaltChannel(-1);
         m_gameState = 2;
     } else {
-        m_level = new Map("../Resources/Levels/Level_layout_1.txt");
+        if (m_mapChoice == 2){
+            m_level = new Map("../Resources/Levels/Level_layout_2.txt");
+        }else{
+            m_level = new Map("../Resources/Levels/Level_layout_1.txt");
+        }
         m_soundManager.playIntroSound(m_playedOnce);
         m_gameState = 2;
     }
@@ -127,18 +131,31 @@ void GameManager::pausedState(SDL_Event event) {
     }
 
     if (SDL_PollEvent(&event)) {
-        if (event.type == SDL_KEYDOWN) {
-            /// Unpause
-            if (event.key.keysym.sym == SDLK_RETURN) {
-                m_pause = false;
-                m_gameState = 1;
+            if (event.type == SDL_KEYDOWN) {
+                /// Unpause
+                if (event.key.keysym.sym == SDLK_RETURN) {
+                    m_pause = false;
+                    m_gameState = 1;
 
-                /// Exit game
-            } else if (event.key.keysym.sym == SDLK_ESCAPE) {
-                m_pause = false;
-                m_gameRunning = false;
+                    /// Exit game
+                } else if (event.key.keysym.sym == SDLK_ESCAPE) {
+                    m_pause = false;
+                    m_gameRunning = false;
+                }
+                ///if its the first time mainmenu screen shows, you can choose which map, and pacmans y-coordinate changes because of map spawn difference.
+                else if (event.key.keysym.sym == SDLK_1) {
+                    if(!m_playedOnce){
+                        m_mapChoice = 1;
+                        m_pacman = Pacman(26);
+                    }
+                }
+                else if (event.key.keysym.sym == SDLK_2) {
+                    if(!m_playedOnce){
+                        m_mapChoice = 2;
+                        m_pacman = Pacman(23);
+                    }
+                }
             }
-        }
     }
 }
 
