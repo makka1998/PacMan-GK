@@ -2,12 +2,11 @@
 #include "TextManager.h"
 #include <iostream>
 #include "GameManager.h"
-/// https://www.youtube.com/watch?v=FIjj6UVXtXk TextManager with help from this guide.
+
 TextManager::TextManager(const std::string &font_path, int font_size, const SDL_Color &font_color){
     m_font_path = font_path;
     m_font_size = font_size;
     m_color = font_color;
-
 }
 
 void TextManager::display(int x, int y){
