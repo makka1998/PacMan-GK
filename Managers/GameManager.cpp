@@ -91,7 +91,7 @@ void GameManager::render() {
 
     m_textManager.displayPoints(m_pacman.getPoints());
     m_level->drawMap();
-    m_pacman.renderCharacter(m_srect);
+    m_pacman.renderCharacter();
 
     for (const auto &ghost: m_ghosts) {
         ghost->renderCharacter(m_pacman);
@@ -153,9 +153,9 @@ void GameManager::gameOverState() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     m_level->drawMap();
     if (m_timer <= 5) {
-        m_pacman.ripPacman(m_deathRect);
+        m_pacman.ripPacman();
         SDL_RenderPresent(renderer);
-    } else if (m_timer > 5 && m_timer <= 8) {
+    } else if (m_timer > 5 && m_timer <= 20) {
         m_textManager.displayGameOverText(m_pacmanWon);
         SDL_RenderPresent(renderer);
     } else {

@@ -37,35 +37,35 @@ void Pacman::PickingUpPillHandler(Map &map) {
 
 /**
  * Sets the texture of pacman to correctly show which direction it is traveling.
- * @param srect An array of SDL_Rects that contains the different places in the spritesheet we have to look to get the correct pacman graphic.
+ * @param m_movementSrcRect An array of SDL_Rects that contains the different places in the spritesheet we have to look to get the correct pacman graphic.
  */
-void Pacman::renderCharacter(SDL_Rect srect[]) {
+void Pacman::renderCharacter() {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/PacManSpriteSheet_20x20.png");
     ///Using a timer to display the correct part of the animation.
     m_timer += GameManager::deltaTime;
     if (m_timer <= 0.1) {
         m_animationNumber = 0;
-        srect[0].x = TILE_SIZE;
-        srect[0].y = TILE_SIZE;
-        srect[0].h = TILE_SIZE;
-        srect[0].w = TILE_SIZE;
+        m_movementSrcRect[0].x = TILE_SIZE;
+        m_movementSrcRect[0].y = TILE_SIZE;
+        m_movementSrcRect[0].h = TILE_SIZE;
+        m_movementSrcRect[0].w = TILE_SIZE;
     } else if (m_timer <= 0.2) {
         m_animationNumber = 1;
-        srect[1].x = 0;
-        srect[1].y = TILE_SIZE;
-        srect[1].h = TILE_SIZE;
-        srect[1].w = TILE_SIZE;
+        m_movementSrcRect[1].x = 0;
+        m_movementSrcRect[1].y = TILE_SIZE;
+        m_movementSrcRect[1].h = TILE_SIZE;
+        m_movementSrcRect[1].w = TILE_SIZE;
     } else if (m_timer <= 0.3) {
         m_animationNumber = 2;
-        srect[2].x = TILE_SIZE * 2;
-        srect[2].y = 0;
-        srect[2].h = TILE_SIZE;
-        srect[2].w = TILE_SIZE;
+        m_movementSrcRect[2].x = TILE_SIZE * 2;
+        m_movementSrcRect[2].y = 0;
+        m_movementSrcRect[2].h = TILE_SIZE;
+        m_movementSrcRect[2].w = TILE_SIZE;
         if (m_timer <= 0.4) {
             m_timer = 0;
         }
     }
-    SDL_RenderCopyEx(GameManager::renderer, m_texture, &srect[m_animationNumber], &m_coordinates, m_angle, &m_center,
+    SDL_RenderCopyEx(GameManager::renderer, m_texture, &m_movementSrcRect[m_animationNumber], &m_coordinates, m_angle, &m_center,
                      SDL_FLIP_NONE);
     SDL_DestroyTexture(m_texture);
 }
@@ -104,51 +104,51 @@ void Pacman::checkMovementInput(Map &map) {
 
 /**
  * Progressively cycles through the death animation of pacman.
- * @param srect An array of SDL_Rects that contains the different places in the spritesheet we have to look to get the correct pacman graphic.
+ * @param m_DeathAnimationRect An array of SDL_Rects that contains the different places in the spritesheet we have to look to get the correct pacman graphic.
  */
-void Pacman::ripPacman(SDL_Rect srect[]) {
+void Pacman::ripPacman() {
     int deathPosition = TILE_SIZE * 10;
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/PacManSpriteSheet_20x20.png");
     ///Using a timer to display the correct part of the animation.
     m_timer += GameManager::deltaTime;
     if (m_timer <= 0) {
         m_animationNumber = 0;
-        srect[0].x = TILE_SIZE * 0;
-        srect[0].y = deathPosition;
-        srect[0].h = TILE_SIZE;
-        srect[0].w = TILE_SIZE;
+        m_DeathSrcRect[0].x = TILE_SIZE * 0;
+        m_DeathSrcRect[0].y = deathPosition;
+        m_DeathSrcRect[0].h = TILE_SIZE;
+        m_DeathSrcRect[0].w = TILE_SIZE;
     } else if (m_timer <= 0.8) {
         m_animationNumber = 1;
-        srect[1].x = TILE_SIZE * 2;
-        srect[1].y = deathPosition;
-        srect[1].h = TILE_SIZE;
-        srect[1].w = TILE_SIZE;
+        m_DeathSrcRect[1].x = TILE_SIZE * 2;
+        m_DeathSrcRect[1].y = deathPosition;
+        m_DeathSrcRect[1].h = TILE_SIZE;
+        m_DeathSrcRect[1].w = TILE_SIZE;
     } else if (m_timer <= 1.6) {
         m_animationNumber = 2;
-        srect[2].x = TILE_SIZE * 4;
-        srect[2].y = deathPosition;
-        srect[2].h = TILE_SIZE;
-        srect[2].w = TILE_SIZE;
+        m_DeathSrcRect[2].x = TILE_SIZE * 4;
+        m_DeathSrcRect[2].y = deathPosition;
+        m_DeathSrcRect[2].h = TILE_SIZE;
+        m_DeathSrcRect[2].w = TILE_SIZE;
     } else if (m_timer <= 2.4) {
         m_animationNumber = 3;
-        srect[3].x = TILE_SIZE * 6;
-        srect[3].y = deathPosition;
-        srect[3].h = TILE_SIZE;
-        srect[3].w = TILE_SIZE;
+        m_DeathSrcRect[3].x = TILE_SIZE * 6;
+        m_DeathSrcRect[3].y = deathPosition;
+        m_DeathSrcRect[3].h = TILE_SIZE;
+        m_DeathSrcRect[3].w = TILE_SIZE;
     } else if (m_timer <= 3.2) {
         m_animationNumber = 4;
-        srect[4].x = TILE_SIZE * 8;
-        srect[4].y = deathPosition;
-        srect[4].h = TILE_SIZE;
-        srect[4].w = TILE_SIZE;
+        m_DeathSrcRect[4].x = TILE_SIZE * 8;
+        m_DeathSrcRect[4].y = deathPosition;
+        m_DeathSrcRect[4].h = TILE_SIZE;
+        m_DeathSrcRect[4].w = TILE_SIZE;
     } else if (m_timer <= 4) {
         m_animationNumber = 5;
-        srect[5].x = TILE_SIZE * 9;
-        srect[5].y = deathPosition;
-        srect[5].h = TILE_SIZE;
-        srect[5].w = TILE_SIZE;
+        m_DeathSrcRect[5].x = TILE_SIZE * 9;
+        m_DeathSrcRect[5].y = deathPosition;
+        m_DeathSrcRect[5].h = TILE_SIZE;
+        m_DeathSrcRect[5].w = TILE_SIZE;
     }
-    SDL_RenderCopy(GameManager::renderer, m_texture, &srect[m_animationNumber], &m_coordinates);
+    SDL_RenderCopy(GameManager::renderer, m_texture, &m_DeathSrcRect[m_animationNumber], &m_coordinates);
     SDL_DestroyTexture(m_texture);
 }
 

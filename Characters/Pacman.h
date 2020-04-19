@@ -7,10 +7,13 @@
 class Pacman : public GameCharacter {
 private:
     int m_points = 0;
-    int m_pacHealth = 1;
+    int m_pacHealth = 3;
     double m_powerUpDuration = 5;
     bool m_lastLife = false;
 
+    ///animation Source rects for pacman
+    SDL_Rect m_movementSrcRect[3];
+    SDL_Rect m_DeathSrcRect[6];
 
     ///Angle is used to rotate the picture we use as texture to correctly display the direction the character is moving.
     double m_angle = 0;
@@ -25,11 +28,9 @@ public:
 
     void PickingUpPillHandler(Map &map);
 
-    void renderCharacter(SDL_Rect *srect) override;
-
     void checkMovementInput(Map &map);
 
-    void ripPacman(SDL_Rect *srect);
+    void ripPacman();
 
     void moveToStartPos();
 
@@ -43,6 +44,7 @@ public:
 
     SDL_Rect *getCoords() { return &m_coordinates; }
 
+    void renderCharacter();
 };
 
 

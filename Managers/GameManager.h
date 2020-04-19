@@ -29,9 +29,6 @@ private:
     RenderManager renderManager;
     TextManager m_textManager= TextManager("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,{255, 255, 0, 255});
     SoundManager m_soundManager;
-    ///animation Source rects for pacman
-    SDL_Rect m_srect[3];
-    SDL_Rect m_deathRect[6];
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
     int m_gameState = 1;
     double m_timer = 0;

@@ -6,7 +6,7 @@ Map::Map(const char *filePath) {
 }
 
 void Map::loadMap(const char *filePath) {
-    Tile tmp("../Resources/Images/Pacman_Tileset_Pink_20x20.png");
+    Tile tmp("../Resources/Images/Pacman_Tileset_20x20.png");
     int currentTileValue, xAxisOfTileset, yAxisOfTileset;
     std::ifstream input(filePath); ///Our mainLevel.txt file
     if (!input.is_open()) {

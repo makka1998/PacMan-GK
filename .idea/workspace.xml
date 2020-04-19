@@ -13,10 +13,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/jonas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/jonas.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Images/Main_menu_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Images/Main_menu_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Images/Main_menu_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Images/Main_menu_2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587249641845</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Commented on the remaining GameManager functions.">
+      <created>1587254756668</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1587254756668</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +324,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed Title of window" />
     <MESSAGE value="added cmake-build-debug folder to gitignore" />
     <MESSAGE value="Added better movement handling and some collision detection so pacman couldnt move out of the window. The eventHandler is still not built perfectly. Considering we still dont have an actual player class." />
     <MESSAGE value="Cleaned up GameManager a little, added first version for collision (some bugs needs to be fixed). Started on the logic for picking up the &quot;pills&quot; &#10;NB! Need to be worked on:&#10;- fix the resolution and tiles in generel (cannot be a grid with 25+ both way) needs to be an odd number &lt;= 29&#10;- still some corner bugs&#10;- figure out how to change tile_value from 30 to 0 when passing over an pill as pacman." />
@@ -336,7 +348,8 @@
     <MESSAGE value="- jeg skreiv . 5 ganger :=)" />
     <MESSAGE value="Filter out all sound and text from Gamemanager" />
     <MESSAGE value="Cleaned up GameManager alot!&#10;cosidering to put game states and keyevents in own class!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up GameManager alot!&#10;cosidering to put game states and keyevents in own class!" />
+    <MESSAGE value="Commented on the remaining GameManager functions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commented on the remaining GameManager functions." />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979794456">
