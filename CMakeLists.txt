@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
 project(PacMan-GK)
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 INCLUDE(FindPkgConfig)
 pkg_check_modules(SDL2 REQUIRED sdl2)
 pkg_check_modules(SDL2_IMAGE REQUIRED SDL2_image)

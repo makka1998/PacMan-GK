@@ -151,10 +151,10 @@ void GameManager::gameOverState() {
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     m_level->drawMap();
-    if (m_timer <= 5) {
+    if (!m_pacmanWon && m_timer <= 5) {
         m_pacman.pacmanDeathAnimation();
         SDL_RenderPresent(renderer);
-    } else if (m_timer > 5 && m_timer <= 20) {
+    } else if (m_timer <= 20) {
         m_textManager.displayGameOverText(m_pacmanWon);
         SDL_RenderPresent(renderer);
     } else {
@@ -175,15 +175,14 @@ void GameManager::gamePlayingState(SDL_Event event) {
     render();
 
     /// Different end conditions, either you collect all the pills, or you lose all your lives.
-    if (m_pacman.getPoints() >= 240) {
+    if (m_pacman.getPoints() >= 20) {
         m_pacmanWon = true;
-        m_gameRunning = false;
+        m_gameState = 3;
+        m_timer = 0;
     }
     if (m_pacman.getHealth() <= 0) {
-        if (m_gameState != 3) {
             m_gameState = 3;
             m_timer = 0;
-        }
     }
 
     if (SDL_PollEvent(&event)) {

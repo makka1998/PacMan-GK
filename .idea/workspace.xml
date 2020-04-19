@@ -14,11 +14,8 @@
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghost.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,16 +50,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Characters/Ghosts" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmake-build-debug" />
+    <property name="settings.editor.selected.configurable" value="dynamic.analysis.tools.valgrind" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jonas\CLionProjects\EKSAMEN\cmake-build-debug" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jonas\CLionProjects\EKSAMEN\cmake-build-debug" />
       <recent name="C:\Users\Tobias\OneDrive\Semester 4\PG4401 - C++ Programmering\PacMan-GK\Characters\Ghosts" />
       <recent name="C:\Users\Tobias\OneDrive\Semester 4\PG4401 - C++ Programmering\PacMan-GK\Resources\Levels" />
       <recent name="C:\Users\Tobias\OneDrive\Semester 4\PG4401 - C++ Programmering\PacMan-GK\Resources\Fonts" />
       <recent name="C:\Users\Tobias\OneDrive\Semester 4\PG4401 - C++ Programmering\PacMan-GK\Resources\Sounds" />
-      <recent name="C:\Users\Martin\CLionProjects\Ayyo\PacMan-GK\Resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -112,6 +112,7 @@
       <workItem from="1586971411789" duration="11768000" />
       <workItem from="1587129400039" duration="25038000" />
       <workItem from="1587175288291" duration="2376000" />
+      <workItem from="1587268319107" duration="1688000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -268,7 +269,14 @@
       <option name="presentableId" value="LOCAL−00025" />
       <updated>1587241934105</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="- Orange Ghost contains blinking effect test, when powerpill effect only has 1 second left">
+      <created>1587262907845</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1587262907845</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +320,8 @@
     <MESSAGE value="- Pushing as backup, cleaned up the code some more." />
     <MESSAGE value="- Changed name to capital letter" />
     <MESSAGE value="- Cleaned up the code some more" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Cleaned up the code some more" />
+    <MESSAGE value="- Orange Ghost contains blinking effect test, when powerpill effect only has 1 second left" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Orange Ghost contains blinking effect test, when powerpill effect only has 1 second left" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979794456">
