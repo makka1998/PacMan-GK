@@ -301,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587254756668</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Finished the main menu controls guide">
+      <created>1587260941647</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1587260941647</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +331,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added cmake-build-debug folder to gitignore" />
     <MESSAGE value="Added better movement handling and some collision detection so pacman couldnt move out of the window. The eventHandler is still not built perfectly. Considering we still dont have an actual player class." />
     <MESSAGE value="Cleaned up GameManager a little, added first version for collision (some bugs needs to be fixed). Started on the logic for picking up the &quot;pills&quot; &#10;NB! Need to be worked on:&#10;- fix the resolution and tiles in generel (cannot be a grid with 25+ both way) needs to be an odd number &lt;= 29&#10;- still some corner bugs&#10;- figure out how to change tile_value from 30 to 0 when passing over an pill as pacman." />
     <MESSAGE value="Changed the tile size from 32x32 px to 16x16 px and pacman is now 14x14 px" />
@@ -349,7 +355,8 @@
     <MESSAGE value="Filter out all sound and text from Gamemanager" />
     <MESSAGE value="Cleaned up GameManager alot!&#10;cosidering to put game states and keyevents in own class!" />
     <MESSAGE value="Commented on the remaining GameManager functions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commented on the remaining GameManager functions." />
+    <MESSAGE value="Finished the main menu controls guide" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the main menu controls guide" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979794456">
