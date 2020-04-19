@@ -59,12 +59,12 @@ void TextManager::loadFont(const std::string &text) {
 /// This function gets called when you win or lose to render the YOU LOSE/YOU WIN Text.
     void TextManager::displayGameOverText(bool PacmanWon) {
     m_message_text = "GAME OVER";
-    display(9.5 * TILE_SIZE, 14 * TILE_SIZE);
+    display(9.5 * TILE_SIZE, 20 * TILE_SIZE);
 
     ///YOU lOSE/ YOU WIN based on boolean PacmanWon
     m_message_text = "YOU LOSE";
     if (PacmanWon) {
         m_message_text = "YOU WIN";
         }
-    display(10.35 * TILE_SIZE, 20 * TILE_SIZE);
+    display(10.35 * TILE_SIZE, 14* TILE_SIZE);
 }

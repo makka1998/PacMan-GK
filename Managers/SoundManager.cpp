@@ -16,21 +16,20 @@ void SoundManager::audioInitializer() {
  *  Function that plays the Main Menu music, also checks whether music is currently playing on any channel and stops that music to prevent overlapping of sound.
  */
 void SoundManager::playMenuMusic() {
-    if (Mix_Playing(-1)) {
-        Mix_HaltChannel(-1);
-    }
-    auto menuMusic = Mix_LoadWAV("../Resources/Sounds/pacman_menu_sound.wav");
+    Mix_HaltChannel(-1);
+    auto menuMusic = Mix_LoadMUS("../Resources/Sounds/pacman_menu_sound.wav");
     if (menuMusic == nullptr) {
         printf("Failed to load menu sound effect! SDL_mixer Error: %s\n", Mix_GetError());
     }
     Mix_Volume(-1, 5);
-    Mix_PlayChannel(6, menuMusic, -1);
+    Mix_VolumeMusic(5);
+    Mix_PlayMusic(menuMusic, -1);
 }
 
 /// Function that plays the intro sound
 void SoundManager::playIntroSound(bool &m_playedOnce) {
 
-    Mix_HaltChannel(6);
+    //Mix_HaltMusic();
     auto introSound = Mix_LoadWAV("../Resources/Sounds/pacman_intro_sound.wav");
     if (introSound == nullptr) {
         printf("Failed to load intro sound effect! SDL_mixer Error: %s\n", Mix_GetError());
@@ -68,9 +67,6 @@ void SoundManager::playPillSound() {
     ///Since you can pick up pills so fast, we need to let the first sound play fully.
     if (Mix_Playing(-1) == 0) {
         Mix_PlayChannel(1, eatPillSound, 0);
-    } else {
-        Mix_FreeChunk(eatPillSound);
-        eatPillSound = nullptr;
     }
 }
 /**

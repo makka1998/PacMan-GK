@@ -1,6 +1,5 @@
 
 #include "GameCharacter.h"
-#include "../Managers/GameManager.h"
 /**
  * Sets the "spawn" location for the gameCharacter.
  * @param xs x-coordinate it starts on.
@@ -18,4 +17,3 @@ void GameCharacter::characterHandler(Map &map){
     ///Collision Handling
     m_collisionManager.collisionHandling(map,m_coordinates,m_direction);
 }
-
