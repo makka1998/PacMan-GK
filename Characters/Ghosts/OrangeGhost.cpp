@@ -58,8 +58,22 @@ void OrangeGhost::renderCharacter(Pacman & pMan) {
     if(m_direction == direction::RIGHT){
         srect.x = 3 * TILE_SIZE;
     }
-    if(pMan.getPowerUpDuration() < 5){
+    if(pMan.getPowerUpDuration() < 4){
         srect.x = 0;
+        srect.y = 8 * TILE_SIZE;
+    }
+    /// Test example for blinking when 1 second left of powerpill effect
+    if(pMan.getPowerUpDuration() >= 4 && pMan.getPowerUpDuration() <=4.25){
+        srect.x = 1 * TILE_SIZE;
+        srect.y = 8 * TILE_SIZE;
+    } else if(pMan.getPowerUpDuration() >= 4.25 && pMan.getPowerUpDuration() <=4.5){
+        srect.x = 0 * TILE_SIZE;
+        srect.y = 8 * TILE_SIZE;
+    } else if(pMan.getPowerUpDuration() >= 4.5 && pMan.getPowerUpDuration() <=4.75){
+        srect.x = 1 * TILE_SIZE;
+        srect.y = 8 * TILE_SIZE;
+    }else if(pMan.getPowerUpDuration() >= 4.75 && pMan.getPowerUpDuration() <=5){
+        srect.x = 0 * TILE_SIZE;
         srect.y = 8 * TILE_SIZE;
     }
     SDL_RenderCopy(GameManager::renderer, m_texture, &srect, &m_coordinates);

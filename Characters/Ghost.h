@@ -24,9 +24,9 @@ public:
 
     void chooseRandomDirection(Map &map);
 
-    void pacmanGhostCollisionManager(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map);
-
     void getMovementDirection(Map &map);
+
+    void pacmanGhostCollisionManager(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map);
 
     void moveToStartPos();
 

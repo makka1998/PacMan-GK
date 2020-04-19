@@ -1,8 +1,6 @@
 #include "GameManager.h"
 
-SDL_Window *window;
-
-/// Static variables
+/// Initialize Static variables
 SDL_Renderer *GameManager::renderer = nullptr;
 double GameManager::deltaTime;
 
@@ -68,6 +66,7 @@ int GameManager::startGame() {
     quit();
     return 0;
 }
+
 /**
  *  This is an quit all function. An wrapper for all free/close/destroy and etc..
  *  only use this when closing game and quitting application.
@@ -153,7 +152,7 @@ void GameManager::gameOverState() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     m_level->drawMap();
     if (m_timer <= 5) {
-        m_pacman.ripPacman();
+        m_pacman.pacmanDeathAnimation();
         SDL_RenderPresent(renderer);
     } else if (m_timer > 5 && m_timer <= 20) {
         m_textManager.displayGameOverText(m_pacmanWon);
@@ -234,7 +233,7 @@ void GameManager::ghostWrapper() {
     for (const auto &ghost : m_ghosts) {
         ghost->getMovementDirection(*m_level);
         ghost->characterHandler(*m_level);
-        ghost->isCollidingWithPacman(m_pacman, m_ghosts, *m_level);
+        ghost->pacmanGhostCollisionManager(m_pacman, m_ghosts, *m_level);
     }
 }
 
@@ -242,7 +241,7 @@ void GameManager::ghostWrapper() {
  *  Wraps all pacman related funtions into one pacmanWrapper. This is done for practicality.
  */
 void GameManager::pacmanWrapper() {
-    m_pacman.checkMovementInput(*m_level);
+    m_pacman.setDirection(*m_level);
     m_pacman.characterHandler(*m_level);
-    m_pacman.PickingUpPillHandler(*m_level);
+    m_pacman.pickingUpPillHandler(*m_level);
 }

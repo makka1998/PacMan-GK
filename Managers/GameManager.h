@@ -2,10 +2,10 @@
 #define PAC_MAN_GK_GAMEMANAGER_H
 
 #include "../Characters/Pacman.h"
-#include "../Characters/RedGhost.h"
-#include "../Characters/BlueGhost.h"
-#include "../Characters/PinkGhost.h"
-#include "../Characters/OrangeGhost.h"
+#include "../Characters/Ghosts/RedGhost.h"
+#include "../Characters/Ghosts/BlueGhost.h"
+#include "../Characters/Ghosts/PinkGhost.h"
+#include "../Characters/Ghosts/OrangeGhost.h"
 #include "WindowLoader.h"
 #include "RenderManager.h"
 #include "TextManager.h"
@@ -24,21 +24,18 @@ class Ghost; class Pacman; class GameCharacter;
 
 class GameManager {
 private:
+    SDL_Window *window;
     ///Manager objects
     WindowLoader windowLoader;
     RenderManager renderManager;
     TextManager m_textManager= TextManager("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,{255, 255, 0, 255});
     SoundManager m_soundManager;
-    ///animation Source rects for pacman
-    SDL_Rect m_srect[3];
-    SDL_Rect m_deathRect[6];
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
     int m_gameState = 1;
     double m_timer = 0;
     bool m_gameRunning = true;
     bool m_playedOnce = false;
     bool m_pause = true;
-    bool m_programRunning = true;
     bool m_pacmanWon = false;
     std::vector<std::shared_ptr<Ghost>> m_ghosts;
     Pacman m_pacman;
@@ -46,11 +43,14 @@ private:
 
 
 public:
+    /// Constructor
     GameManager();
 
-    static SDL_Renderer *renderer;
+    /// Static variables
     static double deltaTime;
+    static SDL_Renderer *renderer;
 
+    /// Public functions
     int startGame();
 
     void quit();

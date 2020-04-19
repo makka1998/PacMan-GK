@@ -26,7 +26,7 @@ public:
 
     Pacman();
 
-    void PickingUpPillHandler(Map &map);
+    void pickingUpPillHandler(Map &map);
 
     void setDirection(Map &map);
 
@@ -44,7 +44,7 @@ public:
 
     SDL_Rect *getCoords() { return &m_coordinates; }
 
-    void renderCharacter();
+    void renderCharacter() override;
 };
 
 
