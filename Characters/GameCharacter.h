@@ -11,16 +11,7 @@
 #include "../Managers/MovementManager.h"
 #include "../Managers/SoundManager.h"
 
-/**
- *An enum used to represent the different directions all the gameCharacters can move.
- */
-enum class direction {
-    NONE,
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
-};
+
 
 class GameCharacter {
 protected:
@@ -40,9 +31,11 @@ public:
 
     GameCharacter(int xs, int ys, int speed);
 
+    void characterHandler(Map &map);
+
     virtual void renderCharacter() {};
 
-    void characterHandler(Map &map);
+    virtual void moveToStartPos() {};
 };
 
 

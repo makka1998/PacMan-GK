@@ -28,7 +28,7 @@ public:
 
     void pacmanGhostCollisionManager(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map);
 
-    void moveToStartPos();
+    void moveToStartPos() override;
 
     virtual void doWaypointPath(){};
 

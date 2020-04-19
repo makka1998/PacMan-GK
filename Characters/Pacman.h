@@ -34,7 +34,7 @@ public:
 
     void pacmanDeathAnimation();
 
-    void moveToStartPos();
+    void moveToStartPos() override;
 
     void setHealth();
 

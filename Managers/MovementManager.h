@@ -7,7 +7,16 @@
 #include <vector>
 #include "../Map.h"
 
-enum class direction;
+/**
+ *An enum used to represent the different directions all the gameCharacters can move.
+ */
+enum class direction {
+    NONE,
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+};
 
 class MovementManager {
 
