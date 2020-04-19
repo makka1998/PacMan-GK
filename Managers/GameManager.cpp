@@ -175,7 +175,7 @@ void GameManager::gamePlayingState(SDL_Event event) {
     render();
 
     /// Different end conditions, either you collect all the pills, or you lose all your lives.
-    if (m_pacman.getPoints() >= 20) {
+    if (m_pacman.getPoints() >= 240) {
         m_pacmanWon = true;
         m_gameState = 3;
         m_timer = 0;

@@ -14,7 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -112,7 +111,7 @@
       <workItem from="1586971411789" duration="11768000" />
       <workItem from="1587129400039" duration="25038000" />
       <workItem from="1587175288291" duration="2376000" />
-      <workItem from="1587268319107" duration="1688000" />
+      <workItem from="1587268319107" duration="2207000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -276,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587262907845</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="-Fixed so the endgame screen is correct depending on the outcome!">
+      <created>1587270089401</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1587270089401</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +327,8 @@
     <MESSAGE value="- Changed name to capital letter" />
     <MESSAGE value="- Cleaned up the code some more" />
     <MESSAGE value="- Orange Ghost contains blinking effect test, when powerpill effect only has 1 second left" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Orange Ghost contains blinking effect test, when powerpill effect only has 1 second left" />
+    <MESSAGE value="-Fixed so the endgame screen is correct depending on the outcome!" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Fixed so the endgame screen is correct depending on the outcome!" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979794456">
