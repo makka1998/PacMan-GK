@@ -1,24 +1,16 @@
 #include "CollisionManager.h"
 #include "../Characters/GameCharacter.h"
 
-/**
- * Checking if any point of a gameCharacter overlaps with any point of the tile.
- * @param player The coordinates of the gameCharacter.
- * @param tile The coordinates of the obstacle.
- * @return true if the gameCharacter coordinates intersects with the obstacles or false if not.
- */
-bool CollisionManager::isColliding(SDL_Rect player, SDL_Rect tile) {
-    return SDL_HasIntersection(&player, &tile);
-}
 
 /**
  * Checking if a gameCharacter collides with an obstacle, if it does it gets pushed back into the playing field. Where to set it after a collision depends on what kind of obstacle it collides with.
  * @param map Container with all the tiles the level is made up of.
  */
-void CollisionManager::collisionHandling(Map &map,SDL_Rect &m_coordinates, direction &m_direction) {
+void CollisionManager::collisionHandling(Map &map, SDL_Rect &m_coordinates, direction &m_direction) {
     ///Checking every tile to see if you collided with it.
-    for (Tile o : map.map) {
-        if (isColliding(m_coordinates, o.getCoordinates())) {
+    for (Tile o : *map.getMap()) {
+        SDL_Rect tmp = o.getCoordinates();
+        if (SDL_HasIntersection(&m_coordinates, &tmp)) {
             if (o.getTileValue() == 3) { ///Horizontal obstacles
                 if (m_direction == direction::DOWN || m_direction == direction::RIGHT || m_direction == direction::LEFT) {
                     m_coordinates.y = o.getCoordinates().y - TILE_SIZE;

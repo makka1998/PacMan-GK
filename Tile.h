@@ -12,16 +12,18 @@ private:
     SDL_Texture* m_texture;
     int m_tileValue;
     SDL_Rect m_coordinates, m_src;
+    bool m_walkedOver = false;
 public:
     Tile(const char * fileName);
-    int getTileValue() const;
-    SDL_Rect getCoordinates();
-    SDL_Rect getSrc();
-    SDL_Texture* getTexture() const;
+    int getTileValue() const {return m_tileValue;}
+    SDL_Rect getCoordinates() const {return m_coordinates;}
+    SDL_Rect getSrc() const {return m_src;}
+    SDL_Texture* getTexture() const {return m_texture;}
+    bool getWalkerOver() const {return m_walkedOver;}
     void setCoordinates(int x, int y, int height, int width);
     void setSource(int x, int y, int height, int width);
     void setTileValue(int value);
-    bool WalkedOver = false;
+    void setWalkedOver(bool boolean);
 };
 
 

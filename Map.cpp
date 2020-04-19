@@ -30,7 +30,7 @@ void Map::loadMap(const char *filePath) {
 
 void Map::drawMap() {
     for (auto& o : map) {
-        if(o.WalkedOver) { o.setSource((0 - 1) * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE); }
+        if(o.getWalkerOver()) { o.setSource((0 - 1) * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE); }
         SDL_Rect src = o.getSrc();
         SDL_Rect coordinates = o.getCoordinates();
         SDL_RenderCopy(GameManager::renderer, o.getTexture(), &src, &coordinates);

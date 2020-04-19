@@ -7,7 +7,7 @@
 class Pacman : public GameCharacter {
 private:
     int m_points = 0;
-    int m_pacHealth = 3;
+    int m_health = 3;
     double m_powerUpDuration = 5;
     bool m_lastLife = false;
 
@@ -28,15 +28,15 @@ public:
 
     void PickingUpPillHandler(Map &map);
 
-    void checkMovementInput(Map &map);
+    void setDirection(Map &map);
 
-    void ripPacman();
+    void pacmanDeathAnimation();
 
     void moveToStartPos();
 
     void setHealth();
 
-    int getHealth() { return m_pacHealth; }
+    int getHealth() { return m_health; }
 
     int getPoints() const { return m_points; }
 

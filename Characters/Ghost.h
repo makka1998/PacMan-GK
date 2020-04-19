@@ -11,8 +11,12 @@ protected:
     ///A variable used to determine which direction the ghost will wander.
     int m_randomDirection = 1;
     bool m_startingDestinationReached = false;
-
     std::vector<bool> m_wayPointsReached = {false, false, false, false, false, false};
+
+    /**Container to store the different coordinates on the x and y-axis it has to move.
+    * The coordinates stored is only kept with the value corresponding to the axis movement has to happen on.
+    * If it needs to do a left turn followed by going up, the container will only have two numbers, one representing the point it has to reach on the x-axis and the same for y-axis in that order.
+    */
     std::vector<int> m_wayPoints;
 
 public:
@@ -20,15 +24,15 @@ public:
 
     void chooseRandomDirection(Map &map);
 
-    void isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map);
+    void pacmanGhostCollisionManager(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map);
 
     void getMovementDirection(Map &map);
+
+    void moveToStartPos();
 
     virtual void doWaypointPath(){};
 
     virtual void renderCharacter(Pacman &pMan) {};
-
-    void moveToStartPos();
 };
 
 

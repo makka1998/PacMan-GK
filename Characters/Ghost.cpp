@@ -56,7 +56,7 @@ void Ghost::chooseRandomDirection(Map &map) {
  * @param gameCharacters A reference to all the ghosts.
  * @param map Container with all the tiles the level is made up of.
  */
-void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map) {
+void Ghost::pacmanGhostCollisionManager(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map) {
     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
         m_soundManager.playEatenSound();
         moveToStartPos();
@@ -65,16 +65,16 @@ void Ghost::isCollidingWithPacman(Pacman &pMan, const std::vector<std::shared_pt
         pMan.setHealth();
         pMan.moveToStartPos();
         ///Changes the health indicator to correctly display the number of health pacman has.
-        for (auto &tile : map.map) {
+        for (auto &tile : *map.getMap()) {
             if (tile.getCoordinates().x == 60 && tile.getCoordinates().y == 700 && pMan.getHealth() == 2) {
                 tile.setTileValue(0);
-                tile.WalkedOver = true;
+                tile.setWalkedOver(true);
             } else if (tile.getCoordinates().x == 40 && tile.getCoordinates().y == 700 && pMan.getHealth() == 1) {
                 tile.setTileValue(0);
-                tile.WalkedOver = true;
+                tile.setWalkedOver(true);
             } else if (tile.getCoordinates().x == 20 && tile.getCoordinates().y == 700 && pMan.getHealth() == 0) {
                 tile.setTileValue(0);
-                tile.WalkedOver = true;
+                tile.setWalkedOver(true);
             }
         }
         ///Returns all the ghosts to start.

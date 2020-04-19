@@ -2,7 +2,7 @@
 #ifndef PACMAN_GK_MASTER_ORANGEGHOST_H
 #define PACMAN_GK_MASTER_ORANGEGHOST_H
 
-#include "Ghost.h"
+#include "../Ghost.h"
 
 class OrangeGhost : public Ghost {
 public:

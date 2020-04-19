@@ -1,7 +1,7 @@
 
 
 #include "PinkGhost.h"
-#include "../Managers/GameManager.h"
+#include "../../Managers/GameManager.h"
 
 PinkGhost::PinkGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(x, y, wp1, wp2, wp3, wp4, wp5, wp6) {
 }

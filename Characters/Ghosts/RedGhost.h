@@ -2,7 +2,7 @@
 #ifndef PACMAN_GK_REDGHOST_H
 #define PACMAN_GK_REDGHOST_H
 
-#include "Ghost.h"
+#include "../Ghost.h"
 
 class RedGhost : public Ghost {
 public:

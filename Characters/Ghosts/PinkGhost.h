@@ -2,7 +2,7 @@
 #ifndef PACMAN_GK_MASTER_PINKGHOST_H
 #define PACMAN_GK_MASTER_PINKGHOST_H
 
-#include "Ghost.h"
+#include "../Ghost.h"
 
 /**
  * Only commenting on the pinkGhost since all the different ghost types are the same with the difference being the graphics and starting path.

@@ -8,22 +8,6 @@ Tile::Tile(const char *fileName) : m_texture(IMG_LoadTexture(GameManager::render
     }
 }
 
-int Tile::getTileValue() const {
-    return m_tileValue;
-}
-
-SDL_Texture *Tile::getTexture() const {
-    return m_texture;
-}
-
-SDL_Rect Tile::getCoordinates() {
-    return m_coordinates;
-}
-
-SDL_Rect Tile::getSrc() {
-    return m_src;
-}
-
 void Tile::setCoordinates(int x, int y, int height, int width) {
     m_coordinates.x = x;
     m_coordinates.y = y;
@@ -40,4 +24,8 @@ void Tile::setSource(int x, int y, int height, int width) {
 
 void Tile::setTileValue(int value) {
     m_tileValue = value;
+}
+
+void Tile::setWalkedOver(bool boolean){
+    m_walkedOver = boolean;
 }
