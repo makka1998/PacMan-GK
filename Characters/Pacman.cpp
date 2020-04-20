@@ -6,7 +6,7 @@ Pacman::Pacman(int yPos) : GameCharacter(13, yPos, 200) {
 }
 
 Pacman::Pacman() : GameCharacter(13, 26, 200) {
-
+    m_yPos = 26;
 }
 
 /**

@@ -12,33 +12,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
+    <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="asd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/BlueGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/BlueGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/RedGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/RedGhost.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Characters/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/CollisionManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/CollisionManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/CollisionManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/CollisionManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/RenderManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/RenderManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/SoundManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/SoundManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/SoundManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/SoundManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/TextManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/TextManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/TextManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/TextManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/WindowLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/WindowLoader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/WindowLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/WindowLoader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Map.h" beforeDir="false" afterPath="$PROJECT_DIR$/Map.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,24 +74,24 @@
       <recent name="C:\Users\Martin\CLionProjects\Ayyo\PacMan-GK\Resources" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="PacMan-GK" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PacMan-GK" TARGET_NAME="PacMan-GK" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PacMan-GK" RUN_TARGET_NAME="PacMan-GK">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
