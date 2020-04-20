@@ -14,7 +14,7 @@ void PinkGhost::doWaypointPath() {
     int ghost_x = floor(m_coordinates.x / TILE_SIZE);
     int ghost_y = floor(m_coordinates.y / TILE_SIZE);
 
-    ///Moving towards a point a greater distance away from where it actually needs to go. When it then reaches it's actual destination, sets the respective index in wayPointsReached to true.
+    ///Moving towards a point, a greater distance away from where it actually needs to go. When it then reaches it's actual destination, sets the respective index in wayPointsReached to true.
     if (ghost_x <= m_wayPoints.at(0) && !(m_wayPointsReached.at(0))) {
         m_direction = direction::RIGHT;
         if (ghost_x == m_wayPoints.at(0)) {

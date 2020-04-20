@@ -17,7 +17,7 @@ SDL_Window *WindowLoader::createWindow(const char *title) {
     );
 
     if (window == nullptr) {
-        std::cerr << "Failed to create window: " << SDL_GetError() << std::endl;
+        std::cerr << "Failed to create m_window: " << SDL_GetError() << std::endl;
         SDL_Quit();
     }
 

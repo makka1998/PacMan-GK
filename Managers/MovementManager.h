@@ -19,7 +19,6 @@ enum class direction {
 };
 
 class MovementManager {
-
 public:
     void moveCharacter(int &m_speed, SDL_Rect &m_coordinates, direction &m_direction);
 

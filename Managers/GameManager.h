@@ -28,10 +28,10 @@ class GameCharacter;
 
 class GameManager {
 private:
-    SDL_Window *window;
+    SDL_Window *m_window;
     ///Manager objects
-    WindowLoader windowLoader;
-    RenderManager renderManager;
+    WindowLoader m_windowLoader;
+    RenderManager m_renderManager;
     TextManager m_textManager = TextManager("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE, {255, 255, 0, 255});
     SoundManager m_soundManager;
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();

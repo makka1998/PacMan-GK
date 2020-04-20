@@ -7,12 +7,12 @@
 
 class SoundManager {
 private:
-    Mix_Music *menuMusic = nullptr;
-    Mix_Chunk *eatPillSound = nullptr;
-    Mix_Chunk *introSound = nullptr;
-    Mix_Chunk *deathSound = nullptr;
-    Mix_Chunk *pacmanEatGhost = nullptr;
-    Mix_Chunk *eatPowerPillSound = nullptr;
+    Mix_Music *m_menuMusic = nullptr;
+    Mix_Chunk *m_eatPillSound = nullptr;
+    Mix_Chunk *m_introSound = nullptr;
+    Mix_Chunk *m_deathSound = nullptr;
+    Mix_Chunk *m_pacmanEatGhost = nullptr;
+    Mix_Chunk *m_eatPowerPillSound = nullptr;
 public:
     void audioInitializer();
 
@@ -28,7 +28,7 @@ public:
 
     void playPowerPillSound();
 
-    void FreeAll();
+    void freeAll();
 };
 
 

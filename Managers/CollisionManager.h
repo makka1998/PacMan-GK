@@ -6,8 +6,7 @@
 enum class direction;
 
 class CollisionManager {
-public:;
-
+public:
     void collisionHandling(Map &map, SDL_Rect &m_coordinates, direction &m_direction);
 };
 

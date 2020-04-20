@@ -28,7 +28,7 @@ void Map::loadMap(const char *filePath) {
                           TILE_SIZE); ///Which picture we are getting from tile-set.
             tmp.setCoordinates((j * TILE_SIZE), (i * TILE_SIZE), TILE_SIZE, TILE_SIZE); ///Where in the grid.
             tmp.setTileValue(currentTileValue);
-            map.push_back(tmp);
+            m_map.push_back(tmp);
         }
     }
 }
@@ -37,7 +37,7 @@ void Map::loadMap(const char *filePath) {
  * Renders the map onto the screen
  */
 void Map::drawMap() {
-    for (auto &o : map) {
+    for (auto &o : m_map) {
         if (o.getWalkerOver()) { o.setSource((0 - 1) * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE); }
         SDL_Rect src = o.getSrc();
         SDL_Rect coordinates = o.getCoordinates();

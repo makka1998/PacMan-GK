@@ -30,8 +30,8 @@ int GameManager::startGame() {
     m_soundManager.audioInitializer();
 
     ///Creating window and renderer
-    window = windowLoader.createWindow("Pacman");
-    renderer = renderManager.createRenderer(window);
+    m_window = m_windowLoader.createWindow("Pacman");
+    renderer = m_renderManager.createRenderer(m_window);
     SDL_Event event;
 
     //----------------------------------------------------------------
@@ -73,10 +73,10 @@ int GameManager::startGame() {
  */
 void GameManager::quit() {
     ///SDL cleaning up and quitting.
-    SDL_DestroyWindow(window);
+    SDL_DestroyWindow(m_window);
     SDL_DestroyRenderer(renderer);
     TTF_Quit();
-    m_soundManager.FreeAll();
+    m_soundManager.freeAll();
     Mix_CloseAudio();
     Mix_Quit();
     SDL_Quit();

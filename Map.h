@@ -11,7 +11,7 @@
 
 class Map {
 private:
-    std::vector<Tile> map;
+    std::vector<Tile> m_map;
 public:
     Map(const char *filePath);
 
@@ -19,7 +19,7 @@ public:
 
     void drawMap();
 
-    std::vector<Tile> *getMap() { return &map; }
+    std::vector<Tile> *getMap() { return &m_map; }
 };
 
 

@@ -18,43 +18,43 @@ void SoundManager::audioInitializer() {
  */
 void SoundManager::playMenuMusic() {
     Mix_HaltChannel(-1);
-    if (menuMusic == nullptr) {
-        menuMusic = Mix_LoadMUS("../Resources/Sounds/pacman_menu_sound.wav");
+    if (m_menuMusic == nullptr) {
+        m_menuMusic = Mix_LoadMUS("../Resources/Sounds/pacman_menu_sound.wav");
     }
     Mix_Volume(-1, 5);
     Mix_VolumeMusic(5);
-    Mix_PlayMusic(menuMusic, -1);
+    Mix_PlayMusic(m_menuMusic, -1);
 }
 
 /**
  *  plays the intro sound
  */
 void SoundManager::playIntroSound(bool &m_playedOnce) {
-    if (introSound == nullptr) {
-        introSound = Mix_LoadWAV("../Resources/Sounds/pacman_intro_sound.wav");
+    if (m_introSound == nullptr) {
+        m_introSound = Mix_LoadWAV("../Resources/Sounds/pacman_intro_sound.wav");
     }
     m_playedOnce = true;
-    Mix_PlayChannel(6, introSound, 0);
+    Mix_PlayChannel(6, m_introSound, 0);
 }
 
 /**
  * plays the PacmanDeath sound
  */
 void SoundManager::playPacmanDeathSound() {
-    if (deathSound == nullptr) {
-        deathSound = Mix_LoadWAV("../Resources/Sounds/pacman_death_sound.wav");
+    if (m_deathSound == nullptr) {
+        m_deathSound = Mix_LoadWAV("../Resources/Sounds/pacman_death_sound.wav");
     }
-    Mix_PlayChannel(3, deathSound, 0);
+    Mix_PlayChannel(3, m_deathSound, 0);
 }
 
 /**
  * plays the pacman eats ghost sound
  */
 void SoundManager::playEatenSound() {
-    if (pacmanEatGhost == nullptr) {
-        pacmanEatGhost = Mix_LoadWAV("../Resources/Sounds/pacman_eat_ghost_sound.wav");
+    if (m_pacmanEatGhost == nullptr) {
+        m_pacmanEatGhost = Mix_LoadWAV("../Resources/Sounds/pacman_eat_ghost_sound.wav");
     }
-    Mix_PlayChannel(3, pacmanEatGhost, 0);
+    Mix_PlayChannel(3, m_pacmanEatGhost, 0);
 }
 
 /**
@@ -63,12 +63,12 @@ void SoundManager::playEatenSound() {
  * Reason for this is to prevent overlapping of the sound
  */
 void SoundManager::playPillSound() {
-    if (eatPillSound == nullptr) {
-        eatPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_eat_pill_sound.wav");
+    if (m_eatPillSound == nullptr) {
+        m_eatPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_eat_pill_sound.wav");
     }
     ///Since you can pick up pills so fast, we need to let the first sound play fully.
     if (Mix_Playing(-1) == 0) {
-        Mix_PlayChannel(1, eatPillSound, 0);
+        Mix_PlayChannel(1, m_eatPillSound, 0);
     }
 }
 
@@ -77,24 +77,24 @@ void SoundManager::playPillSound() {
  */
 void SoundManager::playPowerPillSound() {
     Mix_HaltChannel(-1);
-    if (eatPowerPillSound == nullptr) {
-        eatPowerPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_powerpellet_sound.wav");
+    if (m_eatPowerPillSound == nullptr) {
+        m_eatPowerPillSound = Mix_LoadWAV("../Resources/Sounds/pacman_powerpellet_sound.wav");
     }
-    Mix_PlayChannel(1, eatPowerPillSound, 0);
+    Mix_PlayChannel(1, m_eatPowerPillSound, 0);
 }
 
-void SoundManager::FreeAll() {
-    Mix_FreeMusic(menuMusic);
-    Mix_FreeChunk(eatPillSound);
-    Mix_FreeChunk(introSound);
-    Mix_FreeChunk(deathSound);
-    Mix_FreeChunk(pacmanEatGhost);
-    Mix_FreeChunk(eatPowerPillSound);
+void SoundManager::freeAll() {
+    Mix_FreeMusic(m_menuMusic);
+    Mix_FreeChunk(m_eatPillSound);
+    Mix_FreeChunk(m_introSound);
+    Mix_FreeChunk(m_deathSound);
+    Mix_FreeChunk(m_pacmanEatGhost);
+    Mix_FreeChunk(m_eatPowerPillSound);
 
-    menuMusic = nullptr;
-    eatPillSound = nullptr;
-    introSound = nullptr;
-    deathSound = nullptr;
-    pacmanEatGhost = nullptr;
-    eatPowerPillSound = nullptr;
+    m_menuMusic = nullptr;
+    m_eatPillSound = nullptr;
+    m_introSound = nullptr;
+    m_deathSound = nullptr;
+    m_pacmanEatGhost = nullptr;
+    m_eatPowerPillSound = nullptr;
 }
