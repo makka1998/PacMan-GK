@@ -2,7 +2,9 @@
 #include "../Managers/GameManager.h"
 
 ///Using the parent class's constructor for it's none unique variables.
-Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : m_wayPoints{wp1, wp2, wp3, wp4, wp5, wp6}, m_startingPosition{x, y}, GameCharacter(x, y, 140) {
+Ghost::Ghost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : m_wayPoints{wp1, wp2, wp3, wp4, wp5,wp6},
+                                                                                   m_startingPosition{x, y},
+                                                                                   GameCharacter(x, y, 140) {
 }
 
 /**
@@ -56,7 +58,8 @@ void Ghost::chooseRandomDirection(Map &map) {
  * @param gameCharacters A reference to all the ghosts.
  * @param map Container with all the tiles the level is made up of.
  */
-void Ghost::pacmanGhostCollisionManager(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map) {
+void
+Ghost::pacmanGhostCollisionManager(Pacman &pMan, const std::vector<std::shared_ptr<Ghost>> &gameCharacters, Map &map) {
     if (SDL_HasIntersection(&m_coordinates, pMan.getCoords()) && pMan.getPowerUpDuration() < 5) {
         m_soundManager.playEatenSound();
         moveToStartPos();
@@ -100,27 +103,27 @@ void Ghost::moveToStartPos() {
     m_coordinates.x = m_startingPosition[0] * TILE_SIZE;
     m_coordinates.y = m_startingPosition[1] * TILE_SIZE;
     m_startingDestinationReached = false;
-    for(auto && wp : m_wayPointsReached){
+    for (auto &&wp : m_wayPointsReached) {
         wp = false;
     }
 }
 
-void Ghost::frightenMode(Pacman & pMan, SDL_Rect &srect) {
+void Ghost::frightenMode(Pacman &pMan, SDL_Rect &srect) {
     /// Turn blue when powerpill effect is active and start blinking when its 1 second left.
-    if(pMan.getPowerUpDuration() < 4){
+    if (pMan.getPowerUpDuration() < 4) {
         srect.x = 0;
         srect.y = 8 * TILE_SIZE;
     }
-    if(pMan.getPowerUpDuration() >= 4 && pMan.getPowerUpDuration() <=4.25){
+    if (pMan.getPowerUpDuration() >= 4 && pMan.getPowerUpDuration() <= 4.25) {
         srect.x = 1 * TILE_SIZE;
         srect.y = 8 * TILE_SIZE;
-    } else if(pMan.getPowerUpDuration() >= 4.25 && pMan.getPowerUpDuration() <=4.5){
+    } else if (pMan.getPowerUpDuration() >= 4.25 && pMan.getPowerUpDuration() <= 4.5) {
         srect.x = 0 * TILE_SIZE;
         srect.y = 8 * TILE_SIZE;
-    } else if(pMan.getPowerUpDuration() >= 4.5 && pMan.getPowerUpDuration() <=4.75){
+    } else if (pMan.getPowerUpDuration() >= 4.5 && pMan.getPowerUpDuration() <= 4.75) {
         srect.x = 1 * TILE_SIZE;
         srect.y = 8 * TILE_SIZE;
-    }else if(pMan.getPowerUpDuration() >= 4.75 && pMan.getPowerUpDuration() <=5){
+    } else if (pMan.getPowerUpDuration() >= 4.75 && pMan.getPowerUpDuration() <= 5) {
         srect.x = 0 * TILE_SIZE;
         srect.y = 8 * TILE_SIZE;
     }

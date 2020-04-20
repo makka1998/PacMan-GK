@@ -59,7 +59,7 @@ int GameManager::startGame() {
         }
 
         /// Exit Window listener
-        if (SDL_PollEvent(&event) && event.type == SDL_QUIT){
+        if (SDL_PollEvent(&event) && event.type == SDL_QUIT) {
             break;
         }
     }
@@ -107,9 +107,9 @@ void GameManager::loadGame() {
         Mix_HaltChannel(-1);
         m_gameState = 2;
     } else {
-        if (m_mapChoice == 2){
+        if (m_mapChoice == 2) {
             m_level = new Map("../Resources/Levels/Level_layout_2.txt");
-        }else{
+        } else {
             m_level = new Map("../Resources/Levels/Level_layout_1.txt");
         }
         m_soundManager.playIntroSound(m_playedOnce);
@@ -131,31 +131,30 @@ void GameManager::pausedState(SDL_Event event) {
     }
 
     if (SDL_PollEvent(&event)) {
-            if (event.type == SDL_KEYDOWN) {
-                /// Unpause
-                if (event.key.keysym.sym == SDLK_RETURN) {
-                    m_pause = false;
-                    m_gameState = 1;
+        if (event.type == SDL_KEYDOWN) {
+            /// Unpause
+            if (event.key.keysym.sym == SDLK_RETURN) {
+                m_pause = false;
+                m_gameState = 1;
 
-                    /// Exit game
-                } else if (event.key.keysym.sym == SDLK_ESCAPE) {
-                    m_pause = false;
-                    m_gameRunning = false;
-                }
+                /// Exit game
+            } else if (event.key.keysym.sym == SDLK_ESCAPE) {
+                m_pause = false;
+                m_gameRunning = false;
+            }
                 ///if its the first time mainmenu screen shows, you can choose which map, and pacmans y-coordinate changes because of map spawn difference.
-                else if (event.key.keysym.sym == SDLK_1) {
-                    if(!m_playedOnce){
-                        m_mapChoice = 1;
-                        m_pacman = Pacman();
-                    }
+            else if (event.key.keysym.sym == SDLK_1) {
+                if (!m_playedOnce) {
+                    m_mapChoice = 1;
+                    m_pacman = Pacman();
                 }
-                else if (event.key.keysym.sym == SDLK_2) {
-                    if(!m_playedOnce){
-                        m_mapChoice = 2;
-                        m_pacman = Pacman(23);
-                    }
+            } else if (event.key.keysym.sym == SDLK_2) {
+                if (!m_playedOnce) {
+                    m_mapChoice = 2;
+                    m_pacman = Pacman(23);
                 }
             }
+        }
     }
 }
 
@@ -198,8 +197,8 @@ void GameManager::gamePlayingState(SDL_Event event) {
         m_timer = 0;
     }
     if (m_pacman.getHealth() <= 0) {
-            m_gameState = 3;
-            m_timer = 0;
+        m_gameState = 3;
+        m_timer = 0;
     }
 
     if (SDL_PollEvent(&event)) {

@@ -2,10 +2,10 @@
 #include "../Managers/GameManager.h"
 
 Pacman::Pacman(int yPos) : GameCharacter(13, yPos, 200) {
-    m_yPos= yPos;
+    m_yPos = yPos;
 }
 
-Pacman::Pacman(): GameCharacter(13, 26, 200) {
+Pacman::Pacman() : GameCharacter(13, 26, 200) {
 
 }
 
@@ -70,7 +70,8 @@ void Pacman::renderCharacter() {
             m_timer = 0;
         }
     }
-    SDL_RenderCopyEx(GameManager::renderer, m_texture, &m_movementSrcRect[m_animationNumber], &m_coordinates, m_angle, &m_center,
+    SDL_RenderCopyEx(GameManager::renderer, m_texture, &m_movementSrcRect[m_animationNumber], &m_coordinates, m_angle,
+                     &m_center,
                      SDL_FLIP_NONE);
     SDL_DestroyTexture(m_texture);
 }

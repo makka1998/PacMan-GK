@@ -13,10 +13,13 @@ class Map {
 private:
     std::vector<Tile> map;
 public:
-    Map(const char* filePath);
-    void loadMap(const char* filePath);
+    Map(const char *filePath);
+
+    void loadMap(const char *filePath);
+
     void drawMap();
-    std::vector<Tile> * getMap() {return &map;}
+
+    std::vector<Tile> *getMap() { return &map; }
 };
 
 

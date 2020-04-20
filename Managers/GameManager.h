@@ -20,7 +20,11 @@
 #include "SoundManager.h"
 
 ///Forward declarations of classes
-class Ghost; class Pacman; class GameCharacter;
+class Ghost;
+
+class Pacman;
+
+class GameCharacter;
 
 class GameManager {
 private:
@@ -28,7 +32,7 @@ private:
     ///Manager objects
     WindowLoader windowLoader;
     RenderManager renderManager;
-    TextManager m_textManager= TextManager("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE,{255, 255, 0, 255});
+    TextManager m_textManager = TextManager("../Resources/Fonts/8-BIT.TTF", 1 * TILE_SIZE, {255, 255, 0, 255});
     SoundManager m_soundManager;
     std::chrono::high_resolution_clock::time_point m_lastFrame = std::chrono::high_resolution_clock::now();
     int m_gameState = 1;
@@ -40,7 +44,7 @@ private:
     bool m_pacmanWon = false;
     std::vector<std::shared_ptr<Ghost>> m_ghosts;
     Pacman m_pacman;
-    Map * m_level;
+    Map *m_level;
 
 
 public:

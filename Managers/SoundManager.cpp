@@ -1,14 +1,11 @@
 #include "SoundManager.h"
 
+
 /** AudioInitializer runs the Mixer library OpenAudio which lets you use chunksize, in our game we chose frequency 44100 which is similar to CD quality, in older games they used lower frequencies.
  *   Since its modern times the increase in frequency has minimal change on the demand for a good computer.
  *   The amount of channels set is 2 basing it off the player using stereo and not mono: Reasoning behind this is that basically every sound device in modern time uses stereo.
  *   Chunksize is set to 4096, setting it to high or to low will have a negative outcome on slower computers so we put it in a healthy middle.
  */
-SoundManager::SoundManager() {
-
-}
-
 void SoundManager::audioInitializer() {
     int audioInit = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
     if (audioInit < 0 || SDL_Init(SDL_INIT_AUDIO) < 0) {

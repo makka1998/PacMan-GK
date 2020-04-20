@@ -1,7 +1,8 @@
 #include "RedGhost.h"
 #include "../../Managers/GameManager.h"
 
-RedGhost::RedGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(x, y, wp1, wp2, wp3, wp4, wp5, wp6) {
+RedGhost::RedGhost(int x, int y, int wp1, int wp2, int wp3, int wp4, int wp5, int wp6) : Ghost(x, y, wp1, wp2, wp3, wp4,
+                                                                                               wp5, wp6) {
 }
 
 void RedGhost::doWaypointPath() {
@@ -10,12 +11,12 @@ void RedGhost::doWaypointPath() {
 
     if (ghost_x <= m_wayPoints.at(0) && !(m_wayPointsReached.at(0))) {
         m_direction = direction::RIGHT;
-        if (ghost_x == m_wayPoints.at(0) ) {
+        if (ghost_x == m_wayPoints.at(0)) {
             m_wayPointsReached.at(0) = true;
         }
     } else if (ghost_y >= m_wayPoints.at(1) && !(m_wayPointsReached.at(1))) {
         m_direction = direction::UP;
-        if (ghost_y == m_wayPoints.at(1) ) {
+        if (ghost_y == m_wayPoints.at(1)) {
             m_wayPointsReached.at(1) = true;
         }
     } else if (ghost_x >= m_wayPoints.at(2) && !(m_wayPointsReached.at(2))) {
@@ -42,6 +43,7 @@ void RedGhost::doWaypointPath() {
         }
     }
 }
+
 void RedGhost::renderCharacter(Pacman &pMan) {
     m_texture = IMG_LoadTexture(GameManager::renderer, "../Resources/Images/PacManSpriteSheet_20x20.png");
     SDL_Rect srect;
@@ -59,7 +61,7 @@ void RedGhost::renderCharacter(Pacman &pMan) {
         srect.x = 3 * TILE_SIZE;
     }
 
-    frightenMode(pMan,srect);
+    frightenMode(pMan, srect);
 
     SDL_RenderCopy(GameManager::renderer, m_texture, &srect, &m_coordinates);
     SDL_DestroyTexture(m_texture);

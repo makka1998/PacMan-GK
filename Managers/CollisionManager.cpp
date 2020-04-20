@@ -12,7 +12,8 @@ void CollisionManager::collisionHandling(Map &map, SDL_Rect &m_coordinates, dire
         SDL_Rect tmp = o.getCoordinates();
         if (SDL_HasIntersection(&m_coordinates, &tmp)) {
             if (o.getTileValue() == 3) { ///Horizontal obstacles
-                if (m_direction == direction::DOWN || m_direction == direction::RIGHT || m_direction == direction::LEFT) {
+                if (m_direction == direction::DOWN || m_direction == direction::RIGHT ||
+                    m_direction == direction::LEFT) {
                     m_coordinates.y = o.getCoordinates().y - TILE_SIZE;
                 } else if (m_direction == direction::UP) {
                     m_coordinates.y = o.getCoordinates().y + TILE_SIZE;

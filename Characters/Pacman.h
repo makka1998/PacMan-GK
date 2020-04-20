@@ -26,6 +26,7 @@ private:
 public:
 
     Pacman();
+
     Pacman(int yPos);
 
     void pickingUpPillHandler(Map &map);

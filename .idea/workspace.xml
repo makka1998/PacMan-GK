@@ -14,13 +14,32 @@
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Characters/GameCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/GameCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghost.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghost.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/BlueGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/BlueGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/OrangeGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/RedGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/RedGhost.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Characters/Pacman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Characters/Pacman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Pacman.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/MovementManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/MovementManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/CollisionManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/CollisionManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/CollisionManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/CollisionManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/RenderManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/RenderManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/SoundManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/SoundManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/SoundManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/SoundManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/TextManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/TextManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/TextManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/TextManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/WindowLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/WindowLoader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/WindowLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/WindowLoader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map.h" beforeDir="false" afterPath="$PROJECT_DIR$/Map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,24 +98,24 @@
       <recent name="C:\Users\Martin\CLionProjects\Ayyo\PacMan-GK\Resources" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="PacMan-GK" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PacMan-GK" TARGET_NAME="PacMan-GK" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PacMan-GK" RUN_TARGET_NAME="PacMan-GK">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -128,6 +147,8 @@
       <workItem from="1587175288291" duration="2376000" />
       <workItem from="1587296399232" duration="1654000" />
       <workItem from="1587321473144" duration="5252000" />
+      <workItem from="1587337992897" duration="57000" />
+      <workItem from="1587338068250" duration="2030000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -397,10 +418,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586893659147" />
-    <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586971425860">
+    <state x="655" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1587338068329">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586971425860" />
+    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587338068329" />
     <state x="2575" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586892957237" />
     <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586971657415">
       <screen x="0" y="0" width="1920" height="1040" />

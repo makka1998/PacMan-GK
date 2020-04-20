@@ -12,7 +12,6 @@
 #include "../Managers/SoundManager.h"
 
 
-
 class GameCharacter {
 protected:
     CollisionManager m_collisionManager;

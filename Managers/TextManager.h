@@ -20,6 +20,7 @@ private:
 
 public:
     TextManager(const std::string &font_path, int font_size, const SDL_Color &color);
+
     void display(int x, int y);
 
     void loadFont(const std::string &text);

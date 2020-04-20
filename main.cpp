@@ -1,7 +1,6 @@
 #include "Managers/GameManager.h"
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char *argv[]) {
     GameManager Game;
     Game.startGame();
     return 0;

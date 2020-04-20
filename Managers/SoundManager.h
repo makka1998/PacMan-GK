@@ -14,8 +14,6 @@ private:
     Mix_Chunk *pacmanEatGhost = nullptr;
     Mix_Chunk *eatPowerPillSound = nullptr;
 public:
-    SoundManager();
-
     void audioInitializer();
 
     void playMenuMusic();
