@@ -14,12 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="40df8ded-d60a-44ee-ac70-1035276b1cc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/Ghosts/PinkGhost.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/SoundManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/SoundManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/SoundManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/SoundManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/WindowLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/WindowLoader.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +122,7 @@
       <workItem from="1587129400039" duration="25038000" />
       <workItem from="1587175288291" duration="2376000" />
       <workItem from="1587296399232" duration="1654000" />
-      <workItem from="1587321473144" duration="8167000" />
+      <workItem from="1587321473144" duration="9662000" />
     </task>
     <task id="LOCAL−00001" summary="Changed Title of window">
       <created>1585147348463</created>
@@ -303,7 +297,13 @@
       <option name="presentableId" value="LOCAL−00028" />
       <updated>1587337090434</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL−00029" summary="- fixedsomestuff">
+      <created>1587350549380</created>
+      <option name="number" value="LOCAL−00029" />
+      <option name="presentableId" value="LOCAL−00029" />
+      <updated>1587350549380</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +348,8 @@
     <MESSAGE value="- Changed name to capital letter" />
     <MESSAGE value="- Cleaned up the code some more" />
     <MESSAGE value="- Made a method a virtual so it seemed better that both ppl had it" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Made a method a virtual so it seemed better that both ppl had it" />
+    <MESSAGE value="- fixedsomestuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fixedsomestuff" />
   </component>
   <component name="WindowStateProjectService">
     <state x="682" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979794456">
