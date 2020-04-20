@@ -10,8 +10,8 @@ SDL2_TTF
 SDL2_MIXER
 SDL2_IMAGE
 ~~~~
-Unless you already have these installed here are the Msys command lines you use to install the required packages
 
+Unless you already have SDL2 installed here are the msys command lines you use to install required packages
 ##
 Msys Command Lines to install the SDL Packages for Clion
 ~~~~
@@ -22,6 +22,8 @@ pacman -S mingw-w64-x86_64-SDL2_mixer
 pacman -S mingw-w64-x86_64-SDL2_image
 ~~~~
 ## How to get the game
-*After downloading these packages you can download the rar file and extract it in a folder you wish to place the project in.
-*After extracting right click the folder and Select Open as CLION Project
-*When the file has opened give the IDE some time to create your Cmake-build-debug folder and then you are good to go.
+After downloading these packages you can download the rar file and extract it in a folder you wish to place the project in.
+
+After extracting right click the folder and Select Open as CLION Project
+
+When the file has opened give the IDE some time to create your Cmake-build-debug folder and then you are good to go.
