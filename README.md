@@ -1,7 +1,7 @@
 # PG4401 Programming Home Exam 2020
 
 ## General Info
-This project has been created in Clion and assumes you already have Clion and a working compiler enabled.
+This project has been created in Clion and assumes you are using MinGw as your compiler
 
 ## SDL Packages used in our program
 ~~~~
