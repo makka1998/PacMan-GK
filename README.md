@@ -1,6 +1,8 @@
 # PG4401 Programming Home Exam 2020
 
-Contributors: [makka1998](https://github.com/makka1998) & [BryhnBjolgerud](https://github.com/Bryhn-Bjolgerud)
+Contributors: [JonasJuvet](https://github.com/JonasJuvet), [makka1998](https://github.com/makka1998), [BryhnBjolgerud](https://github.com/Bryhn-Bjolgerud)
+
+![Start page of program](https://github.com/Bryhn-Bjolgerud/images/blob/main/pacmanReadmeBilde1.png)
 
 ## General Info
 This project has been created in Clion and assumes you are using MinGw as your compiler
