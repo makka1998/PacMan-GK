@@ -1,5 +1,7 @@
 # PG4401 Programming Home Exam 2020
 
+Contributors: [makka1998](https://github.com/makka1998) & [BryhnBjolgerud](https://github.com/Bryhn-Bjolgerud)
+
 ## General Info
 This project has been created in Clion and assumes you are using MinGw as your compiler
 
